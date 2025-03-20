@@ -13,7 +13,7 @@ typedef struct
     long offsets[ORDER - 1];
     int children[ORDER];
     bool is_leaf;
-    int num_keys = 0;
+    int num_keys;
 } BPlusTreeNode;
 
 typedef struct

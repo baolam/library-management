@@ -2,7 +2,7 @@
 
 char *get_file_path(const char *folder_path, const char *file_name)
 {
-    char temp[100];
+    char *temp = (char *)malloc(strlen(folder_path) + strlen(file_name) + 2);
     sprintf(temp, "%s/%s", folder_path, file_name);
     return temp;
 }
