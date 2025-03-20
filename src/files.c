@@ -9,25 +9,26 @@ char *get_file_path(const char *folder_path, const char *file_name)
 
 bool is_exist_folder(const char *path)
 {
-    // struct dirent *entry;
-    // DIR *dir = opendir(path);
-    // if (dir == NULL)
-    // {
-    //     return false;
-    // }
-    // closedir(dir);
-    return true;
+    DIR *dir = opendir(path);
+    bool state = false;
+    if (dir)
+    {
+        state = true;
+    }
+    closedir(dir);
+    return state;
 }
 
 bool is_exist_file(const char *folder_path, const char *file_name)
 {
     FILE *f = fopen(get_file_path(folder_path, file_name), "r");
+    bool state = true;
     if (f == NULL)
     {
-        return false;
+        state = false;
     }
     fclose(f);
-    return true;
+    return state;
 }
 
 bool delete_file(const char *folder_path, const char *file_name)
