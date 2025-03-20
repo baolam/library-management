@@ -13,7 +13,7 @@ TARGET = my_gtk_app
 
 # Tạo file thực thi từ danh sách object files
 $(TARGET): $(OBJS)
-	$(CC) $(OBJS) -o $(TARGET) $(LDFLAGS)
+	$(CC) $(OBJS) -o $(TARGET) $(LDFLAGS) -Wl,--export-all-symbols
 
 # Tạo object file cho mỗi file .c
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
