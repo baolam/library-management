@@ -11,3 +11,8 @@ void on_button_clicked(GtkButton *button, gpointer user_data)
     gtk_dialog_run(GTK_DIALOG(dialog));
     gtk_widget_destroy(dialog);
 }
+
+void on_ldt_clicked(GtkButton *button, gpointer user_data)
+{
+    printf("LDT\n");
+}

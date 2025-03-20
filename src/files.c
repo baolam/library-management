@@ -9,18 +9,19 @@ char *get_file_path(const char *folder_path, const char *file_name)
 
 bool is_exist_folder(const char *path)
 {
-    struct dirent *entry;
-    DIR *dir = opendir(path);
-    if (dir == NULL)
-    {
-        return false;
-    }
-    closedir();
+    // struct dirent *entry;
+    // DIR *dir = opendir(path);
+    // if (dir == NULL)
+    // {
+    //     return false;
+    // }
+    // closedir(dir);
+    return true;
 }
 
 bool is_exist_file(const char *folder_path, const char *file_name)
 {
-    FILE f = fopen(get_file_path(folder_path, file_name));
+    FILE *f = fopen(get_file_path(folder_path, file_name), "r");
     if (f == NULL)
     {
         return false;
@@ -32,7 +33,7 @@ bool is_exist_file(const char *folder_path, const char *file_name)
 bool delete_file(const char *folder_path, const char *file_name)
 {
     if (!is_exist_file(folder_path, file_name))
-        return;
+        return false;
     if (remove(get_file_path(folder_path, file_name)) == 0)
     {
         return true;
