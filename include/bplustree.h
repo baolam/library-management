@@ -8,6 +8,7 @@
 
 typedef struct
 {
+    /// Khoá truy cập
     int keys[ORDER - 1];
     // Vị trí lưu trữ dữ liệu trong file
     long offsets[ORDER - 1];
@@ -26,11 +27,26 @@ typedef struct
 BPlusTreeNode *create_node(bool is_leaf);
 BPlusTree *create_tree(const char *folder, const char *filename);
 
-/// Thủ tục thao tác liên quan đến file của BPlusTree
+/// @brief Lưu trữ node vào file
+/// @param fp dối tượng file
+/// @param node
+/// @param position vị trí lưu trữ trong file (bit)
 void save_node(FILE *fp, BPlusTreeNode *node, long position);
+
+/// @brief Lấy node được lưu trữ ra khỏi file
+/// @param fp
+/// @param node
+/// @param position
 void load_node(FILE *fp, BPlusTreeNode *node, long position);
 
+/// @brief  Lưu trữ cây
+/// @param tree Cây BPlus
 void save_tree(BPlusTree *tree);
-BPlusTree *load_tree(const char *folder, const char *filepath);
+
+/// @brief lưu trữ cây để quản lí
+/// @param folder thư mục lưu trữ
+/// @param filename tên file
+/// @return
+BPlusTree *load_tree(const char *folder, const char *filename);
 
 #endif

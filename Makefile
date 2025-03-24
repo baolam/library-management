@@ -9,7 +9,7 @@ OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 CC = gcc
 CFLAGS = -Wall -I$(INC_DIR) `pkg-config --cflags gtk+-3.0`
 LDFLAGS = `pkg-config --libs gtk+-3.0`
-TARGET = my_gtk_app
+TARGET = a
 
 # Tạo file thực thi từ danh sách object files
 $(TARGET): $(OBJS)
