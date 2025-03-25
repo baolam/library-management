@@ -1,8 +1,17 @@
 #ifndef BOOKS_H
 #define BOOKS_H
+
+#include <gtk/gtk.h> // Include ở đầu file
+
 #define FOLDER "books"
 
-#include <gtk/gtk.h>
+#ifndef BOOK_MANAGER_H
+#define BOOK_MANAGER_H
+
+int borrow_book(const char *book_name);
+int return_book(const char *book_name);
+
+#endif // Kết thúc BOOK_MANAGER_H
 
 typedef struct
 {
@@ -20,4 +29,4 @@ void on_created_new_book(GtkButton *submit, gpointer user_input);
 void on_update_book();
 void on_delete_book();
 
-#endif
+#endif // Kết thúc BOOKS_H

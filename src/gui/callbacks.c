@@ -1,19 +1,50 @@
+#include <gtk/gtk.h>
 #include "callbacks.h"
-
-void on_button_clicked(GtkButton *button, gpointer user_data)
+#include "books.h"
+#include "files.h"
+#include "book_manager.h"
+// Xử lý khi nhấn "Mượn sách"
+void on_borrow_button_clicked(GtkButton *button, gpointer user_data)
 {
-    // g_print("Hello, GTK & Glade!\n");
-    // GtkWidget *dialog = gtk_message_dialog_new(NULL,
-    //                                            GTK_DIALOG_MODAL,
-    //                                            GTK_MESSAGE_INFO,
-    //                                            GTK_BUTTONS_OK,
-    //                                            "Hello, GTK & Glade!");
-    // gtk_dialog_run(GTK_DIALOG(dialog));
-    // gtk_widget_destroy(dialog);
-    printf("Dang\n");
+    // Lấy dữ liệu từ ô nhập tên sách
+    GtkWidget *entry = GTK_WIDGET(user_data);
+    const gchar *book_name = gtk_entry_get_text(GTK_ENTRY(entry));
+
+    if (book_name == NULL || g_strcmp0(book_name, "") == 0)
+    {
+        g_print("Vui lòng nhập tên sách.\n");
+        return;
+    }
+
+    // Gọi hàm mượn sách từ books.c
+    if (borrow_book(book_name))
+    {
+        g_print("Đã mượn sách: %s\n", book_name);
+    }
+    else
+    {
+        g_print("Mượn sách thất bại.\n");
+    }
 }
 
-void on_ldt_clicked(GtkButton *button, gpointer user_data)
+// Xử lý khi nhấn "Trả sách"
+void on_return_button_clicked(GtkButton *button, gpointer user_data)
 {
-    printf("LDT\n");
+    GtkWidget *entry = GTK_WIDGET(user_data);
+    const gchar *book_name = gtk_entry_get_text(GTK_ENTRY(entry));
+
+    if (book_name == NULL || g_strcmp0(book_name, "") == 0)
+    {
+        g_print("Vui lòng nhập tên sách.\n");
+        return;
+    }
+
+    if (return_book(book_name))
+    {
+        g_print("Đã trả sách: %s\n", book_name);
+    }
+    else
+    {
+        g_print("Trả sách thất bại.\n");
+    }
 }

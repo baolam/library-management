@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.0"/>
+  <object class="GtkWindow" id="MainWindow">
+    <property name="title">Quản Lý Mượn Trả Sách</property>
+    <property name="default-width">900</property>
+    <property name="default-height">600</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">horizontal</property>
+        <property name="spacing">20</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="spacing">10</property>
+            <child>
+              <object class="GtkLabel" id="bookid_label">
+                <property name="label">Mã Sách:</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="bookid_value">
+                <property name="label">S001</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="title_label">
+                <property name="label">Tên Sách:</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="title_value">
+                <property name="label">Chưa có</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="author_label">
+                <property name="label">Tác Giả:</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="author_value">
+                <property name="label">Chưa có</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="genre_label">
+                <property name="label">Thể Loại:</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="genre_value">
+                <property name="label">Chưa có</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="year_label">
+                <property name="label">Năm Xuất Bản:</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="year_value">
+                <property name="label">Chưa có</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="stock_label">
+                <property name="label">Số Lượng:</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="stock_value">
+                <property name="label">Chưa có</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="status_label">
+                <property name="label">Trạng Thái:</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="status_value">
+                <property name="label">Chưa có</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="spacing">10</property>
+            <child>
+              <object class="GtkEntry" id="book_entry">
+                <property name="placeholder-text">Nhập tên sách...</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="borrow_button">
+                <property name="label">Mượn Sách</property>
+                <signal name="clicked" handler="on_borrow_button_clicked" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="return_button">
+                <property name="label">Trả Sách</property>
+                <signal name="clicked" handler="on_return_button_clicked" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="user_label">
+                <property name="label">Người Mượn: Không có</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

@@ -1,24 +1,21 @@
-SRC_DIR = src
-OBJ_DIR = obj
-INC_DIR = include
-
-# Tìm tất cả file .c trong SRC_DIR và các thư mục con
-SRCS = $(shell find $(SRC_DIR) -type f -name "*.c")
-OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
-
 CC = gcc
-CFLAGS = -Wall -I$(INC_DIR) `pkg-config --cflags gtk+-3.0`
-LDFLAGS = `pkg-config --libs gtk+-3.0`
-TARGET = a
+CFLAGS = -Wall $(shell pkg-config --cflags gtk+-3.0)
+LDFLAGS = $(shell pkg-config --libs gtk+-3.0)
 
-# Tạo file thực thi từ danh sách object files
-$(TARGET): $(OBJS)
-	$(CC) $(OBJS) -o $(TARGET) $(LDFLAGS) -Wl,--export-all-symbols
+SRC = main.c gui/gui.c gui/callbacks.c book_manager.c files.c utils/*.c
+OBJ = $(SRC:.c=.o)
 
-# Tạo object file cho mỗi file .c
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(dir $@) 
-	$(CC) $(CFLAGS) -c $< -o $@
+EXEC = book_manager
+
+all: $(EXEC)
+
+$(EXEC): $(OBJ)
+	$(CC) $(OBJ) -o $(EXEC) $(LDFLAGS)
+
+%.o: %.c
+    $(CC) -c $< -o $@ $(CFLAGS)
+
+
 
 clean:
-	rm -rf $(OBJ_DIR) $(TARGET)
+	rm -f $(OBJ) $(EXEC)
