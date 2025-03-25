@@ -1,52 +1,56 @@
 #ifndef BPLUSTREE_H
 #define BPLUSTREE_H
-#define ORDER 4
+// #define DEBUG
+
+#ifdef DEBUG
+#include <stdio.h>
+#endif
 
 #include <stdbool.h>
+#include <stdlib.h>
 #include <string.h>
-#include "files.h"
+
+#define MAX_ORDER 5
 
 typedef struct
 {
-    /// Khoá truy cập
-    int keys[ORDER - 1];
-    // Vị trí lưu trữ dữ liệu trong file
-    long offsets[ORDER - 1];
-    int children[ORDER];
-    bool is_leaf;
-    int num_keys;
-} BPlusTreeNode;
+    char *filename;
+    long offset;
+    int length;
+} FilePosition;
 
 typedef struct
 {
-    BPlusTreeNode *root;
-    char folder[50];
-    char *filename[50];
-} BPlusTree;
+    int key;
+    FilePosition position;
+} StorageData;
 
-BPlusTreeNode *create_node(bool is_leaf);
-BPlusTree *create_tree(const char *folder, const char *filename);
+typedef struct BPlusNode
+{
+    bool isLeaf;
+    int numKeys;
+    StorageData *data;
+    int *keys;
+    struct BPlusNode **children;
+    struct BPlusNode *next;
+} BPlusNode;
 
-/// @brief Lưu trữ node vào file
-/// @param fp dối tượng file
-/// @param node
-/// @param position vị trí lưu trữ trong file (bit)
-void save_node(FILE *fp, BPlusTreeNode *node, long position);
+typedef struct
+{
+    BPlusNode *root;
+    int order;
+} BTree;
 
-/// @brief Lấy node được lưu trữ ra khỏi file
-/// @param fp
-/// @param node
-/// @param position
-void load_node(FILE *fp, BPlusTreeNode *node, long position);
+BPlusNode *createNode(bool isLeaf);
+BTree *createTree(int order);
+StorageData *searchStorageData(BTree *tree, int key);
+StorageData createStorageData(int key, char *filename, long offset, int length);
+void insertToTree(BTree *tree, StorageData data);
 
-/// @brief  Lưu trữ cây
-/// @param tree Cây BPlus
-void save_tree(BPlusTree *tree);
-
-/// @brief lưu trữ cây để quản lí
-/// @param folder thư mục lưu trữ
-/// @param filename tên file
-/// @return
-BPlusTree *load_tree(const char *folder, const char *filename);
+/// Phương thức hiển thị mẫu
+#ifdef DEBUG
+void printNode(BPlusNode *node, int level);
+void printTree(BTree *tree);
+#endif
 
 #endif
