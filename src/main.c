@@ -1,42 +1,32 @@
 #include "gui.h"
 #include "bplustree.h"
 
+StorageInfor getInfor(int key)
+{
+    FileInfor _file = buildFileInfor("data.txt", 0, 0);
+    StorageInfor infor = buildStorageInfor(key, _file);
+    return infor;
+}
+
 int main(int argc, char *argv[])
 {
-    // init_gui(argc, argv);
-    BTree *root = create_tree(MAX_ORDER);
-    if (!root)
-    {
-        printf("Failed to create B+ Tree");
-        return 0;
-    }
+    BPlusTree *tree = buildTree(5);
 
-    for (int key = 1; key <= 9; key++)
-    {
-        StorageData data = create_storage_data(key, "data.txt", 100, 100);
-        insertToTree(root, data);
-    }
+    insertInfor(tree, 10, getInfor(10));
+    insertInfor(tree, 20, getInfor(20));
+    insertInfor(tree, 5, getInfor(5));
+    insertInfor(tree, 15, getInfor(15));
+    insertInfor(tree, 25, getInfor(25));
 
-    printf("Insert data to tree successfully!\n");
+    printTree(tree);
 
-    // print_tree(root);
+    bool found = existKey(tree, 10, 10);
+    printf("Status: %d", found);
 
-    for (int key = 1; key <= 20; key++)
-    {
-        StorageData *data = search_storage_data(root, key);
-        printf("Key %d\n", key);
-        if (data)
-        {
-            printf("Found data.\n");
-            printf("Filename %s\n", data->position.filename);
-            printf("Offset %ld, Length %d\n", data->position.offset, data->position.length);
-        }
-        else
-        {
-            printf("Not found!\n");
-        }
-        printf("\n");
-    }
+    deleteInfor(tree, 10, 10);
+
+    found = existKey(tree, 10, 10);
+    printf("Status: %d", found);
 
     return 0;
 }
