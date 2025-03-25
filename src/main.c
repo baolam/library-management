@@ -17,6 +17,11 @@ int main(int argc, char *argv[])
     insertInfor(tree, 5, getInfor(5));
     insertInfor(tree, 15, getInfor(15));
     insertInfor(tree, 25, getInfor(25));
+    insertInfor(tree, 30, getInfor(30));
+    insertInfor(tree, 35, getInfor(35));
+    insertInfor(tree, 40, getInfor(40));
+    insertInfor(tree, 1, getInfor(1));
+    insertInfor(tree, 2, getInfor(2));
 
     printTree(tree);
 
