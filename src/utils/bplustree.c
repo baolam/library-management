@@ -1,97 +1,52 @@
 #include "bplustree.h"
 
-BPlusNode *createNode(bool isLeaf)
+FileInfor buildFileInfor(char *filename, long offset, long length)
+{
+    FileInfor infor;
+    infor.filename = filename;
+    infor.offset = offset;
+    infor.length = length;
+    infor.deleted = false;
+    return infor;
+}
+
+StorageInfor buildStorageInfor(int searchKey, FileInfor fileInfor)
+{
+    StorageInfor sInfor;
+    sInfor.searchKey = searchKey;
+    sInfor.infor = fileInfor;
+    return sInfor;
+}
+
+BPlusNode *buildNode(bool isLeaf, int t)
 {
     BPlusNode *node = (BPlusNode *)malloc(sizeof(BPlusNode));
     node->isLeaf = isLeaf;
     node->numKeys = 0;
-    node->data = (StorageData *)malloc(sizeof(StorageData) * (MAX_ORDER - 1));
-    node->keys = (int *)malloc(sizeof(int) * (MAX_ORDER - 1));
-    node->children = (BPlusNode **)malloc(sizeof(BPlusNode *) * MAX_ORDER);
+    node->limit = t;
+    node->keys = (int *)malloc((t - 1) * sizeof(int));
+    node->infors = (StorageInfor *)malloc((t * sizeof(StorageInfor)));
+    node->children = (BPlusNode **)malloc((t * sizeof(BPlusNode)));
     node->next = NULL;
-
-    /// Phần kiểm tra bộ nhớ
-    if (!node->data || !node->keys || !node->children)
-    {
-        free(node->data);
-        free(node->keys);
-        free(node->children);
-        free(node);
-        return NULL;
-    }
-
     return node;
 }
 
-void free_node(BPlusNode *node)
+BPlusTree *buildTree(int t)
 {
-    if (!node)
-        return;
-    if (!node->isLeaf)
-    {
-        for (int i = 0; i <= node->numKeys; i++)
-        {
-            free(node->children[i]);
-        }
-    }
-
-    for (int i = 0; i < node->numKeys && node->isLeaf; i++)
-    {
-        free(node->data[i].position.filename);
-    }
-
-    free(node->data);
-    free(node->keys);
-    free(node->children);
-    free(node);
-}
-
-BTree *createTree(int order)
-{
-    if (order > MAX_ORDER || order < 3)
-    {
-        return NULL;
-    }
-
-    BTree *tree = (BTree *)malloc(sizeof(BTree));
-    if (!tree)
-    {
-        return NULL;
-    }
-
+    BPlusTree *tree = (BPlusTree *)malloc(sizeof(BPlusTree));
     tree->root = NULL;
-    tree->order = order;
-
+    tree->t = t;
     return tree;
-}
-
-void free_tree(BTree *tree)
-{
-    if (!tree)
-        return;
-    free_node(tree->root);
-    free(tree);
 }
 
 BPlusNode *findLeaf(BPlusNode *node, int key)
 {
-    if (!node)
-    {
-        return NULL;
-    }
-
     BPlusNode *current = node;
     while (!current->isLeaf)
     {
         int i = 0;
-        while (i < current->numKeys && key >= current->keys[i])
+        while (i < current->numKeys && key > current->keys[i])
         {
-
-#ifdef DEBUG
-            printf("Index, %d\n", i);
-            printf("Key, %d\n", current->data[i].key);
-#endif
-
             i++;
         }
         current = current->children[i];
@@ -99,187 +54,161 @@ BPlusNode *findLeaf(BPlusNode *node, int key)
     return current;
 }
 
-StorageData *searchStorageData(BTree *tree, int key)
+StorageInfor *retrieveKey(BPlusTree *tree, int bKey, int inforKey)
 {
-    if (!tree || !tree->root)
+    if (tree->root->numKeys == 0)
     {
         return NULL;
     }
 
-#ifdef DEBUG
-    printf("[Start finding]\n");
-    printf("[Search key: %d]\n", key);
-    printf("\n");
-#endif
-
-    BPlusNode *leaf = findLeaf(tree->root, key);
-
+    BPlusNode *leaf = findLeaf(tree->root, bKey);
     for (int i = 0; i < leaf->numKeys; i++)
     {
-#ifdef DEBUG
-        printf("[Current key: %d]\n", leaf->data[i].key);
-#endif
-
-        if (key == leaf->data[i].key)
+        if (leaf->infors[i].searchKey == inforKey)
         {
-            return &leaf->data[i];
+            return &leaf->infors[i];
         }
     }
-
-#ifdef DEBUG
-    printf("[Sad finding]\n");
-    printf("\n");
-#endif
 
     return NULL;
 }
 
+bool existKey(BPlusTree *tree, int bKey, int inforKey)
+{
+    StorageInfor *result = retrieveKey(tree, bKey, inforKey);
+    if (!result)
+    {
+        return false;
+    }
+    return !result->infor.deleted;
+}
+
 void splitChild(BPlusNode *parent, int index, BPlusNode *child)
 {
-    BPlusNode *newNode = createNode(child->isLeaf);
-    if (!newNode)
-    {
-        return;
-    }
+    BPlusNode *newChild = buildNode(child->isLeaf, child->limit);
 
-    int mid = (MAX_ORDER - 1) / 2;
-    newNode->numKeys = (MAX_ORDER - 1) - mid - (child->isLeaf ? 0 : 1);
+    int mid = (child->limit - 1) / 2;
+    newChild->numKeys = (child->limit - 1) - mid - (child->isLeaf ? 0 : 1);
     child->numKeys = mid;
 
-#ifdef DEBUG
-    printf("[Print mid], %d\n", mid);
-    printf("[Print key], %d\n", child->keys[mid]);
-    printf("[Parent->numKeys], %d\n", parent->numKeys);
-    printf("[Index], %d\n", index);
-    printf("[Child is Leaf?] %d\n", child->isLeaf);
-    printf("[newNode->numKeys] = %d\n", newNode->numKeys);
-    printf("[child->numKeys] = %d\n", child->numKeys);
-    printf("\n");
-#endif
-
+    //// Phần xử lí tách node cùng cấp
     if (child->isLeaf)
     {
-        for (int i = 0; i < newNode->numKeys; i++)
+        for (int i = 0; i < newChild->numKeys; i++)
         {
-            newNode->data[i] = child->data[i + mid];
+            newChild->keys[i] = child->keys[i + mid];
         }
-        newNode->next = child->next;
-        child->next = newNode;
+        for (int i = 0; i <= newChild->numKeys; i++)
+        {
+            newChild->infors[i] = child->infors[i + mid];
+        }
+        newChild->next = child->next;
+        child->next = newChild;
     }
     else
     {
-        for (int i = 0; i < newNode->numKeys; i++)
+        for (int i = 0; i < newChild->numKeys; i++)
         {
-            newNode->keys[i] = child->keys[i + mid + 1];
-            newNode->children[i] = child->children[i + mid + 1];
+            newChild->keys[i] = child->keys[i + mid];
         }
-        newNode->children[newNode->numKeys] = child->children[MAX_ORDER - 1];
+        for (int i = 0; i <= newChild->numKeys; i++)
+        {
+            newChild->children[i] = child->children[i + mid];
+        }
+        newChild->children[newChild->numKeys] = child->children[child->limit - 1];
     }
 
-    for (int i = parent->numKeys; i > index; i++)
+    //// Phần xử lí tách node khác cấp
+    for (int i = parent->numKeys; i > index; i--)
     {
         parent->children[i + 1] = parent->children[i];
     }
-    parent->children[index + 1] = newNode;
-
-    for (int i = parent->numKeys - 1; i >= index; i++)
+    parent->children[index + 1] = newChild;
+    for (int i = parent->numKeys - 1; i >= index; i--)
     {
         parent->keys[i + 1] = parent->keys[i];
     }
-
-    parent->keys[index] = child->isLeaf ? child->data[mid].key : child->keys[mid];
+    parent->keys[index] = child->keys[mid];
     parent->numKeys++;
 }
 
-void insertNonFull(BPlusNode *node, StorageData data, int order)
+void insertNonFull(BPlusNode *node, int key, StorageInfor infor)
 {
+    /// Tìm vị trí để insert
     if (node->isLeaf)
     {
         int i = node->numKeys - 1;
-        while (i >= 0 && node->data[i].key > data.key)
+        while (i >= 0 && node->keys[i] > key)
         {
             i--;
         }
-        node->data[i + 1] = data;
-        node->keys[i + 1] = data.key;
+
         node->numKeys++;
+        for (int j = node->numKeys; j > i + 1; j--)
+        {
+            node->keys[j] = node->keys[j - 1];
+            node->infors[j] = node->infors[j - 1];
+        }
+
+        node->keys[i + 1] = key;
+        node->infors[i + 1] = infor;
     }
     else
     {
-
-#ifdef DEBUG
-        printf("[Print Node] %d\n", node->numKeys);
-        printf("[InsertNonFull Method]\n");
-#endif
-
+        /// Chỉ xảy ra trường hợp đệ quy tìm để chèn
         int i = 0;
-        while (i < node->numKeys && data.key >= node->data[i].key)
+        while (i < node->numKeys && key >= node->keys[i])
         {
             i++;
         }
-        if (node->children[i]->numKeys == order - 1)
+        if (node->children[i]->numKeys == node->children[i]->limit - 1)
         {
             splitChild(node, i, node->children[i]);
-            if (data.key > node->data[i].key)
+            if (key > node->keys[i])
             {
                 i++;
             }
         }
-        insertNonFull(node->children[i], data, order);
+        insertNonFull(node->children[i], key, infor);
     }
 }
 
-StorageData createStorageData(int key, char *filename, long offset, int length)
+void insertInfor(BPlusTree *tree, int key, StorageInfor infor)
 {
-    StorageData data;
-    data.key = key;
-    data.position.filename = filename;
-    data.position.offset = offset;
-    data.position.length = length;
-    return data;
-}
-
-void insertToTree(BTree *tree, StorageData data)
-{
-    if (!tree)
-    {
-        return;
-    }
-
     if (!tree->root)
     {
-        tree->root = createNode(true);
-        if (!tree->root)
-        {
-            return;
-        }
-        tree->root->data[0] = data;
-        tree->root->keys[0] = data.key;
+        tree->root = buildNode(true, tree->t);
         tree->root->numKeys = 1;
+        tree->root->infors[0] = infor;
+        tree->root->keys[0] = key;
         return;
     }
 
-    /// Tiến hành xử lí quá bậc
-    if (tree->root->numKeys == tree->order - 1)
+    if (tree->root->numKeys == tree->t - 1)
     {
-#ifdef DEBUG
-        printf("Root node is full, splitting...\n");
-#endif
-
-        BPlusNode *newRoot = createNode(false);
-        if (!newRoot)
-        {
-            return;
-        }
+        /// Trường hợp Full
+        BPlusNode *newRoot = buildNode(false, tree->t);
         newRoot->children[0] = tree->root;
         splitChild(newRoot, 0, tree->root);
+        insertNonFull(newRoot, key, infor);
         tree->root = newRoot;
     }
-
-    insertNonFull(tree->root, data, tree->order);
+    else
+    {
+        insertNonFull(tree->root, key, infor);
+    }
 }
 
-#ifdef DEBUG
+void deleteInfor(BPlusTree *tree, int bKey, int searchKey)
+{
+    StorageInfor *sInfor = retrieveKey(tree, bKey, searchKey);
+    if (sInfor != NULL)
+    {
+        sInfor->infor.deleted = true;
+    }
+}
+
+#ifdef PRINT_TREE
 void printNode(BPlusNode *node, int level)
 {
     if (!node)
@@ -294,57 +223,56 @@ void printNode(BPlusNode *node, int level)
 
     if (node->isLeaf)
     {
-        printf("Leaf Node (keys : %d) [", node->numKeys);
+        printf("Leaf Node (Keys : %d) [ ", node->numKeys);
         for (int i = 0; i < node->numKeys; i++)
         {
-            printf("%d", node->data[i].key);
-            if (i < node->numKeys - 1)
+            printf("%d", node->keys[i]);
+            if (i != node->numKeys - 1)
             {
                 printf(", ");
             }
         }
         printf("]\n");
-
         for (int i = 0; i < node->numKeys; i++)
         {
             for (int j = 0; j < level; j++)
             {
                 printf(" ");
             }
-            printf("  Key %d: %s, offset %ld, length %d\n",
-                   node->data[i].key,
-                   node->data[i].position.filename,
-                   node->data[i].position.offset,
-                   node->data[i].position.length);
+            printf("  SearchKey: %d, Filename: %s, Offset: %ld, Length: %ld, Delete? : %d\n",
+                   node->infors[i].searchKey,
+                   node->infors[i]
+                       .infor.filename,
+                   node->infors[i].infor.offset,
+                   node->infors[i].infor.length,
+                   node->infors[i].infor.deleted);
         }
     }
     else
     {
-        printf("Internal Node (keys: %d): [", node->numKeys);
+        printf("Internal Node (Keys: %d) [ ", node->numKeys);
         for (int i = 0; i < node->numKeys; i++)
         {
             printf("%d", node->keys[i]);
-            if (i < node->numKeys - 1)
+            if (i != node->numKeys - 1)
+            {
                 printf(", ");
+            }
         }
         printf("]\n");
-
         for (int i = 0; i <= node->numKeys; i++)
         {
-            printNode(node->children[i], level + 1);
+            printNode(node->children[i], level + 2);
         }
     }
 }
 
-void printTree(BTree *tree)
+void printTree(BPlusTree *tree)
 {
-    if (!tree || !tree->root)
-    {
-        printf("Tree is empty! \n");
-        return;
-    }
-    printf("B+ Tree structure:\n");
-    print_node(tree->root, 0);
+    printf("B+ Tree Data Structure\n");
+    printNode(tree->root, 0);
     printf("\n");
+    printf("----------------------------\n");
 }
+
 #endif
