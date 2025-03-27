@@ -129,3 +129,41 @@ BPlusTree *loadBPlusTree(msgpack_object *obj)
     tree->root = deserializeBPlusNode(&obj->via.array.ptr[1]);
     return tree;
 }
+
+BPlusTree *loadBPlusTreeFromFile(const char *filename)
+{
+    FILE *file = fopen(filename, "rb");
+    if (file == NULL)
+    {
+        return NULL;
+    }
+
+    fseek(file, 0, SEEK_END);
+    long filesize = ftell(file);
+    rewind(file);
+
+    char *buffer = (char *)malloc(filesize);
+    if (!buffer)
+    {
+        perror("Memory allocation error");
+        fclose(file);
+        return NULL;
+    }
+
+    fread(buffer, 1, filesize, file);
+    fclose(file);
+
+    msgpack_unpacked result;
+    msgpack_unpacked_init(&result);
+
+    BPlusTree *tree = NULL;
+    if (msgpack_unpack_next(&result, buffer, filesize, NULL))
+    {
+        tree = deserialize_tree(&result.data);
+    }
+
+    msgpack_unpacked_destroy(&result);
+    free(buffer);
+
+    return tree;
+}

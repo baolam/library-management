@@ -27,5 +27,5 @@ BPlusNode *deserializeBPlusNode(msgpack_object *obj);
 
 void saveBPlusTree(const char *fileName, BPlusTree *tree);
 BPlusTree *loadBPlusTree(msgpack_object *obj);
-
+BPlusTree *loadBPlusTreeFromFile(const char *filename);
 #endif
