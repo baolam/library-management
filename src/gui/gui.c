@@ -1,20 +1,24 @@
 #include "gui.h"
 #include "callbacks.h"
 
+GtkBuilder *builder = NULL;
+GtkWidget *window;
+
 void init_gui(int argc, char *argv[])
 {
-    GtkBuilder *builder;
-    GtkWidget *window;
-
     gtk_init(&argc, &argv);
 
-    builder = gtk_builder_new_from_file("ui/borrow-book.ui");
+    /// Thêm từng file builder
+    builder = gtk_builder_new();
+    gtk_builder_add_from_file(builder, "ui/main-interface.ui", NULL);
+    gtk_builder_add_from_file(builder, "ui/search-book.ui", NULL);
 
-    window = GTK_WIDGET(gtk_builder_get_object(builder, "Mainwindow"));
+    window = GTK_WIDGET(gtk_builder_get_object(builder, "itf"));
+
     gtk_builder_connect_signals(builder, NULL);
-
-    g_object_unref(builder);
 
     gtk_widget_show_all(window);
     gtk_main();
+
+    g_object_unref(builder);
 }
