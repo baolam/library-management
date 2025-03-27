@@ -8,9 +8,9 @@ void init_gui(int argc, char *argv[])
 
     gtk_init(&argc, &argv);
 
-    builder = gtk_builder_new_from_file("ui/test.glade");
+    builder = gtk_builder_new_from_file("ui/main-interface.ui");
 
-    window = GTK_WIDGET(gtk_builder_get_object(builder, "main_window"));
+    window = GTK_WIDGET(gtk_builder_get_object(builder, "itf"));
     gtk_builder_connect_signals(builder, NULL);
 
     g_object_unref(builder);
