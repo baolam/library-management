@@ -94,8 +94,6 @@ void insertInfor(BPlusTree *tree, int key, StorageInfor infor);
 /// @param key
 void deleteInfor(BPlusTree *tree, int bKey, int searchKey);
 
-void saveTree(const char *fileName, BPlusTree *tree);
-
 #ifdef PRINT_TREE
 void printTree(BPlusTree *tree);
 void printNode(BPlusNode *node, int level);
