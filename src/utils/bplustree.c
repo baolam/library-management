@@ -208,6 +208,20 @@ void deleteInfor(BPlusTree *tree, int bKey, int searchKey)
     }
 }
 
+void serializeNode(msgpack_packer *pk, BPlusNode *node)
+{
+    msgpack_pack_int(pk, node->isLeaf);
+    msgpack_pack_int(pk, node->numKeys);
+}
+
+void saveTree(const char *fileName, BPlusTree *tree)
+{
+    msgpack_sbuffer sbuf;
+    msgpack_packer pk;
+    msgpack_sbuffer_init(&sbuf);
+    msgpack_packer_init(&pk, &sbuf, msgpack_sbuffer_write);
+}
+
 #ifdef PRINT_TREE
 void printNode(BPlusNode *node, int level)
 {

@@ -1,3 +1,4 @@
+#include "gui.h"
 #include "callbacks.h"
 
 void on_button_clicked(GtkButton *button, gpointer user_data)
@@ -16,4 +17,12 @@ void on_button_clicked(GtkButton *button, gpointer user_data)
 void on_ldt_clicked(GtkButton *button, gpointer user_data)
 {
     printf("LDT\n");
+}
+
+void on_opened_book(GtkButton *button, gpointer user_data)
+{
+    printf("HEHEHE");
+    GtkWidget *searchBook = GTK_WIDGET(gtk_builder_get_object(builder, "main_window"));
+    gtk_dialog_run(GTK_DIALOG(searchBook));
+    gtk_widget_destroy(searchBook);
 }
