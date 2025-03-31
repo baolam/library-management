@@ -10,10 +10,10 @@ void init_gui(int argc, char *argv[])
 
     /// Thêm từng file builder
     builder = gtk_builder_new();
-    gtk_builder_add_from_file(builder, "ui/main-interface.ui", NULL);
-    gtk_builder_add_from_file(builder, "ui/search-book.ui", NULL);
+    gtk_builder_add_from_file(builder, "ui/library.glade", NULL);
+    // gtk_builder_add_from_file(builder, "ui/search-book.ui", NULL);
 
-    window = GTK_WIDGET(gtk_builder_get_object(builder, "itf"));
+    window = GTK_WIDGET(gtk_builder_get_object(builder, "main_window"));
 
     gtk_builder_connect_signals(builder, NULL);
 
