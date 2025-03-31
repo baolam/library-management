@@ -9,7 +9,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
-#include <msgpack.h>
 
 #ifdef WARNING
 // printf("Make sure, there's enough memory for creating data!");
