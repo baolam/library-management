@@ -1,28 +1,47 @@
 #include "gui.h"
 #include "callbacks.h"
 
-void on_button_clicked(GtkButton *button, gpointer user_data)
+void on_button_clicked(GtkWidget *widget, gpointer user_data)
 {
-    // g_print("Hello, GTK & Glade!\n");
-    // GtkWidget *dialog = gtk_message_dialog_new(NULL,
-    //                                            GTK_DIALOG_MODAL,
-    //                                            GTK_MESSAGE_INFO,
-    //                                            GTK_BUTTONS_OK,
-    //                                            "Hello, GTK & Glade!");
-    // gtk_dialog_run(GTK_DIALOG(dialog));
-    // gtk_widget_destroy(dialog);
-    printf("Dang\n");
-}
+    GtkNotebook *notebook = GTK_NOTEBOOK(user_data);
 
-void on_ldt_clicked(GtkButton *button, gpointer user_data)
-{
-    printf("LDT\n");
-}
+    if (!notebook)
+    {
+        g_print("LỖI: Notebook NULL!\n");
+        return;
+    }
 
-void on_opened_book(GtkButton *button, gpointer user_data)
-{
-    printf("HEHEHE");
-    GtkWidget *searchBook = GTK_WIDGET(gtk_builder_get_object(builder, "main_window"));
-    gtk_dialog_run(GTK_DIALOG(searchBook));
-    gtk_widget_destroy(searchBook);
+    // Lấy ID của button từ Glade
+    const gchar *button_name = gtk_buildable_get_name(GTK_BUILDABLE(widget));
+    g_print("Button clicked: %s\n", button_name);
+
+    // Kiểm tra button nào được bấm và chuyển tab
+    if (g_strcmp0(button_name, "home-button") == 0)
+    {
+        gtk_notebook_set_current_page(notebook, 0);
+    }
+    else if (g_strcmp0(button_name, "manage-book") == 0)
+    {
+        gtk_notebook_set_current_page(notebook, 1);
+    }
+    else if (g_strcmp0(button_name, "manage-reader") == 0)
+    {
+        gtk_notebook_set_current_page(notebook, 2);
+    }
+    else if (g_strcmp0(button_name, "borrow-return") == 0)
+    {
+        gtk_notebook_set_current_page(notebook, 3);
+    }
+    else if (g_strcmp0(button_name, "summary") == 0)
+    {
+        gtk_notebook_set_current_page(notebook, 4);
+    }
+    else if (g_strcmp0(button_name, "manual") == 0)
+    {
+        gtk_notebook_set_current_page(notebook, 5);
+    }
+    else
+    {
+        g_print("Không tìm thấy tab tương ứng!\n");
+    }
 }
