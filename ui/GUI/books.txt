@@ -1,0 +1,3 @@
+1|Harry Potter|J.K. Rowling|Tiểu thuyết|1997|10
+2|To Kill a Mockingbird|Harper Lee|Tiểu thuyết|1960|5
+3|1984|George Orwell|Viễn tưởng|1949|8
