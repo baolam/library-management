@@ -20,58 +20,14 @@ StorageInfor buildStorageInfor(int searchKey, FileInfor fileInfor)
 
 BPlusNode *buildNode(bool isLeaf, int t)
 {
-    // Validate input
-    if (t <= 0)
-        return NULL;
-
-    // Allocate node structure
     BPlusNode *node = (BPlusNode *)malloc(sizeof(BPlusNode));
-    if (!node)
-        return NULL;
-
-    // Initialize basic properties
     node->isLeaf = isLeaf;
     node->numKeys = 0;
     node->limit = t;
+    node->keys = (int *)malloc((t - 1) * sizeof(int));
+    node->infors = (StorageInfor *)malloc((t * sizeof(StorageInfor)));
+    node->children = (BPlusNode **)malloc((t * sizeof(BPlusNode)));
     node->next = NULL;
-
-    // Allocate keys array
-    node->keys = (int *)malloc(t * sizeof(int));
-    if (!node->keys)
-    {
-        free(node);
-        return NULL;
-    }
-
-    // Allocate storage info (for leaf nodes) or children (for internal nodes)
-    if (isLeaf)
-    {
-        node->infors = (StorageInfor *)malloc(t * sizeof(StorageInfor));
-        node->children = NULL;
-        if (!node->infors)
-        {
-            free(node->keys);
-            free(node);
-            return NULL;
-        }
-    }
-    else
-    {
-        node->infors = NULL;
-        node->children = (BPlusNode **)malloc((t + 1) * sizeof(BPlusNode *));
-        if (!node->children)
-        {
-            free(node->keys);
-            free(node);
-            return NULL;
-        }
-        // Initialize children to NULL
-        for (int i = 0; i <= t; i++)
-        {
-            node->children[i] = NULL;
-        }
-    }
-
     return node;
 }
 
@@ -106,6 +62,22 @@ StorageInfor *retrieveKey(BPlusTree *tree, int bKey, int inforKey)
     }
 
     BPlusNode *leaf = findLeaf(tree->root, bKey);
+#ifdef DEBUG
+    printf("retrieveKey: bKey = %d, inforKey = %d\n",
+           bKey, inforKey);
+    if (leaf != NULL)
+    {
+        printf("Key: %d\n", leaf->numKeys);
+        for (int i = 0; i < leaf->numKeys; i++)
+        {
+            printf("Infor : %d\n", leaf->infors[i].searchKey);
+        }
+    }
+    else
+    {
+        printf("No key found!\n");
+    }
+#endif
     for (int i = 0; i < leaf->numKeys; i++)
     {
         if (leaf->infors[i].searchKey == inforKey)
@@ -129,80 +101,45 @@ bool existKey(BPlusTree *tree, int bKey, int inforKey)
 
 void splitChild(BPlusNode *parent, int index, BPlusNode *child)
 {
-    // Validate inputs
-    if (!parent || !child || index < 0 || index > parent->numKeys)
-    {
-        return;
-    }
-
-    // Create new child node
     BPlusNode *newChild = buildNode(child->isLeaf, child->limit);
-    if (!newChild)
-    {
-        return; // Allocation failed
-    }
 
-    // Calculate split point with validation
-    int t = child->limit;
-    if (t <= 1 || child->numKeys <= 0)
-    {
-        free(newChild);
-        return;
-    }
-
-    int mid = (t - 1) / 2;
-    newChild->numKeys = t - 1 - mid;
+    int mid = (child->limit - 1) / 2;
+    newChild->numKeys = (child->limit - 1) - mid - (child->isLeaf ? 0 : 1);
     child->numKeys = mid;
 
-    // Handle leaf node split
+    //// Phần xử lí tách node cùng cấp
     if (child->isLeaf)
     {
-        // Validate array bounds before copying
-        if (mid + newChild->numKeys - 1 >= t)
-        {
-            free(newChild);
-            return;
-        }
-
-        // Copy keys and infors to new child
         for (int i = 0; i < newChild->numKeys; i++)
         {
-            if (mid + i < t)
-            {
-                newChild->keys[i] = child->keys[mid + i];
-                newChild->infors[i] = child->infors[mid + i];
-            }
+            newChild->keys[i] = child->keys[i + mid];
         }
-
-        // Maintain leaf chain
+        for (int i = 0; i <= newChild->numKeys; i++)
+        {
+            newChild->infors[i] = child->infors[i + mid];
+        }
         newChild->next = child->next;
         child->next = newChild;
     }
-    // Handle internal node split
     else
     {
-        // Copy keys to new child
         for (int i = 0; i < newChild->numKeys; i++)
         {
-            newChild->keys[i] = child->keys[mid + 1 + i];
+            newChild->keys[i] = child->keys[i + mid];
         }
-
-        // Copy children pointers
         for (int i = 0; i <= newChild->numKeys; i++)
         {
-            newChild->children[i] = child->children[mid + 1 + i];
+            newChild->children[i] = child->children[i + mid];
         }
+        newChild->children[newChild->numKeys] = child->children[child->limit - 1];
     }
 
-    // Insert new child into parent
-    // Shift parent's children to make space
+    //// Phần xử lí tách node khác cấp
     for (int i = parent->numKeys; i > index; i--)
     {
         parent->children[i + 1] = parent->children[i];
     }
     parent->children[index + 1] = newChild;
-
-    // Shift parent's keys and insert middle key
     for (int i = parent->numKeys - 1; i >= index; i--)
     {
         parent->keys[i + 1] = parent->keys[i];
@@ -213,121 +150,65 @@ void splitChild(BPlusNode *parent, int index, BPlusNode *child)
 
 void insertNonFull(BPlusNode *node, int key, StorageInfor infor)
 {
-    // Validate inputs
-    if (!node || node->numKeys >= node->limit)
-    {
-        return;
-    }
-
-    // Handle leaf node insertion
+    /// Tìm vị trí để insert
     if (node->isLeaf)
     {
-        // Find insertion position
-        int pos = node->numKeys - 1;
-        while (pos >= 0 && node->keys[pos] > key)
+        int i = node->numKeys - 1;
+        while (i >= 0 && node->keys[i] > key)
         {
-            pos--;
-        }
-        pos++; // Position to insert at
-
-        // Shift elements to make space
-        for (int i = node->numKeys; i > pos; i--)
-        {
-            node->keys[i] = node->keys[i - 1];
-            node->infors[i] = node->infors[i - 1];
+            i--;
         }
 
-        // Insert new key and info
-        node->keys[pos] = key;
-        node->infors[pos] = infor;
         node->numKeys++;
+        for (int j = node->numKeys; j > i + 1; j--)
+        {
+            node->keys[j] = node->keys[j - 1];
+            node->infors[j] = node->infors[j - 1];
+        }
+
+        node->keys[i + 1] = key;
+        node->infors[i + 1] = infor;
     }
-    // Handle internal node insertion
     else
     {
-        // Find child to insert into
-        int child_idx = 0;
-        while (child_idx < node->numKeys && key >= node->keys[child_idx])
+        /// Chỉ xảy ra trường hợp đệ quy tìm để chèn
+        int i = 0;
+        while (i < node->numKeys && key >= node->keys[i])
         {
-            child_idx++;
+            i++;
         }
-
-        // Validate child pointer
-        if (child_idx < 0 || child_idx > node->numKeys || !node->children[child_idx])
+        if (node->children[i]->numKeys == node->children[i]->limit - 1)
         {
-            return;
-        }
-
-        // Check if child needs splitting
-        if (node->children[child_idx]->numKeys == node->children[child_idx]->limit - 1)
-        {
-            splitChild(node, child_idx, node->children[child_idx]);
-            // After split, check which child to insert into
-            if (child_idx < node->numKeys && key > node->keys[child_idx])
+            splitChild(node, i, node->children[i]);
+            if (key > node->keys[i])
             {
-                child_idx++;
+                i++;
             }
         }
-
-        // Validate child pointer again after potential split
-        if (child_idx < 0 || child_idx > node->numKeys || !node->children[child_idx])
-        {
-            return;
-        }
-
-        // Recursively insert into child
-        insertNonFull(node->children[child_idx], key, infor);
+        insertNonFull(node->children[i], key, infor);
     }
 }
 
 void insertInfor(BPlusTree *tree, int key, StorageInfor infor)
 {
-    // Validate inputs
-    if (!tree || tree->t <= 0)
-    {
-        return;
-    }
-
-    // Handle empty tree case
     if (!tree->root)
     {
         tree->root = buildNode(true, tree->t);
-        if (!tree->root)
-        {
-            return; // Allocation failed
-        }
-        tree->root->keys[0] = key;
-        tree->root->infors[0] = infor;
         tree->root->numKeys = 1;
+        tree->root->infors[0] = infor;
+        tree->root->keys[0] = key;
         return;
     }
 
-    // Handle root full case
     if (tree->root->numKeys == tree->t - 1)
     {
-        // Create new root
+        /// Trường hợp Full
         BPlusNode *newRoot = buildNode(false, tree->t);
-        if (!newRoot)
-        {
-            return; // Allocation failed
-        }
-
-        // Set up new root and split old root
         newRoot->children[0] = tree->root;
         splitChild(newRoot, 0, tree->root);
-
-        // Insert into appropriate child
-        int child_idx = 0;
-        if (key > newRoot->keys[0])
-        {
-            child_idx++;
-        }
-        insertNonFull(newRoot->children[child_idx], key, infor);
-
-        // Update tree root
+        insertNonFull(newRoot, key, infor);
         tree->root = newRoot;
     }
-    // Normal insertion case
     else
     {
         insertNonFull(tree->root, key, infor);
@@ -411,40 +292,3 @@ void printTree(BPlusTree *tree)
 }
 
 #endif
-
-static void freeNodeRecursive(BPlusNode *node)
-{
-    if (!node)
-        return;
-
-    // Free children recursively for internal nodes
-    if (!node->isLeaf && node->children)
-    {
-        for (int i = 0; i <= node->numKeys; i++)
-        {
-            freeNodeRecursive(node->children[i]);
-        }
-        free(node->children);
-    }
-
-    // Free keys and infors
-    if (node->keys)
-        free(node->keys);
-    if (node->isLeaf && node->infors)
-        free(node->infors);
-
-    free(node);
-}
-
-void freeBPlusTree(BPlusTree *tree)
-{
-    if (!tree)
-        return;
-
-    if (tree->root)
-    {
-        freeNodeRecursive(tree->root);
-    }
-
-    free(tree);
-}

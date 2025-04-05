@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
     }
 
     // Free tree memory
-    freeBPlusTree(tree);
+    // freeBPlusTree(tree);
 
     return 0;
 }

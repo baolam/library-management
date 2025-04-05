@@ -4,6 +4,7 @@
 #define MAX_ORDER 4
 #define MAX_FILE_NAME 128
 #define WARNING
+#define DEBUG
 #define PRINT_TREE
 
 #include <string.h>
