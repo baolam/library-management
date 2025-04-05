@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-#define TOTAL_BOOKS 1000000 // 1 triệu quyển sách
+#define TOTAL_BOOKS 100 // 1 triệu quyển sách
 
 int main()
 {
