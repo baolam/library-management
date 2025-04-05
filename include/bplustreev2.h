@@ -52,6 +52,8 @@ int pathToLeaves(Node *const root, Node *child);
 
 void enqueue(Node *new_node);
 Node *dequeue(void);
+
+void printTree(Node *const root);
 #endif
 
 /// Phương thức thêm phần tử
@@ -64,6 +66,8 @@ Node *insertIntoParent(Node *root, Node *left, int key, Node *right);
 Node *insertIntoLeafAfterSplitting(Node *root, Node *leaf, int key, Record *record);
 Node *insert(Node *root, int key, Record *record);
 
-void printTree(Node *const root);
+/// Phương thức lưu trữ
+void saveTree(Node *root, char *filename);
+Node *loadTree(char *filename);
 
 #endif

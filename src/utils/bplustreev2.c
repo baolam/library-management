@@ -455,3 +455,159 @@ void printTree(Node *const root)
 }
 
 #endif
+
+// Helper function to write a node to file
+static void writeNode(FILE *fp, Node *node)
+{
+    if (!node)
+        return;
+
+    // Write node metadata
+    fwrite(&node->is_leaf, sizeof(bool), 1, fp);
+    fwrite(&node->num_keys, sizeof(int), 1, fp);
+
+    // Write keys
+    fwrite(node->keys, sizeof(int), node->num_keys, fp);
+
+    if (node->is_leaf)
+    {
+        // Write records for leaf nodes
+        for (int i = 0; i < node->num_keys; i++)
+        {
+            Record *record = (Record *)node->pointers[i];
+            fwrite(record, sizeof(Record), 1, fp);
+        }
+    }
+    else
+    {
+        // Write child pointers for internal nodes
+        for (int i = 0; i <= node->num_keys; i++)
+        {
+            Node *child = (Node *)node->pointers[i];
+            writeNode(fp, child);
+        }
+    }
+}
+
+void saveTree(Node *root, char *filename)
+{
+    if (root == NULL || !filename)
+    {
+        perror("No root or no filename !");
+        exit(EXIT_FAILURE);
+    }
+
+    FILE *fp = fopen(filename, "wb");
+    if (!fp)
+    {
+        perror("Failed to open file for writing");
+        exit(EXIT_FAILURE);
+    }
+
+    // Write tree structure
+    writeNode(fp, root);
+    fclose(fp);
+}
+
+// Helper function to read a node from file
+static Node *readNode(FILE *fp)
+{
+    Node *node = makeNode();
+    if (!node)
+        return NULL;
+
+    // Read node metadata
+    fread(&node->is_leaf, sizeof(bool), 1, fp);
+    fread(&node->num_keys, sizeof(int), 1, fp);
+
+    // Allocate memory for keys
+    node->keys = (int *)malloc(ORDER * sizeof(int));
+    if (!node->keys)
+    {
+        free(node);
+        return NULL;
+    }
+
+    // Read keys
+    fread(node->keys, sizeof(int), node->num_keys, fp);
+
+    if (node->is_leaf)
+    {
+        // Read records for leaf nodes
+        node->pointers = (void **)malloc(ORDER * sizeof(Record *));
+        if (!node->pointers)
+        {
+            free(node->keys);
+            free(node);
+            return NULL;
+        }
+
+        for (int i = 0; i < node->num_keys; i++)
+        {
+            Record *record = (Record *)malloc(sizeof(Record));
+            if (!record)
+            {
+                // Clean up allocated memory
+                for (int j = 0; j < i; j++)
+                {
+                    free((Record *)node->pointers[j]);
+                }
+                free(node->keys);
+                free(node->pointers);
+                free(node);
+                return NULL;
+            }
+            fread(record, sizeof(Record), 1, fp);
+            node->pointers[i] = record;
+        }
+    }
+    else
+    {
+        // Read child pointers for internal nodes
+        node->pointers = (void **)malloc((ORDER + 1) * sizeof(Node *));
+        if (!node->pointers)
+        {
+            free(node->keys);
+            free(node);
+            return NULL;
+        }
+
+        for (int i = 0; i <= node->num_keys; i++)
+        {
+            Node *child = readNode(fp);
+            if (!child)
+            {
+                // Clean up allocated memory
+                for (int j = 0; j < i; j++)
+                {
+                    free((Node *)node->pointers[j]);
+                }
+                free(node->keys);
+                free(node->pointers);
+                free(node);
+                return NULL;
+            }
+            node->pointers[i] = child;
+            child->parent = node;
+        }
+    }
+
+    return node;
+}
+
+Node *loadTree(char *filename)
+{
+    if (!filename)
+        return NULL;
+
+    FILE *fp = fopen(filename, "rb");
+    if (!fp)
+    {
+        perror("Failed to open file for reading");
+        return NULL;
+    }
+
+    Node *root = readNode(fp);
+    fclose(fp);
+    return root;
+}
