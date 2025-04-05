@@ -2,6 +2,7 @@
 #define BPLUSTREE_H
 
 #define MAX_ORDER 4
+#define MAX_FILE_NAME 128
 #define WARNING
 #define PRINT_TREE
 
@@ -17,7 +18,7 @@
 typedef struct
 {
     bool deleted;
-    char *filename;
+    char filename[MAX_FILE_NAME];
     long offset;
     long length;
 } FileInfor;
@@ -49,7 +50,7 @@ typedef struct
 /// @param offset
 /// @param length
 /// @return
-FileInfor buildFileInfor(char *filename, long offset, long length);
+FileInfor buildFileInfor(char filename[MAX_FILE_NAME], long offset, long length);
 
 /// @brief hàm dựng thông tin đc lưu trữ ở cây (với node lá), gồm thêm khoá tìm kiếm
 /// @param searchKey
@@ -97,5 +98,9 @@ void deleteInfor(BPlusTree *tree, int bKey, int searchKey);
 void printTree(BPlusTree *tree);
 void printNode(BPlusNode *node, int level);
 #endif
+
+/// @brief Free all memory used by the B+ tree
+/// @param tree The tree to free
+void freeBPlusTree(BPlusTree *tree);
 
 #endif
