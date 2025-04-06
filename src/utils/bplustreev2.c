@@ -322,8 +322,6 @@ Node *insertIntoLeafAfterSplitting(Node *root, Node *leaf, int key, Record *reco
     free(temp_keys);
 
     new_leaf->pointers[ORDER - 1] = leaf->pointers[ORDER - 1];
-
-    /// Linked-List purpose
     leaf->pointers[ORDER - 1] = new_leaf;
 
     for (i = leaf->num_keys; i < ORDER - 1; i++)
@@ -477,6 +475,13 @@ static void writeNode(FILE *fp, Node *node)
             Record *record = (Record *)node->pointers[i];
             fwrite(record, sizeof(Record), 1, fp);
         }
+        // Write next leaf pointer
+        bool has_next = (node->pointers[ORDER - 1] != NULL);
+        fwrite(&has_next, sizeof(bool), 1, fp);
+        if (has_next)
+        {
+            writeNode(fp, (Node *)node->pointers[ORDER - 1]);
+        }
     }
     else
     {
@@ -559,6 +564,31 @@ static Node *readNode(FILE *fp)
             }
             fread(record, sizeof(Record), 1, fp);
             node->pointers[i] = record;
+        }
+
+        // Read next leaf pointer if exists
+        bool has_next = false;
+        fread(&has_next, sizeof(bool), 1, fp);
+        if (has_next)
+        {
+            Node *next_leaf = readNode(fp);
+            if (!next_leaf)
+            {
+                // Clean up allocated memory
+                for (int j = 0; j < node->num_keys; j++)
+                {
+                    free((Record *)node->pointers[j]);
+                }
+                free(node->keys);
+                free(node->pointers);
+                free(node);
+                return NULL;
+            }
+            node->pointers[ORDER - 1] = next_leaf;
+        }
+        else
+        {
+            node->pointers[ORDER - 1] = NULL;
         }
     }
     else
