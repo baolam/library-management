@@ -7,7 +7,12 @@
     "span": "c",
     "variant": "c",
     "functional": "c",
-    "gtk.h": "c"
+    "gtk.h": "c",
+    "type_traits": "c",
+    "cstdlib": "c",
+    "management.h": "c",
+    "fake.h": "c",
+    "bookinfor.h": "c"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

@@ -9,14 +9,6 @@ void init_gui(int argc, char *argv[])
 
     gtk_init(&argc, &argv);
 
-<<<<<<< HEAD
-    /// Thêm từng file builder
-    builder = gtk_builder_new();
-    gtk_builder_add_from_file(builder, "ui/GUI/UI.glade", NULL);
-    // gtk_builder_add_from_file(builder, "ui/search-book.ui", NULL);
-
-    window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
-=======
     // Tải UI từ Glade
     builder = gtk_builder_new_from_file("ui/UI.glade");
     if (!builder)
@@ -27,7 +19,7 @@ void init_gui(int argc, char *argv[])
 
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
     notebook = GTK_NOTEBOOK(gtk_builder_get_object(builder, "visual"));
->>>>>>> 98c9b0f09a3372c5ccf277eb73001f7afb6bb0c6
+
 
     if (!window)
     {
