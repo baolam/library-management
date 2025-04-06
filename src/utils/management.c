@@ -50,6 +50,38 @@ void read_content_from_record(Record *record, void (*callback)(FILE *f, long pac
     __ext_rw_utilize(record, callback);
 }
 
+void read_bucket_content(Node *root, int beginingKey, int nums, void (*callback)(FILE *f, long package_size))
+{
+    Node *n = findLeaf(root, beginingKey);
+    if (n == NULL)
+    {
+        callback(NULL, 0);
+        return;
+    }
+
+    /// Edge case
+    int startSearch, i;
+    for (startSearch = 0; startSearch < n->num_keys; startSearch++)
+    {
+        if (n->keys[startSearch] < beginingKey)
+            continue;
+        else
+            break;
+    }
+
+    while (n != NULL && nums > 0)
+    {
+        for (i = startSearch; i < n->num_keys && nums > 0; i++)
+        {
+            Record *record = (Record *)n->pointers[i];
+            read_content_from_record(record, callback);
+            nums--;
+        }
+        startSearch = 0;
+        n = n->pointers[ORDER - 1];
+    }
+}
+
 void update_content(Node *root, int key, void (*callback)(FILE *f, long package_size))
 {
     __ext_read_write(root, key, callback);

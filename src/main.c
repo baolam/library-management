@@ -21,6 +21,7 @@ void readBook(FILE *f, long package_size)
     printf("Genre : %s\n", book1.genre);
     printf("Publication year : %d\n", book1.publicationYear);
     printf("Stock : %d\n", book1.stock);
+    printf("\n");
 }
 
 int main()
@@ -51,7 +52,7 @@ int main()
     Node *root = loadTree("dsa.bin");
     // printTree(root);
 
-    read_content(root, 15, readBook);
+    read_bucket_content(root, 5, 20, readBook);
     // printf("Exist record: %d\n", exist_record(root, 5));
 
     return 0;

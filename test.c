@@ -658,8 +658,10 @@ int main()
     root = insert(root, 25, 31);
     root = insert(root, 35, 41);
     root = insert(root, 45, 10);
+    root = insert(root, 10, 22);
 
     printTree(root);
 
-    findAndPrint(root, 15, instruction = 'a');
+    // findAndPrint(root, 15, instruction = 'a');
+    findAndPrintRange(root, 4, 45, false);
 }
