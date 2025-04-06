@@ -187,12 +187,14 @@ Node *insertIntoNodeAfterSplitting(Node *root, Node *old_node, int left_index, i
     temp_pointers = malloc((ORDER + 1) * sizeof(Node *));
     if (temp_pointers == NULL)
     {
+        perror("Temp_pointers null!");
         exit(EXIT_FAILURE);
     }
 
     temp_keys = malloc(ORDER * sizeof(int));
     if (temp_keys == NULL)
     {
+        perror("Temp error!");
         exit(EXIT_FAILURE);
     }
 
@@ -235,6 +237,7 @@ Node *insertIntoNodeAfterSplitting(Node *root, Node *old_node, int left_index, i
     }
 
     new_node->pointers[j] = temp_pointers[i];
+
     free(temp_pointers);
     free(temp_keys);
 
