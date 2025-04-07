@@ -42,9 +42,21 @@ void read_content_from_record(Record *record, void (*callback)(FILE *f, long pac
 /// @param callback
 void read_bucket_content(Node *root, int beginingKey, int nums, void (*callback)(FILE *f, long package_size));
 
+/// @brief Hàm cập nhật dữ liệu
+/// @param root
+/// @param key
+/// @param callback
 void update_content(Node *root, int key, void (*callback)(FILE *f, long package_size));
+
+/// @brief Hàm cập nhật dữ liệu, có sẵn Record
+/// @param record
+/// @param callback
 void update_content_from_record(Record *record, void (*callback)(FILE *f, long package_size));
 
+/// @brief Hàm xoá dữ liệu (xoá mềm, bản chất là xoá xử lí)
+/// @param root
+/// @param key
+/// @param callback
 void soft_delete(Node *root, int key, void (*callback)(int code));
 
 #endif
