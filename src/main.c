@@ -63,15 +63,15 @@ void onAddBook(int id, int code, long offset, long length)
 
 int main()
 {
-    // Node *root = NULL;
-    // char filename[MAX_FILE_NAME_LENGTH] = "data.bin";
-    // int id;
+    Node *root = NULL;
+    char filename[MAX_FILE_NAME_LENGTH] = "data.bin";
+    int id;
 
-    // for (id = 1; id <= 1000; id++)
-    // {
-    //     Book book = generate_book(id);
-    //     root = add_content(root, id, filename, &book, sizeof(Book), onAddBook);
-    // }
+    for (id = 1; id <= 2000; id++)
+    {
+        Book book = generate_book(id);
+        root = add_content(root, id, filename, &book, sizeof(Book), onAddBook);
+    }
 
     // FILE *f = fopen(filename, "rb");
     // if (f)
@@ -84,10 +84,10 @@ int main()
     // printTree(root);
 
     // printf("Saving\n");
-    // saveTree(root, "dsa.bin");
+    saveTree(root, "dsa.bin");
     // printf("Saved succesfully!\n");
 
-    Node *root = loadTree("dsa.bin");
+    // Node *root = loadTree("dsa.bin");
     // printTree(root);
 
     read_bucket_content(root, 5, 20, readBook);
