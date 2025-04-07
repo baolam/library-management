@@ -48,36 +48,49 @@ void readBook(FILE *f, long package_size)
     printf("\n");
 }
 
+void onAddBook(int id, int code, long offset, long length)
+{
+    printf("Id :%d, ", id);
+    if (code == ADD_CONTENT_FAILED)
+    {
+        printf("Failed to add\n");
+    }
+    else
+    {
+        printf("Offset : %ld, Length : %ld\n", offset, length);
+    }
+}
+
 int main()
 {
-    Node *root = NULL;
-    char filename[MAX_FILE_NAME_LENGTH] = "data.bin";
-    int id;
+    // Node *root = NULL;
+    // char filename[MAX_FILE_NAME_LENGTH] = "data.bin";
+    // int id;
 
-    FILE *f = fopen(filename, "wb");
+    // for (id = 1; id <= 1000; id++)
+    // {
+    //     Book book = generate_book(id);
+    //     root = add_content(root, id, filename, &book, sizeof(Book), onAddBook);
+    // }
 
-    for (id = 1; id <= 1000; id++)
-    {
-        Book book = generate_book(id);
-        long offset = ftell(f);
-        fwrite(&book, sizeof(Book), 1, f);
-        // printf("Id : %d, Offset : %ld, Length: %lld\n", id, offset, sizeof(Book));
-        Record *record = makeRecord(filename, offset, sizeof(Book));
-        root = insert(root, id, record);
-        printf("OKOK %d\n", id);
-    }
+    // FILE *f = fopen(filename, "rb");
+    // if (f)
+    // {
+    //     fseek(f, 0, SEEK_END);
+    //     printf("File final size: %ld bytes\n", ftell(f));
+    //     fclose(f);
+    // }
 
-    fclose(f);
     // printTree(root);
 
-    printf("Saving\n");
-    saveTree(root, "dsa.bin");
-    printf("Saved succesfully!\n");
+    // printf("Saving\n");
+    // saveTree(root, "dsa.bin");
+    // printf("Saved succesfully!\n");
 
-    // Node *root = loadTree("dsa.bin");
+    Node *root = loadTree("dsa.bin");
     // printTree(root);
 
-    // read_bucket_content(root, 5, 20, readBook);
+    read_bucket_content(root, 5, 20, readBook);
     // printf("Exist record: %d\n", exist_record(root, 5));
 
     // TrieNode *root = makeTrieNode();
