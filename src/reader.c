@@ -45,11 +45,11 @@ void search_reader_by_id(const char *id)
 
     read_content_from_record(record, show_reader_record);
 }
-void search_reader_by_name(const char *name, int maxNumbers)
+void search_reader_by_name(const char *prefix, int maxNumbers)
 {
     int recommend_size = 0;
     int recommend[maxNumbers];
-    recommendPrefix(reader_trie, name, maxNumbers, recommend, &recommend_size);
+    recommendPrefix(reader_trie, prefix, maxNumbers, recommend, &recommend_size);
     for (int i = 0; i < recommend_size; ++i)
     {
         char *name = recommend[i];
@@ -139,7 +139,7 @@ void update_reader_callback(FILE *f, long size)
     // fseek(f, 0, SEEK_SET);
     fwrite(&r, sizeof(Readers), 1, f);
 
-    printf("Update successful!\n");
+    printf("Update successful;y!\n");
 }
 
 void update_reader(Readers *reader)

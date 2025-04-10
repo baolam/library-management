@@ -27,7 +27,7 @@ typedef struct
 } Book;
 
 extern char book_management_file[MAX_FILE_NAME_LENGTH];
-extern char book_trie[MAX_FILE_NAME_LENGTH];
+extern char book_trie_management[MAX_FILE_NAME_LENGTH];
 extern char book_content_file[MAX_FILE_NAME_LENGTH];
 
 extern Node *book_management;
@@ -37,7 +37,7 @@ extern TrieNode *book_trie;
 void show_book(Book book);
 void add_book(Book *book);
 void delete_book(int id);
-void update_reader(Book *book);
+void update_book(Book *book);
 void search_book_by_id(int id);
 const search_book_by_title(const char *title, int maxNumbers);
 
