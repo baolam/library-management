@@ -135,7 +135,7 @@ void search_book_by_title(const char *prefix, int maxNumbers)
     int recommendSize = 0;
     char *recommend[maxNumbers];
 
-    recommendPrefix(book_trie, prefix, maxNumbers, recommend, &recommendSize);
+    recommendPrefix(book_trie, (char *)prefix, maxNumbers, recommend, &recommendSize);
     for (int i = 0; i < recommendSize; i++)
     {
         char *name = recommend[i];

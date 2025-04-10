@@ -15,7 +15,7 @@ void print_tree_keys(Node *root);
 
 void show_reader(Readers reader)
 {
-    printf("ID: %s\n", reader.readerId);
+    printf("ID: %d\n", reader.readerId);
     printf("Name: %s\n", reader.fullName);
     printf("Phone: %s\n", reader.phoneNumber);
     printf("Address: %s\n", reader.address);
@@ -47,8 +47,9 @@ void search_reader_by_id(int id)
 void search_reader_by_name(const char *name, int maxNumbers)
 {
     int recommend_size = 0;
-    char recommend[maxNumbers];
-    recommendPrefix(reader_trie, name, maxNumbers, recommend, &recommend_size);
+    char *recommend[maxNumbers];
+
+    recommendPrefix(reader_trie, (char *)name, maxNumbers, recommend, &recommend_size);
     for (int i = 0; i < recommend_size; ++i)
     {
         char *name = recommend[i];
@@ -62,6 +63,7 @@ void search_reader_by_name(const char *name, int maxNumbers)
         }
     }
 }
+
 void add_reader_callback(int id, int code, long offset, long length)
 {
     if (code == ADD_CONTENT_SUCCESS)

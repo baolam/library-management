@@ -144,9 +144,16 @@ void *read_content_from_record_return(Record *record, char content_file[MAX_FILE
     FILE *f = fopen(record->_from, "rb");
     if (f == NULL)
         return NULL;
+    void *buffer = malloc(size);
+    if (!buffer)
+        return NULL;
     fseek(f, record->offset, SEEK_SET);
-    void *content;
-    fread(content, size, 1, f);
+    if (fread(buffer, size, 1, f) != 1)
+    {
+        free(buffer);
+        fclose(f);
+        return NULL;
+    }
     fclose(f);
-    return content;
+    return buffer;
 }
