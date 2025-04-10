@@ -8,6 +8,13 @@ int charToIndex(char ch)
     return ch - 'a';
 }
 
+void toLowerCase(char *word)
+{
+    int i;
+    for (i = 0; i < strlen(word); i++)
+        word[i] = tolower(word[i]);
+}
+
 // Create a new Trie node
 TrieNode *makeTrieNode(void)
 {
@@ -73,13 +80,6 @@ bool existWord(TrieNode *root, char *word)
 {
     TrieNode *node = searchPrefix(root, word);
     return node != NULL && node->isEndOfWord;
-}
-
-void toLowerCase(char *word)
-{
-    int i;
-    for (i = 0; i < strlen(word); i++)
-        word[i] = tolower(word[i]);
 }
 
 // Insert word into trie
