@@ -1,7 +1,7 @@
 #include "books.h"
 
 char book_management_file[MAX_FILE_NAME_LENGTH] = "book_management.bin";
-char book_trie[MAX_FILE_NAME_LENGTH] = "book_trie.bin";
+char book_trie_management[MAX_FILE_NAME_LENGTH] = "book_trie.bin";
 char book_content_file[MAX_FILE_NAME_LENGTH] = "book.bin";
 
 Node *book_management = NULL;
@@ -109,4 +109,55 @@ void update_book(Book *book)
     }
 
     update_content_from_record(record, );
+}
+
+void show_book_record(FILE *f, long size)
+{
+    Book book;
+    fread(&book, sizeof(Book), 1, f);
+    show_book(book);
+}
+
+void search_book_by_id(int id)
+{
+    Record *record = find(book_management, id);
+    if (record == NULL || record->deleted)
+    {
+        printf("Reader with ID %s not found.\n", id);
+        return;
+    }
+
+    read_content_from_record(record, )
+}
+
+void search_book_by_title(const char *prefix, int maxNumbers)
+{
+    int recommendSize = 0;
+    char *recommend[maxNumbers];
+
+    recommendPrefix(book_trie, prefix, maxNumbers, recommend, &recommendSize);
+    for (int i = 0; i < recommendSize; i++)
+    {
+        char *name = recommend[i];
+        TrieNode *temp = searchWord(book_trie, name);
+        if (temp != NULL)
+        {
+            for (int j = 0; j < temp->numIds; j++)
+            {
+                search_book_by_id(temp->ids[j]);
+            }
+        }
+    }
+}
+
+Book *search_book(int id)
+{
+    Record *record = find(book_management, id);
+    if (record == NULL || record->deleted)
+    {
+        return NULL;
+    }
+
+    Book *book = (Book *)read_content_from_record_return(record, book_content_file, sizeof(Book));
+    return book;
 }
