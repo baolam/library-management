@@ -19,6 +19,7 @@ char *genres[] = {
 char management_file[MAX_FILE_NAME_LENGTH] = "book_management.bin";
 char management_name_file[MAX_FILE_NAME_LENGTH] = "book_name_management.bin";
 char content_file[MAX_FILE_NAME_LENGTH] = "book.bin";
+
 Node *book_management = NULL;
 
 Book generate_book(int id)
