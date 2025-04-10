@@ -6,7 +6,7 @@
 #define MAX_AUTHOR 50
 #define MAX_GENRE_NO 100
 
-#include <gtk/gtk.h>
+// #include <gtk/gtk.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -26,26 +26,28 @@ typedef struct
     int stock;
 } Book;
 
+extern char *titles[];
+extern char *authors[];
+extern char *genres[];
+
 extern char book_management_file[MAX_FILE_NAME_LENGTH];
-extern char book_trie[MAX_FILE_NAME_LENGTH];
 extern char book_content_file[MAX_FILE_NAME_LENGTH];
 
 extern Node *book_management;
-extern TrieNode *book_trie;
 
-// ===================== CRUD operations ========
+Book generate_book(int id);
 void show_book(Book book);
-void add_book(Book *book);
-void delete_book(int id);
-void update_reader(Book *book);
-void search_book_by_id(int id);
-const search_book_by_title(const char *title, int maxNumbers);
 
-// ====== Supporting for Reader management =====
-Book *search_book(int id);
-
-// ==== Persistence ===
+/// Lưu trữ vào file, load dữ liệu ra từ file
 void save_book_management();
 void load_book_management();
+
+/// Thêm, Sửa, Xoá, ...
+void add_book_stochastic(int total);
+void search_book_by_id(int id);
+
+/// CRUD
+void create_book(Book *book);
+void read_book(Book book);
 
 #endif

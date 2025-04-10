@@ -2,7 +2,6 @@
 
 #define TEST_READER
 #define DEBUG_MODE 0
-
 char reader_management_file[MAX_FILE_NAME_LENGTH] = "reader_management.bin";
 char reader_name_management_file[MAX_FILE_NAME_LENGTH] = "reader_name_management.bin";
 char reader_content_file[MAX_FILE_NAME_LENGTH] = "reader.bin";
@@ -30,25 +29,25 @@ void show_reader_record(FILE *f, long size)
     show_reader(r);
 }
 
-void search_reader_by_id(const char *id)
+void search_reader_by_id(int id)
 {
-    int key = atoi(id);
 #if DEBUG_MODE
-    printf("[DEBUG] Searching for ID = %s (key = %d)\n", id, key);
+    printf("[DEBUG] Searching for ID = %d\n", id);
 #endif
-    Record *record = find(reader_management, key);
+    Record *record = find(reader_management, id);
     if (record == NULL || record->deleted)
     {
-        printf("Reader with ID %s not found.\n", id);
+        printf("Reader with ID %d not found.\n", id);
         return;
     }
 
     read_content_from_record(record, show_reader_record);
 }
+
 void search_reader_by_name(const char *name, int maxNumbers)
 {
     int recommend_size = 0;
-    int recommend[maxNumbers];
+    char recommend[maxNumbers];
     recommendPrefix(reader_trie, name, maxNumbers, recommend, &recommend_size);
     for (int i = 0; i < recommend_size; ++i)
     {
@@ -77,16 +76,13 @@ void add_reader_callback(int id, int code, long offset, long length)
 
 void add_reader(Readers *r)
 {
-    int key = atoi(r->readerId);
+    int key = r->readerId;
 #if DEBUG_MODE
-    printf("[DEBUG] Adding reader ID = %s (key = %d)\n", r->readerId, key);
+    printf("[DEBUG] Adding reader ID = %d\n", key);
 #endif
 
     if (exist_record(reader_management, key))
     {
-#if DEBUG_MODE
-        printf("[DEBUG] Reader ID %d already exists in tree.\n", key);
-#endif
         printf("Reader ID already exists!\n");
         return;
     }
@@ -103,14 +99,7 @@ void add_reader(Readers *r)
     {
         reader_management = new_tree;
 #if DEBUG_MODE
-        printf("[DEBUG] Tree updated after add_content. Tree pointer: %p\n", (void *)reader_management);
         print_tree_keys(reader_management);
-#endif
-    }
-    else
-    {
-#if DEBUG_MODE
-        printf("[DEBUG] Tree not updated after add_content\n");
 #endif
     }
 
@@ -144,7 +133,7 @@ void update_reader_callback(FILE *f, long size)
 
 void update_reader(Readers *reader)
 {
-    int key = atoi(reader->readerId);
+    int key = (reader->readerId);
     Record *record = find(reader_management, key);
     if (record == NULL || record->deleted)
     {
@@ -171,11 +160,12 @@ void delete_reader_callback(int code)
     }
 }
 
-void delete_reader(const char *id)
+void delete_reader(int id)
 {
-    int key = atoi(id);
-    soft_delete(reader_management, key, delete_reader_callback);
+
+    soft_delete(reader_management, id, delete_reader_callback);
 }
+// ------------------- borrow / return -------------------
 
 // ------------------- Save / Load Tree -------------------
 
