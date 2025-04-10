@@ -44,6 +44,7 @@ void update_reader(Readers *reader);
 void delete_reader(int id);
 
 // ===== Persistence =====
+void preparate_reader();
 void save_reader_management();
 void load_reader_management();
 

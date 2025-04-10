@@ -33,7 +33,6 @@ extern char book_content_file[MAX_FILE_NAME_LENGTH];
 extern Node *book_management;
 extern TrieNode *book_trie;
 
-Book generate_book(int id);
 void show_book(Book book);
 void add_book(Book *book);
 void delete_book(int id);
@@ -42,15 +41,8 @@ void search_book_by_id(int id);
 void search_book_by_title(const char *prefix, int maxNumbers);
 
 /// Lưu trữ vào file, load dữ liệu ra từ file
+void preparate_book();
 void save_book_management();
 void load_book_management();
-
-/// Thêm, Sửa, Xoá, ...
-void add_book_stochastic(int total);
-void search_book_by_id(int id);
-
-/// CRUD
-void create_book(Book *book);
-void read_book(Book book);
 
 #endif

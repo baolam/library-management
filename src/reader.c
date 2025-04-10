@@ -2,9 +2,9 @@
 
 #define TEST_READER
 #define DEBUG_MODE 0
-char reader_management_file[MAX_FILE_NAME_LENGTH] = "reader_management.bin";
-char reader_name_management_file[MAX_FILE_NAME_LENGTH] = "reader_name_management.bin";
-char reader_content_file[MAX_FILE_NAME_LENGTH] = "reader.bin";
+char reader_management_file[MAX_FILE_NAME_LENGTH] = "data/reader/reader_management.bin";
+char reader_name_management_file[MAX_FILE_NAME_LENGTH] = "data/reader/reader_name_management.bin";
+char reader_content_file[MAX_FILE_NAME_LENGTH] = "data/reader/reader.bin";
 
 Node *reader_management = NULL;
 TrieNode *reader_trie = NULL;
@@ -170,6 +170,13 @@ void delete_reader(int id)
 // ------------------- borrow / return -------------------
 
 // ------------------- Save / Load Tree -------------------
+void preparate_reader()
+{
+    if (reader_trie == NULL)
+    {
+        reader_trie = makeTrieNode();
+    }
+}
 
 void save_reader_management()
 {

@@ -18,13 +18,13 @@ void test_trie_operations()
     printf("'test' exists: %d\n", existWord(root, "test"));
 
     printf("Saving trie to file...\n");
-    saveTree("trie.dat", root);
+    saveTrieTree("trie.dat", root);
 
     printf("Freeing trie...\n");
     freeTrie(root);
 
     printf("Loading trie from file...\n");
-    root = loadTree("trie.dat");
+    root = loadTrieTree("trie.dat");
 
     printf("Checking loaded trie...\n");
 
