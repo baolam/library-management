@@ -74,8 +74,11 @@ void read_bucket_content(Node *root, int beginingKey, int nums, void (*callback)
         for (i = startSearch; i < n->num_keys && nums > 0; i++)
         {
             Record *record = (Record *)n->pointers[i];
-            read_content_from_record(record, callback);
-            nums--;
+            if (!record->deleted)
+            {
+                read_content_from_record(record, callback);
+                nums--;
+            }
         }
         startSearch = 0;
         n = n->pointers[ORDER - 1];
@@ -129,7 +132,6 @@ Node *add_content(Node *root, int key, char content_file[MAX_FILE_NAME_LENGTH], 
     fwrite(content, size, 1, f);
     fclose(f);
 
-    // Record *record = makeRecord(content_file, offset, size);
     Node *temp = insert(root, key, content_file, offset, size);
 
     callback(key, ADD_CONTENT_SUCCESS, offset, size);

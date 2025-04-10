@@ -11,7 +11,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+
 #include "management.h"
+#include "trie.h"
 #include "bplustreev2.h"
 
 typedef struct

@@ -1,4 +1,5 @@
 #include "reader.h"
+
 #define TEST_READER
 #define DEBUG_MODE 0
 #define DELETE_SUCCESS 2
@@ -46,7 +47,25 @@ void search_reader_by_id(const char *id)
 
     read_content_from_record(record, show_reader_record);
 }
+void search_reader_by_name(const char *name, int maxNumbers)
+{
+    int recommendSize = 0;
+    char *recommend[maxNumbers];
 
+    recommendPrefix(reader_trie, name, maxNumbers, recommend, &recommendSize);
+    for (int i = 0; i < recommendSize; i++)
+    {
+        char *name = recommend[i];
+        TrieNode *temp = searchWord(reader_trie, name);
+        if (temp != NULL)
+        {
+            for (int j = 0; j < temp->numIds; j++)
+            {
+                search_reader_by_id(temp->ids[j]);
+            }
+        }
+    }
+}
 void add_reader_callback(int id, int code, long offset, long length)
 {
     if (code == ADD_CONTENT_SUCCESS)
@@ -114,11 +133,11 @@ void update_reader_callback(FILE *f, long size)
     fgets(r.phoneNumber, sizeof(r.phoneNumber), stdin);
     r.phoneNumber[strcspn(r.phoneNumber, "\n")] = 0;
 
-    printf("Enter new address: ");
+    printf("Enter new strcspnaddress: ");
     fgets(r.address, sizeof(r.address), stdin);
     r.address[strcspn(r.address, "\n")] = 0;
 
-    fseek(f, 0, SEEK_SET);
+    // fseek(f, 0, SEEK_SET);
     fwrite(&r, sizeof(Readers), 1, f);
 
     printf("Update successful!\n");
