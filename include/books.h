@@ -25,6 +25,7 @@ extern char *authors[];
 extern char *genres[];
 
 extern char management_file[MAX_FILE_NAME_LENGTH];
+extern char management_name_file[MAX_FILE_NAME_LENGTH];
 extern char content_file[MAX_FILE_NAME_LENGTH];
 
 extern Node *book_management;
