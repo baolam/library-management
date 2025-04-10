@@ -20,6 +20,7 @@ void init_gui(int argc, char *argv[])
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
     notebook = GTK_NOTEBOOK(gtk_builder_get_object(builder, "visual"));
 
+
     if (!window)
     {
         g_print("LỖI: Không tìm thấy Window trong Glade!\n");
