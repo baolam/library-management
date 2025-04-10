@@ -274,7 +274,7 @@ void saveTreeHelper(FILE *file, TrieNode *root)
     }
 }
 
-void saveTree(char *filename, TrieNode *root)
+void saveTrieTree(char *filename, TrieNode *root)
 {
     if (!root)
         return;
@@ -357,7 +357,7 @@ static TrieNode *loadTreeHelper(FILE *file)
 }
 
 // Load trie from file (binary format)
-TrieNode *loadTree(char *filename)
+TrieNode *loadTrieTree(char *filename)
 {
     FILE *file = fopen(filename, "rb");
     if (!file)
