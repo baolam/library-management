@@ -4,7 +4,7 @@
 #define BPLUSTREEV2_H
 
 #define PRINT_TREE
-#define ORDER 5
+#define ORDER 10
 #define MAX_FILE_NAME_LENGTH 128
 
 #ifdef PRINT_TREE
@@ -64,7 +64,7 @@ Node *insertIntoNodeAfterSplitting(Node *root, Node *old_node, int left_index, i
 Node *insertIntoNewRoot(Node *left, int key, Node *right);
 Node *insertIntoParent(Node *root, Node *left, int key, Node *right);
 Node *insertIntoLeafAfterSplitting(Node *root, Node *leaf, int key, Record *record);
-Node *insert(Node *root, int key, Record *record);
+Node *insert(Node *root, int key, char _from[MAX_FILE_NAME_LENGTH], long offset, long length);
 
 /// Phương thức lưu trữ
 void saveTree(Node *root, char *filename);

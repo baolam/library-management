@@ -8,10 +8,13 @@ Record *makeRecord(char _from[MAX_FILE_NAME_LENGTH], long offset, long length)
         perror("Record creation.");
         exit(EXIT_FAILURE);
     }
-    strcpy(record->_from, _from);
-    record->offset = offset;
-    record->length = length;
-    record->deleted = false;
+    else
+    {
+        strncpy(record->_from, _from, MAX_FILE_NAME_LENGTH);
+        record->offset = offset;
+        record->length = length;
+        record->deleted = false;
+    }
     return record;
 }
 
@@ -167,7 +170,7 @@ Node *insertIntoNode(Node *root, Node *n, int left_index, int key, Node *right)
     for (i = root->num_keys; i > left_index; i--)
     {
         n->pointers[i + 1] = n->pointers[i];
-        n->keys[i + 1] = n->keys[i];
+        n->keys[i] = n->keys[i - 1];
     }
 
     n->pointers[left_index + 1] = right;
@@ -187,12 +190,16 @@ Node *insertIntoNodeAfterSplitting(Node *root, Node *old_node, int left_index, i
     temp_pointers = malloc((ORDER + 1) * sizeof(Node *));
     if (temp_pointers == NULL)
     {
+        printf("Co null\n");
+        perror("Temp_pointers null!");
         exit(EXIT_FAILURE);
     }
 
     temp_keys = malloc(ORDER * sizeof(int));
     if (temp_keys == NULL)
     {
+        printf("Co null\n");
+        perror("Temp error!");
         exit(EXIT_FAILURE);
     }
 
@@ -235,6 +242,7 @@ Node *insertIntoNodeAfterSplitting(Node *root, Node *old_node, int left_index, i
     }
 
     new_node->pointers[j] = temp_pointers[i];
+
     free(temp_pointers);
     free(temp_keys);
 
@@ -251,7 +259,9 @@ Node *insertIntoNodeAfterSplitting(Node *root, Node *old_node, int left_index, i
 Node *insertIntoParent(Node *root, Node *left, int key, Node *right)
 {
     int left_index;
-    Node *parent = left->parent;
+    Node *parent;
+
+    parent = left->parent;
 
     if (parent == NULL)
         return insertIntoNewRoot(left, key, right);
@@ -266,11 +276,12 @@ Node *insertIntoParent(Node *root, Node *left, int key, Node *right)
 
 Node *insertIntoLeafAfterSplitting(Node *root, Node *leaf, int key, Record *record)
 {
+    Node *new_leaf;
     int *temp_keys;
     void **temp_pointers;
     int insertion_index, split, new_key, i, j;
 
-    Node *new_leaf = makeLeaf();
+    new_leaf = makeLeaf();
 
     temp_keys = malloc(ORDER * sizeof(int));
     if (temp_keys == NULL)
@@ -335,36 +346,45 @@ Node *insertIntoLeafAfterSplitting(Node *root, Node *leaf, int key, Record *reco
     return insertIntoParent(root, leaf, new_key, new_leaf);
 }
 
-Node *insert(Node *root, int key, Record *record)
+Node *insert(Node *root, int key, char _from[MAX_FILE_NAME_LENGTH], long offset, long length)
 {
     Record *record_pointer = NULL;
+    Node *leaf = NULL;
 
-    // printf("FINE\n");
     record_pointer = find(root, key);
-    // printf("NOT FINE\n");
 
     if (record_pointer != NULL)
     {
-        strcpy(record_pointer->_from, record->_from);
-        record_pointer->offset = record->offset;
-        record_pointer->length = record->length;
+        if (record_pointer->deleted)
+            return root;
+        strncpy(record_pointer->_from, _from, MAX_FILE_NAME_LENGTH);
+        record_pointer->offset = offset;
+        record_pointer->length = length;
         return root;
     }
+
+    record_pointer = makeRecord(_from, offset, length);
 
     if (root == NULL)
     {
         // printf("Loi day a\n");
-        return startNewTree(key, record);
+        return startNewTree(key, record_pointer);
     }
 
-    Node *leaf = findLeaf(root, key);
+    leaf = findLeaf(root, key);
+    if (leaf == NULL)
+    {
+        perror("NULL\n");
+        exit(EXIT_FAILURE);
+    }
+
     if (leaf->num_keys < ORDER - 1)
     {
-        leaf = insertIntoLeaf(leaf, key, record);
+        leaf = insertIntoLeaf(leaf, key, record_pointer);
         return root;
     }
 
-    return insertIntoLeafAfterSplitting(root, leaf, key, record);
+    return insertIntoLeafAfterSplitting(root, leaf, key, record_pointer);
 }
 
 #ifdef PRINT_TREE

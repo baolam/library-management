@@ -1,4 +1,4 @@
-#include "bookinfor.h"
+#include "books.h"
 
 char *titles[] = {
     "The Great Adventure", "Mystery of the Lost Island", "Science and Future",
@@ -15,6 +15,12 @@ char *authors[] = {
 char *genres[] = {
     "Fiction", "Mystery", "Science", "Adventure", "History", "Fantasy",
     "Programming", "Self-help", "Psychology", "Cooking", "Strategy", "Education"};
+
+char management_file[MAX_FILE_NAME_LENGTH] = "book_management.bin";
+char management_name_file[MAX_FILE_NAME_LENGTH] = "book_name_management.bin";
+char content_file[MAX_FILE_NAME_LENGTH] = "book.bin";
+
+Node *book_management = NULL;
 
 Book generate_book(int id)
 {
@@ -38,4 +44,57 @@ void show_book(Book book)
     printf("Book genere %s\n", book.genre);
     printf("Book publication year: %d\n", book.publicationYear);
     printf("Book stock: %d\n", book.stock);
+}
+
+void __showAddInfor(int id, int code, long offset, long length)
+{
+    printf("Id : %d, ", id);
+    if (code == ADD_CONTENT_FAILED)
+    {
+        printf("Failed to add!\n");
+    }
+    else
+    {
+        printf("Offset : %ld, Length : %ld\n", offset, length);
+    }
+}
+
+void save_book_management()
+{
+    saveTree(book_management, management_file);
+}
+
+void load_book_management()
+{
+    book_management = loadTree(management_file);
+}
+
+void add_book_stochastic(int total)
+{
+    int id;
+    for (id = 1; id <= total; id++)
+    {
+        Book book = generate_book(id);
+        book_management = add_content(book_management, id, content_file, &book, sizeof(Book), __showAddInfor);
+    }
+    save_book_management();
+}
+
+void on_search_book_by_id(FILE *f, long package_size)
+{
+    if (f == NULL)
+    {
+        printf("No data \n");
+        return;
+    }
+
+    Book book;
+    fread(&book, package_size, 1, f);
+
+    show_book(book);
+}
+
+void search_book_by_id(int id)
+{
+    read_content(book_management, id, on_search_book_by_id);
 }

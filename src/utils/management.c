@@ -74,8 +74,11 @@ void read_bucket_content(Node *root, int beginingKey, int nums, void (*callback)
         for (i = startSearch; i < n->num_keys && nums > 0; i++)
         {
             Record *record = (Record *)n->pointers[i];
-            read_content_from_record(record, callback);
-            nums--;
+            if (!record->deleted)
+            {
+                read_content_from_record(record, callback);
+                nums--;
+            }
         }
         startSearch = 0;
         n = n->pointers[ORDER - 1];
@@ -96,17 +99,43 @@ void soft_delete(Node *root, int key, void (*callback)(int code))
 {
     if (!exist_record(root, key))
     {
-        callback(0);
+        callback(DELETE_FAILED);
         return;
     }
 
     Record *record = find(root, key);
     if (record->deleted)
     {
-        callback(1);
+        callback(DELETE_EXISTED);
         return;
     }
 
     record->deleted = true;
-    callback(2);
+    callback(DELETE_SUCCESS);
+}
+
+Node *add_content(Node *root, int key, char content_file[MAX_FILE_NAME_LENGTH], void *content, size_t size, void (*callback)(int id, int code, long offset, long length))
+{
+    FILE *f = fopen(content_file, "rb+");
+    if (f == NULL)
+    {
+        f = fopen(content_file, "wb+");
+        if (f == NULL)
+        {
+            callback(key, ADD_CONTENT_FAILED, 0, 0);
+            return root;
+        }
+    }
+
+    fseek(f, 0, SEEK_END);
+    long offset = ftell(f);
+    fwrite(content, size, 1, f);
+    fclose(f);
+
+    // Record *record = makeRecord(content_file, offset, size);
+    Node *temp = insert(root, key, content_file, offset, size);
+
+    callback(key, ADD_CONTENT_SUCCESS, offset, size);
+
+    return temp;
 }
