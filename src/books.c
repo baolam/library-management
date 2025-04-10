@@ -1,14 +1,16 @@
 #include "books.h"
 
-char book_management_file[MAX_FILE_NAME_LENGTH] = "book_management.bin";
-char book_trie_management[MAX_FILE_NAME_LENGTH] = "book_trie.bin";
-char book_content_file[MAX_FILE_NAME_LENGTH] = "book.bin";
+char book_management_file[MAX_FILE_NAME_LENGTH] = "data/book/book_management.bin";
+char book_trie_management[MAX_FILE_NAME_LENGTH] = "data/book/book_trie.bin";
+char book_content_file[MAX_FILE_NAME_LENGTH] = "data/book/book.bin";
 
 Node *book_management = NULL;
 TrieNode *book_trie = NULL;
 
 void show_book(Book book)
 {
+    printf("===== Book Infor ===== \n");
+    printf("Id : %d\n", book.bookId);
     printf("Title: %s\n", book.title);
     printf("Author: %s\n", book.author);
     printf("Genre: %s\n", book.genre);
@@ -20,11 +22,11 @@ void add_book_callback(int id, int code, long offset, long length)
 {
     if (code == ADD_CONTENT_SUCCESS)
     {
-        printf("Successfully added!\n");
+        printf("Id : %d, Successfully added!\n", id);
     }
     else
     {
-        printf("Failed to add reader.\n");
+        printf("Id : %d, Failed to add reader.\n", id);
     }
 }
 
@@ -47,6 +49,8 @@ void add_book(Book *book)
     {
         book_management = new_tree;
     }
+
+    insertIntoTrie(book_trie, book->title, book->bookId);
 }
 
 void delete_book_callback(int code)
@@ -160,4 +164,24 @@ Book *search_book(int id)
 
     Book *book = (Book *)read_content_from_record_return(record, book_content_file, sizeof(Book));
     return book;
+}
+
+void preparate_book()
+{
+    if (book_trie == NULL)
+    {
+        book_trie = makeTrieNode();
+    }
+}
+
+void save_book_management()
+{
+    saveTree(book_management, book_management_file);
+    saveTrieTree(book_trie_management, book_trie);
+}
+
+void load_book_management()
+{
+    book_management = loadTree(book_management_file);
+    book_trie = loadTrieTree(book_trie_management);
 }
