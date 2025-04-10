@@ -146,10 +146,16 @@ void search_book_by_title(const char *prefix, int maxNumbers)
         TrieNode *temp = searchWord(book_trie, name);
         if (temp != NULL)
         {
-            for (int j = 0; j < temp->numIds; j++)
+            for (int j = 0; j < temp->numIds && maxNumbers > 0; j++)
             {
-                search_book_by_id(temp->ids[j]);
+                if (exist_record(book_management, temp->ids[j]))
+                {
+                    search_book_by_id(temp->ids[j]);
+                    maxNumbers--;
+                }
             }
+            if (maxNumbers == 0)
+                break;
         }
     }
 }
@@ -180,8 +186,28 @@ void save_book_management()
     saveTrieTree(book_trie_management, book_trie);
 }
 
+void getInfor(int *total, int *deleted)
+{
+}
+
 void load_book_management()
 {
     book_management = loadTree(book_management_file);
+    if (book_management == NULL)
+    {
+        printf("Failed to load B+ Tree management!\n");
+    }
+    else
+    {
+        printf("Load B+ Tree management successfully!\n");
+    }
     book_trie = loadTrieTree(book_trie_management);
+    if (book_trie == NULL)
+    {
+        printf("Failed to load Trie management!\n");
+    }
+    else
+    {
+        printf("Load Trie management successfully!\n");
+    }
 }
