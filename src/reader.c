@@ -128,7 +128,7 @@ void update_reader_callback(FILE *f, long size)
     // fseek(f, 0, SEEK_SET);
     fwrite(&r, sizeof(Readers), 1, f);
 
-    printf("Update successful!\n");
+    printf("Update successful;y!\n");
 }
 
 void update_reader(Readers *reader)

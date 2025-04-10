@@ -31,12 +31,18 @@ extern char *authors[];
 extern char *genres[];
 
 extern char book_management_file[MAX_FILE_NAME_LENGTH];
+extern char book_trie_management[MAX_FILE_NAME_LENGTH];
 extern char book_content_file[MAX_FILE_NAME_LENGTH];
 
 extern Node *book_management;
 
 Book generate_book(int id);
 void show_book(Book book);
+void add_book(Book *book);
+void delete_book(int id);
+void update_book(Book *book);
+void search_book_by_id(int id);
+void search_book_by_title(const char *prefix, int maxNumbers);
 
 /// Lưu trữ vào file, load dữ liệu ra từ file
 void save_book_management();

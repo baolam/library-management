@@ -138,3 +138,15 @@ Node *add_content(Node *root, int key, char content_file[MAX_FILE_NAME_LENGTH], 
 
     return temp;
 }
+
+void *read_content_from_record_return(Record *record, char content_file[MAX_FILE_NAME_LENGTH], size_t size)
+{
+    FILE *f = fopen(record->_from, "rb");
+    if (f == NULL)
+        return NULL;
+    fseek(f, record->offset, SEEK_SET);
+    void *content;
+    fread(content, size, 1, f);
+    fclose(f);
+    return content;
+}
