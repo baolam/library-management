@@ -1,22 +1,35 @@
 #ifndef TRIE_H
 #define TRIE_H
 
+/**
+ * Trie structure for word storage and retrieval with multiple IDs per word
+ *
+ * Features:
+ * - Stores words with case insensitivity
+ * - Supports multiple IDs per word
+ * - Dynamic memory allocation for ID storage
+ * - Serialization/deserialization to binary files
+ * - Memory efficient structure
+ *
+ * Note: Each word can be associated with multiple integer IDs
+ *       IDs are stored in dynamically resized arrays
+ */
+
 #define ALPHABET_SIZE 27
 #define MAX_CHAR_LENGTH 50
-#define BASE 52
 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
-// #include <gmp.h>
 #include <ctype.h>
 
 typedef struct TrieNode
 {
-    struct TrieNode *children[ALPHABET_SIZE];
-    bool isEndOfWord;
-    int id;
+    struct TrieNode *children[ALPHABET_SIZE]; // Child nodes for each alphabet character
+    bool isEndOfWord;                         // Marks end of a complete word
+    int numIds;                               // Number of IDs associated with this node
+    int *ids;                                 // Array of IDs (max MAX_IDS) for this word
 } TrieNode;
 
 /// Hàm tiện ích
@@ -24,7 +37,7 @@ int charToIndex(char ch);
 // void hashWord(mpz_t result, char *word);
 
 TrieNode *searchPrefix(TrieNode *root, char *prefix);
-
+TrieNode *searchWord(TrieNode *root, char *word);
 TrieNode *makeTrieNode(void);
 
 /// Một số phương thức quản lí
