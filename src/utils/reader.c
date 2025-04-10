@@ -1,12 +1,6 @@
 #include "reader.h"
 #define TEST_READER
 #define DEBUG_MODE 0
-#define DELETE_SUCCESS 2
-#define DELETE_EXISTED 1
-#define DELETE_FAILED 0
-
-#define ADD_CONTENT_FAILED 0
-#define ADD_CONTENT_SUCCESS 1
 char reader_management_file[MAX_FILE_NAME_LENGTH] = "reader_management.bin";
 char reader_content_file[MAX_FILE_NAME_LENGTH] = "reader.bin";
 
@@ -48,17 +42,16 @@ void search_reader_by_id(const char *id)
 }
 void search_reader_by_name(const char *name, int maxNumbers)
 {
-    int recommendSize = 0;
-    char *recommend[maxNumbers];
-
-    recommendPrefix(reader_trie, name, maxNumbers, recommend, &recommendSize);
-    for (int i = 0; i < recommendSize; i++)
+    int recommend_size = 0;
+    int recommend[maxNumbers];
+    recommendPrefix(reader_trie, name, maxNumbers, recommend, &recommend_size);
+    for (int i = 0; i < recommend_size; ++i)
     {
         char *name = recommend[i];
         TrieNode *temp = searchWord(reader_trie, name);
         if (temp != NULL)
         {
-            for (int j = 0; j < temp->numIds; j++)
+            for (int j = 0; temp->numIds; ++j)
             {
                 search_reader_by_id(temp->ids[j]);
             }
