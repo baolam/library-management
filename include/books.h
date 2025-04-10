@@ -3,21 +3,42 @@
 #define FOLDER "books"
 
 #include <gtk/gtk.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include "management.h"
+#include "bplustreev2.h"
 
 typedef struct
 {
-    int bookId;
-    char title[50];
-    char author[50];
-    char genre[10];
+    char bookId[20];
+    char title[100];
+    char author[100];
+    char genre[50];
     int publicationYear;
     int stock;
 } Book;
 
-/// @brief Thêm từ khoá on trước để ám chỉ sẽ lấy thông tin
-/// từ giao diện
-void on_created_new_book(GtkButton *submit, gpointer user_input);
-void on_update_book();
-void on_delete_book();
+extern char *titles[];
+extern char *authors[];
+extern char *genres[];
+
+extern char management_file[MAX_FILE_NAME_LENGTH];
+extern char management_name_file[MAX_FILE_NAME_LENGTH];
+extern char content_file[MAX_FILE_NAME_LENGTH];
+
+extern Node *book_management;
+
+Book generate_book(int id);
+void show_book(Book book);
+
+/// Lưu trữ vào file, load dữ liệu ra từ file
+void save_book_management();
+void load_book_management();
+
+/// Thêm, Sửa, Xoá, ...
+void add_book_stochastic(int total);
+void search_book_by_id(int id);
 
 #endif

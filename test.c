@@ -10,6 +10,10 @@
 
 typedef struct record
 {
+    char _from[50];
+    long offset;
+    long length;
+    bool deleted;
     int value;
 } record;
 
@@ -45,7 +49,7 @@ node *findLeaf(node *const root, int key, bool verbose);
 record *find(node *root, int key, bool verbose, node **leaf_out);
 int cut(int length);
 
-record *makeRecord(int value);
+record *makeRecord(int value, char _from[50], long offset, long length);
 node *makeNode(void);
 node *makeLeaf(void);
 int getLeftIndex(node *parent, node *left);
@@ -343,7 +347,7 @@ int cut(int length)
         return length / 2 + 1;
 }
 
-record *makeRecord(int value)
+record *makeRecord(int value, char _from[50], long offset, long length)
 {
     record *new_record = (record *)malloc(sizeof(record));
     if (new_record == NULL)
@@ -353,6 +357,9 @@ record *makeRecord(int value)
     }
     else
     {
+        strncpy(new_record->_from, _from, 50);
+        new_record->offset = offset;
+        new_record->length = length;
         new_record->value = value;
     }
     return new_record;
@@ -630,7 +637,7 @@ node *insert(node *root, int key, int value)
         return root;
     }
 
-    record_pointer = makeRecord(value);
+    record_pointer = makeRecord(value, (char *)"haha.bin", 0, 0);
 
     if (root == NULL)
         return startNewTree(key, record_pointer);
@@ -648,20 +655,20 @@ node *insert(node *root, int key, int value)
 
 int main()
 {
+    int id;
     node *root;
     char instruction;
 
     root = NULL;
 
-    root = insert(root, 5, 33);
-    root = insert(root, 15, 21);
-    root = insert(root, 25, 31);
-    root = insert(root, 35, 41);
-    root = insert(root, 45, 10);
-    root = insert(root, 10, 22);
+    for (id = 1; id <= 1000; id++)
+    {
+        root = insert(root, id, id);
+        printf("OKOK %d \n", id);
+    }
 
-    printTree(root);
+    // printTree(root);
 
     // findAndPrint(root, 15, instruction = 'a');
-    findAndPrintRange(root, 4, 45, false);
+    // findAndPrintRange(root, 4, 45, false);
 }
