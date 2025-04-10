@@ -1,8 +1,11 @@
 #include "gui.h"
-#include "bplustreev2.h"
-#include "bookinfor.h"
-#include "management.h"
-#include "trie.h"
+#include <books.h>
+
+/// QUản lí
+/// CRUD
+/// THêm dữ liệu vào file, đọc dữ liệu, cập nhật, xoá
+
+/// VIết search
 
 //// Giả sử có ông làm về sách
 /// Data/book
@@ -27,88 +30,10 @@
 /// H (Hahhahha, Hehahh, Bbaggfkm, H) --> những cuốn sách có tên bắt đầu bằng chữ cái đó
 /// Cây Trie (), H --> DFS (duyệt)
 
-void readBook(FILE *f, long package_size)
-{
-    if (f == NULL || package_size == 0)
-    {
-        printf("Failed to read data!\n");
-        return;
-    }
-
-    Book book1;
-    fread(&book1, package_size, 1, f);
-
-    printf("Book infor:\n");
-    printf("Id : %s\n", book1.bookId);
-    printf("Title : %s\n", book1.title);
-    printf("Author : %s\n", book1.author);
-    printf("Genre : %s\n", book1.genre);
-    printf("Publication year : %d\n", book1.publicationYear);
-    printf("Stock : %d\n", book1.stock);
-    printf("\n");
-}
-
-void onAddBook(int id, int code, long offset, long length)
-{
-    printf("Id :%d, ", id);
-    if (code == ADD_CONTENT_FAILED)
-    {
-        printf("Failed to add\n");
-    }
-    else
-    {
-        printf("Offset : %ld, Length : %ld\n", offset, length);
-    }
-}
-
 int main()
 {
-    Node *root = NULL;
-    char filename[MAX_FILE_NAME_LENGTH] = "data.bin";
-    int id;
-
-    for (id = 1; id <= 2000; id++)
-    {
-        Book book = generate_book(id);
-        root = add_content(root, id, filename, &book, sizeof(Book), onAddBook);
-    }
-
-    // FILE *f = fopen(filename, "rb");
-    // if (f)
-    // {
-    //     fseek(f, 0, SEEK_END);
-    //     printf("File final size: %ld bytes\n", ftell(f));
-    //     fclose(f);
-    // }
-
-    // printTree(root);
-
-    // printf("Saving\n");
-    saveTree(root, "dsa.bin");
-    // printf("Saved succesfully!\n");
-
-    // Node *root = loadTree("dsa.bin");
-    // printTree(root);
-
-    read_bucket_content(root, 5, 20, readBook);
-    // printf("Exist record: %d\n", exist_record(root, 5));
-
-    // TrieNode *root = makeTrieNode();
-    // insertIntoTrie(root, "Science Fiction Book");
-    // insertIntoTrie(root, "Book");
-    // insertIntoTrie(root, "Hello world");
-    // insertIntoTrie(root, "Hello Friend");
-
-    // char *results[5];
-    // int recommendSize = 0;
-
-    // recommendPrefix(root, "he", 5, results, &recommendSize);
-
-    // int i;
-    // for (i = 0; i < recommendSize; i++)
-    // {
-    //     printf("%s\n", results[i]);
-    // }
-
+    // add_book_stochastic(100);
+    load_book_management();
+    search_book_by_id(5);
     return 0;
 }
