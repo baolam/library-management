@@ -11,7 +11,7 @@ void show_book(Book book)
 {
     printf("Title: %s\n", book.title);
     printf("Author: %s\n", book.author);
-    printf("Publisher: %s\n", book.publisher);
+    printf("Genre: %s\n", book.genre);
     printf("Year: %d\n", book.publicationYear);
     printf("Stock: %d\n", book.stock);
 }
@@ -75,7 +75,7 @@ void update_book_callback(FILE *f, long package)
     Book book;
     fread(&book, sizeof(Book), 1, f);
     printf("Current information: \n");
-    show_book();
+    show_book(book);
 
     printf("Enter title:\n");
     fgets(book.title, sizeof(book.title), stdin);
@@ -90,7 +90,7 @@ void update_book_callback(FILE *f, long package)
     book.genre[strcspn(book.genre, "\n")] = 0;
 
     printf("Enter publication year:\n");
-    scanf("%d", &book.publication_year);
+    scanf("%d", &book.publicationYear);
 
     printf("Enter stock:\n");
     scanf("%d", &book.stock);
@@ -108,7 +108,7 @@ void update_book(Book *book)
         return;
     }
 
-    update_content_from_record(record, );
+    update_content_from_record(record, update_book_callback);
 }
 
 void show_book_record(FILE *f, long size)
@@ -123,11 +123,11 @@ void search_book_by_id(int id)
     Record *record = find(book_management, id);
     if (record == NULL || record->deleted)
     {
-        printf("Reader with ID %s not found.\n", id);
+        printf("Reader with ID %d not found.\n", id);
         return;
     }
 
-    read_content_from_record(record, )
+    read_content_from_record(record, show_book_record);
 }
 
 void search_book_by_title(const char *prefix, int maxNumbers)
