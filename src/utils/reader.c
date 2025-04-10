@@ -1,4 +1,5 @@
 #include "reader.h"
+
 #define TEST_READER
 #define DEBUG_MODE 0
 #define DELETE_SUCCESS 2
