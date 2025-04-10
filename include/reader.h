@@ -29,13 +29,15 @@ extern Node *reader_management;
 extern TrieNode *reader_trie;
 
 // ===== CRUD operations =====
-void show_reader(Readers reader);         // Hiển thị thông tin người đọc
-void add_reader(Readers *reader);         // Thêm người đọc
-void search_reader_by_id(const char *id); // Tìm người đọc theo ID
-void update_reader(Readers *reader);      // Cập nhật người đọc
-void delete_reader(const char *id);       // Xóa người đọc
+void show_reader(Readers reader);                             // Hiển thị thông tin người đọc
+void add_reader(Readers *reader);                             // Thêm người đọc
+void search_reader_by_id(const char *id);                     // Tìm người đọc theo ID
+void search_reader_by_name(const char *name, int maxNumbers); // Tìm người đọc theo tên
+void update_reader(Readers *reader);                          // Cập nhật người đọc
+void delete_reader(const char *id);                           // Xóa người đọc
 
 // ===== Persistence =====
 void save_reader_management(); // Lưu cây
+void load_reader_management(); // Đọc cây
 
 #endif // READERS_H

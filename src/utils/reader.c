@@ -46,7 +46,25 @@ void search_reader_by_id(const char *id)
 
     read_content_from_record(record, show_reader_record);
 }
+void search_reader_by_name(const char *name, int maxNumbers)
+{
+    int recommendSize = 0;
+    char *recommend[maxNumbers];
 
+    recommendPrefix(reader_trie, name, maxNumbers, recommend, &recommendSize);
+    for (int i = 0; i < recommendSize; i++)
+    {
+        char *name = recommend[i];
+        TrieNode *temp = searchWord(reader_trie, name);
+        if (temp != NULL)
+        {
+            for (int j = 0; j < temp->numIds; j++)
+            {
+                search_reader_by_id(temp->ids[j]);
+            }
+        }
+    }
+}
 void add_reader_callback(int id, int code, long offset, long length)
 {
     if (code == ADD_CONTENT_SUCCESS)
