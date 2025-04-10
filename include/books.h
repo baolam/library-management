@@ -41,6 +41,9 @@ void update_reader(Book *book);
 void search_book_by_id(int id);
 const search_book_by_title(const char *title, int maxNumbers);
 
+// ====== Supporting for Reader management =====
+Book *search_book(int id);
+
 // ==== Persistence ===
 void save_book_management();
 void load_book_management();
