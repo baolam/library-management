@@ -35,6 +35,7 @@ void read_content(Node *root, int key, void (*callback)(FILE *f, long package_si
 /// @param callback
 void read_content_from_record(Record *record, void (*callback)(FILE *f, long package_size));
 
+void *read_content_from_record_return(Record *record, char content_file[MAX_FILE_NAME_LENGTH], size_t size);
 /// @brief Đọc nums số lượng bản ghi
 /// @param root
 /// @param beginingKey
