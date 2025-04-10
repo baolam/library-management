@@ -8,15 +8,15 @@ int charToIndex(char ch)
     return ch - 'a';
 }
 
-void hashWord(mpz_t result, char *word)
-{
-    mpz_set_ui(result, 0);
-    for (int i = 0; i < strlen(word); i++)
-    {
-        mpz_mul_ui(result, result, BASE);
-        mpz_add_ui(result, result, charToIndex(word[i]));
-    }
-}
+// void hashWord(mpz_t result, char *word)
+// {
+//     mpz_set_ui(result, 0);
+//     for (int i = 0; i < strlen(word); i++)
+//     {
+//         mpz_mul_ui(result, result, BASE);
+//         mpz_add_ui(result, result, charToIndex(word[i]));
+//     }
+// }
 
 // Create a new Trie node
 TrieNode *makeTrieNode(void)
@@ -29,7 +29,8 @@ TrieNode *makeTrieNode(void)
         {
             node->children[i] = NULL;
         }
-        mpz_init(node->id);
+        // mpz_init(node->id);
+        node->id = -1;
     }
     return node;
 }
@@ -71,7 +72,7 @@ void toLowerCase(char *word)
 }
 
 // Insert word into trie
-void insertIntoTrie(TrieNode *root, char *word)
+void insertIntoTrie(TrieNode *root, char *word, int id)
 {
     /// Make sure lowercase
     char lower[MAX_CHAR_LENGTH];
@@ -90,7 +91,8 @@ void insertIntoTrie(TrieNode *root, char *word)
     }
 
     current->isEndOfWord = true;
-    hashWord(current->id, word);
+    // hashWord(current->id, word);
+    current->id = id;
 }
 
 // Helper function to remove word recursively
@@ -184,4 +186,110 @@ void recommendPrefix(TrieNode *root, char *prefix, int maxRecommend,
 
     char buffer[MAX_CHAR_LENGTH];
     findWords(node, prefix, buffer, 0, recommend, recommendSize, maxRecommend);
+}
+
+// Free entire trie structure recursively
+void freeTrie(TrieNode *root)
+{
+    if (!root)
+        return;
+
+    // Recursively free all children
+    for (int i = 0; i < ALPHABET_SIZE; i++)
+    {
+        if (root->children[i])
+        {
+            freeTrie(root->children[i]);
+        }
+    }
+
+    // Free current node
+    free(root);
+}
+
+// Save trie to file (binary format)
+void saveTree(char *filename, TrieNode *root)
+{
+    if (!root)
+        return;
+
+    FILE *file = fopen(filename, "wb");
+    if (!file)
+        return;
+
+    // Write node data
+    fwrite(&root->isEndOfWord, sizeof(bool), 1, file);
+    fwrite(&root->id, sizeof(int), 1, file);
+
+    // Write children markers and recurse
+    for (int i = 0; i < ALPHABET_SIZE; i++)
+    {
+        bool hasChild = (root->children[i] != NULL);
+        fwrite(&hasChild, sizeof(bool), 1, file);
+
+        if (hasChild)
+        {
+            saveTree(filename, root->children[i]);
+        }
+    }
+
+    fclose(file);
+}
+
+// Helper function for loading trie
+static TrieNode *loadTreeHelper(FILE *file)
+{
+    if (!file)
+        return NULL;
+
+    TrieNode *root = makeTrieNode();
+    if (!root)
+        return NULL;
+
+    // Read node data
+    if (fread(&root->isEndOfWord, sizeof(bool), 1, file) != 1)
+    {
+        freeTrie(root);
+        return NULL;
+    }
+    if (fread(&root->id, sizeof(int), 1, file) != 1)
+    {
+        freeTrie(root);
+        return NULL;
+    }
+
+    // Read and reconstruct children
+    for (int i = 0; i < ALPHABET_SIZE; i++)
+    {
+        bool hasChild;
+        if (fread(&hasChild, sizeof(bool), 1, file) != 1)
+        {
+            freeTrie(root);
+            return NULL;
+        }
+
+        if (hasChild)
+        {
+            root->children[i] = loadTreeHelper(file);
+            if (!root->children[i])
+            {
+                freeTrie(root);
+                return NULL;
+            }
+        }
+    }
+
+    return root;
+}
+
+// Load trie from file (binary format)
+TrieNode *loadTree(char *filename)
+{
+    FILE *file = fopen(filename, "rb");
+    if (!file)
+        return NULL;
+
+    TrieNode *root = loadTreeHelper(file);
+    fclose(file);
+    return root;
 }

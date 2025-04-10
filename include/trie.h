@@ -9,19 +9,19 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <gmp.h>
+// #include <gmp.h>
 #include <ctype.h>
 
 typedef struct TrieNode
 {
     struct TrieNode *children[ALPHABET_SIZE];
     bool isEndOfWord;
-    mpz_t id;
+    int id;
 } TrieNode;
 
 /// Hàm tiện ích
 int charToIndex(char ch);
-void hashWord(mpz_t result, char *word);
+// void hashWord(mpz_t result, char *word);
 
 TrieNode *searchPrefix(TrieNode *root, char *prefix);
 
@@ -31,8 +31,12 @@ TrieNode *makeTrieNode(void);
 bool existPrefix(TrieNode *root, char *prefix);
 bool existWord(TrieNode *root, char *word);
 
-void insertIntoTrie(TrieNode *root, char *words);
+void insertIntoTrie(TrieNode *root, char *words, int id);
 void removeWord(TrieNode *root, char *word);
 void recommendPrefix(TrieNode *root, char *prefix, int maxRecommend, char **recommend, int *recommendSize);
+
+void freeTrie(TrieNode *root);
+void saveTree(char *filename, TrieNode *root);
+TrieNode *loadTree(char *filename);
 
 #endif

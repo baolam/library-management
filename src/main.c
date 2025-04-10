@@ -33,7 +33,16 @@
 int main()
 {
     // add_book_stochastic(100);
-    load_book_management();
-    search_book_by_id(5);
+    // load_book_management();
+    // search_book_by_id(5);
+    Node *root = NULL;
+    int id;
+    char filename[MAX_FILE_NAME_LENGTH] = "haha.bin";
+    for (id = 1; id <= 100000; id++)
+    {
+        root = insert(root, id, filename, 0, 0);
+        printf("Id : %d\n", id);
+    }
+
     return 0;
 }
