@@ -39,7 +39,7 @@ void add_book(Book *book);
 void delete_book(int id);
 void update_book(Book *book);
 void search_book_by_id(int id);
-const search_book_by_title(const char *title, int maxNumbers);
+void search_book_by_title(const char *prefix, int maxNumbers);
 
 // ====== Supporting for Reader management =====
 Book *search_book(int id);
