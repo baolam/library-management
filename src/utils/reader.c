@@ -170,7 +170,7 @@ void delete_reader(const char *id)
 void save_reader_management()
 {
     saveTree(reader_management, reader_management_file);
-    saveTrieTree(reader_management_name_file, reader_trie);
+    saveTrieTree(reader_name_management_file, reader_trie);
 }
 
 void load_reader_management()
@@ -195,7 +195,25 @@ void load_reader_management()
         reader_management = NULL;
     }
 
-    reader_trie = loadTrieTree(reader_management_name_file);
+    file = fopen(reader_name_management_file);
+    if (file == NULL)
+    {
+#if DEBUG_MODE
+        printf("No existing tree found. Starting new.\n");
+#endif
+        reader_management = NULL;
+        return;
+    }
+    fclose(file);
+
+    reader_trie = loadTrieTree(reader_name_management_file);
+    if (reader_trie == NULL)
+    {
+#if DEBUG_MODE
+        printf("Failed to load tree. Initializing new.\n");
+#endif
+        reader_trie = NULL;
+    }
 }
 
 void print_tree_keys(Node *root)
