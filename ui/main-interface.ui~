@@ -104,6 +104,7 @@
                 <property name="width-request">200</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <signal name="clicked" handler="on_opened_book" swapped="no"/>
                 <child>
                   <placeholder/>
                 </child>
