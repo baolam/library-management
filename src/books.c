@@ -1,100 +1,58 @@
 #include "books.h"
 
-char *titles[] = {
-    "The Great Adventure", "Mystery of the Lost Island", "Science and Future",
-    "A Journey to the Stars", "The Secret of the Old Castle", "Beyond the Horizon",
-    "Programming in C", "Data Structures & Algorithms", "History of Ancient Civilizations",
-    "The Art of War", "Mastering Chess", "Cooking for Beginners", "Psychology and Mind",
-    "The Road to Success", "Artificial Intelligence Basics"};
-
-char *authors[] = {
-    "John Smith", "Alice Johnson", "Robert Brown", "Emily Davis", "William Wilson",
-    "Sophia Martinez", "James Anderson", "Olivia Taylor", "Michael Thomas",
-    "Elizabeth White", "David Harris", "Emma Clark", "Daniel Lewis", "Lucas Walker"};
-
-char *genres[] = {
-    "Fiction", "Mystery", "Science", "Adventure", "History", "Fantasy",
-    "Programming", "Self-help", "Psychology", "Cooking", "Strategy", "Education"};
-
-char management_file[MAX_FILE_NAME_LENGTH] = "book_management.bin";
-char management_name_file[MAX_FILE_NAME_LENGTH] = "book_name_management.bin";
-char content_file[MAX_FILE_NAME_LENGTH] = "book.bin";
-
-Node *book_management = NULL;
-
-Book generate_book(int id)
+void create_book_callback(int id, int code, long offset, long length)
 {
-    Book _bookInfor;
-    sprintf(_bookInfor.bookId, "%06d", id); // Format: 000001 - 999999
-    strcpy(_bookInfor.title, titles[rand() % 15]);
-    strcpy(_bookInfor.author, authors[rand() % 14]);
-    strcpy(_bookInfor.genre, genres[rand() % 12]);
-    _bookInfor.publicationYear = rand() % 35 + 1990;
-    _bookInfor.stock = rand() % 50 + 1;
-
-    return _bookInfor;
-}
-
-void show_book(Book book)
-{
-    printf("----------------------------\n");
-    printf("Book ID: %s\n", book.bookId);
-    printf("Book title: %s\n", book.title);
-    printf("Book author: %s\n", book.author);
-    printf("Book genere %s\n", book.genre);
-    printf("Book publication year: %d\n", book.publicationYear);
-    printf("Book stock: %d\n", book.stock);
-}
-
-void __showAddInfor(int id, int code, long offset, long length)
-{
-    printf("Id : %d, ", id);
-    if (code == ADD_CONTENT_FAILED)
+    if (code == ADD_CONTENT_SUCCESS)
     {
-        printf("Failed to add!\n");
+        printf("Book ID %d create successfully!\n", id);
     }
     else
     {
-        printf("Offset : %ld, Length : %ld\n", offset, length);
+        printf("Failed to add book ID %d.\n", id);
     }
 }
 
-void save_book_management()
+void create_book(Book *book)
 {
-    saveTree(book_management, management_file);
-}
+    int key = book->bookId;
 
-void load_book_management()
-{
-    book_management = loadTree(management_file);
-}
-
-void add_book_stochastic(int total)
-{
-    int id;
-    for (id = 1; id <= total; id++)
+    if (exist_record(book_management, key))
     {
-        Book book = generate_book(id);
-        book_management = add_content(book_management, id, content_file, &book, sizeof(Book), __showAddInfor);
-    }
-    save_book_management();
-}
-
-void on_search_book_by_id(FILE *f, long package_size)
-{
-    if (f == NULL)
-    {
-        printf("No data \n");
+        printf("Book ID %d already exists!\n", key);
         return;
     }
 
-    Book book;
-    fread(&book, package_size, 1, f);
+    Node *new_tree = add_content(
+        book_management,  // gốc cây B+
+        key,              // khoá chính (bookId)
+        content_file,     // file lưu nội dung sách
+        book,             // con trỏ đến struct Book
+        sizeof(Book),     // kích thước
+        add_book_callback // callback
+    );
 
-    show_book(book);
+    if (new_tree != NULL)
+    {
+        book_management = new_tree;
+    }
 }
 
-void search_book_by_id(int id)
+void search_book_by_id(const char *id)
 {
-    read_content(book_management, id, on_search_book_by_id);
+    int key = atoi(id);
+    Record *book_found = find(book_management, key);
+
+    if (book_found == NULL || book_found->deleted)
+    {
+        printf("Book with ID %s not found.\n", id);
+        return;
+    }
+
+    read_content_from_record(book_found, read_book)
+}
+
+void read_book(FILE *f, long size)
+{
+    Book b;
+    fread(&b, sizeof(Book), 1, f);
 }
