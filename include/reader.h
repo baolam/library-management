@@ -24,7 +24,9 @@ typedef struct
 extern char reader_management_file[MAX_FILE_NAME_LENGTH];
 extern char reader_management_name_file[MAX_FILE_NAME_LENGTH];
 extern char reader_content_file[MAX_FILE_NAME_LENGTH];
+
 extern Node *reader_management;
+extern TrieNode *reader_trie;
 
 // ===== CRUD operations =====
 void show_reader(Readers reader);         // Hiển thị thông tin người đọc

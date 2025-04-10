@@ -13,6 +13,8 @@ char reader_name_management_file[MAX_FILE_NAME_LENGTH] = "reader_name_management
 char reader_content_file[MAX_FILE_NAME_LENGTH] = "reader.bin";
 
 Node *reader_management = NULL;
+TrieNode *reader_trie = NULL;
+
 void print_tree_keys(Node *root);
 
 // ------------------- CRUD FUNCTIONS -------------------
@@ -84,6 +86,8 @@ void add_reader(Readers *r)
         r,
         sizeof(Readers),
         add_reader_callback);
+
+    insertIntoTrie(reader_trie, r->fullName, r->readerId);
 
     if (new_tree != NULL)
     {
@@ -166,6 +170,7 @@ void delete_reader(const char *id)
 void save_reader_management()
 {
     saveTree(reader_management, reader_management_file);
+    saveTree(reader_name_management_file, reader_trie);
 }
 
 void load_reader_management()
@@ -189,6 +194,8 @@ void load_reader_management()
 #endif
         reader_management = NULL;
     }
+
+    reader_trie = loadTree(reader_management_name_file);
 }
 
 void print_tree_keys(Node *root)
