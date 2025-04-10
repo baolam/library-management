@@ -146,10 +146,16 @@ void search_book_by_title(const char *prefix, int maxNumbers)
         TrieNode *temp = searchWord(book_trie, name);
         if (temp != NULL)
         {
-            for (int j = 0; j < temp->numIds; j++)
+            for (int j = 0; j < temp->numIds && maxNumbers > 0; j++)
             {
-                search_book_by_id(temp->ids[j]);
+                if (exist_record(book_management, temp->ids[j]))
+                {
+                    search_book_by_id(temp->ids[j]);
+                    maxNumbers--;
+                }
             }
+            if (maxNumbers == 0)
+                break;
         }
     }
 }
