@@ -40,6 +40,9 @@ void update_book(Book *book);
 void search_book_by_id(int id);
 void search_book_by_title(const char *prefix, int maxNumbers);
 
+/// Phục vụ cho nhóm nhiệm vụ mượn, trả sách
+Book *search_book(int id);
+
 /// Lưu trữ vào file, load dữ liệu ra từ file
 void preparate_book();
 void save_book_management();
