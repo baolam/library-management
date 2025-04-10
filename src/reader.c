@@ -2,6 +2,7 @@
 
 #define TEST_READER
 #define DEBUG_MODE 0
+
 char reader_management_file[MAX_FILE_NAME_LENGTH] = "reader_management.bin";
 char reader_name_management_file[MAX_FILE_NAME_LENGTH] = "reader_name_management.bin";
 char reader_content_file[MAX_FILE_NAME_LENGTH] = "reader.bin";

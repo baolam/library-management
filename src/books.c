@@ -1,58 +1,50 @@
 #include "books.h"
 
-void create_book_callback(int id, int code, long offset, long length)
+char book_management_file[MAX_FILE_NAME_LENGTH] = "book_management.bin";
+char book_trie[MAX_FILE_NAME_LENGTH] = "book_trie.bin";
+char book_content_file[MAX_FILE_NAME_LENGTH] = "book.bin";
+
+Node *book_management = NULL;
+TrieNode *book_trie = NULL;
+
+void show_book(Book book)
+{
+    printf("Title: %s\n", book.title);
+    printf("Author: %s\n", book.author);
+    printf("Publisher: %s\n", book.publisher);
+    printf("Year: %d\n", book.publicationYear);
+    printf("Stock: %d\n", book.stock);
+}
+
+void add_book_callback(int id, int code, long offset, long length)
 {
     if (code == ADD_CONTENT_SUCCESS)
     {
-        printf("Book ID %d create successfully!\n", id);
+        printf("Successfully added!\n");
     }
     else
     {
-        printf("Failed to add book ID %d.\n", id);
+        printf("Failed to add reader.\n");
     }
 }
 
-void create_book(Book *book)
+void add_book(Book *book)
 {
-    int key = book->bookId;
-
-    if (exist_record(book_management, key))
+    if (exist_record(book_management, book->bookId))
     {
-        printf("Book ID %d already exists!\n", key);
         return;
     }
 
     Node *new_tree = add_content(
-        book_management,  // gốc cây B+
-        key,              // khoá chính (bookId)
-        content_file,     // file lưu nội dung sách
-        book,             // con trỏ đến struct Book
-        sizeof(Book),     // kích thước
-        add_book_callback // callback
-    );
+        book_management,
+        book->bookId,
+        book_content_file,
+        book,
+        sizeof(Book),
+        add_book_callback);
 
     if (new_tree != NULL)
     {
         book_management = new_tree;
     }
-}
-
-void search_book_by_id(const char *id)
-{
-    int key = atoi(id);
-    Record *book_found = find(book_management, key);
-
-    if (book_found == NULL || book_found->deleted)
-    {
-        printf("Book with ID %s not found.\n", id);
-        return;
-    }
-
-    read_content_from_record(book_found, read_book)
-}
-
-void read_book(FILE *f, long size)
-{
-    Book b;
-    fread(&b, sizeof(Book), 1, f);
 }
