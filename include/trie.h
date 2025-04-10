@@ -1,20 +1,6 @@
 #ifndef TRIE_H
 #define TRIE_H
 
-/**
- * Trie structure for word storage and retrieval with multiple IDs per word
- *
- * Features:
- * - Stores words with case insensitivity
- * - Supports multiple IDs per word
- * - Dynamic memory allocation for ID storage
- * - Serialization/deserialization to binary files
- * - Memory efficient structure
- *
- * Note: Each word can be associated with multiple integer IDs
- *       IDs are stored in dynamically resized arrays
- */
-
 #define ALPHABET_SIZE 27
 #define MAX_CHAR_LENGTH 50
 

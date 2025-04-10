@@ -74,8 +74,11 @@ void read_bucket_content(Node *root, int beginingKey, int nums, void (*callback)
         for (i = startSearch; i < n->num_keys && nums > 0; i++)
         {
             Record *record = (Record *)n->pointers[i];
-            read_content_from_record(record, callback);
-            nums--;
+            if (!record->deleted)
+            {
+                read_content_from_record(record, callback);
+                nums--;
+            }
         }
         startSearch = 0;
         n = n->pointers[ORDER - 1];
