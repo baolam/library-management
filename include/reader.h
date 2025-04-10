@@ -37,5 +37,6 @@ void delete_reader(const char *id);       // Xóa người đọc
 
 // ===== Persistence =====
 void save_reader_management(); // Lưu cây
+void load_reader_management(); // Đọc cây
 
 #endif // READERS_H
