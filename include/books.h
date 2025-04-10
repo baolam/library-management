@@ -28,8 +28,8 @@ extern char *titles[];
 extern char *authors[];
 extern char *genres[];
 
-extern char management_file[MAX_FILE_NAME_LENGTH];
-extern char content_file[MAX_FILE_NAME_LENGTH];
+extern char book_management_file[MAX_FILE_NAME_LENGTH];
+extern char book_content_file[MAX_FILE_NAME_LENGTH];
 
 extern Node *book_management;
 
@@ -43,5 +43,9 @@ void load_book_management();
 /// Thêm, Sửa, Xoá, ...
 void add_book_stochastic(int total);
 void search_book_by_id(int id);
+
+/// CRUD
+void create_book(Book *book);
+void read_book(Book book);
 
 #endif

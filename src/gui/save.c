@@ -1,6 +1,7 @@
 #include "gui.h"
 #include "save.h"
 #include "create.h"
+#include "books.h"
 
 void save_button_clicked(GtkButton *button, gpointer user_data){
     GtkBuilder *builder = GTK_BUILDER(user_data);
@@ -20,14 +21,6 @@ void save_button_clicked(GtkButton *button, gpointer user_data){
     Book book = createBook(entry_title, entry_author, entry_id,
                            entry_genre, entry_stock, entry_pcy);
 
-    FILE *f = fopen("book_infor.txt", "a");
-
-    fprintf(f, "%d, %s, %s, %d, %d", book.bookId, book.title,
-             book.author, book.publicationYear, book.stock);
-    for(int num = 0; num < MAX_GENRE_NO; num++){
-        fprintf(f, ", %s", book.genre[num]);
-    }
-    fprintf(f, "\n");
-
-    fclose(f);
+    create_book(&book);
+    
 }
