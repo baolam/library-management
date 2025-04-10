@@ -22,7 +22,7 @@ typedef struct
 
 // Biến toàn cục quản lý file và cây B+
 extern char reader_management_file[MAX_FILE_NAME_LENGTH];
-extern char reader_management_name_file[MAX_FILE_NAME_LENGTH];
+extern char reader_name_management_file[MAX_FILE_NAME_LENGTH];
 extern char reader_content_file[MAX_FILE_NAME_LENGTH];
 
 extern Node *reader_management;

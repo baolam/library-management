@@ -35,7 +35,7 @@ void removeWord(TrieNode *root, char *word);
 void recommendPrefix(TrieNode *root, char *prefix, int maxRecommend, char **recommend, int *recommendSize);
 
 void freeTrie(TrieNode *root);
-void saveTree(char *filename, TrieNode *root);
-TrieNode *loadTree(char *filename);
+void saveTrieTree(char *filename, TrieNode *root);
+TrieNode *loadTrieTree(char *filename);
 
 #endif

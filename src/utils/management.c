@@ -132,7 +132,6 @@ Node *add_content(Node *root, int key, char content_file[MAX_FILE_NAME_LENGTH], 
     fwrite(content, size, 1, f);
     fclose(f);
 
-    // Record *record = makeRecord(content_file, offset, size);
     Node *temp = insert(root, key, content_file, offset, size);
 
     callback(key, ADD_CONTENT_SUCCESS, offset, size);
