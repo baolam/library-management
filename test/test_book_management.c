@@ -28,6 +28,16 @@ void showListBook()
 
 void getRecommend()
 {
+    int maxNumbers;
+    char prefix[100] = "The";
+    // printf("Enter prefix: \n");
+    // fgets(prefix, sizeof(prefix), stdin);
+    // prefix[strcspn(prefix, "\n")] = 0;
+    printf("Enter max numbers:");
+    scanf("%d", &maxNumbers);
+    printf("Prefix search : %s \n", prefix);
+    search_book_by_title(prefix, maxNumbers);
+    printf("\n");
 }
 
 int main()
@@ -35,7 +45,7 @@ int main()
     // Create a new book
     srand(time(NULL));
 
-    int totalBooks = 100;
+    int totalBooks = 200;
     int id;
 
     preparate_book();
@@ -67,10 +77,13 @@ int main()
     printf("Generate book successfully!\n");
 
     printf("Save data!\n");
-    save_book_management();
+    if (skipCode == 0)
+    {
+        save_book_management();
+    }
     printf("Save data successfully!\n");
 
-    printf("Load data!:\n");
+    printf("Load data!\n");
     load_book_management();
     printf("Load data successfully!\n");
 
@@ -90,9 +103,16 @@ int main()
         case 2:
             showListBook();
             break;
+        case 3:
+            getRecommend();
+            break;
         default:
             break;
         }
     } while (menu != 0);
+
+    printf("Check exist word!\n");
+    bool exist1 = existPrefix(book_trie, "the");
+    printf("Exist word: %d\n", exist1);
     return 0;
 }

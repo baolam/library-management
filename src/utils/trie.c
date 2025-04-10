@@ -33,11 +33,15 @@ TrieNode *searchPrefix(TrieNode *root, char *prefix)
         return NULL;
     }
 
+    char lower[MAX_CHAR_LENGTH];
+    strcpy(lower, prefix);
+    toLowerCase(lower);
+
     TrieNode *current = root;
 
-    for (int i = 0; prefix[i] != '\0'; i++)
+    for (int i = 0; lower[i] != '\0'; i++)
     {
-        int index = charToIndex(prefix[i]);
+        int index = charToIndex(lower[i]);
         if (!current || !current->children[index])
         {
             return NULL;
