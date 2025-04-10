@@ -4,8 +4,7 @@
 
 #define MAX_TITLE 50
 #define MAX_AUTHOR 50
-#define MAX_GENRE_NO 10
-#define MAX_GENRE_LENGTH 10
+#define MAX_GENRE_NO 100
 
 #include <gtk/gtk.h>
 #include <stdio.h>
@@ -18,9 +17,9 @@
 typedef struct
 {
     int bookId;
-    char title[50];
-    char author[50];
-    char genre[10];
+    char title[MAX_TITLE];
+    char author[MAX_AUTHOR];
+    char genre[MAX_GENRE_NO];
     int publicationYear;
     int stock;
 } Book;
