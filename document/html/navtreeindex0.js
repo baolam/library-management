@@ -1,0 +1,24 @@
+var NAVTREEINDEX0 =
+{
+"annotated.html":[0,0],
+"books_8h_source.html":[1,0,0,0],
+"bplustreev2_8h_source.html":[1,0,0,1],
+"callbacks_8h_source.html":[1,0,0,2],
+"classes.html":[0,1],
+"dir_d44c64559bbebec7f509842c48db8b23.html":[1,0,0],
+"fake_8h_source.html":[1,0,0,3],
+"files.html":[1,0],
+"gui_8h_source.html":[1,0,0,4],
+"index.html":[],
+"management_8h_source.html":[1,0,0,5],
+"pages.html":[],
+"reader_8h_source.html":[1,0,0,6],
+"statistic_8h_source.html":[1,0,0,7],
+"struct_book.html":[0,0,0],
+"struct_borrow_return.html":[0,0,1],
+"struct_node.html":[0,0,2],
+"struct_readers.html":[0,0,3],
+"struct_record.html":[0,0,4],
+"struct_trie_node.html":[0,0,5],
+"trie_8h_source.html":[1,0,0,8]
+};

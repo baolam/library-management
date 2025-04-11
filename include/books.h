@@ -36,7 +36,7 @@ extern TrieNode *book_trie;
 void show_book(Book book);
 void add_book(Book *book);
 void delete_book(int id);
-void update_book(Book *book);
+void update_book(int id);
 void search_book_by_id(int id);
 void search_book_by_title(const char *prefix, int maxNumbers);
 

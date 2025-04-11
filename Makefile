@@ -2,6 +2,8 @@ SRC_DIR = src
 OBJ_DIR = compile
 INC_DIR = include
 TEST_DIR = test
+DOXYFILE = Doxyfile
+DOCUMENT_DIR = document
 
 # Tìm tất cả file .c trong SRC_DIR và TEST_DIR
 SRCS = $(shell find $(SRC_DIR) -type f -name "*.c")
@@ -34,6 +36,10 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 TEST_EXES = $(patsubst $(TEST_DIR)/%.c, $(TEST_DIR)/%.exe, $(TEST_SRCS))
 TEST_OBJS = $(filter-out $(OBJ_DIR)/main.o, $(OBJS))
 
+doc:
+	doxygen $(DOXYFILE)
+	@echo "Đã tạo tài liệu tại document/html"
+
 # Build tất cả file test
 test: $(TEST_EXES)
 
@@ -45,4 +51,4 @@ $(TEST_DIR)/%.exe: $(TEST_DIR)/%.c $(TEST_OBJS)
 # Clean
 # ====================================
 clean:
-	rm -rf $(OBJ_DIR) $(TARGET) $(TEST_EXES)
+	rm -rf $(OBJ_DIR) $(TARGET) $(TEST_EXES) $(DOCUMENT)

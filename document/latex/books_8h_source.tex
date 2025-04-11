@@ -1,0 +1,55 @@
+\doxysection{books.\+h}
+\hypertarget{books_8h_source}{}\label{books_8h_source}\index{include/books.h@{include/books.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BOOKS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BOOKS\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ FOLDER\ "{}books"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ MAX\_TITLE\ 50}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MAX\_AUTHOR\ 50}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ MAX\_GENRE\_NO\ 100}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ \#include\ <gtk/gtk.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}management.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}trie.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}bplustreev2.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ bookId;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{char}\ title[MAX\_TITLE];}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{char}\ author[MAX\_AUTHOR];}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{char}\ genre[MAX\_GENRE\_NO];}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ publicationYear;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ stock;}
+\DoxyCodeLine{00027\ \}\ \mbox{\hyperlink{struct_book}{Book}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ book\_management\_file[MAX\_FILE\_NAME\_LENGTH];}
+\DoxyCodeLine{00030\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ book\_trie\_management[MAX\_FILE\_NAME\_LENGTH];}
+\DoxyCodeLine{00031\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ book\_content\_file[MAX\_FILE\_NAME\_LENGTH];}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_node}{Node}}\ *book\_management;}
+\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *book\_trie;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ show\_book(\mbox{\hyperlink{struct_book}{Book}}\ book);}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ add\_book(\mbox{\hyperlink{struct_book}{Book}}\ *book);}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ delete\_book(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ update\_book(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ search\_book\_by\_id(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ search\_book\_by\_title(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *prefix,\ \textcolor{keywordtype}{int}\ maxNumbers);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \mbox{\hyperlink{struct_book}{Book}}\ *search\_book(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ preparate\_book();}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ save\_book\_management();}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ load\_book\_management();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
