@@ -34,6 +34,7 @@ typedef struct Node
 } Node;
 
 Record *makeRecord(char _from[MAX_FILE_NAME_LENGTH], long offset, long length);
+Node *leftMost(Node *root);
 Node *makeNode(void);
 Node *makeLeaf(void);
 
