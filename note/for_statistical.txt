@@ -1,0 +1,13 @@
+"Làm sao quản lí genre hiệu quả?"
+--> Sắp xếp, dùng BST (Phải tự cài đặt)
+
+--> Không cần sắp xếp
+--> Dùng mảng (lưu trữ số), nghĩ một cách nào đó để chuyển từ genre sang số ?
+
+/// Science f(loại sách) --> số tương ứng (đã có trong generes)
+/// --> Đây là bài toán gì, tìm kiếm vị trí chuỗi trong mảng (), so sánh chuỗi (strcmp)
+/// Switch/Case
+/// Science --> 1
+
+/// a[1]++
+/// a[5]++
