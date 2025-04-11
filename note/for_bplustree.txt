@@ -1,0 +1,22 @@
+Visualization https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html
+B+ Tree Program: https://www.programiz.com/dsa/b-plus-tree
+
+Linked List
+{
+    next --> trỏ con trỏ tiếp theo
+}
+
+Leaf 
+{
+    pointers[vị trí cuối] --> Node tiếp theo
+    /// vị trí cuối, ORDER - 1
+}
+
+{
+
+}
+
+/// numKeys --> số lượng record
+/// Lặp tới tận numKeys, pointers, (ép kiểu Record), void * --> no-cast pointer (trỏ vô kiểu), 
+/// Record -?-> Book, đọc, (cách đọc)
+/// Record, dùng để lưu trữ thông tin vị trí trong file nội dung

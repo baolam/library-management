@@ -1,0 +1,57 @@
+\doxysection{reader.\+h}
+\hypertarget{reader_8h_source}{}\label{reader_8h_source}\index{include/reader.h@{include/reader.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ READERS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ READERS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ USER\_FOLDER\ "{}readers"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{books_8h}{books.h}}>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{management_8h}{management.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{trie_8h}{trie.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bplustreev2_8h}{bplustreev2.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ Struct\ đại\ diện\ cho\ người\ đọc}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ readerId;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Đổi\ từ\ char[]\ sang\ int}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{char}\ fullName[100];\ \ \ \textcolor{comment}{//\ Tên\ đầy\ đủ}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{char}\ phoneNumber[15];\ \textcolor{comment}{//\ Số\ điện\ thoại}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{char}\ address[100];\ \ \ \ \textcolor{comment}{//\ Địa\ chỉ}}
+\DoxyCodeLine{00021\ \}\ \mbox{\hyperlink{struct_readers}{Readers}};}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ Struct\ đại\ diện\ mượn\ trả,\ số\ lượng\ sách}}
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ bookId;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ readerId;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ quantity;}
+\DoxyCodeLine{00028\ \}\ \mbox{\hyperlink{struct_borrow_return}{BorrowReturn}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ Biến\ toàn\ cục\ quản\ lý\ file\ và\ cây}}
+\DoxyCodeLine{00031\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ reader\_management\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];}
+\DoxyCodeLine{00032\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ reader\_name\_management\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];}
+\DoxyCodeLine{00033\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ reader\_content\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_node}{Node}}\ *reader\_management;}
+\DoxyCodeLine{00036\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *reader\_trie;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ =====\ CRUD\ operations\ =====}}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ show\_reader(\mbox{\hyperlink{struct_readers}{Readers}}\ reader);}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ add\_reader(\mbox{\hyperlink{struct_readers}{Readers}}\ *reader);}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ search\_reader\_by\_id(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ search\_reader\_by\_name(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,\ \textcolor{keywordtype}{int}\ maxNumbers);}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ update\_reader(\mbox{\hyperlink{struct_readers}{Readers}}\ *reader);}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ delete\_reader(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ =====\ Persistence\ =====}}
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ preparate\_reader();}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ save\_reader\_management();}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ load\_reader\_management();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ READERS\_H}}
+
+\end{DoxyCode}

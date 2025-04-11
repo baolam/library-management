@@ -56,6 +56,16 @@ Node *makeLeaf(void)
     return leaf;
 }
 
+Node *leftMost(Node *root)
+{
+    Node *temp = root;
+    while (!temp->is_leaf)
+    {
+        temp = (Node *)temp->pointers[0];
+    }
+    return (Node *)temp;
+}
+
 Node *findLeaf(Node *root, int key)
 {
     if (root == NULL)
