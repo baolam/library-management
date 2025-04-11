@@ -1,0 +1,5 @@
+001 "Lập trình C" "Nguyễn Văn A" "Kỹ thuật" 2023 10
+002 "Lập trình Java" "Trần Thị B" "Kỹ thuật" 2022 5
+001 "Sample Book" "Author" "Genre" 2023 1
+001 "Sample Book" "Author" "Genre" 2023 1
+001 "Sample Book" "Author" "Genre" 2023 1
