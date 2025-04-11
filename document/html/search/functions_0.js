@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cut_0',['cut',['../bplustreev2_8h.html#a86db5400d85b6d57c364eada43fce324',1,'bplustreev2.h']]]
+  ['add_5fcontent_0',['add_content',['../management_8h.html#a8bf6c338f76f959eb131d2a9695125d6',1,'management.h']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['insert_0',['insert',['../bplustreev2_8h.html#af8204e72519be4ff883be1e6ac9beb82',1,'bplustreev2.h']]]
+  ['find_0',['find',['../bplustreev2_8h.html#a0e4ed69811cf4058e1e0f7a311fc627d',1,'bplustreev2.h']]],
+  ['findleaf_1',['findLeaf',['../bplustreev2_8h.html#ac539c35415e0bb03d619917198332b53',1,'bplustreev2.h']]]
 ];

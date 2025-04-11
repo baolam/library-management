@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['delete_5fbook_0',['delete_book',['../books_8h.html#a92647df5ddb986901e8113a8ce3f1e3e',1,'books.c']]]
+  ['cut_0',['cut',['../bplustreev2_8h.html#a86db5400d85b6d57c364eada43fce324',1,'bplustreev2.h']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update_5fbook_0',['update_book',['../books_8h.html#a3a2c8d018662acf1c6ca6857a9bb7f86',1,'books.c']]]
+  ['preparate_5fbook_0',['preparate_book',['../books_8h.html#a95fe8318b6aff05328ee79cfd9e63b67',1,'books.c']]]
 ];
