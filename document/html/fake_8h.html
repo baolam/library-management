@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="vi">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Library management: include/fake.h File Tham chiếu</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Library management<span id="projectnumber">&#160;v1</span>
+   </div>
+   <div id="projectbrief">Quản lí thư viện</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Tìm kiếm" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Được biên soạn bởi Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('fake_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Định nghĩa</a> &#124;
+<a href="#func-members">Các hàm</a> &#124;
+<a href="#var-members">Các biến</a>  </div>
+  <div class="headertitle"><div class="title">fake.h File Tham chiếu</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Những hàm sinh dữ liệu cơ bản, ngẫu nhiên phục vụ cho vấn đề của nhóm.  
+<a href="#details">Tiếp...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="books_8h_source.html">books.h</a>&quot;</code><br />
+<code>#include &quot;reader.h&quot;</code><br />
+</div>
+<p><a href="fake_8h_source.html">Tới mã nguồn của file này.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Định nghĩa</h2></td></tr>
+<tr class="memitem:a69b7a2d67e969d3e0921f3f23d1947f2" id="r_a69b7a2d67e969d3e0921f3f23d1947f2"><td class="memItemLeft" align="right" valign="top"><a id="a69b7a2d67e969d3e0921f3f23d1947f2" name="a69b7a2d67e969d3e0921f3f23d1947f2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TOTAL_GENRE</b>&#160;&#160;&#160;12</td></tr>
+<tr class="memdesc:a69b7a2d67e969d3e0921f3f23d1947f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thể loại sách tối đa. <br /></td></tr>
+<tr class="separator:a69b7a2d67e969d3e0921f3f23d1947f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Các hàm</h2></td></tr>
+<tr class="memitem:a040361527a1381944cb306a9c158087a" id="r_a040361527a1381944cb306a9c158087a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_book.html">Book</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a040361527a1381944cb306a9c158087a">generate_book</a> (int id)</td></tr>
+<tr class="memdesc:a040361527a1381944cb306a9c158087a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sinh dữ liệu <a class="el" href="struct_book.html" title="Cấu trúc dữ liệu cho một cuốn sách.">Book</a>.  <br /></td></tr>
+<tr class="separator:a040361527a1381944cb306a9c158087a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac45ef0c5a4bf3468b95ac25ee16a4b9a" id="r_ac45ef0c5a4bf3468b95ac25ee16a4b9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_readers.html">Readers</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac45ef0c5a4bf3468b95ac25ee16a4b9a">generate_reader</a> (int id)</td></tr>
+<tr class="memdesc:ac45ef0c5a4bf3468b95ac25ee16a4b9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sinh dữ liệu Reader.  <br /></td></tr>
+<tr class="separator:ac45ef0c5a4bf3468b95ac25ee16a4b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Các biến</h2></td></tr>
+<tr class="memitem:a7e28b32b579982a2ed278b80adcdd492" id="r_a7e28b32b579982a2ed278b80adcdd492"><td class="memItemLeft" align="right" valign="top"><a id="a7e28b32b579982a2ed278b80adcdd492" name="a7e28b32b579982a2ed278b80adcdd492"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><b>titles</b> []</td></tr>
+<tr class="memdesc:a7e28b32b579982a2ed278b80adcdd492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiêu đề của sách. <br /></td></tr>
+<tr class="separator:a7e28b32b579982a2ed278b80adcdd492"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fe287a488cbea8ccb168bf09a1973c4" id="r_a8fe287a488cbea8ccb168bf09a1973c4"><td class="memItemLeft" align="right" valign="top"><a id="a8fe287a488cbea8ccb168bf09a1973c4" name="a8fe287a488cbea8ccb168bf09a1973c4"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><b>authors</b> []</td></tr>
+<tr class="memdesc:a8fe287a488cbea8ccb168bf09a1973c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tên tác giả <br /></td></tr>
+<tr class="separator:a8fe287a488cbea8ccb168bf09a1973c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea973a51ee2bdf1588de4f7324c727cd" id="r_aea973a51ee2bdf1588de4f7324c727cd"><td class="memItemLeft" align="right" valign="top"><a id="aea973a51ee2bdf1588de4f7324c727cd" name="aea973a51ee2bdf1588de4f7324c727cd"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><b>genres</b> [<a class="el" href="#a69b7a2d67e969d3e0921f3f23d1947f2">TOTAL_GENRE</a>]</td></tr>
+<tr class="memdesc:aea973a51ee2bdf1588de4f7324c727cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thể loại sách. <br /></td></tr>
+<tr class="separator:aea973a51ee2bdf1588de4f7324c727cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Mô tả chi tiết</h2>
+<div class="textblock"><p>Những hàm sinh dữ liệu cơ bản, ngẫu nhiên phục vụ cho vấn đề của nhóm. </p>
+<dl class="section author"><dt>Tác giả</dt><dd>Bùi Hải Đăng </dd></dl>
+<dl class="section version"><dt>Phiên bản</dt><dd>1.0</dd></dl>
+<p>Chứa chương trình sinh dữ liệu <a class="el" href="struct_book.html" title="Cấu trúc dữ liệu cho một cuốn sách.">Book</a>, Reader </p>
+</div><h2 class="groupheader">Thông tin về hàm</h2>
+<a id="a040361527a1381944cb306a9c158087a" name="a040361527a1381944cb306a9c158087a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a040361527a1381944cb306a9c158087a">&#9670;&#160;</a></span>generate_book()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_book.html">Book</a> generate_book </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sinh dữ liệu <a class="el" href="struct_book.html" title="Cấu trúc dữ liệu cho một cuốn sách.">Book</a>. </p>
+<p>Hàm này sinh dữ liệu <a class="el" href="struct_book.html" title="Cấu trúc dữ liệu cho một cuốn sách.">Book</a> ngẫu nhiên và sẽ gán id (khoá tìm kiếm) ứng với dữ liệu được sinh ra</p>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>khoá tìm kiếm được chỉ định </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac45ef0c5a4bf3468b95ac25ee16a4b9a" name="ac45ef0c5a4bf3468b95ac25ee16a4b9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac45ef0c5a4bf3468b95ac25ee16a4b9a">&#9670;&#160;</a></span>generate_reader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_readers.html">Readers</a> generate_reader </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sinh dữ liệu Reader. </p>
+<p>Hàm này sinh dữ liệu Reader giả và sẽ gán id (khoá tìm kiếm) ứng với Reader được sinh ra</p>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>khoá tìm kiếm được chỉ định </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="fake_8h.html">fake.h</a></li>
+    <li class="footer">Được biên soạn bởi <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

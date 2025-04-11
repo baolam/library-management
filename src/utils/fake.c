@@ -12,7 +12,7 @@ char *authors[] = {
     "Sophia Martinez", "James Anderson", "Olivia Taylor", "Michael Thomas",
     "Elizabeth White", "David Harris", "Emma Clark", "Daniel Lewis", "Lucas Walker"};
 
-char *genres[] = {
+char *genres[TOTAL_GENRE] = {
     "Fiction", "Mystery", "Science", "Adventure", "History", "Fantasy",
     "Programming", "Self-help", "Psychology", "Cooking", "Strategy", "Education"};
 

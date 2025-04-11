@@ -1,0 +1,315 @@
+\doxysection{include/trie.h File Tham chiếu}
+\hypertarget{trie_8h}{}\label{trie_8h}\index{include/trie.h@{include/trie.h}}
+
+
+Cấu trúc dữ liệu Trie, dùng cho lưu trữ và quản lí các chuỗi kí tự  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_trie_node}{Trie\+Node}}
+\begin{DoxyCompactList}\small\item\em Một \doxylink{struct_trie_node}{Trie\+Node} dùng để lưu trữ dữ liệu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Định nghĩa}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{trie_8h_a6572f1706059832f94025fa12c6c45ed}\label{trie_8h_a6572f1706059832f94025fa12c6c45ed} 
+\#define {\bfseries ALPHABET\+\_\+\+SIZE}~27
+\item 
+\Hypertarget{trie_8h_acc3868f185e947918ad4732a28628251}\label{trie_8h_acc3868f185e947918ad4732a28628251} 
+\#define {\bfseries MAX\+\_\+\+CHAR\+\_\+\+LENGTH}~50
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{trie_8h_a22b4927ee63317210a9969d17f3c9a49}\label{trie_8h_a22b4927ee63317210a9969d17f3c9a49} 
+typedef struct Trie\+Node {\bfseries Trie\+Node}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Các hàm}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{trie_8h_a9199a09472f379d3a8d818cc3dba65fe}{char\+To\+Index}} (char ch)
+\begin{DoxyCompactList}\small\item\em Hàm tiện ích. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{trie_8h_a824eaa28a090848b88f367a7379b166b}{search\+Prefix}} (\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}root, char \texorpdfstring{$\ast$}{*}prefix)
+\begin{DoxyCompactList}\small\item\em Hàm trả về kết quả tìm kiếm một tiền tố \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{trie_8h_a8b319840672eea511cd645f3c00300e4}{search\+Word}} (\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}root, char \texorpdfstring{$\ast$}{*}word)
+\begin{DoxyCompactList}\small\item\em Hàm tìm kiếm từ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{trie_8h_a7728b62702896136d2976b1fb5ea9366}{make\+Trie\+Node}} (void)
+\begin{DoxyCompactList}\small\item\em Hàm tạo ra \doxylink{struct_trie_node}{Trie\+Node}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{trie_8h_af6ea29bed4964d6146ead204013f3868}{exist\+Prefix}} (\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}root, char \texorpdfstring{$\ast$}{*}prefix)
+\begin{DoxyCompactList}\small\item\em Một số phương thức quản lí \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{trie_8h_a4260fef866c19f2ca020f102987b387f}{exist\+Word}} (\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}root, char \texorpdfstring{$\ast$}{*}word)
+\begin{DoxyCompactList}\small\item\em Hàm kiểm tra sự tồn tại của từ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{trie_8h_a20399a270053730c16f4636ddeaa4bdf}{insert\+Into\+Trie}} (\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}root, char \texorpdfstring{$\ast$}{*}words, int id)
+\begin{DoxyCompactList}\small\item\em Hàm thêm từ vào Trie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{trie_8h_a6f4bed4c59354e39e2318153f3b6f0ed}{remove\+Word}} (\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}root, char \texorpdfstring{$\ast$}{*}word)
+\begin{DoxyCompactList}\small\item\em Hàm xóa từ trong Trie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{trie_8h_a759222c75b700283cb2e071ab0da6839}{recommend\+Prefix}} (\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}root, char \texorpdfstring{$\ast$}{*}prefix, int max\+Recommend, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}recommend, int \texorpdfstring{$\ast$}{*}recommend\+Size)
+\begin{DoxyCompactList}\small\item\em Hàm đưa ra một chuỗi các từ bắt đầu = prefix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{trie_8h_ad7b1309180a0be22666afbce536d8c75}{free\+Trie}} (\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em Hàm hỗ trợ xoá bỏ \doxylink{struct_node}{Node}, giải phóng. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{trie_8h_ad41ba433582647dee30db67afba7553e}{save\+Trie\+Tree}} (char \texorpdfstring{$\ast$}{*}filename, \mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em Hàm lưu trữ cây Trie vào file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{trie_8h_ad2aa3ceb08b5c05b48b3e56bc2d2926e}{load\+Trie\+Tree}} (char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Hàm đọc file lưu trữ và đưa ra node gốc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Mô tả chi tiết}
+Cấu trúc dữ liệu Trie, dùng cho lưu trữ và quản lí các chuỗi kí tự 
+
+\begin{DoxyAuthor}{Tác giả}
+Nguyễn Đức Bảo Lâm 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Phiên bản}
+1.\+0
+\end{DoxyVersion}
+Trong dự án quản lí thư viện, để có thể hỗ trợ tìm kiếm cho khi nhập lần lượt từng từ vào thì ta cần một cấu trúc dữ liệu có thể lưu các từ tìm kiếm theo một dạng nào đó.
+
+Cụ thể hơn, do một chuỗi đầu vào được lưu thành từng kí tự kết nối với nhau. Nên thao tác tìm kiếm là thao tác gom nhóm lại các từ theo cây được tổ chức. 
+
+\doxysubsection{Thông tin về hàm}
+\Hypertarget{trie_8h_a9199a09472f379d3a8d818cc3dba65fe}\index{trie.h@{trie.h}!charToIndex@{charToIndex}}
+\index{charToIndex@{charToIndex}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{charToIndex()}{charToIndex()}}
+{\footnotesize\ttfamily \label{trie_8h_a9199a09472f379d3a8d818cc3dba65fe} 
+int char\+To\+Index (\begin{DoxyParamCaption}\item[{char}]{ch}{}\end{DoxyParamCaption})}
+
+
+
+Hàm tiện ích. 
+
+Hàm chuyển đổi một kí tự thành số
+
+Lưu ý đối với kí tự khoảng trống, ánh xạ mặc định ra số 27
+
+
+\begin{DoxyParams}{Các tham số}
+{\em ch} & kí tự đầu vào \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+vị trí tương ứng trong mảng 
+\end{DoxyReturn}
+\Hypertarget{trie_8h_af6ea29bed4964d6146ead204013f3868}\index{trie.h@{trie.h}!existPrefix@{existPrefix}}
+\index{existPrefix@{existPrefix}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{existPrefix()}{existPrefix()}}
+{\footnotesize\ttfamily \label{trie_8h_af6ea29bed4964d6146ead204013f3868} 
+bool exist\+Prefix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{prefix}{}\end{DoxyParamCaption})}
+
+
+
+Một số phương thức quản lí 
+
+Hàm kiểm tra sự tồn tại của Prefix
+
+Chuyển đổi kết quả của hàm search\+Prefix Dùng cho một số trường hợp chỉ yêu cầu sự tồn tại
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & node gốc \\
+\hline
+{\em prefix} & tiền tố muốn tìm kiếm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+true nếu tồn tại ngược lại thì false 
+\end{DoxyReturn}
+\Hypertarget{trie_8h_a4260fef866c19f2ca020f102987b387f}\index{trie.h@{trie.h}!existWord@{existWord}}
+\index{existWord@{existWord}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{existWord()}{existWord()}}
+{\footnotesize\ttfamily \label{trie_8h_a4260fef866c19f2ca020f102987b387f} 
+bool exist\+Word (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{word}{}\end{DoxyParamCaption})}
+
+
+
+Hàm kiểm tra sự tồn tại của từ 
+
+Tương tự như hàm search\+Word. Một khai thác của hàm search\+Word
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & node gốc \\
+\hline
+{\em word} & từ muốn tìm kiếm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+true nếu tồn tại ngược lại thì false 
+\end{DoxyReturn}
+\Hypertarget{trie_8h_ad7b1309180a0be22666afbce536d8c75}\index{trie.h@{trie.h}!freeTrie@{freeTrie}}
+\index{freeTrie@{freeTrie}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{freeTrie()}{freeTrie()}}
+{\footnotesize\ttfamily \label{trie_8h_ad7b1309180a0be22666afbce536d8c75} 
+void free\+Trie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})}
+
+
+
+Hàm hỗ trợ xoá bỏ \doxylink{struct_node}{Node}, giải phóng. 
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & node gốc \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trie_8h_a20399a270053730c16f4636ddeaa4bdf}\index{trie.h@{trie.h}!insertIntoTrie@{insertIntoTrie}}
+\index{insertIntoTrie@{insertIntoTrie}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{insertIntoTrie()}{insertIntoTrie()}}
+{\footnotesize\ttfamily \label{trie_8h_a20399a270053730c16f4636ddeaa4bdf} 
+void insert\+Into\+Trie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{words}{, }\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Hàm thêm từ vào Trie. 
+
+Thêm từ vào trie là thêm luôn cả Id ứng với từ đó. Lưu ý khái niệm từ ở đây có thể mở rộng ra cho một chuỗi dài gồm nhiều khoảng cách. "{}\+Ví dụ\+: The Science Book"{} có thể xem như từ
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & node gốc \\
+\hline
+{\em words} & từ muốn thêm \\
+\hline
+{\em id} & khoá ứng với từ đó \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trie_8h_ad2aa3ceb08b5c05b48b3e56bc2d2926e}\index{trie.h@{trie.h}!loadTrieTree@{loadTrieTree}}
+\index{loadTrieTree@{loadTrieTree}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{loadTrieTree()}{loadTrieTree()}}
+{\footnotesize\ttfamily \label{trie_8h_ad2aa3ceb08b5c05b48b3e56bc2d2926e} 
+\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*} load\+Trie\+Tree (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Hàm đọc file lưu trữ và đưa ra node gốc. 
+
+
+\begin{DoxyParams}{Các tham số}
+{\em filename} & tên file muốn đọc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+kết quả đọc được, NULL nếu có lỗi 
+\end{DoxyReturn}
+\Hypertarget{trie_8h_a7728b62702896136d2976b1fb5ea9366}\index{trie.h@{trie.h}!makeTrieNode@{makeTrieNode}}
+\index{makeTrieNode@{makeTrieNode}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{makeTrieNode()}{makeTrieNode()}}
+{\footnotesize\ttfamily \label{trie_8h_a7728b62702896136d2976b1fb5ea9366} 
+\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*} make\+Trie\+Node (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Hàm tạo ra \doxylink{struct_trie_node}{Trie\+Node}. 
+
+\begin{DoxyReturn}{Giá trị trả về}
+node mới 
+\end{DoxyReturn}
+\Hypertarget{trie_8h_a759222c75b700283cb2e071ab0da6839}\index{trie.h@{trie.h}!recommendPrefix@{recommendPrefix}}
+\index{recommendPrefix@{recommendPrefix}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{recommendPrefix()}{recommendPrefix()}}
+{\footnotesize\ttfamily \label{trie_8h_a759222c75b700283cb2e071ab0da6839} 
+void recommend\+Prefix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{prefix}{, }\item[{int}]{max\+Recommend}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{recommend}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{recommend\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Hàm đưa ra một chuỗi các từ bắt đầu = prefix. 
+
+Hàm này sẽ làm hàm hỗ trợ đưa ra gợi ý
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & node gốc \\
+\hline
+{\em prefix} & tiền tố muốn tìm kiếm \\
+\hline
+{\em max\+Recommend} & số lượng gợi ý tối đa \\
+\hline
+{\em recommend} & List danh sách gợi ý \\
+\hline
+{\em recommend\+Size} & kích thước danh sách gợi ý thực tế \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trie_8h_a6f4bed4c59354e39e2318153f3b6f0ed}\index{trie.h@{trie.h}!removeWord@{removeWord}}
+\index{removeWord@{removeWord}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{removeWord()}{removeWord()}}
+{\footnotesize\ttfamily \label{trie_8h_a6f4bed4c59354e39e2318153f3b6f0ed} 
+void remove\+Word (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{word}{}\end{DoxyParamCaption})}
+
+
+
+Hàm xóa từ trong Trie. 
+
+Dùng trong trường hợp không muốn thông tin quản lí nữa
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & node gốc \\
+\hline
+{\em word} & từ muốn xóa \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trie_8h_ad41ba433582647dee30db67afba7553e}\index{trie.h@{trie.h}!saveTrieTree@{saveTrieTree}}
+\index{saveTrieTree@{saveTrieTree}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{saveTrieTree()}{saveTrieTree()}}
+{\footnotesize\ttfamily \label{trie_8h_ad41ba433582647dee30db67afba7553e} 
+void save\+Trie\+Tree (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})}
+
+
+
+Hàm lưu trữ cây Trie vào file. 
+
+
+\begin{DoxyParams}{Các tham số}
+{\em filename} & tên file muốn lưu trữ (đuôi .bin) \\
+\hline
+{\em root} & node gốc \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trie_8h_a824eaa28a090848b88f367a7379b166b}\index{trie.h@{trie.h}!searchPrefix@{searchPrefix}}
+\index{searchPrefix@{searchPrefix}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{searchPrefix()}{searchPrefix()}}
+{\footnotesize\ttfamily \label{trie_8h_a824eaa28a090848b88f367a7379b166b} 
+\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*} search\+Prefix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{prefix}{}\end{DoxyParamCaption})}
+
+
+
+Hàm trả về kết quả tìm kiếm một tiền tố 
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & node gốc \\
+\hline
+{\em prefix} & tiền tố bắt đầu\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+nếu tồn tại trả về \doxylink{struct_trie_node}{Trie\+Node} kết thúc tại tiền tố đó, nếu ko thì NULL 
+\end{DoxyReturn}
+\Hypertarget{trie_8h_a8b319840672eea511cd645f3c00300e4}\index{trie.h@{trie.h}!searchWord@{searchWord}}
+\index{searchWord@{searchWord}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{searchWord()}{searchWord()}}
+{\footnotesize\ttfamily \label{trie_8h_a8b319840672eea511cd645f3c00300e4} 
+\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*} search\+Word (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{word}{}\end{DoxyParamCaption})}
+
+
+
+Hàm tìm kiếm từ 
+
+Hàm này là một mở rộng của search\+Prefix, coi prefix là toàn bộ từ muốn tìm
+
+Sự tồn tại của hàm này là do trong bài toán tìm kiếm các từ có chứa id.
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & node gốc \\
+\hline
+{\em word} & chuỗi từ muốn tìm kiếm\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+nếu tồn tại trả về \doxylink{struct_trie_node}{Trie\+Node} kết thúc tại từ đó, nếu ko thì NULL 
+\end{DoxyReturn}

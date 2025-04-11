@@ -103,9 +103,9 @@ void update_book_callback(FILE *f, long package)
     printf("Update successfully!\n");
 }
 
-void update_book(Book *book)
+void update_book(int id)
 {
-    Record *record = find(book_management, book->bookId);
+    Record *record = find(book_management, id);
     if (record == NULL || record->deleted)
     {
         printf("Reader not found for update.\n");
@@ -168,7 +168,7 @@ Book *search_book(int id)
         return NULL;
     }
 
-    Book *book = (Book *)read_content_from_record_return(record, book_content_file, sizeof(Book));
+    Book *book = (Book *)read_content_from_record_return(record, book_content_file);
     return book;
 }
 
