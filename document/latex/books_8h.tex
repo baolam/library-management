@@ -1,0 +1,196 @@
+\doxysection{include/books.h File Tham chiếu}
+\hypertarget{books_8h}{}\label{books_8h}\index{include/books.h@{include/books.h}}
+
+
+Lưu trữ những hàm sẽ được dùng cho quản lí sách.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include "{}management.\+h"{}}\newline
+{\ttfamily \#include "{}trie.\+h"{}}\newline
+{\ttfamily \#include "{}bplustreev2.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_book}{Book}}
+\begin{DoxyCompactList}\small\item\em Cấu trúc dữ liệu cho một cuốn sách. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Định nghĩa}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{books_8h_a366a9843a6a0bfa19ae6d484e326dcbd}\label{books_8h_a366a9843a6a0bfa19ae6d484e326dcbd} 
+\#define {\bfseries FOLDER}~"{}books"{}
+\item 
+\Hypertarget{books_8h_a18d607761a55c0a30b69f9d82f1da73e}\label{books_8h_a18d607761a55c0a30b69f9d82f1da73e} 
+\#define {\bfseries MAX\+\_\+\+TITLE}~50
+\begin{DoxyCompactList}\small\item\em Độ dài tối đa của tiêu đề \end{DoxyCompactList}\item 
+\Hypertarget{books_8h_a9986476b23d5ba8a697c60d8130d4e14}\label{books_8h_a9986476b23d5ba8a697c60d8130d4e14} 
+\#define {\bfseries MAX\+\_\+\+AUTHOR}~50
+\begin{DoxyCompactList}\small\item\em Độ dài tối đa của tác giả \end{DoxyCompactList}\item 
+\Hypertarget{books_8h_a0bacc87944c0b8955121b3b9b71664ce}\label{books_8h_a0bacc87944c0b8955121b3b9b71664ce} 
+\#define {\bfseries MAX\+\_\+\+GENRE\+\_\+\+NO}~100
+\begin{DoxyCompactList}\small\item\em Độ dài tối đa của thể loại sách. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Các hàm}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{books_8h_af3ab34040cfd77b3963472d88ec6c276}\label{books_8h_af3ab34040cfd77b3963472d88ec6c276} 
+void {\bfseries show\+\_\+book} (\mbox{\hyperlink{struct_book}{Book}} book)
+\item 
+\Hypertarget{books_8h_a0c7f88a691fdbbc78ffca5e8095a8bd3}\label{books_8h_a0c7f88a691fdbbc78ffca5e8095a8bd3} 
+void {\bfseries add\+\_\+book} (\mbox{\hyperlink{struct_book}{Book}} \texorpdfstring{$\ast$}{*}book)
+\item 
+void \mbox{\hyperlink{books_8h_a92647df5ddb986901e8113a8ce3f1e3e}{delete\+\_\+book}} (int id)
+\begin{DoxyCompactList}\small\item\em Xóa một quyển sách. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{books_8h_a3a2c8d018662acf1c6ca6857a9bb7f86}{update\+\_\+book}} (int id)
+\begin{DoxyCompactList}\small\item\em Cập nhật thông tin của một quyển sách. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{books_8h_ab9223d05c04eaf64efac2e4a8cf2aeec}{search\+\_\+book\+\_\+by\+\_\+id}} (int id)
+\begin{DoxyCompactList}\small\item\em Tìm kiếm sách bằng Id. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{books_8h_adbf315a2a4092396b23d8d083661fb6b}{search\+\_\+book\+\_\+by\+\_\+title}} (const char \texorpdfstring{$\ast$}{*}prefix, int max\+Numbers)
+\begin{DoxyCompactList}\small\item\em Tìm kiếm sách bằng Author. \end{DoxyCompactList}\item 
+\Hypertarget{books_8h_ad52d1d47f78b08b5e1b73062842a8c34}\label{books_8h_ad52d1d47f78b08b5e1b73062842a8c34} 
+\mbox{\hyperlink{struct_book}{Book}} \texorpdfstring{$\ast$}{*} {\bfseries search\+\_\+book} (int id)
+\begin{DoxyCompactList}\small\item\em Phục vụ cho nhóm nhiệm vụ mượn, trả sách. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{books_8h_a95fe8318b6aff05328ee79cfd9e63b67}{preparate\+\_\+book}} ()
+\begin{DoxyCompactList}\small\item\em Lưu trữ vào file, load dữ liệu ra từ file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{books_8h_ab0d9d44572464bcfc58d438604d0a598}{save\+\_\+book\+\_\+management}} ()
+\begin{DoxyCompactList}\small\item\em Lưu trữ dữ liệu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{books_8h_ade26076641cca3fc5450d909e32762de}{load\+\_\+book\+\_\+management}} ()
+\begin{DoxyCompactList}\small\item\em Load dữ liệu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Các biến}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{books_8h_ae592405ed1cad3dba6f98c41fe7ac5a9}\label{books_8h_ae592405ed1cad3dba6f98c41fe7ac5a9} 
+char {\bfseries book\+\_\+management\+\_\+file} \mbox{[}MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em File quản lí sách. \end{DoxyCompactList}\item 
+\Hypertarget{books_8h_a390d31c4003925cffa92edece544dbd1}\label{books_8h_a390d31c4003925cffa92edece544dbd1} 
+char {\bfseries book\+\_\+trie\+\_\+management} \mbox{[}MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em File quản lí cây Trie, dùng hỗ trợ cho tìm kiếm bằng tên tác giả \end{DoxyCompactList}\item 
+\Hypertarget{books_8h_af8765cafbe20084ab4b9dcf76abf2a00}\label{books_8h_af8765cafbe20084ab4b9dcf76abf2a00} 
+char {\bfseries book\+\_\+content\+\_\+file} \mbox{[}MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em File chứa nội dung sách, file quản lí chính. \end{DoxyCompactList}\item 
+\Hypertarget{books_8h_a76d586c2492e8d36fda3dc16492a6693}\label{books_8h_a76d586c2492e8d36fda3dc16492a6693} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries book\+\_\+management}
+\begin{DoxyCompactList}\small\item\em Cây B+ Tree quản lí sách. \end{DoxyCompactList}\item 
+\Hypertarget{books_8h_a95de0e1b8129a7ede38dff4eb5da683b}\label{books_8h_a95de0e1b8129a7ede38dff4eb5da683b} 
+\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries book\+\_\+trie}
+\begin{DoxyCompactList}\small\item\em Cây trie quản lí author. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Mô tả chi tiết}
+Lưu trữ những hàm sẽ được dùng cho quản lí sách. 
+
+\begin{DoxyAuthor}{Tác giả}
+Nguyễn Huy Phong, Nguyễn Đức Bảo Lâm 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Phiên bản}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Thông tin về hàm}
+\Hypertarget{books_8h_a92647df5ddb986901e8113a8ce3f1e3e}\index{books.h@{books.h}!delete\_book@{delete\_book}}
+\index{delete\_book@{delete\_book}!books.h@{books.h}}
+\doxysubsubsection{\texorpdfstring{delete\_book()}{delete\_book()}}
+{\footnotesize\ttfamily \label{books_8h_a92647df5ddb986901e8113a8ce3f1e3e} 
+void delete\+\_\+book (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Xóa một quyển sách. 
+
+Việc xoá một quyển sách bao gồm việc xoá bản ghi trong cây B+ Tree, cây Trie đối với Author. Do tính chất dữ liệu lưu trữ trong file nội dung là liên tục nên việc xoá trực tiếp khỏi file nội dung là không nên do sẽ ghi chuyển dịch lưu trữ.
+
+Phương thức xoá được dùng là soft\+\_\+delete. Chỉ là xoá khỏi file quản lí, Dữ liệu vẫn tồn tại trong file nội dung
+
+
+\begin{DoxyParams}{Các tham số}
+{\em id} & Id của quyển sách cần xoá \\
+\hline
+\end{DoxyParams}
+\Hypertarget{books_8h_ade26076641cca3fc5450d909e32762de}\index{books.h@{books.h}!load\_book\_management@{load\_book\_management}}
+\index{load\_book\_management@{load\_book\_management}!books.h@{books.h}}
+\doxysubsubsection{\texorpdfstring{load\_book\_management()}{load\_book\_management()}}
+{\footnotesize\ttfamily \label{books_8h_ade26076641cca3fc5450d909e32762de} 
+void load\+\_\+book\+\_\+management (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Load dữ liệu. 
+
+Lấy nội dung dữ liệu đã lưu trữ trước đó \Hypertarget{books_8h_a95fe8318b6aff05328ee79cfd9e63b67}\index{books.h@{books.h}!preparate\_book@{preparate\_book}}
+\index{preparate\_book@{preparate\_book}!books.h@{books.h}}
+\doxysubsubsection{\texorpdfstring{preparate\_book()}{preparate\_book()}}
+{\footnotesize\ttfamily \label{books_8h_a95fe8318b6aff05328ee79cfd9e63b67} 
+void preparate\+\_\+book (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Lưu trữ vào file, load dữ liệu ra từ file. 
+
+Hàm hỗ trợ cho cây Trie, tìm kiếm = Author
+
+Bản chất chỉ là tạo node quản lí nếu cây chưa tồn tại \Hypertarget{books_8h_ab0d9d44572464bcfc58d438604d0a598}\index{books.h@{books.h}!save\_book\_management@{save\_book\_management}}
+\index{save\_book\_management@{save\_book\_management}!books.h@{books.h}}
+\doxysubsubsection{\texorpdfstring{save\_book\_management()}{save\_book\_management()}}
+{\footnotesize\ttfamily \label{books_8h_ab0d9d44572464bcfc58d438604d0a598} 
+void save\+\_\+book\+\_\+management (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Lưu trữ dữ liệu. 
+
+Nội dung lưu trữ gồm file quản lí B+ Tree, file quản lí cây Trie, file nội dung Lưu trữ trong thư mục data/book \Hypertarget{books_8h_ab9223d05c04eaf64efac2e4a8cf2aeec}\index{books.h@{books.h}!search\_book\_by\_id@{search\_book\_by\_id}}
+\index{search\_book\_by\_id@{search\_book\_by\_id}!books.h@{books.h}}
+\doxysubsubsection{\texorpdfstring{search\_book\_by\_id()}{search\_book\_by\_id()}}
+{\footnotesize\ttfamily \label{books_8h_ab9223d05c04eaf64efac2e4a8cf2aeec} 
+void search\+\_\+book\+\_\+by\+\_\+id (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Tìm kiếm sách bằng Id. 
+
+Kết quả trả về sẽ hiển thị ra màn hình console, (chưa tích hợp hiển thị trên giao diện)
+
+
+\begin{DoxyParams}{Các tham số}
+{\em id} & Id của quyển sách cần tìm \\
+\hline
+\end{DoxyParams}
+\Hypertarget{books_8h_adbf315a2a4092396b23d8d083661fb6b}\index{books.h@{books.h}!search\_book\_by\_title@{search\_book\_by\_title}}
+\index{search\_book\_by\_title@{search\_book\_by\_title}!books.h@{books.h}}
+\doxysubsubsection{\texorpdfstring{search\_book\_by\_title()}{search\_book\_by\_title()}}
+{\footnotesize\ttfamily \label{books_8h_adbf315a2a4092396b23d8d083661fb6b} 
+void search\+\_\+book\+\_\+by\+\_\+title (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{prefix}{, }\item[{int}]{max\+Numbers}{}\end{DoxyParamCaption})}
+
+
+
+Tìm kiếm sách bằng Author. 
+
+Cung cấp vào tên Author hoặc nhóm chữ cái đầu của tên Author muốn tìm kiếm Kết quả hiển thị là những quyển sách có tên bắt đầu bằng từ tìm kiếm
+
+
+\begin{DoxyParams}{Các tham số}
+{\em prefix,prefix} & là nhóm chữ cái đầu của tên Author \\
+\hline
+{\em max\+Numbers,max\+Numbers} & là số lượng kết quả tối đa \\
+\hline
+\end{DoxyParams}
+\Hypertarget{books_8h_a3a2c8d018662acf1c6ca6857a9bb7f86}\index{books.h@{books.h}!update\_book@{update\_book}}
+\index{update\_book@{update\_book}!books.h@{books.h}}
+\doxysubsubsection{\texorpdfstring{update\_book()}{update\_book()}}
+{\footnotesize\ttfamily \label{books_8h_a3a2c8d018662acf1c6ca6857a9bb7f86} 
+void update\+\_\+book (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Cập nhật thông tin của một quyển sách. 
+
+Cập nhật thông tin quyển sách, bản chất là cập nhật file nội dung Do tính chất khoá Id là cố định và bất biến một khi được tạo nên không cần thao tác ở cây B+ tree (thao tác cập nhật, chỉ tận dụng thao tác tìm kiếm)
+
+Phương thức này được dùng và hiển thị ra console. 
+\begin{DoxyParams}{Các tham số}
+{\em id} & Id của quyển sách cần cập nhật \\
+\hline
+\end{DoxyParams}

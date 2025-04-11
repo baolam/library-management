@@ -1,28 +1,42 @@
 \doxysection{Book Struct Tham chiếu}
 \hypertarget{struct_book}{}\label{struct_book}\index{Book@{Book}}
+
+
+Cấu trúc dữ liệu cho một cuốn sách.  
+
+
+
+
+{\ttfamily \#include $<$books.\+h$>$}
+
 \doxysubsubsection*{Các thuộc tính Public}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{struct_book_ad630743841ee8a2e7cacc7d2a3d2b97e}\label{struct_book_ad630743841ee8a2e7cacc7d2a3d2b97e} 
 int {\bfseries book\+Id}
-\item 
+\begin{DoxyCompactList}\small\item\em Mã sách, cũng là khóa chính, dùng như khoá tìm kiếm cho quản lí \end{DoxyCompactList}\item 
 \Hypertarget{struct_book_a8465f8a9dca23179416c97ce6dea7a30}\label{struct_book_a8465f8a9dca23179416c97ce6dea7a30} 
-char {\bfseries title} \mbox{[}MAX\+\_\+\+TITLE\mbox{]}
-\item 
+char {\bfseries title} \mbox{[}\mbox{\hyperlink{books_8h_a18d607761a55c0a30b69f9d82f1da73e}{MAX\+\_\+\+TITLE}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em tiêu đề của sách, không quá 50 kí tự \end{DoxyCompactList}\item 
 \Hypertarget{struct_book_af656d9ce7cf239b98da140f5ff3397a3}\label{struct_book_af656d9ce7cf239b98da140f5ff3397a3} 
-char {\bfseries author} \mbox{[}MAX\+\_\+\+AUTHOR\mbox{]}
-\item 
+char {\bfseries author} \mbox{[}\mbox{\hyperlink{books_8h_a9986476b23d5ba8a697c60d8130d4e14}{MAX\+\_\+\+AUTHOR}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Tác giả của sách, không quá 50 kí tự \end{DoxyCompactList}\item 
 \Hypertarget{struct_book_ac67e9cc86d52f340f7d49949e4b37db4}\label{struct_book_ac67e9cc86d52f340f7d49949e4b37db4} 
-char {\bfseries genre} \mbox{[}MAX\+\_\+\+GENRE\+\_\+\+NO\mbox{]}
-\item 
+char {\bfseries genre} \mbox{[}\mbox{\hyperlink{books_8h_a0bacc87944c0b8955121b3b9b71664ce}{MAX\+\_\+\+GENRE\+\_\+\+NO}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Thể loại sách, không quá 100 kí tự \end{DoxyCompactList}\item 
 \Hypertarget{struct_book_a29b2239580d36f87078ea8ab6ab5d6aa}\label{struct_book_a29b2239580d36f87078ea8ab6ab5d6aa} 
 int {\bfseries publication\+Year}
-\item 
+\begin{DoxyCompactList}\small\item\em Năm xuất bản. \end{DoxyCompactList}\item 
 \Hypertarget{struct_book_aabc590a14bc23236eac02b198a447f5d}\label{struct_book_aabc590a14bc23236eac02b198a447f5d} 
 int {\bfseries stock}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Số lượng sách. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Mô tả chi tiết}
+Cấu trúc dữ liệu cho một cuốn sách. 
+
+Cấu trúc này chứa book\+Id, title, author, genre, publication\+Year, stock. Việc sử dụng cấu trúc này giúp dễ dàng thêm, xóa, tìm kiếm sách. Ngoài ra dưới ảnh hưởng của cách quản lí dữ liệu bằng B+ Tree, việc đọc và viết dữ liệu vào file cũng sẽ dễ dàng hơn. 
 
 Thông tin cho struct được biên soạn từ các file sau đây\+:\begin{DoxyCompactItemize}
 \item 
-include/books.\+h\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{books_8h}{books.\+h}}\end{DoxyCompactItemize}

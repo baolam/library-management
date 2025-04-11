@@ -109,29 +109,43 @@ $(function(){initNavTree('struct_book.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">Book Struct Tham chiếu</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Cấu trúc dữ liệu cho một cuốn sách.  
+ <a href="#details">Tiếp...</a></p>
+
+<p><code>#include &lt;<a class="el" href="books_8h_source.html">books.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Các thuộc tính Public</h2></td></tr>
 <tr class="memitem:ad630743841ee8a2e7cacc7d2a3d2b97e" id="r_ad630743841ee8a2e7cacc7d2a3d2b97e"><td class="memItemLeft" align="right" valign="top"><a id="ad630743841ee8a2e7cacc7d2a3d2b97e" name="ad630743841ee8a2e7cacc7d2a3d2b97e"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>bookId</b></td></tr>
+<tr class="memdesc:ad630743841ee8a2e7cacc7d2a3d2b97e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mã sách, cũng là khóa chính, dùng như khoá tìm kiếm cho quản lí <br /></td></tr>
 <tr class="separator:ad630743841ee8a2e7cacc7d2a3d2b97e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8465f8a9dca23179416c97ce6dea7a30" id="r_a8465f8a9dca23179416c97ce6dea7a30"><td class="memItemLeft" align="right" valign="top"><a id="a8465f8a9dca23179416c97ce6dea7a30" name="a8465f8a9dca23179416c97ce6dea7a30"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>title</b> [MAX_TITLE]</td></tr>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>title</b> [<a class="el" href="books_8h.html#a18d607761a55c0a30b69f9d82f1da73e">MAX_TITLE</a>]</td></tr>
+<tr class="memdesc:a8465f8a9dca23179416c97ce6dea7a30"><td class="mdescLeft">&#160;</td><td class="mdescRight">tiêu đề của sách, không quá 50 kí tự <br /></td></tr>
 <tr class="separator:a8465f8a9dca23179416c97ce6dea7a30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af656d9ce7cf239b98da140f5ff3397a3" id="r_af656d9ce7cf239b98da140f5ff3397a3"><td class="memItemLeft" align="right" valign="top"><a id="af656d9ce7cf239b98da140f5ff3397a3" name="af656d9ce7cf239b98da140f5ff3397a3"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>author</b> [MAX_AUTHOR]</td></tr>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>author</b> [<a class="el" href="books_8h.html#a9986476b23d5ba8a697c60d8130d4e14">MAX_AUTHOR</a>]</td></tr>
+<tr class="memdesc:af656d9ce7cf239b98da140f5ff3397a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tác giả của sách, không quá 50 kí tự <br /></td></tr>
 <tr class="separator:af656d9ce7cf239b98da140f5ff3397a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac67e9cc86d52f340f7d49949e4b37db4" id="r_ac67e9cc86d52f340f7d49949e4b37db4"><td class="memItemLeft" align="right" valign="top"><a id="ac67e9cc86d52f340f7d49949e4b37db4" name="ac67e9cc86d52f340f7d49949e4b37db4"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>genre</b> [MAX_GENRE_NO]</td></tr>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>genre</b> [<a class="el" href="books_8h.html#a0bacc87944c0b8955121b3b9b71664ce">MAX_GENRE_NO</a>]</td></tr>
+<tr class="memdesc:ac67e9cc86d52f340f7d49949e4b37db4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thể loại sách, không quá 100 kí tự <br /></td></tr>
 <tr class="separator:ac67e9cc86d52f340f7d49949e4b37db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29b2239580d36f87078ea8ab6ab5d6aa" id="r_a29b2239580d36f87078ea8ab6ab5d6aa"><td class="memItemLeft" align="right" valign="top"><a id="a29b2239580d36f87078ea8ab6ab5d6aa" name="a29b2239580d36f87078ea8ab6ab5d6aa"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>publicationYear</b></td></tr>
+<tr class="memdesc:a29b2239580d36f87078ea8ab6ab5d6aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Năm xuất bản. <br /></td></tr>
 <tr class="separator:a29b2239580d36f87078ea8ab6ab5d6aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabc590a14bc23236eac02b198a447f5d" id="r_aabc590a14bc23236eac02b198a447f5d"><td class="memItemLeft" align="right" valign="top"><a id="aabc590a14bc23236eac02b198a447f5d" name="aabc590a14bc23236eac02b198a447f5d"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>stock</b></td></tr>
+<tr class="memdesc:aabc590a14bc23236eac02b198a447f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Số lượng sách. <br /></td></tr>
 <tr class="separator:aabc590a14bc23236eac02b198a447f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>Thông tin cho struct được biên soạn từ các file sau đây:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Mô tả chi tiết</h2>
+<div class="textblock"><p>Cấu trúc dữ liệu cho một cuốn sách. </p>
+<p>Cấu trúc này chứa bookId, title, author, genre, publicationYear, stock. Việc sử dụng cấu trúc này giúp dễ dàng thêm, xóa, tìm kiếm sách. Ngoài ra dưới ảnh hưởng của cách quản lí dữ liệu bằng B+ Tree, việc đọc và viết dữ liệu vào file cũng sẽ dễ dàng hơn. </p>
+</div><hr/>Thông tin cho struct được biên soạn từ các file sau đây:<ul>
 <li>include/<a class="el" href="books_8h_source.html">books.h</a></li>
 </ul>
 </div><!-- contents -->

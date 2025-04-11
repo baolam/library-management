@@ -27,10 +27,20 @@ var NAVTREE =
   [ "Library management", "index.html", [
     [ "Classes", "annotated.html", [
       [ "Danh mục các Class", "annotated.html", "annotated_dup" ],
-      [ "Class Index", "classes.html", null ]
+      [ "Class Index", "classes.html", null ],
+      [ "Các thành viên của Class", "functions.html", [
+        [ "Tất cả", "functions.html", null ],
+        [ "Các biến", "functions_vars.html", null ]
+      ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "Danh mục File", "files.html", "files_dup" ]
+      [ "Danh mục File", "files.html", "files_dup" ],
+      [ "File thành viên", "globals.html", [
+        [ "Tất cả", "globals.html", null ],
+        [ "Các hàm", "globals_func.html", null ],
+        [ "Các biến", "globals_vars.html", null ],
+        [ "Định nghĩa", "globals_defs.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
