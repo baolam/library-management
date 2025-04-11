@@ -59,7 +59,7 @@ Node *makeLeaf(void)
 Node *leftMost(Node *root)
 {
     Node *temp = root;
-    while (temp != NULL && !temp->is_leaf)
+    while (!temp->is_leaf)
     {
         temp = (Node *)temp->pointers[0];
     }
