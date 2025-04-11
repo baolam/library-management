@@ -1,12 +1,15 @@
 #ifndef BORROW_RETURN_H
 #define BORROW_RETURN_H
 
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "books.h"
 #include "reader.h"
 #include "bplustreev2.h"
 
 // Cấu trúc BorrowReturn
-typedef struct
+typedef struct BorrowReturn
 {
     int readerId;
     int totalBooks;
@@ -20,8 +23,8 @@ typedef struct
 extern Node *borrow_return_management;
 
 // Khai báo file
-extern char borrow_return_content_file[];
-extern char borrow_return_management_file[];
+extern char borrow_return_content_file[MAX_FILE_NAME_LENGTH];
+extern char borrow_return_management_file[MAX_FILE_NAME_LENGTH];
 
 // Hàm xử lý
 void add_borrow_record(BorrowReturn *b);

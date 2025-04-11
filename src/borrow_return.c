@@ -1,13 +1,8 @@
 #include "borrow_return.h"
-#include "bplustreev2.h"
-#include "books.h"
-#include "reader.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 // Biến toàn cục
-char borrow_return_content_file[] = "borrow_return.bin";
-char borrow_return_management_file[] = "borrow_return_management.bin";
+char borrow_return_content_file[MAX_FILE_NAME_LENGTH] = "borrow_return.bin";
+char borrow_return_management_file[MAX_FILE_NAME_LENGTH] = "borrow_return_management.bin";
 Node *borrow_return_management = NULL;
 
 // ------------------- borrow / return -------------------
