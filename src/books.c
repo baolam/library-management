@@ -168,7 +168,7 @@ Book *search_book(int id)
         return NULL;
     }
 
-    Book *book = (Book *)read_content_from_record_return(record, book_content_file);
+    Book *book = (Book *)read_content_from_record_return(record);
     return book;
 }
 

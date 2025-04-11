@@ -52,7 +52,7 @@ void calc_statistic_book(Node *book_management)
                 continue;
             }
 
-            book = (Book *)read_content_from_record_return(infor, book_content_file);
+            book = (Book *)read_content_from_record_return(infor);
             position = find_position(book->genre);
 
             total_books++;

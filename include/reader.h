@@ -19,13 +19,6 @@ typedef struct
     char phoneNumber[15]; // Số điện thoại
     char address[100];    // Địa chỉ
 } Readers;
-// Struct đại diện mượn trả, số lượng sách
-typedef struct
-{
-    int bookId;
-    int readerId;
-    int quantity;
-} BorrowReturn;
 
 // Biến toàn cục quản lý file và cây
 extern char reader_management_file[MAX_FILE_NAME_LENGTH];
