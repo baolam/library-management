@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['fake_2eh_0',['fake.h',['../fake_8h.html',1,'']]],
-  ['find_1',['find',['../bplustreev2_8h.html#a0e4ed69811cf4058e1e0f7a311fc627d',1,'bplustreev2.h']]],
-  ['findleaf_2',['findLeaf',['../bplustreev2_8h.html#ac539c35415e0bb03d619917198332b53',1,'bplustreev2.h']]]
+  ['exist_5frecord_0',['exist_record',['../management_8h.html#ade27b5b1e9e93aa2f1e6bbb6f8779c0d',1,'management.h']]]
 ];

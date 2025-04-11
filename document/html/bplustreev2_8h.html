@@ -135,12 +135,15 @@ Classes</h2></td></tr>
 Định nghĩa</h2></td></tr>
 <tr class="memitem:a9b79a4981a7f45ee4a0f7ba5c6076684" id="r_a9b79a4981a7f45ee4a0f7ba5c6076684"><td class="memItemLeft" align="right" valign="top"><a id="a9b79a4981a7f45ee4a0f7ba5c6076684" name="a9b79a4981a7f45ee4a0f7ba5c6076684"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>PRINT_TREE</b></td></tr>
+<tr class="memdesc:a9b79a4981a7f45ee4a0f7ba5c6076684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Định nghĩa có cho phép In cây ra hay không, màn hình console. <br /></td></tr>
 <tr class="separator:a9b79a4981a7f45ee4a0f7ba5c6076684"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a826715579f0649bd271fb6702a175dbc" id="r_a826715579f0649bd271fb6702a175dbc"><td class="memItemLeft" align="right" valign="top"><a id="a826715579f0649bd271fb6702a175dbc" name="a826715579f0649bd271fb6702a175dbc"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>ORDER</b>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:a826715579f0649bd271fb6702a175dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Số dữ liệu quản lí tối đa của một node. <br /></td></tr>
 <tr class="separator:a826715579f0649bd271fb6702a175dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9958e549a943ec37c7fbb33685befb02" id="r_a9958e549a943ec37c7fbb33685befb02"><td class="memItemLeft" align="right" valign="top"><a id="a9958e549a943ec37c7fbb33685befb02" name="a9958e549a943ec37c7fbb33685befb02"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_FILE_NAME_LENGTH</b>&#160;&#160;&#160;128</td></tr>
+<tr class="memdesc:a9958e549a943ec37c7fbb33685befb02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Độ dài tối đa của tên file. <br /></td></tr>
 <tr class="separator:a9958e549a943ec37c7fbb33685befb02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
@@ -154,7 +157,7 @@ typedef struct Node&#160;</td><td class="memItemRight" valign="bottom"><b>Node</
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Các hàm</h2></td></tr>
-<tr class="memitem:a036cf425fcaa04ea78ba832fda3ad5e2" id="r_a036cf425fcaa04ea78ba832fda3ad5e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_record.html">Record</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a036cf425fcaa04ea78ba832fda3ad5e2">makeRecord</a> (char _from[MAX_FILE_NAME_LENGTH], long offset, long length)</td></tr>
+<tr class="memitem:a036cf425fcaa04ea78ba832fda3ad5e2" id="r_a036cf425fcaa04ea78ba832fda3ad5e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_record.html">Record</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a036cf425fcaa04ea78ba832fda3ad5e2">makeRecord</a> (char _from[<a class="el" href="#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>], long offset, long length)</td></tr>
 <tr class="memdesc:a036cf425fcaa04ea78ba832fda3ad5e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Khởi tạo record.  <br /></td></tr>
 <tr class="separator:a036cf425fcaa04ea78ba832fda3ad5e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a841bd1bba3e703ec564dea235d6e7301" id="r_a841bd1bba3e703ec564dea235d6e7301"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a841bd1bba3e703ec564dea235d6e7301">leftMost</a> (<a class="el" href="struct_node.html">Node</a> *root)</td></tr>
@@ -212,7 +215,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>printTree</b> (<a cla
 <tr class="memitem:aa1644c1bd6e88eabda457d409d3a0e8e" id="r_aa1644c1bd6e88eabda457d409d3a0e8e"><td class="memItemLeft" align="right" valign="top"><a id="aa1644c1bd6e88eabda457d409d3a0e8e" name="aa1644c1bd6e88eabda457d409d3a0e8e"></a>
 <a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>insertIntoLeafAfterSplitting</b> (<a class="el" href="struct_node.html">Node</a> *root, <a class="el" href="struct_node.html">Node</a> *leaf, int key, <a class="el" href="struct_record.html">Record</a> *record)</td></tr>
 <tr class="separator:aa1644c1bd6e88eabda457d409d3a0e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8204e72519be4ff883be1e6ac9beb82" id="r_af8204e72519be4ff883be1e6ac9beb82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8204e72519be4ff883be1e6ac9beb82">insert</a> (<a class="el" href="struct_node.html">Node</a> *root, int key, char _from[MAX_FILE_NAME_LENGTH], long offset, long length)</td></tr>
+<tr class="memitem:af8204e72519be4ff883be1e6ac9beb82" id="r_af8204e72519be4ff883be1e6ac9beb82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8204e72519be4ff883be1e6ac9beb82">insert</a> (<a class="el" href="struct_node.html">Node</a> *root, int key, char _from[<a class="el" href="#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>], long offset, long length)</td></tr>
 <tr class="memdesc:af8204e72519be4ff883be1e6ac9beb82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm hỗ trợ cho việc thêm phần tử vào cây.  <br /></td></tr>
 <tr class="separator:af8204e72519be4ff883be1e6ac9beb82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a817851a0dbd1a560b8b9fb8fce17b9dc" id="r_a817851a0dbd1a560b8b9fb8fce17b9dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a817851a0dbd1a560b8b9fb8fce17b9dc">saveTree</a> (<a class="el" href="struct_node.html">Node</a> *root, char *filename)</td></tr>

@@ -3,6 +3,8 @@
  * @brief Lưu trữ những hàm sẽ được dùng cho quản lí sách
  * @authors Nguyễn Huy Phong, Nguyễn Đức Bảo Lâm
  * @version 1.0
+ *
+ * Một số hàm dùng để quản lí sách
  */
 
 #ifndef BOOKS_H

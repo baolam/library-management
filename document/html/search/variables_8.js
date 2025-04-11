@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['title_0',['title',['../struct_book.html#a8465f8a9dca23179416c97ce6dea7a30',1,'Book']]],
-  ['titles_1',['titles',['../fake_8h.html#a7e28b32b579982a2ed278b80adcdd492',1,'fake.h']]]
+  ['next_0',['next',['../struct_node.html#af67b110ca1a258b793bf69d306929b22',1,'Node']]],
+  ['num_5fkeys_1',['num_keys',['../struct_node.html#a3d741213ac4ef9a48d6c2bf39c8bd146',1,'Node']]]
 ];

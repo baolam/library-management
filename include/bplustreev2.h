@@ -12,9 +12,20 @@
 #ifndef BPLUSTREEV2_H
 #define BPLUSTREEV2_H
 
-#define PRINT_TREE               //< Định nghĩa có cho phép In cây ra hay không, màn hình console
-#define ORDER 10                 //< Số dữ liệu quản lí tối đa của một node
-#define MAX_FILE_NAME_LENGTH 128 //< Độ dài tối đa của tên file
+/**
+ * @brief Định nghĩa có cho phép In cây ra hay không, màn hình console
+ */
+#define PRINT_TREE
+
+/**
+ * @brief Số dữ liệu quản lí tối đa của một node
+ */
+#define ORDER 10
+
+/**
+ * @brief Độ dài tối đa của tên file
+ */
+#define MAX_FILE_NAME_LENGTH 128
 
 #ifdef PRINT_TREE
 #include <stdio.h>
@@ -33,10 +44,25 @@
  */
 typedef struct Record
 {
-    char _from[MAX_FILE_NAME_LENGTH]; //< file nội dung lưu trữ
-    long offset;                      //< Vị trí bắt đầu lưu trữ
-    long length;                      //< Độ dài dữ liệu lưu trữ
-    bool deleted;                     //< Trạng thái xoá hay chưa (xoá quản lí, cho phương thức soft-delete)
+    /**
+     * @brief file nội dung lưu trữ
+     */
+    char _from[MAX_FILE_NAME_LENGTH];
+
+    /**
+     * @brief Vị trí bắt đầu lưu trữ
+     */
+    long offset;
+
+    /**
+     * @brief Độ dài dữ liệu lưu trữ
+     */
+    long length;
+
+    /**
+     * @brief Trạng thái xoá hay chưa (xoá quản lí, cho phương thức soft-delete)
+     */
+    bool deleted;
 } Record;
 
 /**

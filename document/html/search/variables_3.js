@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['is_5fleaf_0',['is_leaf',['../struct_node.html#a3e5449ec9e41ba98cbaf8f3a993d03c4',1,'Node']]]
+  ['deleted_0',['deleted',['../struct_record.html#af24b04ddbf3b759db00bca4d7eb03741',1,'Record']]]
 ];

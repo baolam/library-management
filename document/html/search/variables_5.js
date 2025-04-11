@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['next_0',['next',['../struct_node.html#af67b110ca1a258b793bf69d306929b22',1,'Node']]],
-  ['num_5fkeys_1',['num_keys',['../struct_node.html#a3d741213ac4ef9a48d6c2bf39c8bd146',1,'Node']]]
+  ['is_5fleaf_0',['is_leaf',['../struct_node.html#a3e5449ec9e41ba98cbaf8f3a993d03c4',1,'Node']]]
 ];
