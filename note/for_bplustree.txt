@@ -17,4 +17,6 @@ Leaf
 }
 
 /// numKeys --> số lượng record
-/// Lặp tới tận numKeys
+/// Lặp tới tận numKeys, pointers, (ép kiểu Record), void * --> no-cast pointer (trỏ vô kiểu), 
+/// Record -?-> Book, đọc, (cách đọc)
+/// Record, dùng để lưu trữ thông tin vị trí trong file nội dung
