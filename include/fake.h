@@ -9,9 +9,11 @@
 #include "books.h"
 #include "reader.h"
 
+#define TOTAL_GENRE 12
+
 extern char *titles[];
 extern char *authors[];
-extern char *genres[];
+extern char *genres[TOTAL_GENRE];
 
 Book generate_book(int id);
 Readers generate_reader(int id);

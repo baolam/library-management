@@ -1,32 +1,17 @@
 {
+  "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build/vcvarsall.bat",
   "files.associations": {
-    "callbacks.h": "c",
-    "array": "c",
-    "string": "c",
-    "string_view": "c",
-    "span": "c",
-    "variant": "c",
-    "functional": "c",
-    "gtk.h": "c",
-    "type_traits": "c",
-    "cstdlib": "c",
-    "management.h": "c",
+    "statistic.h": "c",
+    "bplustreev2.h": "c",
     "fake.h": "c",
-    "bookinfor.h": "c",
-    "trie.h": "c",
-    "gui.h": "c",
-<<<<<<< HEAD
-    "reader.h": "c"
-=======
-    "stdio.h": "c"
->>>>>>> exe1
+    "cstdlib": "c",
+    "books.h": "c"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
   "C_Cpp_Runner.debuggerPath": "gdb",
   "C_Cpp_Runner.cStandard": "",
   "C_Cpp_Runner.cppStandard": "",
-  "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build/vcvarsall.bat",
   "C_Cpp_Runner.useMsvc": false,
   "C_Cpp_Runner.warnings": [
     "-Wall",
