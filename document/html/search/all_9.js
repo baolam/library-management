@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['save_5fbook_5fmanagement_0',['save_book_management',['../books_8h.html#ab0d9d44572464bcfc58d438604d0a598',1,'books.c']]],
-  ['search_5fbook_1',['search_book',['../books_8h.html#ad52d1d47f78b08b5e1b73062842a8c34',1,'books.c']]],
-  ['search_5fbook_5fby_5fid_2',['search_book_by_id',['../books_8h.html#ab9223d05c04eaf64efac2e4a8cf2aeec',1,'books.c']]],
-  ['search_5fbook_5fby_5ftitle_3',['search_book_by_title',['../books_8h.html#adbf315a2a4092396b23d8d083661fb6b',1,'books.c']]],
-  ['stock_4',['stock',['../struct_book.html#aabc590a14bc23236eac02b198a447f5d',1,'Book']]]
+  ['makeleaf_0',['makeLeaf',['../bplustreev2_8h.html#af3f6936a5822d3c7b563372a1646d81e',1,'bplustreev2.h']]],
+  ['makenode_1',['makeNode',['../bplustreev2_8h.html#a23a45d6d13fe1a5fa82c4e9b2ddf6447',1,'bplustreev2.h']]],
+  ['makerecord_2',['makeRecord',['../bplustreev2_8h.html#a036cf425fcaa04ea78ba832fda3ad5e2',1,'bplustreev2.h']]],
+  ['max_5fauthor_3',['MAX_AUTHOR',['../books_8h.html#a9986476b23d5ba8a697c60d8130d4e14',1,'books.h']]],
+  ['max_5fgenre_5fno_4',['MAX_GENRE_NO',['../books_8h.html#a0bacc87944c0b8955121b3b9b71664ce',1,'books.h']]],
+  ['max_5ftitle_5',['MAX_TITLE',['../books_8h.html#a18d607761a55c0a30b69f9d82f1da73e',1,'books.h']]]
 ];

@@ -7,7 +7,7 @@
 
 #ifndef BOOKS_H
 #define BOOKS_H
-#define FOLDER "books"
+// #define FOLDER "books"
 
 #define MAX_TITLE 50     ///< Độ dài tối đa của tiêu đề
 #define MAX_AUTHOR 50    ///< Độ dài tối đa của tác giả
@@ -24,6 +24,7 @@
 #include "bplustreev2.h"
 
 /**
+ * @struct Book
  * @brief Cấu trúc dữ liệu cho một cuốn sách
  *
  * Cấu trúc này chứa bookId, title, author, genre, publicationYear, stock.
@@ -49,6 +50,8 @@ extern char book_content_file[MAX_FILE_NAME_LENGTH];    ///< File chứa nội d
 extern Node *book_management; ///< Cây B+ Tree quản lí sách
 extern TrieNode *book_trie;   ///< Cây trie quản lí author
 
+/// Các hàm thao tác với Book
+
 /***
  * @brief Hàm hiển thị thông tin quyển sách.
  * Gọi hàm này để in ra thông tin ra ngoài màn hình console,
@@ -56,8 +59,6 @@ extern TrieNode *book_trie;   ///< Cây trie quản lí author
  * khác.
  *
  * @param book Quyển sách cần hiển thị
- *
- *
  */
 void show_book(Book book);
 
@@ -116,8 +117,8 @@ void search_book_by_id(int id);
  * Cung cấp vào tên Author hoặc nhóm chữ cái đầu của tên Author muốn tìm kiếm
  * Kết quả hiển thị là những quyển sách có tên bắt đầu bằng từ tìm kiếm
  *
- * @param prefix, prefix là nhóm chữ cái đầu của tên Author
- * @param maxNumbers, maxNumbers là số lượng kết quả tối đa
+ * @param prefix là nhóm chữ cái đầu của tên Author
+ * @param maxNumbers là số lượng kết quả tối đa
  */
 void search_book_by_title(const char *prefix, int maxNumbers);
 

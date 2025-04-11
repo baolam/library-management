@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['genre_0',['genre',['../struct_book.html#ac67e9cc86d52f340f7d49949e4b37db4',1,'Book']]]
+  ['delete_5fbook_0',['delete_book',['../books_8h.html#a92647df5ddb986901e8113a8ce3f1e3e',1,'books.c']]]
 ];

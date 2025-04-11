@@ -120,7 +120,7 @@ $(function(){initNavTree('books_8h.html',''); initResizable(true); });
 <code>#include &lt;time.h&gt;</code><br />
 <code>#include &quot;management.h&quot;</code><br />
 <code>#include &quot;trie.h&quot;</code><br />
-<code>#include &quot;bplustreev2.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="bplustreev2_8h_source.html">bplustreev2.h</a>&quot;</code><br />
 </div>
 <p><a href="books_8h_source.html">Tới mã nguồn của file này.</a></p>
 <table class="memberdecls">
@@ -132,9 +132,6 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Định nghĩa</h2></td></tr>
-<tr class="memitem:a366a9843a6a0bfa19ae6d484e326dcbd" id="r_a366a9843a6a0bfa19ae6d484e326dcbd"><td class="memItemLeft" align="right" valign="top"><a id="a366a9843a6a0bfa19ae6d484e326dcbd" name="a366a9843a6a0bfa19ae6d484e326dcbd"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>FOLDER</b>&#160;&#160;&#160;&quot;books&quot;</td></tr>
-<tr class="separator:a366a9843a6a0bfa19ae6d484e326dcbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18d607761a55c0a30b69f9d82f1da73e" id="r_a18d607761a55c0a30b69f9d82f1da73e"><td class="memItemLeft" align="right" valign="top"><a id="a18d607761a55c0a30b69f9d82f1da73e" name="a18d607761a55c0a30b69f9d82f1da73e"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_TITLE</b>&#160;&#160;&#160;50</td></tr>
 <tr class="memdesc:a18d607761a55c0a30b69f9d82f1da73e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Độ dài tối đa của tiêu đề <br /></td></tr>
@@ -152,6 +149,7 @@ Classes</h2></td></tr>
 Các hàm</h2></td></tr>
 <tr class="memitem:af3ab34040cfd77b3963472d88ec6c276" id="r_af3ab34040cfd77b3963472d88ec6c276"><td class="memItemLeft" align="right" valign="top"><a id="af3ab34040cfd77b3963472d88ec6c276" name="af3ab34040cfd77b3963472d88ec6c276"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>show_book</b> (<a class="el" href="struct_book.html">Book</a> book)</td></tr>
+<tr class="memdesc:af3ab34040cfd77b3963472d88ec6c276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Các hàm thao tác với <a class="el" href="struct_book.html" title="Cấu trúc dữ liệu cho một cuốn sách.">Book</a>. <br /></td></tr>
 <tr class="separator:af3ab34040cfd77b3963472d88ec6c276"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c7f88a691fdbbc78ffca5e8095a8bd3" id="r_a0c7f88a691fdbbc78ffca5e8095a8bd3"><td class="memItemLeft" align="right" valign="top"><a id="a0c7f88a691fdbbc78ffca5e8095a8bd3" name="a0c7f88a691fdbbc78ffca5e8095a8bd3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>add_book</b> (<a class="el" href="struct_book.html">Book</a> *book)</td></tr>
@@ -347,8 +345,8 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>book_content_file</b>
 <p>Cung cấp vào tên Author hoặc nhóm chữ cái đầu của tên Author muốn tìm kiếm Kết quả hiển thị là những quyển sách có tên bắt đầu bằng từ tìm kiếm</p>
 <dl class="params"><dt>Các tham số</dt><dd>
   <table class="params">
-    <tr><td class="paramname">prefix,prefix</td><td>là nhóm chữ cái đầu của tên Author </td></tr>
-    <tr><td class="paramname">maxNumbers,maxNumbers</td><td>là số lượng kết quả tối đa </td></tr>
+    <tr><td class="paramname">prefix</td><td>là nhóm chữ cái đầu của tên Author </td></tr>
+    <tr><td class="paramname">maxNumbers</td><td>là số lượng kết quả tối đa </td></tr>
   </table>
   </dd>
 </dl>

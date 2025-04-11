@@ -1,17 +1,20 @@
-/***
+/**
  * @file bplustreev2.h
  * @brief Những cài đặt cần thiết để khai thác cây B+ tree
  * @author Nguyễn Đức Bảo Lâm
  * @note Nội dung file có dựa trên https://www.programiz.com/dsa/b-plus-tree, chân thành cảm ơn!
  * @version 1.0
+ *
+ * File này chứa những định nghĩa, khai báo cần thiết để có thể ứng dụng được B+ Tree vào
+ * quản lí thư viện
  */
 
 #ifndef BPLUSTREEV2_H
 #define BPLUSTREEV2_H
 
-#define PRINT_TREE               //> Định nghĩa có cho phép In cây ra hay không, màn hình console
-#define ORDER 10                 //> Số dữ liệu quản lí tối đa của một node
-#define MAX_FILE_NAME_LENGTH 128 //> Độ dài tối đa của tên file
+#define PRINT_TREE               //< Định nghĩa có cho phép In cây ra hay không, màn hình console
+#define ORDER 10                 //< Số dữ liệu quản lí tối đa của một node
+#define MAX_FILE_NAME_LENGTH 128 //< Độ dài tối đa của tên file
 
 #ifdef PRINT_TREE
 #include <stdio.h>
@@ -21,33 +24,70 @@
 #include <stdbool.h>
 #include <string.h>
 
-/// @brief bản ghi dữ liệu
+/**
+ * @struct Record
+ * @brief Bản ghi dữ liệu lưu trữ
+ *
+ * Node không lưu trữ trực tiếp dữ liệu mà chỉ lưu trữ thông tin quản lí
+ * trong file lưu trữ
+ */
 typedef struct Record
 {
-    char _from[MAX_FILE_NAME_LENGTH]; //> file nội dung lưu trữ
-    long offset;                      //> Vị trí bắt đầu lưu trữ
-    long length;                      //> Độ dài dữ liệu lưu trữ
-    bool deleted;                     //> Trạng thái xoá hay chưa (xoá quản lí, cho phương thức soft-delete)
+    char _from[MAX_FILE_NAME_LENGTH]; //< file nội dung lưu trữ
+    long offset;                      //< Vị trí bắt đầu lưu trữ
+    long length;                      //< Độ dài dữ liệu lưu trữ
+    bool deleted;                     //< Trạng thái xoá hay chưa (xoá quản lí, cho phương thức soft-delete)
 } Record;
 
-/// @brief một node quản lí cơ bản
+/**
+ * @struct Node
+ * @brief Node trong cây B+ tree
+ *
+ * Một node sẽ lưu trữ thông tin quản lí của nhiều bản ghi nếu là node lá
+ * Hoặc quản lí nhiều node con khác.
+ *
+ * Số lượng quản lí tối đa phụ thuộc vào ORDER được định nghĩa
+ */
 typedef struct Node
 {
-    void **pointers;     //> dùng để lưu trữ dữ liệu (Record), hoặc các node con
-    int *keys;           //> lưu trữ các khóa, định hướng quá trình tìm kiếm
-    struct Node *parent; //> Node tổ tiên, kết nối dùng để quản lí
-    bool is_leaf;        //> Là node lá hay không, chỉ thị trạng thái dùng cho liên kết
-    int num_keys;        //> Số lượng khóa
-    struct Node *next;   //> Trỏ tiếp theo (phục vụ enqueue, dequeue)
+    /**
+     * @brief dùng để lưu trữ dữ liệu (Record), hoặc các node con
+     */
+    void **pointers;
+
+    /**
+     * @brief lưu trữ các khóa, định hướng quá trình tìm kiếm
+     */
+    int *keys;
+
+    /**
+     * @brief Node tổ tiên, kết nối dùng để quản lí
+     */
+    struct Node *parent;
+
+    /**
+     * @brief Là node lá hay không, chỉ thị trạng thái dùng cho liên kết
+     */
+    bool is_leaf;
+
+    /**
+     * @brief Số lượng khoá
+     */
+    int num_keys;
+
+    /**
+     * @brief Trỏ tiếp theo (phục vụ enqueue, dequeue)
+     */
+    struct Node *next;
 } Node;
 
 /**
  * @brief Khởi tạo record
  *
  * Tạo dựng record mới từ
- * @param _from
- * @param offset
- * @param length
+ * @param _from bản ghi nguồn
+ * @param offset vị trí bắt đầu
+ * @param length kích thước dữ liệu
  */
 Record *makeRecord(char _from[MAX_FILE_NAME_LENGTH], long offset, long length);
 
@@ -57,7 +97,7 @@ Record *makeRecord(char _from[MAX_FILE_NAME_LENGTH], long offset, long length);
  * Hàm này được dùng cho nhóm tác vụ liên quan đến thống kê, báo cáo
  * Yêu cầu duyệt toàn bộ nội dung file, số sách đã lưu trữ, ...
  *
- * @param root, node gốc cần quản lí
+ * @param root node gốc cần quản lí
  */
 Node *leftMost(Node *root);
 
@@ -79,8 +119,8 @@ Node *makeLeaf(void);
  * @brief Tìm kiếm node lá tương ứng với Key
  *
  * Dùng phương pháp duyệt cây tương tự như trong cây tìm kiếm nhị phân
- * @param root, node gốc
- * @param key, khoá tìm kiếm
+ * @param root node gốc
+ * @param key khoá tìm kiếm
  */
 Node *findLeaf(Node *root, int key);
 
@@ -88,8 +128,8 @@ Node *findLeaf(Node *root, int key);
  * @brief Tìm kiếm bản ghi từ Key
  *
  * Bản chất là một kế thừa mở rộng từ findLeaf
- * @param root, node gốc
- * @param key, khoá tìm kiếm
+ * @param root node gốc
+ * @param key khoá tìm kiếm
  */
 Record *find(Node *root, int key);
 
@@ -99,7 +139,7 @@ Record *find(Node *root, int key);
  * @brief Hàm hỗ trợ cho việc chia tách node, dành cho trường hợp yêu cầu chia tách
  *
  * Cách chia tách sẽ khác nhau tuỳ theo đầu vào là chẵn hay lẻ
- * @param length, số bậc (dựa trên order)
+ * @param length số bậc (dựa trên order)
  */
 int cut(int length);
 
@@ -107,8 +147,8 @@ int cut(int length);
  * @brief Hàm hỗ trợ cho việc trả về vị trí bắt đầu chỉ số bên trái đầu tiên của node
  * được chỉ định
  *
- * @param parent, node cha
- * @param left, node left, node bên trái
+ * @param parent node cha
+ * @param left node left, node bên trái
  *
  * @return vị trí bắt đầu chỉ số bên trái đầu tiên
  */
@@ -146,11 +186,11 @@ Node *insertIntoLeafAfterSplitting(Node *root, Node *leaf, int key, Record *reco
  * Thêm phần tử vào cây sẽ thêm nội dung vào node lá, và các node không là node lá sẽ chứa dữ liệu
  * định hướng tìm kiếm.
  *
- * @param root, node gốc ban đầu
- * @param key, khoá tìm kiếm
- * @param _from, file nội dung lưu trữ
- * @param offset, vị trí bắt đầu lưu trữ trong file
- * @param length, kích thước dữ liệu
+ * @param root node gốc ban đầu
+ * @param key khoá tìm kiếm
+ * @param _from file nội dung lưu trữ
+ * @param offset vị trí bắt đầu lưu trữ trong file
+ * @param length kích thước dữ liệu
  *
  * @return cây mới sau khi thêm
  */
@@ -164,7 +204,7 @@ Node *insert(Node *root, int key, char _from[MAX_FILE_NAME_LENGTH], long offset,
  * File được lưu dưới dạng đuôi .bin
  * Dữ liệu được thành một mảng byte liên tiếp
  *
- * @param root, tượng trưng cho cây muốn lưu trữ
+ * @param root tượng trưng cho cây muốn lưu trữ
  * @param filename tên file muốn lưu trữ
  */
 void saveTree(Node *root, char *filename);

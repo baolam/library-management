@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['load_5fbook_5fmanagement_0',['load_book_management',['../books_8h.html#ade26076641cca3fc5450d909e32762de',1,'books.c']]]
+  ['delete_5fbook_0',['delete_book',['../books_8h.html#a92647df5ddb986901e8113a8ce3f1e3e',1,'books.c']]]
 ];

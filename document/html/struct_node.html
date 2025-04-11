@@ -110,7 +110,7 @@ $(function(){initNavTree('struct_node.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p>một node quản lí cơ bản  
+<p><a class="el" href="struct_node.html" title="Node trong cây B+ tree.">Node</a> trong cây B+ tree.  
  <a href="#details">Tiếp...</a></p>
 
 <p><code>#include &lt;<a class="el" href="bplustreev2_8h_source.html">bplustreev2.h</a>&gt;</code></p>
@@ -119,25 +119,33 @@ $(function(){initNavTree('struct_node.html',''); initResizable(true); });
 Các thuộc tính Public</h2></td></tr>
 <tr class="memitem:a5cb279f88edbcd6af65300c2b63d7e6e" id="r_a5cb279f88edbcd6af65300c2b63d7e6e"><td class="memItemLeft" align="right" valign="top"><a id="a5cb279f88edbcd6af65300c2b63d7e6e" name="a5cb279f88edbcd6af65300c2b63d7e6e"></a>
 void **&#160;</td><td class="memItemRight" valign="bottom"><b>pointers</b></td></tr>
+<tr class="memdesc:a5cb279f88edbcd6af65300c2b63d7e6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">dùng để lưu trữ dữ liệu (<a class="el" href="struct_record.html" title="Bản ghi dữ liệu lưu trữ">Record</a>), hoặc các node con <br /></td></tr>
 <tr class="separator:a5cb279f88edbcd6af65300c2b63d7e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac20243a09347bbb2d3f73234f58d3ad0" id="r_ac20243a09347bbb2d3f73234f58d3ad0"><td class="memItemLeft" align="right" valign="top"><a id="ac20243a09347bbb2d3f73234f58d3ad0" name="ac20243a09347bbb2d3f73234f58d3ad0"></a>
 int *&#160;</td><td class="memItemRight" valign="bottom"><b>keys</b></td></tr>
+<tr class="memdesc:ac20243a09347bbb2d3f73234f58d3ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">lưu trữ các khóa, định hướng quá trình tìm kiếm <br /></td></tr>
 <tr class="separator:ac20243a09347bbb2d3f73234f58d3ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34f3ab9670c7b70dad8905359a243c92" id="r_a34f3ab9670c7b70dad8905359a243c92"><td class="memItemLeft" align="right" valign="top"><a id="a34f3ab9670c7b70dad8905359a243c92" name="a34f3ab9670c7b70dad8905359a243c92"></a>
 struct <a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parent</b></td></tr>
+<tr class="memdesc:a34f3ab9670c7b70dad8905359a243c92"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_node.html" title="Node trong cây B+ tree.">Node</a> tổ tiên, kết nối dùng để quản lí <br /></td></tr>
 <tr class="separator:a34f3ab9670c7b70dad8905359a243c92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e5449ec9e41ba98cbaf8f3a993d03c4" id="r_a3e5449ec9e41ba98cbaf8f3a993d03c4"><td class="memItemLeft" align="right" valign="top"><a id="a3e5449ec9e41ba98cbaf8f3a993d03c4" name="a3e5449ec9e41ba98cbaf8f3a993d03c4"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_leaf</b></td></tr>
+<tr class="memdesc:a3e5449ec9e41ba98cbaf8f3a993d03c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Là node lá hay không, chỉ thị trạng thái dùng cho liên kết. <br /></td></tr>
 <tr class="separator:a3e5449ec9e41ba98cbaf8f3a993d03c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d741213ac4ef9a48d6c2bf39c8bd146" id="r_a3d741213ac4ef9a48d6c2bf39c8bd146"><td class="memItemLeft" align="right" valign="top"><a id="a3d741213ac4ef9a48d6c2bf39c8bd146" name="a3d741213ac4ef9a48d6c2bf39c8bd146"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>num_keys</b></td></tr>
+<tr class="memdesc:a3d741213ac4ef9a48d6c2bf39c8bd146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Số lượng khoá <br /></td></tr>
 <tr class="separator:a3d741213ac4ef9a48d6c2bf39c8bd146"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af67b110ca1a258b793bf69d306929b22" id="r_af67b110ca1a258b793bf69d306929b22"><td class="memItemLeft" align="right" valign="top"><a id="af67b110ca1a258b793bf69d306929b22" name="af67b110ca1a258b793bf69d306929b22"></a>
 struct <a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>next</b></td></tr>
+<tr class="memdesc:af67b110ca1a258b793bf69d306929b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trỏ tiếp theo (phục vụ enqueue, dequeue) <br /></td></tr>
 <tr class="separator:af67b110ca1a258b793bf69d306929b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Mô tả chi tiết</h2>
-<div class="textblock"><p>một node quản lí cơ bản </p>
+<div class="textblock"><p><a class="el" href="struct_node.html" title="Node trong cây B+ tree.">Node</a> trong cây B+ tree. </p>
+<p>Một node sẽ lưu trữ thông tin quản lí của nhiều bản ghi nếu là node lá Hoặc quản lí nhiều node con khác.</p>
+<p>Số lượng quản lí tối đa phụ thuộc vào ORDER được định nghĩa </p>
 </div><hr/>Thông tin cho struct được biên soạn từ các file sau đây:<ul>
 <li>include/<a class="el" href="bplustreev2_8h_source.html">bplustreev2.h</a></li>
 </ul>

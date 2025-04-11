@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['preparate_5fbook_0',['preparate_book',['../books_8h.html#a95fe8318b6aff05328ee79cfd9e63b67',1,'books.c']]]
+  ['find_0',['find',['../bplustreev2_8h.html#a0e4ed69811cf4058e1e0f7a311fc627d',1,'bplustreev2.h']]],
+  ['findleaf_1',['findLeaf',['../bplustreev2_8h.html#ac539c35415e0bb03d619917198332b53',1,'bplustreev2.h']]]
 ];
