@@ -20,8 +20,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/code/library-management/fake_information",
-      "program": "d:/code/library-management/fake_information/build/Debug/outDebug",
+      "cwd": "d:/C(VSCode)/train_C/library-management/src/utils",
+      "program": "d:/C(VSCode)/train_C/library-management/src/utils/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
