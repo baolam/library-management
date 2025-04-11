@@ -19,68 +19,68 @@
 \DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
 \DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <string.h>}}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_record}{Record}}}
-\DoxyCodeLine{00019\ \{}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{char}\ \_from[MAX\_FILE\_NAME\_LENGTH];}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{long}\ offset;}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{long}\ length;}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ deleted;}
-\DoxyCodeLine{00024\ \}\ \mbox{\hyperlink{struct_record}{Record}};}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_node}{Node}}}
-\DoxyCodeLine{00027\ \{}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ **pointers;}
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ *keys;}
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_node}{Node}}\ *parent;}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_leaf;}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_keys;}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_node}{Node}}\ *next;}
-\DoxyCodeLine{00034\ \}\ \mbox{\hyperlink{struct_node}{Node}};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \mbox{\hyperlink{struct_record}{Record}}\ *makeRecord(\textcolor{keywordtype}{char}\ \_from[MAX\_FILE\_NAME\_LENGTH],\ \textcolor{keywordtype}{long}\ offset,\ \textcolor{keywordtype}{long}\ length);}
-\DoxyCodeLine{00037\ \mbox{\hyperlink{struct_node}{Node}}\ *leftMost(\mbox{\hyperlink{struct_node}{Node}}\ *root);}
-\DoxyCodeLine{00038\ \mbox{\hyperlink{struct_node}{Node}}\ *makeNode(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00039\ \mbox{\hyperlink{struct_node}{Node}}\ *makeLeaf(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00042\ \mbox{\hyperlink{struct_node}{Node}}\ *findLeaf(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key);}
-\DoxyCodeLine{00043\ \mbox{\hyperlink{struct_record}{Record}}\ *find(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key);}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00046\ \textcolor{keywordtype}{int}\ cut(\textcolor{keywordtype}{int}\ length);}
-\DoxyCodeLine{00047\ \textcolor{keywordtype}{int}\ getLeftIndex(\mbox{\hyperlink{struct_node}{Node}}\ *parent,\ \mbox{\hyperlink{struct_node}{Node}}\ *left);}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#ifdef\ PRINT\_TREE}}
-\DoxyCodeLine{00050\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_node}{Node}}\ *queue;}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \textcolor{keywordtype}{int}\ pathToLeaves(\mbox{\hyperlink{struct_node}{Node}}\ *\textcolor{keyword}{const}\ root,\ \mbox{\hyperlink{struct_node}{Node}}\ *child);}
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_record}{Record}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{char}\ \_from[MAX\_FILE\_NAME\_LENGTH];}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{long}\ offset;\ \ \textcolor{comment}{//\ Vị\ trí\ bắt\ đầu\ lưu\ trữ}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{long}\ length;\ \ \textcolor{comment}{//\ Độ\ dài\ dữ\ liệu\ lưu\ trữ}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ deleted;\ \textcolor{comment}{//\ Trạng\ thái\ xoá\ hay\ chưa\ (xoá\ quản\ lí,\ cho\ phương\ thức\ soft-\/delete)}}
+\DoxyCodeLine{00025\ \}\ \mbox{\hyperlink{struct_record}{Record}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_node}{Node}}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ **pointers;\ \ \ \ \ \textcolor{comment}{//\ dùng\ để\ lưu\ trữ\ dữ\ liệu\ (Record),\ hoặc\ các\ node\ con}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ *keys;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ lưu\ trữ\ các\ khóa,\ định\ hướng\ quá\ trình\ tìm\ kiếm}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_node}{Node}}\ *parent;\ \textcolor{comment}{//\ Node\ tổ\ tiên,\ kết\ nối\ dùng\ để\ quản\ lí}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_leaf;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Là\ node\ lá\ hay\ không,\ chỉ\ thị\ trạng\ thái\ dùng\ cho\ liên\ kết}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_keys;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Số\ lượng\ khóa}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_node}{Node}}\ *next;\ \ \ \textcolor{comment}{//\ Trỏ\ tiếp\ theo\ (phục\ vụ\ enqueue,\ dequeue)}}
+\DoxyCodeLine{00036\ \}\ \mbox{\hyperlink{struct_node}{Node}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \mbox{\hyperlink{struct_record}{Record}}\ *makeRecord(\textcolor{keywordtype}{char}\ \_from[MAX\_FILE\_NAME\_LENGTH],\ \textcolor{keywordtype}{long}\ offset,\ \textcolor{keywordtype}{long}\ length);}
+\DoxyCodeLine{00039\ \mbox{\hyperlink{struct_node}{Node}}\ *leftMost(\mbox{\hyperlink{struct_node}{Node}}\ *root);}
+\DoxyCodeLine{00040\ \mbox{\hyperlink{struct_node}{Node}}\ *makeNode(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00041\ \mbox{\hyperlink{struct_node}{Node}}\ *makeLeaf(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \mbox{\hyperlink{struct_node}{Node}}\ *findLeaf(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key);}
+\DoxyCodeLine{00045\ \mbox{\hyperlink{struct_record}{Record}}\ *find(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{int}\ cut(\textcolor{keywordtype}{int}\ length);}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{int}\ getLeftIndex(\mbox{\hyperlink{struct_node}{Node}}\ *parent,\ \mbox{\hyperlink{struct_node}{Node}}\ *left);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#ifdef\ PRINT\_TREE}}
+\DoxyCodeLine{00052\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_node}{Node}}\ *queue;}
 \DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ enqueue(\mbox{\hyperlink{struct_node}{Node}}\ *new\_node);}
-\DoxyCodeLine{00055\ \mbox{\hyperlink{struct_node}{Node}}\ *dequeue(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ printTree(\mbox{\hyperlink{struct_node}{Node}}\ *\textcolor{keyword}{const}\ root);}
-\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{int}\ pathToLeaves(\mbox{\hyperlink{struct_node}{Node}}\ *\textcolor{keyword}{const}\ root,\ \mbox{\hyperlink{struct_node}{Node}}\ *child);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ enqueue(\mbox{\hyperlink{struct_node}{Node}}\ *new\_node);}
+\DoxyCodeLine{00057\ \mbox{\hyperlink{struct_node}{Node}}\ *dequeue(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ printTree(\mbox{\hyperlink{struct_node}{Node}}\ *\textcolor{keyword}{const}\ root);}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00066\ \mbox{\hyperlink{struct_node}{Node}}\ *startNewTree(\textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_record}{Record}}\ *pointer);}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00073\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoLeaf(\mbox{\hyperlink{struct_node}{Node}}\ *leaf,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_record}{Record}}\ *record);}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00082\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoNode(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \mbox{\hyperlink{struct_node}{Node}}\ *n,\ \textcolor{keywordtype}{int}\ left\_index,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_node}{Node}}\ *right);}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00091\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoNodeAfterSplitting(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \mbox{\hyperlink{struct_node}{Node}}\ *old\_node,\ \textcolor{keywordtype}{int}\ left\_index,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_node}{Node}}\ *right);}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00098\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoNewRoot(\mbox{\hyperlink{struct_node}{Node}}\ *left,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_node}{Node}}\ *right);}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00106\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoParent(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \mbox{\hyperlink{struct_node}{Node}}\ *left,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_node}{Node}}\ *right);}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00114\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoLeafAfterSplitting(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \mbox{\hyperlink{struct_node}{Node}}\ *leaf,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_record}{Record}}\ *record);}
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00123\ \mbox{\hyperlink{struct_node}{Node}}\ *insert(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key,\ \textcolor{keywordtype}{char}\ \_from[MAX\_FILE\_NAME\_LENGTH],\ \textcolor{keywordtype}{long}\ offset,\ \textcolor{keywordtype}{long}\ length);}
-\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \mbox{\hyperlink{struct_node}{Node}}\ *startNewTree(\textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_record}{Record}}\ *pointer);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00075\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoLeaf(\mbox{\hyperlink{struct_node}{Node}}\ *leaf,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_record}{Record}}\ *record);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00084\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoNode(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \mbox{\hyperlink{struct_node}{Node}}\ *n,\ \textcolor{keywordtype}{int}\ left\_index,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_node}{Node}}\ *right);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00093\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoNodeAfterSplitting(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \mbox{\hyperlink{struct_node}{Node}}\ *old\_node,\ \textcolor{keywordtype}{int}\ left\_index,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_node}{Node}}\ *right);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00100\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoNewRoot(\mbox{\hyperlink{struct_node}{Node}}\ *left,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_node}{Node}}\ *right);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00108\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoParent(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \mbox{\hyperlink{struct_node}{Node}}\ *left,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_node}{Node}}\ *right);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00116\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoLeafAfterSplitting(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \mbox{\hyperlink{struct_node}{Node}}\ *leaf,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_record}{Record}}\ *record);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00125\ \mbox{\hyperlink{struct_node}{Node}}\ *insert(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key,\ \textcolor{keywordtype}{char}\ \_from[MAX\_FILE\_NAME\_LENGTH],\ \textcolor{keywordtype}{long}\ offset,\ \textcolor{keywordtype}{long}\ length);}
 \DoxyCodeLine{00126\ }
-\DoxyCodeLine{00130\ \textcolor{keywordtype}{void}\ saveTree(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{char}\ *filename);}
-\DoxyCodeLine{00131\ }
-\DoxyCodeLine{00135\ \mbox{\hyperlink{struct_node}{Node}}\ *loadTree(\textcolor{keywordtype}{char}\ *filename);}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ saveTree(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00137\ \mbox{\hyperlink{struct_node}{Node}}\ *loadTree(\textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

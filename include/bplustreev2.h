@@ -15,22 +15,24 @@
 #include <stdbool.h>
 #include <string.h>
 
+/// @brief bản ghi dữ liệu
 typedef struct Record
 {
     char _from[MAX_FILE_NAME_LENGTH];
-    long offset;
-    long length;
-    bool deleted;
+    long offset;  // Vị trí bắt đầu lưu trữ
+    long length;  // Độ dài dữ liệu lưu trữ
+    bool deleted; // Trạng thái xoá hay chưa (xoá quản lí, cho phương thức soft-delete)
 } Record;
 
+/// @brief một node quản lí cơ bản
 typedef struct Node
 {
-    void **pointers;
-    int *keys;
-    struct Node *parent;
-    bool is_leaf;
-    int num_keys;
-    struct Node *next;
+    void **pointers;     // dùng để lưu trữ dữ liệu (Record), hoặc các node con
+    int *keys;           // lưu trữ các khóa, định hướng quá trình tìm kiếm
+    struct Node *parent; // Node tổ tiên, kết nối dùng để quản lí
+    bool is_leaf;        // Là node lá hay không, chỉ thị trạng thái dùng cho liên kết
+    int num_keys;        // Số lượng khóa
+    struct Node *next;   // Trỏ tiếp theo (phục vụ enqueue, dequeue)
 } Node;
 
 Record *makeRecord(char _from[MAX_FILE_NAME_LENGTH], long offset, long length);

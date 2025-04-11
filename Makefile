@@ -29,16 +29,18 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+#=====================================
+#Hỗ trợ tạo doc
+#=====================================
+doc:
+	doxygen $(DOXYFILE)
+
 # ====================================
 # Build các chương trình test
 # ====================================
 # Tạo danh sách .exe cho mỗi file test
 TEST_EXES = $(patsubst $(TEST_DIR)/%.c, $(TEST_DIR)/%.exe, $(TEST_SRCS))
 TEST_OBJS = $(filter-out $(OBJ_DIR)/main.o, $(OBJS))
-
-doc:
-	doxygen $(DOXYFILE)
-	@echo "Đã tạo tài liệu tại document/html"
 
 # Build tất cả file test
 test: $(TEST_EXES)
@@ -51,4 +53,7 @@ $(TEST_DIR)/%.exe: $(TEST_DIR)/%.c $(TEST_OBJS)
 # Clean
 # ====================================
 clean:
-	rm -rf $(OBJ_DIR) $(TARGET) $(TEST_EXES) $(DOCUMENT)
+	rm -rf $(OBJ_DIR) $(TARGET) $(TEST_EXES) $(DOCUMENT_DIR)
+
+doc_erase:
+	rm -rf $(DOCUMENT_DIR)
