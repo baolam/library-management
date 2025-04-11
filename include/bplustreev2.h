@@ -133,12 +133,12 @@ void printTree(Node *const root);
 /// @return Node gốc
 Node *startNewTree(int key, Record *pointer);
 
-// Node *insertIntoLeaf(Node *leaf, int key, Record *record);
-// Node *insertIntoNode(Node *root, Node *n, int left_index, int key, Node *right);
-// Node *insertIntoNodeAfterSplitting(Node *root, Node *old_node, int left_index, int key, Node *right);
-// Node *insertIntoNewRoot(Node *left, int key, Node *right);
-// Node *insertIntoParent(Node *root, Node *left, int key, Node *right);
-// Node *insertIntoLeafAfterSplitting(Node *root, Node *leaf, int key, Record *record);
+Node *insertIntoLeaf(Node *leaf, int key, Record *record);
+Node *insertIntoNode(Node *root, Node *n, int left_index, int key, Node *right);
+Node *insertIntoNodeAfterSplitting(Node *root, Node *old_node, int left_index, int key, Node *right);
+Node *insertIntoNewRoot(Node *left, int key, Node *right);
+Node *insertIntoParent(Node *root, Node *left, int key, Node *right);
+Node *insertIntoLeafAfterSplitting(Node *root, Node *leaf, int key, Record *record);
 
 /**
  * @brief Hàm hỗ trợ cho việc thêm phần tử vào cây
