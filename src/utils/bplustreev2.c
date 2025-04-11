@@ -61,9 +61,9 @@ Node *leftMost(Node *root)
     Node *temp = root;
     while (temp != NULL && !temp->is_leaf)
     {
-        temp = temp->pointers[0];
+        temp = (Node *)temp->pointers[0];
     }
-    return temp;
+    return (Node *)temp;
 }
 
 Node *findLeaf(Node *root, int key)
