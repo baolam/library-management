@@ -109,23 +109,36 @@ $(function(){initNavTree('struct_trie_node.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">TrieNode Struct Tham chiếu</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Một <a class="el" href="struct_trie_node.html" title="Một TrieNode dùng để lưu trữ dữ liệu.">TrieNode</a> dùng để lưu trữ dữ liệu.  
+ <a href="#details">Tiếp...</a></p>
+
+<p><code>#include &lt;<a class="el" href="trie_8h_source.html">trie.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Các thuộc tính Public</h2></td></tr>
 <tr class="memitem:a9dc2a9bc247486fac3e4b350c73a3060" id="r_a9dc2a9bc247486fac3e4b350c73a3060"><td class="memItemLeft" align="right" valign="top"><a id="a9dc2a9bc247486fac3e4b350c73a3060" name="a9dc2a9bc247486fac3e4b350c73a3060"></a>
 struct <a class="el" href="struct_trie_node.html">TrieNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>children</b> [ALPHABET_SIZE]</td></tr>
+<tr class="memdesc:a9dc2a9bc247486fac3e4b350c73a3060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mảng các <a class="el" href="struct_trie_node.html" title="Một TrieNode dùng để lưu trữ dữ liệu.">TrieNode</a> con dùng để kết nối đến các kí tự khác. <br /></td></tr>
 <tr class="separator:a9dc2a9bc247486fac3e4b350c73a3060"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2732ce1e141346865d997859836d663" id="r_ab2732ce1e141346865d997859836d663"><td class="memItemLeft" align="right" valign="top"><a id="ab2732ce1e141346865d997859836d663" name="ab2732ce1e141346865d997859836d663"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEndOfWord</b></td></tr>
+<tr class="memdesc:ab2732ce1e141346865d997859836d663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag dùng để đánh dấu khi một <a class="el" href="struct_trie_node.html" title="Một TrieNode dùng để lưu trữ dữ liệu.">TrieNode</a> là node kết thúc. <br /></td></tr>
 <tr class="separator:ab2732ce1e141346865d997859836d663"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d44cf1b552c8359af6c17d7f034f2dc" id="r_a6d44cf1b552c8359af6c17d7f034f2dc"><td class="memItemLeft" align="right" valign="top"><a id="a6d44cf1b552c8359af6c17d7f034f2dc" name="a6d44cf1b552c8359af6c17d7f034f2dc"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>numIds</b></td></tr>
+<tr class="memdesc:a6d44cf1b552c8359af6c17d7f034f2dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Biến lưu số lượng khoá tìm kiếm ứng với node kết thúc. <br /></td></tr>
 <tr class="separator:a6d44cf1b552c8359af6c17d7f034f2dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bdf0d415f3d8c515b0f942d623957ac" id="r_a7bdf0d415f3d8c515b0f942d623957ac"><td class="memItemLeft" align="right" valign="top"><a id="a7bdf0d415f3d8c515b0f942d623957ac" name="a7bdf0d415f3d8c515b0f942d623957ac"></a>
 int *&#160;</td><td class="memItemRight" valign="bottom"><b>ids</b></td></tr>
+<tr class="memdesc:a7bdf0d415f3d8c515b0f942d623957ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Biến lưu chi tiết các Ids. <br /></td></tr>
 <tr class="separator:a7bdf0d415f3d8c515b0f942d623957ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>Thông tin cho struct được biên soạn từ các file sau đây:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Mô tả chi tiết</h2>
+<div class="textblock"><p>Một <a class="el" href="struct_trie_node.html" title="Một TrieNode dùng để lưu trữ dữ liệu.">TrieNode</a> dùng để lưu trữ dữ liệu. </p>
+<p>Do việc tiến hành quản lí dữ liệu được cài đặt chính trên Id, nên cần phải tích hợp thêm khoá Id vào trong cấu trúc dữ liệu này.</p>
+<p>Mặt khác do name có thể tồn tại trùng nhau nên Id ở đây là mảng. </p>
+</div><hr/>Thông tin cho struct được biên soạn từ các file sau đây:<ul>
 <li>include/<a class="el" href="trie_8h_source.html">trie.h</a></li>
 </ul>
 </div><!-- contents -->

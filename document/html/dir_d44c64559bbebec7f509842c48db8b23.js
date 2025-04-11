@@ -8,5 +8,5 @@ var dir_d44c64559bbebec7f509842c48db8b23 =
     [ "management.h", "management_8h.html", "management_8h" ],
     [ "reader.h", "reader_8h_source.html", null ],
     [ "statistic.h", "statistic_8h_source.html", null ],
-    [ "trie.h", "trie_8h_source.html", null ]
+    [ "trie.h", "trie_8h.html", "trie_8h" ]
 ];

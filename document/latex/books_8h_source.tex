@@ -3,97 +3,97 @@
 \mbox{\hyperlink{books_8h}{Tới Thông tin của file này.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ BOOKS\_H}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ BOOKS\_H}}
-\DoxyCodeLine{00010\ \textcolor{comment}{//\ \#define\ FOLDER\ "{}books"{}}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ MAX\_TITLE\ 50\ \ \ \ \ }}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ MAX\_AUTHOR\ 50\ \ \ \ }}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ MAX\_GENRE\_NO\ 100\ }}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{comment}{//\ \#include\ <gtk/gtk.h>}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <string.h>}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <time.h>}}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{management_8h}{management.h}}"{}}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}trie.h"{}}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bplustreev2_8h}{bplustreev2.h}}"{}}}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
-\DoxyCodeLine{00037\ \{}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_book_ad630743841ee8a2e7cacc7d2a3d2b97e}{bookId}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_book_a8465f8a9dca23179416c97ce6dea7a30}{title}}[\mbox{\hyperlink{books_8h_a18d607761a55c0a30b69f9d82f1da73e}{MAX\_TITLE}}];\ \ \ \ }
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_book_af656d9ce7cf239b98da140f5ff3397a3}{author}}[\mbox{\hyperlink{books_8h_a9986476b23d5ba8a697c60d8130d4e14}{MAX\_AUTHOR}}];\ \ }
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_book_ac67e9cc86d52f340f7d49949e4b37db4}{genre}}[\mbox{\hyperlink{books_8h_a0bacc87944c0b8955121b3b9b71664ce}{MAX\_GENRE\_NO}}];\ }
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_book_a29b2239580d36f87078ea8ab6ab5d6aa}{publicationYear}};\ \ \ \ \ \ }
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_book_aabc590a14bc23236eac02b198a447f5d}{stock}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00044\ \}\ \mbox{\hyperlink{struct_book}{Book}};}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ book\_management\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];\ }
-\DoxyCodeLine{00047\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ book\_trie\_management[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];\ }
-\DoxyCodeLine{00048\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ book\_content\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];\ \ \ \ }
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_node}{Node}}\ *book\_management;\ }
-\DoxyCodeLine{00051\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *book\_trie;\ \ \ }
-\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ BOOKS\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ BOOKS\_H}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ \#define\ FOLDER\ "{}books"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ MAX\_TITLE\ 50\ \ \ \ \ }}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ MAX\_AUTHOR\ 50\ \ \ \ }}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ MAX\_GENRE\_NO\ 100\ }}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ \#include\ <gtk/gtk.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{management_8h}{management.h}}"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{trie_8h}{trie.h}}"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bplustreev2_8h}{bplustreev2.h}}"{}}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_book_ad630743841ee8a2e7cacc7d2a3d2b97e}{bookId}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_book_a8465f8a9dca23179416c97ce6dea7a30}{title}}[\mbox{\hyperlink{books_8h_a18d607761a55c0a30b69f9d82f1da73e}{MAX\_TITLE}}];\ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_book_af656d9ce7cf239b98da140f5ff3397a3}{author}}[\mbox{\hyperlink{books_8h_a9986476b23d5ba8a697c60d8130d4e14}{MAX\_AUTHOR}}];\ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_book_ac67e9cc86d52f340f7d49949e4b37db4}{genre}}[\mbox{\hyperlink{books_8h_a0bacc87944c0b8955121b3b9b71664ce}{MAX\_GENRE\_NO}}];\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_book_a29b2239580d36f87078ea8ab6ab5d6aa}{publicationYear}};\ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_book_aabc590a14bc23236eac02b198a447f5d}{stock}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \}\ \mbox{\hyperlink{struct_book}{Book}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ book\_management\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ book\_trie\_management[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ book\_content\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];\ \ \ \ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_node}{Node}}\ *book\_management;\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *book\_trie;\ \ \ }
 \DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \textcolor{comment}{/***}}
-\DoxyCodeLine{00056\ \textcolor{comment}{\ *\ @brief\ Hàm\ hiển\ thị\ thông\ tin\ quyển\ sách.}}
-\DoxyCodeLine{00057\ \textcolor{comment}{\ *\ Gọi\ hàm\ này\ để\ in\ ra\ thông\ tin\ ra\ ngoài\ màn\ hình\ console,}}
-\DoxyCodeLine{00058\ \textcolor{comment}{\ *\ Dùng\ cho\ trường\ hợp\ Debug,\ muốn\ kiểm\ tra\ sự\ hoạt\ động\ của\ các\ hàm}}
-\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ khác.}}
-\DoxyCodeLine{00060\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00061\ \textcolor{comment}{\ *\ @param\ book\ Quyển\ sách\ cần\ hiển\ thị}}
-\DoxyCodeLine{00062\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_af3ab34040cfd77b3963472d88ec6c276}{show\_book}}(\mbox{\hyperlink{struct_book}{Book}}\ book);}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \textcolor{comment}{/***}}
-\DoxyCodeLine{00066\ \textcolor{comment}{\ *\ @brief\ Thêm\ một\ quyển\ sách\ mới}}
-\DoxyCodeLine{00067\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00068\ \textcolor{comment}{\ *\ Việc\ thêm\ một\ quyển\ sách\ mới\ gồm\ thêm\ vào\ cây\ B+\ Tree,\ cây\ Trie\ đối\ với\ Author.}}
-\DoxyCodeLine{00069\ \textcolor{comment}{\ *\ Nguyên\ tắc\ hoạt\ động:}}
-\DoxyCodeLine{00070\ \textcolor{comment}{\ *\ Nếu\ bản\ ghi\ đã\ tồn\ tại\ (đảm\ bảo\ Id\ phải\ mới)\ -\/-\/>\ không\ thêm}}
-\DoxyCodeLine{00071\ \textcolor{comment}{\ *\ Nếu\ chưa\ tồn\ tại\ tiến\ hành\ thêm.}}
-\DoxyCodeLine{00072\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00073\ \textcolor{comment}{\ *\ @param\ book\ Quyển\ sách\ cần\ thêm}}
-\DoxyCodeLine{00074\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ add\_book(\mbox{\hyperlink{struct_book}{Book}}\ *book);}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_a92647df5ddb986901e8113a8ce3f1e3e}{delete\_book}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_a3a2c8d018662acf1c6ca6857a9bb7f86}{update\_book}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_ab9223d05c04eaf64efac2e4a8cf2aeec}{search\_book\_by\_id}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00123\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_adbf315a2a4092396b23d8d083661fb6b}{search\_book\_by\_title}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *prefix,\ \textcolor{keywordtype}{int}\ maxNumbers);}
-\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{/***}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *\ @brief\ Hàm\ hiển\ thị\ thông\ tin\ quyển\ sách.}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ Gọi\ hàm\ này\ để\ in\ ra\ thông\ tin\ ra\ ngoài\ màn\ hình\ console,}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *\ Dùng\ cho\ trường\ hợp\ Debug,\ muốn\ kiểm\ tra\ sự\ hoạt\ động\ của\ các\ hàm}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ *\ khác.}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ *\ @param\ book\ Quyển\ sách\ cần\ hiển\ thị}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_af3ab34040cfd77b3963472d88ec6c276}{show\_book}}(\mbox{\hyperlink{struct_book}{Book}}\ book);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{comment}{/***}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ *\ @brief\ Thêm\ một\ quyển\ sách\ mới}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ *\ Việc\ thêm\ một\ quyển\ sách\ mới\ gồm\ thêm\ vào\ cây\ B+\ Tree,\ cây\ Trie\ đối\ với\ Author.}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ *\ Nguyên\ tắc\ hoạt\ động:}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ *\ Nếu\ bản\ ghi\ đã\ tồn\ tại\ (đảm\ bảo\ Id\ phải\ mới)\ -\/-\/>\ không\ thêm}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ *\ Nếu\ chưa\ tồn\ tại\ tiến\ hành\ thêm.}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ *\ @param\ book\ Quyển\ sách\ cần\ thêm}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ add\_book(\mbox{\hyperlink{struct_book}{Book}}\ *book);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_a92647df5ddb986901e8113a8ce3f1e3e}{delete\_book}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_a3a2c8d018662acf1c6ca6857a9bb7f86}{update\_book}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00114\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_ab9223d05c04eaf64efac2e4a8cf2aeec}{search\_book\_by\_id}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00125\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_adbf315a2a4092396b23d8d083661fb6b}{search\_book\_by\_title}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *prefix,\ \textcolor{keywordtype}{int}\ maxNumbers);}
 \DoxyCodeLine{00126\ }
-\DoxyCodeLine{00127\ \textcolor{comment}{/***}}
-\DoxyCodeLine{00128\ \textcolor{comment}{\ *\ @brief\ Tìm\ kiếm\ sách\ và\ trả\ về\ sách}}
-\DoxyCodeLine{00129\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00130\ \textcolor{comment}{\ *\ Trả\ về\ bản\ dựng\ (Book)\ một\ quyển\ sách\ từ\ Id\ được\ cung\ cấp}}
-\DoxyCodeLine{00131\ \textcolor{comment}{\ *\ Nếu\ không\ tìm\ thấy\ sách\ (đã\ bị\ xoá,\ lỗi\ đọc\ file),\ trả\ về\ NULL}}
-\DoxyCodeLine{00132\ \textcolor{comment}{\ *\ Tìm\ thấy\ thì\ trả\ về\ bản\ dựng\ (Book)\ của\ nó}}
-\DoxyCodeLine{00133\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00134\ \textcolor{comment}{\ *\ Cách\ hoạt\ động:}}
-\DoxyCodeLine{00135\ \textcolor{comment}{\ *\ +\ Lấy\ Record\ tương\ ứng\ ứng\ với\ Id\ kèm\ theo}}
-\DoxyCodeLine{00136\ \textcolor{comment}{\ *\ +\ Đọc\ dữ\ liệu\ từ\ file\ nội\ dung\ ứng\ với\ Record}}
-\DoxyCodeLine{00137\ \textcolor{comment}{\ *\ +\ Gghi\ nhận\ dữ\ liệu\ và\ trả\ về\ kết\ quả}}
-\DoxyCodeLine{00138\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00139\ \textcolor{comment}{\ *\ @param\ id\ Id\ của\ quyển\ sách\ cần\ tìm}}
-\DoxyCodeLine{00140\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00141\ \mbox{\hyperlink{struct_book}{Book}}\ *\mbox{\hyperlink{books_8h_ad52d1d47f78b08b5e1b73062842a8c34}{search\_book}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{comment}{/***}}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ *\ @brief\ Tìm\ kiếm\ sách\ và\ trả\ về\ sách}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ *\ Trả\ về\ bản\ dựng\ (Book)\ một\ quyển\ sách\ từ\ Id\ được\ cung\ cấp}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ *\ Nếu\ không\ tìm\ thấy\ sách\ (đã\ bị\ xoá,\ lỗi\ đọc\ file),\ trả\ về\ NULL}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ *\ Tìm\ thấy\ thì\ trả\ về\ bản\ dựng\ (Book)\ của\ nó}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ *\ Cách\ hoạt\ động:}}
+\DoxyCodeLine{00137\ \textcolor{comment}{\ *\ +\ Lấy\ Record\ tương\ ứng\ ứng\ với\ Id\ kèm\ theo}}
+\DoxyCodeLine{00138\ \textcolor{comment}{\ *\ +\ Đọc\ dữ\ liệu\ từ\ file\ nội\ dung\ ứng\ với\ Record}}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ *\ +\ Gghi\ nhận\ dữ\ liệu\ và\ trả\ về\ kết\ quả}}
+\DoxyCodeLine{00140\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00141\ \textcolor{comment}{\ *\ @param\ id\ Id\ của\ quyển\ sách\ cần\ tìm}}
+\DoxyCodeLine{00142\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00143\ \mbox{\hyperlink{struct_book}{Book}}\ *\mbox{\hyperlink{books_8h_ad52d1d47f78b08b5e1b73062842a8c34}{search\_book}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
 \DoxyCodeLine{00144\ }
-\DoxyCodeLine{00150\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_a95fe8318b6aff05328ee79cfd9e63b67}{preparate\_book}}();}
-\DoxyCodeLine{00151\ }
-\DoxyCodeLine{00159\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_ab0d9d44572464bcfc58d438604d0a598}{save\_book\_management}}();}
-\DoxyCodeLine{00160\ }
-\DoxyCodeLine{00166\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_ade26076641cca3fc5450d909e32762de}{load\_book\_management}}();}
-\DoxyCodeLine{00167\ }
-\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00152\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_a95fe8318b6aff05328ee79cfd9e63b67}{preparate\_book}}();}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00161\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_ab0d9d44572464bcfc58d438604d0a598}{save\_book\_management}}();}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00168\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_ade26076641cca3fc5450d909e32762de}{load\_book\_management}}();}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}
