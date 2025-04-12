@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['load_5fbook_5fmanagement_0',['load_book_management',['../books_8h.html#ade26076641cca3fc5450d909e32762de',1,'books.c']]],
-  ['load_5freader_5fmanagement_1',['load_reader_management',['../reader_8h.html#a230b942c73dc649a1e65d74596c72d42',1,'reader.c']]]
+  ['exist_5frecord_0',['exist_record',['../management_8h.html#ade27b5b1e9e93aa2f1e6bbb6f8779c0d',1,'management.c']]],
+  ['existprefix_1',['existPrefix',['../trie_8h.html#af6ea29bed4964d6146ead204013f3868',1,'trie.c']]],
+  ['existword_2',['existWord',['../trie_8h.html#a4260fef866c19f2ca020f102987b387f',1,'trie.c']]]
 ];

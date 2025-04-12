@@ -118,9 +118,9 @@ $(function(){initNavTree('books_8h.html',''); initResizable(true); });
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
-<code>#include &quot;utils/management.h&quot;</code><br />
-<code>#include &quot;utils/trie.h&quot;</code><br />
-<code>#include &quot;utils/bplustreev2.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="management_8h_source.html">utils/management.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="trie_8h_source.html">utils/trie.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bplustreev2_8h_source.html">utils/bplustreev2.h</a>&quot;</code><br />
 </div>
 <p><a href="books_8h_source.html">Tới mã nguồn của file này.</a></p>
 <table class="memberdecls">
@@ -189,23 +189,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>add_book</b> (<a clas
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Các biến</h2></td></tr>
 <tr class="memitem:ae592405ed1cad3dba6f98c41fe7ac5a9" id="r_ae592405ed1cad3dba6f98c41fe7ac5a9"><td class="memItemLeft" align="right" valign="top"><a id="ae592405ed1cad3dba6f98c41fe7ac5a9" name="ae592405ed1cad3dba6f98c41fe7ac5a9"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>book_management_file</b> [MAX_FILE_NAME_LENGTH]</td></tr>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>book_management_file</b> [<a class="el" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>]</td></tr>
 <tr class="memdesc:ae592405ed1cad3dba6f98c41fe7ac5a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">File quản lí sách. <br /></td></tr>
 <tr class="separator:ae592405ed1cad3dba6f98c41fe7ac5a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a390d31c4003925cffa92edece544dbd1" id="r_a390d31c4003925cffa92edece544dbd1"><td class="memItemLeft" align="right" valign="top"><a id="a390d31c4003925cffa92edece544dbd1" name="a390d31c4003925cffa92edece544dbd1"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>book_trie_management</b> [MAX_FILE_NAME_LENGTH]</td></tr>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>book_trie_management</b> [<a class="el" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>]</td></tr>
 <tr class="memdesc:a390d31c4003925cffa92edece544dbd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">File quản lí cây Trie, dùng hỗ trợ cho tìm kiếm bằng tên tác giả <br /></td></tr>
 <tr class="separator:a390d31c4003925cffa92edece544dbd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8765cafbe20084ab4b9dcf76abf2a00" id="r_af8765cafbe20084ab4b9dcf76abf2a00"><td class="memItemLeft" align="right" valign="top"><a id="af8765cafbe20084ab4b9dcf76abf2a00" name="af8765cafbe20084ab4b9dcf76abf2a00"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>book_content_file</b> [MAX_FILE_NAME_LENGTH]</td></tr>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>book_content_file</b> [<a class="el" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>]</td></tr>
 <tr class="memdesc:af8765cafbe20084ab4b9dcf76abf2a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">File chứa nội dung sách, file quản lí chính. <br /></td></tr>
 <tr class="separator:af8765cafbe20084ab4b9dcf76abf2a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76d586c2492e8d36fda3dc16492a6693" id="r_a76d586c2492e8d36fda3dc16492a6693"><td class="memItemLeft" align="right" valign="top"><a id="a76d586c2492e8d36fda3dc16492a6693" name="a76d586c2492e8d36fda3dc16492a6693"></a>
-Node *&#160;</td><td class="memItemRight" valign="bottom"><b>book_management</b></td></tr>
+<a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>book_management</b></td></tr>
 <tr class="memdesc:a76d586c2492e8d36fda3dc16492a6693"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cây B+ Tree quản lí sách. <br /></td></tr>
 <tr class="separator:a76d586c2492e8d36fda3dc16492a6693"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95de0e1b8129a7ede38dff4eb5da683b" id="r_a95de0e1b8129a7ede38dff4eb5da683b"><td class="memItemLeft" align="right" valign="top"><a id="a95de0e1b8129a7ede38dff4eb5da683b" name="a95de0e1b8129a7ede38dff4eb5da683b"></a>
-TrieNode *&#160;</td><td class="memItemRight" valign="bottom"><b>book_trie</b></td></tr>
+<a class="el" href="struct_trie_node.html">TrieNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>book_trie</b></td></tr>
 <tr class="memdesc:a95de0e1b8129a7ede38dff4eb5da683b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cây trie quản lí author. <br /></td></tr>
 <tr class="separator:a95de0e1b8129a7ede38dff4eb5da683b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

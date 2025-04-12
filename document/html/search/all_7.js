@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['phonenumber_0',['phoneNumber',['../struct_readers.html#a251114a406343b68d752afb4a4e4cf40',1,'Readers']]],
-  ['preparate_5fbook_1',['preparate_book',['../books_8h.html#a95fe8318b6aff05328ee79cfd9e63b67',1,'books.c']]],
-  ['preparate_5freader_2',['preparate_reader',['../reader_8h.html#adc710d40bada0efb7ae7e84c6add17bf',1,'reader.c']]],
-  ['publicationyear_3',['publicationYear',['../struct_book.html#a29b2239580d36f87078ea8ab6ab5d6aa',1,'Book']]]
+  ['generate_5fbook_0',['generate_book',['../fake_8h.html#a040361527a1381944cb306a9c158087a',1,'fake.c']]],
+  ['generate_5freader_1',['generate_reader',['../fake_8h.html#ac45ef0c5a4bf3468b95ac25ee16a4b9a',1,'fake.c']]],
+  ['genre_2',['genre',['../struct_book.html#ac67e9cc86d52f340f7d49949e4b37db4',1,'Book']]],
+  ['genres_3',['genres',['../fake_8h.html#aea973a51ee2bdf1588de4f7324c727cd',1,'fake.c']]],
+  ['getleftindex_4',['getLeftIndex',['../bplustreev2_8h.html#ae594d5890cf75f3e3debbb99e747407d',1,'bplustreev2.c']]],
+  ['getstartsearch_5',['getStartSearch',['../management_8h.html#a4128578a9414b538e87f4c09f82546fe',1,'management.c']]]
 ];
