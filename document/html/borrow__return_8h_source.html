@@ -114,7 +114,7 @@ $(function(){initNavTree('borrow__return_8h_source.html',''); initResizable(true
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="books_8h.html">books.h</a>&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="reader_8h.html">reader.h</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;utils/bplustreev2.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="bplustreev2_8h.html">utils/bplustreev2.h</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">// Cấu trúc BorrowReturn</span></div>
 <div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
@@ -130,11 +130,11 @@ $(function(){initNavTree('borrow__return_8h_source.html',''); initResizable(true
 </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">// Biến toàn cục</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">extern</span> Node *borrow_return_management;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_node.html">Node</a> *borrow_return_management;</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">// Khai báo file</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">extern</span> <span class="keywordtype">char</span> borrow_return_content_file[MAX_FILE_NAME_LENGTH];</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">extern</span> <span class="keywordtype">char</span> borrow_return_management_file[MAX_FILE_NAME_LENGTH];</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">extern</span> <span class="keywordtype">char</span> borrow_return_content_file[<a class="code hl_define" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>];</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">extern</span> <span class="keywordtype">char</span> borrow_return_management_file[<a class="code hl_define" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>];</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">// Hàm xử lý</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keywordtype">void</span> add_borrow_record(<a class="code hl_struct" href="struct_borrow_return.html">BorrowReturn</a> *b);</div>
@@ -150,9 +150,12 @@ $(function(){initNavTree('borrow__return_8h_source.html',''); initResizable(true
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="abooks_8h_html"><div class="ttname"><a href="books_8h.html">books.h</a></div><div class="ttdoc">Lưu trữ những hàm sẽ được dùng cho quản lí sách.</div></div>
+<div class="ttc" id="abplustreev2_8h_html"><div class="ttname"><a href="bplustreev2_8h.html">bplustreev2.h</a></div><div class="ttdoc">Những cài đặt cần thiết để khai thác cây B+ tree.</div></div>
+<div class="ttc" id="abplustreev2_8h_html_a9958e549a943ec37c7fbb33685befb02"><div class="ttname"><a href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a></div><div class="ttdeci">#define MAX_FILE_NAME_LENGTH</div><div class="ttdoc">Độ dài tối đa của tên file.</div><div class="ttdef"><b>Definition</b> bplustreev2.h:28</div></div>
 <div class="ttc" id="areader_8h_html"><div class="ttname"><a href="reader_8h.html">reader.h</a></div><div class="ttdoc">File quản lí người đọc.</div></div>
 <div class="ttc" id="astruct_book_html"><div class="ttname"><a href="struct_book.html">Book</a></div><div class="ttdoc">Cấu trúc dữ liệu cho một cuốn sách.</div><div class="ttdef"><b>Definition</b> books.h:39</div></div>
 <div class="ttc" id="astruct_borrow_return_html"><div class="ttname"><a href="struct_borrow_return.html">BorrowReturn</a></div><div class="ttdef"><b>Definition</b> borrow_return.h:13</div></div>
+<div class="ttc" id="astruct_node_html"><div class="ttname"><a href="struct_node.html">Node</a></div><div class="ttdoc">Node trong cây B+ tree.</div><div class="ttdef"><b>Definition</b> bplustreev2.h:78</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

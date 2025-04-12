@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['phonenumber_0',['phoneNumber',['../struct_readers.html#a251114a406343b68d752afb4a4e4cf40',1,'Readers']]],
-  ['publicationyear_1',['publicationYear',['../struct_book.html#a29b2239580d36f87078ea8ab6ab5d6aa',1,'Book']]]
+  ['firstnames_0',['firstnames',['../fake_8h.html#a37d874b5ac72b82ad334c4d5bd5a585d',1,'fake.c']]],
+  ['fullname_1',['fullName',['../struct_readers.html#ad49946ea466cf2c9f9664fa3a2fb3df5',1,'Readers']]]
 ];

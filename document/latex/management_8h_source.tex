@@ -1,5 +1,5 @@
 \doxysection{management.\+h}
-\hypertarget{management_8h_source}{}\label{management_8h_source}\index{include/management.h@{include/management.h}}
+\hypertarget{management_8h_source}{}\label{management_8h_source}\index{include/utils/management.h@{include/utils/management.h}}
 \mbox{\hyperlink{management_8h}{Tới Thông tin của file này.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
@@ -17,30 +17,29 @@
 \DoxyCodeLine{00038\ }
 \DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ ADD\_CONTENT\_SUCCESS\ 1}}
 \DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bplustreev2_8h}{bplustreev2.h}}"{}}}
-\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
-\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <windows.h>}}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00059\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{management_8h_a4128578a9414b538e87f4c09f82546fe}{getStartSearch}}(\mbox{\hyperlink{struct_node}{Node}}\ *n,\ \textcolor{keywordtype}{int}\ beginingKey);}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00072\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{management_8h_ade27b5b1e9e93aa2f1e6bbb6f8779c0d}{exist\_record}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key);}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00084\ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{management_8h_a8bf6c338f76f959eb131d2a9695125d6}{add\_content}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key,\ \textcolor{keywordtype}{char}\ content\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}],\ \textcolor{keywordtype}{void}\ *content,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{void}\ (*callback)(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ code,\ \textcolor{keywordtype}{long}\ offset,\ \textcolor{keywordtype}{long}\ length));}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{management_8h_acb958d60afccf032644f4d29599ed367}{read\_content}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key,\ \textcolor{keywordtype}{void}\ (*callback)(FILE\ *f,\ \textcolor{keywordtype}{long}\ package\_size));}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00108\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{management_8h_ac7392f86e8f2db47cf378993ecf5097f}{read\_content\_from\_record}}(\mbox{\hyperlink{struct_record}{Record}}\ *record,\ \textcolor{keywordtype}{void}\ (*callback)(FILE\ *f,\ \textcolor{keywordtype}{long}\ package\_size));}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{management_8h_af63fa182c73255a620f9dcc18687171a}{read\_content\_from\_record\_return}}(\mbox{\hyperlink{struct_record}{Record}}\ *record);}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00135\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{management_8h_aa6f8367d2e8acfc2677d27711c535bea}{read\_bucket\_content}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ beginingKey,\ \textcolor{keywordtype}{int}\ nums,\ \textcolor{keywordtype}{void}\ (*callback)(FILE\ *f,\ \textcolor{keywordtype}{long}\ package\_size));}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00148\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{management_8h_aa31d7616ed4d24c1ed65a5ca1b6322bb}{update\_content}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key,\ \textcolor{keywordtype}{void}\ (*callback)(FILE\ *f,\ \textcolor{keywordtype}{long}\ package\_size));}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00158\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{management_8h_a31ced62c7976fca38ed3ffba8e5306be}{update\_content\_from\_record}}(\mbox{\hyperlink{struct_record}{Record}}\ *record,\ \textcolor{keywordtype}{void}\ (*callback)(FILE\ *f,\ \textcolor{keywordtype}{long}\ package\_size));}
-\DoxyCodeLine{00159\ }
-\DoxyCodeLine{00169\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{management_8h_ad65d5cd8b7422339122a0dbd2077954e}{soft\_delete}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key,\ \textcolor{keywordtype}{void}\ (*callback)(\textcolor{keywordtype}{int}\ code));}
-\DoxyCodeLine{00170\ }
-\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bplustreev2_8h}{utils/bplustreev2.h}}"{}}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{management_8h_a4128578a9414b538e87f4c09f82546fe}{getStartSearch}}(\mbox{\hyperlink{struct_node}{Node}}\ *n,\ \textcolor{keywordtype}{int}\ beginingKey);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{management_8h_ade27b5b1e9e93aa2f1e6bbb6f8779c0d}{exist\_record}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00083\ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{management_8h_a8bf6c338f76f959eb131d2a9695125d6}{add\_content}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key,\ \textcolor{keywordtype}{char}\ content\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}],\ \textcolor{keywordtype}{void}\ *content,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{void}\ (*callback)(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ code,\ \textcolor{keywordtype}{long}\ offset,\ \textcolor{keywordtype}{long}\ length));}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{management_8h_acb958d60afccf032644f4d29599ed367}{read\_content}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key,\ \textcolor{keywordtype}{void}\ (*callback)(FILE\ *f,\ \textcolor{keywordtype}{long}\ package\_size));}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00107\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{management_8h_ac7392f86e8f2db47cf378993ecf5097f}{read\_content\_from\_record}}(\mbox{\hyperlink{struct_record}{Record}}\ *record,\ \textcolor{keywordtype}{void}\ (*callback)(FILE\ *f,\ \textcolor{keywordtype}{long}\ package\_size));}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{management_8h_af63fa182c73255a620f9dcc18687171a}{read\_content\_from\_record\_return}}(\mbox{\hyperlink{struct_record}{Record}}\ *record);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00134\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{management_8h_aa6f8367d2e8acfc2677d27711c535bea}{read\_bucket\_content}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ beginingKey,\ \textcolor{keywordtype}{int}\ nums,\ \textcolor{keywordtype}{void}\ (*callback)(FILE\ *f,\ \textcolor{keywordtype}{long}\ package\_size));}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00147\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{management_8h_aa31d7616ed4d24c1ed65a5ca1b6322bb}{update\_content}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key,\ \textcolor{keywordtype}{void}\ (*callback)(FILE\ *f,\ \textcolor{keywordtype}{long}\ package\_size));}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00157\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{management_8h_a31ced62c7976fca38ed3ffba8e5306be}{update\_content\_from\_record}}(\mbox{\hyperlink{struct_record}{Record}}\ *record,\ \textcolor{keywordtype}{void}\ (*callback)(FILE\ *f,\ \textcolor{keywordtype}{long}\ package\_size));}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00168\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{management_8h_ad65d5cd8b7422339122a0dbd2077954e}{soft\_delete}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key,\ \textcolor{keywordtype}{void}\ (*callback)(\textcolor{keywordtype}{int}\ code));}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}
