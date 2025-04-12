@@ -45,8 +45,7 @@ Như vậy, ta sẽ có một số bài toán phụ sau:
 
 Trong quá trình khai thác và viết chương trình. Đây là mẫu quan hệ chủ đạo được dùng:
 
-B+ Tree
+B+ Tree, Trie
 --> Management --> Book/Reader/Statistic/BorrowBook... --> Layout
-Trie
 
 Trong mẫu trên, B+Tree/Trie sẽ được cài đặt như thông thường (thao tác quản lí). Sau đó thông qua management để kết nối giữa thao tác quản lí và lưu trữ. Các phần chương trình còn lại như Book/Reader/... sẽ đa số dùng những hàm được định nghĩa ở Management để thực hiện các thao tác.
