@@ -45,24 +45,26 @@ void search_reader_by_id(int id)
     read_content_from_record(record, show_reader_record);
 }
 
-void search_reader_by_name(const char *name, int maxNumbers)
+void search_reader_by_name(const char *prefix, int maxNumbers)
 {
     int recommend_size = 0;
     char *recommend[maxNumbers];
 
-    recommendPrefix(reader_trie, (char *)name, maxNumbers, recommend, &recommend_size);
-    for (int i = 0; i < recommend_size; ++i)
+    recommendPrefix(reader_trie, (char *)prefix, maxNumbers, recommend, &recommend_size);
+
+    for (int i = 0; i < recommend_size; i++)
     {
         char *name = recommend[i];
+
         TrieNode *temp = searchWord(reader_trie, name);
         if (temp != NULL)
         {
-            for (int j = 0; temp->numIds && maxNumbers > 0; ++j)
+            for (int j = 0; j < temp->numIds && maxNumbers > 0; j++)
             {
                 if (exist_record(reader_management, temp->ids[j]))
                 {
-                    maxNumbers--;
                     search_reader_by_id(temp->ids[j]);
+                    maxNumbers--;
                 }
             }
             if (maxNumbers == 0)
@@ -75,11 +77,11 @@ void add_reader_callback(int id, int code, long offset, long length)
 {
     if (code == ADD_CONTENT_SUCCESS)
     {
-        printf("Successfully added!\n");
+        printf("Id: %d, Successfully added!\n", id);
     }
     else
     {
-        printf("Failed to add reader.\n");
+        printf("Id: %d, Failed to add reader.\n", id);
     }
 }
 
@@ -193,42 +195,23 @@ void save_reader_management()
 
 void load_reader_management()
 {
-    FILE *file = fopen(reader_management_file, "r");
-    if (file == NULL)
-    {
-#if DEBUG_MODE
-        printf("No existing tree found. Starting new.\n");
-#endif
-        reader_management = NULL;
-        return;
-    }
-    fclose(file);
-
     reader_management = loadTree(reader_management_file);
     if (reader_management == NULL)
     {
-#if DEBUG_MODE
-        printf("Failed to load tree. Initializing new.\n");
-#endif
+        printf("Failed to load B+ Tree management!\n");
     }
-
-    file = fopen(reader_name_management_file, "r");
-    if (file == NULL)
+    else
     {
-#if DEBUG_MODE
-        printf("No existing tree found. Starting new.\n");
-#endif
-        reader_trie = NULL;
-        return;
+        printf("Load B+ Tree management successfully!\n");
     }
-    fclose(file);
-
     reader_trie = loadTrieTree(reader_name_management_file);
     if (reader_trie == NULL)
     {
-#if DEBUG_MODE
-        printf("Failed to load tree. Initializing new.\n");
-#endif
+        printf("Failed to load Trie management!\n");
+    }
+    else
+    {
+        printf("Load Trie management successfully!\n");
     }
 }
 

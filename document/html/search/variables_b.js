@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stock_0',['stock',['../struct_book.html#aabc590a14bc23236eac02b198a447f5d',1,'Book']]]
+  ['offset_0',['offset',['../struct_record.html#ab6c6f0efa2c97a1516d20303f0fa5c8c',1,'Record']]]
 ];

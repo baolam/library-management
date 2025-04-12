@@ -2,9 +2,9 @@ var indexSectionsWithContent =
 {
   0: "_abcdefgiklmnoprstu",
   1: "bnrt",
-  2: "bfmt",
+  2: "bfmrt",
   3: "acdefgilmprsu",
-  4: "_abdgiklnopst",
+  4: "_abdfgiklmnoprst",
   5: "admopt"
 };
 

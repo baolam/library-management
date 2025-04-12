@@ -39,6 +39,31 @@ extern char *authors[];
 extern char *genres[TOTAL_GENRE];
 
 /**
+ * @brief Chứa các tên thông dụng, phục vụ thao tác sinh
+ */
+extern char *firstnames[];
+
+/**
+ * @brief Chứa các họ thông dụng
+ */
+extern char *lastnames[];
+
+/**
+ * @brief Chứa tên đệm
+ */
+extern char *middlenames[];
+
+/**
+ * @brief Chứa địa chỉ
+ */
+extern char *addresses[];
+
+/**
+ * @brief Mã số điện thoại
+ */
+extern char *phone_prefix[];
+
+/**
  * @brief Sinh dữ liệu Book
  *
  * Hàm này sinh dữ liệu Book ngẫu nhiên và sẽ gán id (khoá tìm kiếm)
