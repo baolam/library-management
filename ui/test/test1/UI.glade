@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkWindow" id="main_window">
+    <property name="default_width">400</property>
+    <property name="default_height">300</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">horizontal</property>
+            <property name="spacing">10</property>
+            <property name="margin">10</property>
+            <child>
+              <object class="GtkButton" id="btn_home">
+                <property name="label">Home</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_books">
+                <property name="label">Books</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_settings">
+                <property name="label">Settings</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStack" id="main_stack">
+            <property name="transition-type">slide-left-right</property>
+            <property name="transition-duration">300</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">🏠 This is Home</property>
+              </object>
+              <packing>
+                <property name="name">home</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">📚 Book Management</property>
+              </object>
+              <packing>
+                <property name="name">books</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">⚙️ Settings</property>
+              </object>
+              <packing>
+                <property name="name">settings</property>
+              </packing>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
