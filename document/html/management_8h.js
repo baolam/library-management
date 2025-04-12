@@ -7,6 +7,7 @@ var management_8h =
     [ "DELETE_SUCCESS", "management_8h.html#ae0b9cdebd01857aeb414353c980f6209", null ],
     [ "add_content", "management_8h.html#a8bf6c338f76f959eb131d2a9695125d6", null ],
     [ "exist_record", "management_8h.html#ade27b5b1e9e93aa2f1e6bbb6f8779c0d", null ],
+    [ "getStartSearch", "management_8h.html#a4128578a9414b538e87f4c09f82546fe", null ],
     [ "read_bucket_content", "management_8h.html#aa6f8367d2e8acfc2677d27711c535bea", null ],
     [ "read_content", "management_8h.html#acb958d60afccf032644f4d29599ed367", null ],
     [ "read_content_from_record", "management_8h.html#ac7392f86e8f2db47cf378993ecf5097f", null ],

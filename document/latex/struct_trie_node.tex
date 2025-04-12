@@ -13,8 +13,8 @@ Một \doxylink{struct_trie_node}{Trie\+Node} dùng để lưu trữ dữ liệu
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{struct_trie_node_a9dc2a9bc247486fac3e4b350c73a3060}\label{struct_trie_node_a9dc2a9bc247486fac3e4b350c73a3060} 
-struct \mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries children} \mbox{[}ALPHABET\+\_\+\+SIZE\mbox{]}
-\begin{DoxyCompactList}\small\item\em Mảng các \doxylink{struct_trie_node}{Trie\+Node} con dùng để kết nối đến các kí tự khác. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries children} \mbox{[}\mbox{\hyperlink{trie_8h_a6572f1706059832f94025fa12c6c45ed}{ALPHABET\+\_\+\+SIZE}}\mbox{]}
+\item 
 \Hypertarget{struct_trie_node_ab2732ce1e141346865d997859836d663}\label{struct_trie_node_ab2732ce1e141346865d997859836d663} 
 bool {\bfseries is\+End\+Of\+Word}
 \begin{DoxyCompactList}\small\item\em Flag dùng để đánh dấu khi một \doxylink{struct_trie_node}{Trie\+Node} là node kết thúc. \end{DoxyCompactList}\item 
@@ -28,6 +28,8 @@ int \texorpdfstring{$\ast$}{*} {\bfseries ids}
 
 \doxysubsection{Mô tả chi tiết}
 Một \doxylink{struct_trie_node}{Trie\+Node} dùng để lưu trữ dữ liệu. 
+
+Mảng các \doxylink{struct_trie_node}{Trie\+Node} con dùng để kết nối đến các kí tự khác.
 
 Do việc tiến hành quản lí dữ liệu được cài đặt chính trên Id, nên cần phải tích hợp thêm khoá Id vào trong cấu trúc dữ liệu này.
 

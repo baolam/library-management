@@ -70,30 +70,34 @@
 \DoxyCodeLine{00115\ }
 \DoxyCodeLine{00125\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_adbf315a2a4092396b23d8d083661fb6b}{search\_book\_by\_title}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *prefix,\ \textcolor{keywordtype}{int}\ maxNumbers);}
 \DoxyCodeLine{00126\ }
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00129\ \textcolor{comment}{/***}}
-\DoxyCodeLine{00130\ \textcolor{comment}{\ *\ @brief\ Tìm\ kiếm\ sách\ và\ trả\ về\ sách}}
-\DoxyCodeLine{00131\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00132\ \textcolor{comment}{\ *\ Trả\ về\ bản\ dựng\ (Book)\ một\ quyển\ sách\ từ\ Id\ được\ cung\ cấp}}
-\DoxyCodeLine{00133\ \textcolor{comment}{\ *\ Nếu\ không\ tìm\ thấy\ sách\ (đã\ bị\ xoá,\ lỗi\ đọc\ file),\ trả\ về\ NULL}}
-\DoxyCodeLine{00134\ \textcolor{comment}{\ *\ Tìm\ thấy\ thì\ trả\ về\ bản\ dựng\ (Book)\ của\ nó}}
-\DoxyCodeLine{00135\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00136\ \textcolor{comment}{\ *\ Cách\ hoạt\ động:}}
-\DoxyCodeLine{00137\ \textcolor{comment}{\ *\ +\ Lấy\ Record\ tương\ ứng\ ứng\ với\ Id\ kèm\ theo}}
-\DoxyCodeLine{00138\ \textcolor{comment}{\ *\ +\ Đọc\ dữ\ liệu\ từ\ file\ nội\ dung\ ứng\ với\ Record}}
-\DoxyCodeLine{00139\ \textcolor{comment}{\ *\ +\ Gghi\ nhận\ dữ\ liệu\ và\ trả\ về\ kết\ quả}}
-\DoxyCodeLine{00140\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00141\ \textcolor{comment}{\ *\ @param\ id\ Id\ của\ quyển\ sách\ cần\ tìm}}
-\DoxyCodeLine{00142\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00143\ \mbox{\hyperlink{struct_book}{Book}}\ *\mbox{\hyperlink{books_8h_ad52d1d47f78b08b5e1b73062842a8c34}{search\_book}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00152\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_a95fe8318b6aff05328ee79cfd9e63b67}{preparate\_book}}();}
-\DoxyCodeLine{00153\ }
-\DoxyCodeLine{00161\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_ab0d9d44572464bcfc58d438604d0a598}{save\_book\_management}}();}
-\DoxyCodeLine{00162\ }
-\DoxyCodeLine{00168\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_ade26076641cca3fc5450d909e32762de}{load\_book\_management}}();}
-\DoxyCodeLine{00169\ }
-\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00141\ \mbox{\hyperlink{struct_book}{Book}}\ *\mbox{\hyperlink{books_8h_a6fad7a86d2b117aceddf806d3365e422}{search\_book\_by\_title\_direct}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *prefix,\ \textcolor{keywordtype}{int}\ *actualBooks,\ \textcolor{keywordtype}{int}\ maxNumbers);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00155\ \mbox{\hyperlink{struct_book}{Book}}\ *\mbox{\hyperlink{books_8h_ab879ca6938b77771fed16c9a9f9d5ea2}{retrieve\_bucket\_books}}(\textcolor{keywordtype}{int}\ beginingKey,\ \textcolor{keywordtype}{int}\ quanities,\ \textcolor{keywordtype}{int}\ *actualBooks);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{comment}{/***}}
+\DoxyCodeLine{00160\ \textcolor{comment}{\ *\ @brief\ Tìm\ kiếm\ sách\ và\ trả\ về\ sách}}
+\DoxyCodeLine{00161\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00162\ \textcolor{comment}{\ *\ Trả\ về\ bản\ dựng\ (Book)\ một\ quyển\ sách\ từ\ Id\ được\ cung\ cấp}}
+\DoxyCodeLine{00163\ \textcolor{comment}{\ *\ Nếu\ không\ tìm\ thấy\ sách\ (đã\ bị\ xoá,\ lỗi\ đọc\ file),\ trả\ về\ NULL}}
+\DoxyCodeLine{00164\ \textcolor{comment}{\ *\ Tìm\ thấy\ thì\ trả\ về\ bản\ dựng\ (Book)\ của\ nó}}
+\DoxyCodeLine{00165\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00166\ \textcolor{comment}{\ *\ Cách\ hoạt\ động:}}
+\DoxyCodeLine{00167\ \textcolor{comment}{\ *\ +\ Lấy\ Record\ tương\ ứng\ ứng\ với\ Id\ kèm\ theo}}
+\DoxyCodeLine{00168\ \textcolor{comment}{\ *\ +\ Đọc\ dữ\ liệu\ từ\ file\ nội\ dung\ ứng\ với\ Record}}
+\DoxyCodeLine{00169\ \textcolor{comment}{\ *\ +\ Gghi\ nhận\ dữ\ liệu\ và\ trả\ về\ kết\ quả}}
+\DoxyCodeLine{00170\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00171\ \textcolor{comment}{\ *\ @param\ id\ Id\ của\ quyển\ sách\ cần\ tìm}}
+\DoxyCodeLine{00172\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00173\ \mbox{\hyperlink{struct_book}{Book}}\ *\mbox{\hyperlink{books_8h_ad52d1d47f78b08b5e1b73062842a8c34}{search\_book}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00182\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_a95fe8318b6aff05328ee79cfd9e63b67}{preparate\_book}}();}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00191\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_ab0d9d44572464bcfc58d438604d0a598}{save\_book\_management}}();}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00198\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{books_8h_ade26076641cca3fc5450d909e32762de}{load\_book\_management}}();}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

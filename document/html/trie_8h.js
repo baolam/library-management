@@ -1,6 +1,8 @@
 var trie_8h =
 [
     [ "TrieNode", "struct_trie_node.html", "struct_trie_node" ],
+    [ "ALPHABET_SIZE", "trie_8h.html#a6572f1706059832f94025fa12c6c45ed", null ],
+    [ "MAX_CHAR_LENGTH", "trie_8h.html#acc3868f185e947918ad4732a28628251", null ],
     [ "charToIndex", "trie_8h.html#a9199a09472f379d3a8d818cc3dba65fe", null ],
     [ "existPrefix", "trie_8h.html#af6ea29bed4964d6146ead204013f3868", null ],
     [ "existWord", "trie_8h.html#a4260fef866c19f2ca020f102987b387f", null ],

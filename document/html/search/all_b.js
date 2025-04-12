@@ -6,7 +6,8 @@ var searchData=
   ['maketrienode_3',['makeTrieNode',['../trie_8h.html#a7728b62702896136d2976b1fb5ea9366',1,'trie.h']]],
   ['management_2eh_4',['management.h',['../management_8h.html',1,'']]],
   ['max_5fauthor_5',['MAX_AUTHOR',['../books_8h.html#a9986476b23d5ba8a697c60d8130d4e14',1,'books.h']]],
-  ['max_5ffile_5fname_5flength_6',['MAX_FILE_NAME_LENGTH',['../bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02',1,'bplustreev2.h']]],
-  ['max_5fgenre_5fno_7',['MAX_GENRE_NO',['../books_8h.html#a0bacc87944c0b8955121b3b9b71664ce',1,'books.h']]],
-  ['max_5ftitle_8',['MAX_TITLE',['../books_8h.html#a18d607761a55c0a30b69f9d82f1da73e',1,'books.h']]]
+  ['max_5fchar_5flength_6',['MAX_CHAR_LENGTH',['../trie_8h.html#acc3868f185e947918ad4732a28628251',1,'trie.h']]],
+  ['max_5ffile_5fname_5flength_7',['MAX_FILE_NAME_LENGTH',['../bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02',1,'bplustreev2.h']]],
+  ['max_5fgenre_5fno_8',['MAX_GENRE_NO',['../books_8h.html#a0bacc87944c0b8955121b3b9b71664ce',1,'books.h']]],
+  ['max_5ftitle_9',['MAX_TITLE',['../books_8h.html#a18d607761a55c0a30b69f9d82f1da73e',1,'books.h']]]
 ];

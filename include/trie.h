@@ -16,7 +16,14 @@
 #ifndef TRIE_H
 #define TRIE_H
 
+/**
+ * @brief Số lượng kí tự tối đa của một con, kí tự 26 tượng trưng cho khoảng trắng
+ */
 #define ALPHABET_SIZE 27
+
+/**
+ * @brief độ dài chuỗi tối đa
+ */
 #define MAX_CHAR_LENGTH 50
 
 #include <stdio.h>
@@ -37,6 +44,7 @@
 typedef struct TrieNode
 {
     /**
+     * @struct TrieNode
      * @brief Mảng các TrieNode con dùng để kết nối
      * đến các kí tự khác
      */

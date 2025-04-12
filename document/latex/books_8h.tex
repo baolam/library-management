@@ -45,7 +45,11 @@ void \mbox{\hyperlink{books_8h_a3a2c8d018662acf1c6ca6857a9bb7f86}{update\+\_\+bo
 void \mbox{\hyperlink{books_8h_ab9223d05c04eaf64efac2e4a8cf2aeec}{search\+\_\+book\+\_\+by\+\_\+id}} (int id)
 \begin{DoxyCompactList}\small\item\em Tìm kiếm sách bằng Id. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{books_8h_adbf315a2a4092396b23d8d083661fb6b}{search\+\_\+book\+\_\+by\+\_\+title}} (const char \texorpdfstring{$\ast$}{*}prefix, int max\+Numbers)
-\begin{DoxyCompactList}\small\item\em Tìm kiếm sách bằng Author. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Tìm kiếm sách bằng Title. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_book}{Book}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{books_8h_a6fad7a86d2b117aceddf806d3365e422}{search\+\_\+book\+\_\+by\+\_\+title\+\_\+direct}} (const char \texorpdfstring{$\ast$}{*}prefix, int \texorpdfstring{$\ast$}{*}actual\+Books, int max\+Numbers)
+\begin{DoxyCompactList}\small\item\em Tìm kiếm sách bằng Title, có hứng kết quả trả về \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_book}{Book}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{books_8h_ab879ca6938b77771fed16c9a9f9d5ea2}{retrieve\+\_\+bucket\+\_\+books}} (int begining\+Key, int quanities, int \texorpdfstring{$\ast$}{*}actual\+Books)
+\begin{DoxyCompactList}\small\item\em Hàm trả về một tập hợp các quyển sách theo sau một Id tìm kiếm. \end{DoxyCompactList}\item 
 \Hypertarget{books_8h_ad52d1d47f78b08b5e1b73062842a8c34}\label{books_8h_ad52d1d47f78b08b5e1b73062842a8c34} 
 \mbox{\hyperlink{struct_book}{Book}} \texorpdfstring{$\ast$}{*} {\bfseries search\+\_\+book} (int id)
 \begin{DoxyCompactList}\small\item\em Phục vụ cho nhóm nhiệm vụ mượn, trả sách. \end{DoxyCompactList}\item 
@@ -128,7 +132,31 @@ Lưu trữ vào file, load dữ liệu ra từ file.
 
 Hàm hỗ trợ cho cây Trie, tìm kiếm = Author
 
-Bản chất chỉ là tạo node quản lí nếu cây chưa tồn tại \Hypertarget{books_8h_ab0d9d44572464bcfc58d438604d0a598}\index{books.h@{books.h}!save\_book\_management@{save\_book\_management}}
+Bản chất chỉ là tạo node quản lí nếu cây chưa tồn tại \Hypertarget{books_8h_ab879ca6938b77771fed16c9a9f9d5ea2}\index{books.h@{books.h}!retrieve\_bucket\_books@{retrieve\_bucket\_books}}
+\index{retrieve\_bucket\_books@{retrieve\_bucket\_books}!books.h@{books.h}}
+\doxysubsubsection{\texorpdfstring{retrieve\_bucket\_books()}{retrieve\_bucket\_books()}}
+{\footnotesize\ttfamily \label{books_8h_ab879ca6938b77771fed16c9a9f9d5ea2} 
+\mbox{\hyperlink{struct_book}{Book}} \texorpdfstring{$\ast$}{*} retrieve\+\_\+bucket\+\_\+books (\begin{DoxyParamCaption}\item[{int}]{begining\+Key}{, }\item[{int}]{quanities}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{actual\+Books}{}\end{DoxyParamCaption})}
+
+
+
+Hàm trả về một tập hợp các quyển sách theo sau một Id tìm kiếm. 
+
+Dùng hàm này khi cần hứng chính xác một mảng các quyển sách. Được dùng cho nhóm thao tác giao diện
+
+
+\begin{DoxyParams}{Các tham số}
+{\em begining\+Key} & là vị trí bắt đầu đọc đầu tiên \\
+\hline
+{\em quanities} & là số lượng sách muốn lấy sau khi kiếm Id đầu tiên \\
+\hline
+{\em actual\+Books} & là số lượng sách thực tế\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+là mảng chứa các quyển sách tìm được 
+\end{DoxyReturn}
+\Hypertarget{books_8h_ab0d9d44572464bcfc58d438604d0a598}\index{books.h@{books.h}!save\_book\_management@{save\_book\_management}}
 \index{save\_book\_management@{save\_book\_management}!books.h@{books.h}}
 \doxysubsubsection{\texorpdfstring{save\_book\_management()}{save\_book\_management()}}
 {\footnotesize\ttfamily \label{books_8h_ab0d9d44572464bcfc58d438604d0a598} 
@@ -163,7 +191,7 @@ void search\+\_\+book\+\_\+by\+\_\+title (\begin{DoxyParamCaption}\item[{const c
 
 
 
-Tìm kiếm sách bằng Author. 
+Tìm kiếm sách bằng Title. 
 
 Cung cấp vào tên Author hoặc nhóm chữ cái đầu của tên Author muốn tìm kiếm Kết quả hiển thị là những quyển sách có tên bắt đầu bằng từ tìm kiếm
 
@@ -174,7 +202,33 @@ Cung cấp vào tên Author hoặc nhóm chữ cái đầu của tên Author mu�
 {\em max\+Numbers} & là số lượng kết quả tối đa \\
 \hline
 \end{DoxyParams}
-\Hypertarget{books_8h_a3a2c8d018662acf1c6ca6857a9bb7f86}\index{books.h@{books.h}!update\_book@{update\_book}}
+\Hypertarget{books_8h_a6fad7a86d2b117aceddf806d3365e422}\index{books.h@{books.h}!search\_book\_by\_title\_direct@{search\_book\_by\_title\_direct}}
+\index{search\_book\_by\_title\_direct@{search\_book\_by\_title\_direct}!books.h@{books.h}}
+\doxysubsubsection{\texorpdfstring{search\_book\_by\_title\_direct()}{search\_book\_by\_title\_direct()}}
+{\footnotesize\ttfamily \label{books_8h_a6fad7a86d2b117aceddf806d3365e422} 
+\mbox{\hyperlink{struct_book}{Book}} \texorpdfstring{$\ast$}{*} search\+\_\+book\+\_\+by\+\_\+title\+\_\+direct (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{prefix}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{actual\+Books}{, }\item[{int}]{max\+Numbers}{}\end{DoxyParamCaption})}
+
+
+
+Tìm kiếm sách bằng Title, có hứng kết quả trả về 
+
+Hàm này sẽ trả về kết quả tìm kiếm số lượng sách, hứng kết quả trả về lưu trữ vào mảng. Việc dùng hàm này sẽ giúp đảm bảo lợi thế khi kết nối giao diện. Giao diện có thể gặp khó khăn khi tiến hành gọi callback
+
+
+\begin{DoxyParams}{Các tham số}
+{\em prefix} & là nhóm chữ cái đầu của tên \\
+\hline
+{\em books} & là số lượng sách đọc được (mảng) \\
+\hline
+{\em actual\+Books} & là số lượng sách thực tế (mảng) \\
+\hline
+{\em max\+Numbers} & là số lượng kết quả tối đa\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+là mảng chứa các cuốn sách tìm được 
+\end{DoxyReturn}
+Cấp phát bộ nhớ cho \doxylink{struct_book}{Book}\Hypertarget{books_8h_a3a2c8d018662acf1c6ca6857a9bb7f86}\index{books.h@{books.h}!update\_book@{update\_book}}
 \index{update\_book@{update\_book}!books.h@{books.h}}
 \doxysubsubsection{\texorpdfstring{update\_book()}{update\_book()}}
 {\footnotesize\ttfamily \label{books_8h_a3a2c8d018662acf1c6ca6857a9bb7f86} 

@@ -160,14 +160,88 @@ void search_book_by_title(const char *prefix, int maxNumbers)
     }
 }
 
-Book *search_book(int id)
+Book *search_book_by_title_direct(const char *prefix, int *actualBooks, int maxNumbers)
 {
-    Record *record = find(book_management, id);
-    if (record == NULL || record->deleted)
+    int recommendSize = 0, storage_pos = 0;
+    char *recommend[maxNumbers];
+
+    /// Cấp phát bộ nhớ cho Book
+    Book *books = (Book *)malloc(maxNumbers * sizeof(Book));
+    if (books == NULL)
     {
+        printf("Memory allocation failed.\n");
+        *actualBooks = 0;
         return NULL;
     }
 
+    recommendPrefix(book_trie, (char *)prefix, maxNumbers, recommend, &recommendSize);
+    for (int i = 0; i < recommendSize; i++)
+    {
+        char *name = recommend[i];
+        TrieNode *temp = searchWord(book_trie, name);
+        if (temp != NULL)
+        {
+            for (int j = 0; j < temp->numIds && maxNumbers > 0; j++)
+            {
+                if (exist_record(book_management, temp->ids[j]))
+                {
+                    Book *book = search_book(temp->ids[j]);
+                    books[storage_pos] = *book;
+                    storage_pos++;
+                }
+            }
+        }
+    }
+
+    *actualBooks = storage_pos;
+    return books;
+}
+
+Book *retrieve_bucket_books(int beginingKey, int quanities, int *actualBooks)
+{
+    int storage_pos = 0;
+
+    Book *books = (Book *)malloc(quanities * sizeof(Book));
+    if (books == NULL)
+    {
+        *actualBooks = 0;
+        return NULL;
+    }
+
+    Node *n = findLeaf(book_management, beginingKey);
+    if (n == NULL)
+    {
+        *actualBooks = 0;
+        return NULL;
+    }
+
+    int startSearch = getStartSearch(n, beginingKey);
+    int i;
+
+    while (n != NULL && quanities > 0)
+    {
+        for (i = startSearch; i < n->num_keys && quanities > 0; i++)
+        {
+            Record *record = (Record *)n->pointers[i];
+            Book *book = (Book *)read_content_from_record_return(record);
+
+            if (book == NULL)
+                continue;
+            books[storage_pos] = *book;
+            storage_pos++;
+            quanities--;
+        }
+        startSearch = 0;
+        n = n->pointers[ORDER - 1];
+    }
+
+    *actualBooks = storage_pos;
+    return books;
+}
+
+Book *search_book(int id)
+{
+    Record *record = find(book_management, id);
     Book *book = (Book *)read_content_from_record_return(record);
     return book;
 }
