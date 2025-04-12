@@ -1,7 +1,20 @@
 #ifndef READERS_H
 #define READERS_H
 
-#define USER_FOLDER "readers"
+/**
+ * @brief Họ và tên
+ */
+#define MAX_FULLNAME 100
+
+/**
+ * @brief Lưu trữ số điện thoại
+ */
+#define MAX_PHONENUMBER 15
+
+/**
+ * @brief Địa chỉ
+ */
+#define MAX_ADDRESS 100
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,10 +27,10 @@
 // Struct đại diện cho người đọc
 typedef struct
 {
-    int readerId;         // Đổi từ char[] sang int
-    char fullName[100];   // Tên đầy đủ
-    char phoneNumber[15]; // Số điện thoại
-    char address[100];    // Địa chỉ
+    int readerId;                      // Đổi từ char[] sang int
+    char fullName[MAX_FULLNAME];       // Tên đầy đủ
+    char phoneNumber[MAX_PHONENUMBER]; // Số điện thoại
+    char address[MAX_ADDRESS];         // Địa chỉ
 } Readers;
 
 // Biến toàn cục quản lý file và cây
@@ -32,7 +45,7 @@ extern TrieNode *reader_trie;
 void show_reader(Readers reader);
 void add_reader(Readers *reader);
 void search_reader_by_id(int id);
-void search_reader_by_name(const char *name, int maxNumbers);
+void search_reader_by_name(const char *prefix, int maxNumbers);
 void update_reader(Readers *reader);
 void delete_reader(int id);
 

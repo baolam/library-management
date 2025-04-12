@@ -11,6 +11,9 @@ void test_trie_operations()
     insertIntoTrie(root, "hello", 1);
     insertIntoTrie(root, "world", 2);
     insertIntoTrie(root, "hello", 3); // Duplicate word, different ID
+    insertIntoTrie(root, "foo", 4);
+    insertIntoTrie(root, "bar", 5);
+    insertIntoTrie(root, "hello", 6); // Duplicate word, different ID
 
     printf("Checking word existence...\n");
     printf("'hello' exists: %d\n", existWord(root, "hello"));

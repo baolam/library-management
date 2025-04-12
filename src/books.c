@@ -260,10 +260,6 @@ void save_book_management()
     saveTrieTree(book_trie_management, book_trie);
 }
 
-void getInfor(int *total, int *deleted)
-{
-}
-
 void load_book_management()
 {
     book_management = loadTree(book_management_file);
