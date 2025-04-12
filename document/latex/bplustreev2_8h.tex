@@ -21,13 +21,13 @@ struct \mbox{\hyperlink{struct_node}{Node}}
 \item 
 \Hypertarget{bplustreev2_8h_a9b79a4981a7f45ee4a0f7ba5c6076684}\label{bplustreev2_8h_a9b79a4981a7f45ee4a0f7ba5c6076684} 
 \#define {\bfseries PRINT\+\_\+\+TREE}
-\item 
+\begin{DoxyCompactList}\small\item\em Định nghĩa có cho phép In cây ra hay không, màn hình console. \end{DoxyCompactList}\item 
 \Hypertarget{bplustreev2_8h_a826715579f0649bd271fb6702a175dbc}\label{bplustreev2_8h_a826715579f0649bd271fb6702a175dbc} 
 \#define {\bfseries ORDER}~10
-\item 
+\begin{DoxyCompactList}\small\item\em Số dữ liệu quản lí tối đa của một node. \end{DoxyCompactList}\item 
 \Hypertarget{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}\label{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02} 
 \#define {\bfseries MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}~128
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Độ dài tối đa của tên file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -40,7 +40,7 @@ typedef struct Node {\bfseries Node}
 \doxysubsubsection*{Các hàm}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bplustreev2_8h_a036cf425fcaa04ea78ba832fda3ad5e2}{make\+Record}} (char \+\_\+from\mbox{[}MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}, long offset, long length)
+\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bplustreev2_8h_a036cf425fcaa04ea78ba832fda3ad5e2}{make\+Record}} (char \+\_\+from\mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}, long offset, long length)
 \begin{DoxyCompactList}\small\item\em Khởi tạo record. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bplustreev2_8h_a841bd1bba3e703ec564dea235d6e7301}{left\+Most}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root)
 \begin{DoxyCompactList}\small\item\em hàm trả về node lá tận cùng bên trái \end{DoxyCompactList}\item 
@@ -89,7 +89,7 @@ void {\bfseries print\+Tree} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstri
 \Hypertarget{bplustreev2_8h_aa1644c1bd6e88eabda457d409d3a0e8e}\label{bplustreev2_8h_aa1644c1bd6e88eabda457d409d3a0e8e} 
 \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries insert\+Into\+Leaf\+After\+Splitting} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}leaf, int key, \mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*}record)
 \item 
-\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bplustreev2_8h_af8204e72519be4ff883be1e6ac9beb82}{insert}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, int key, char \+\_\+from\mbox{[}MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}, long offset, long length)
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bplustreev2_8h_af8204e72519be4ff883be1e6ac9beb82}{insert}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, int key, char \+\_\+from\mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}, long offset, long length)
 \begin{DoxyCompactList}\small\item\em Hàm hỗ trợ cho việc thêm phần tử vào cây. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{bplustreev2_8h_a817851a0dbd1a560b8b9fb8fce17b9dc}{save\+Tree}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, char \texorpdfstring{$\ast$}{*}filename)
 \begin{DoxyCompactList}\small\item\em Phương thức lưu trữ \end{DoxyCompactList}\item 

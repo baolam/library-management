@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['makeleaf_0',['makeLeaf',['../bplustreev2_8h.html#af3f6936a5822d3c7b563372a1646d81e',1,'bplustreev2.h']]],
-  ['makenode_1',['makeNode',['../bplustreev2_8h.html#a23a45d6d13fe1a5fa82c4e9b2ddf6447',1,'bplustreev2.h']]],
-  ['makerecord_2',['makeRecord',['../bplustreev2_8h.html#a036cf425fcaa04ea78ba832fda3ad5e2',1,'bplustreev2.h']]],
-  ['management_2eh_3',['management.h',['../management_8h.html',1,'']]],
-  ['max_5fauthor_4',['MAX_AUTHOR',['../books_8h.html#a9986476b23d5ba8a697c60d8130d4e14',1,'books.h']]],
-  ['max_5fgenre_5fno_5',['MAX_GENRE_NO',['../books_8h.html#a0bacc87944c0b8955121b3b9b71664ce',1,'books.h']]],
-  ['max_5ftitle_6',['MAX_TITLE',['../books_8h.html#a18d607761a55c0a30b69f9d82f1da73e',1,'books.h']]]
+  ['leftmost_0',['leftMost',['../bplustreev2_8h.html#a841bd1bba3e703ec564dea235d6e7301',1,'bplustreev2.h']]],
+  ['length_1',['length',['../struct_record.html#a197fcb5feaccc00e4a8fa8878f138e4f',1,'Record']]],
+  ['load_5fbook_5fmanagement_2',['load_book_management',['../books_8h.html#ade26076641cca3fc5450d909e32762de',1,'books.c']]],
+  ['loadtree_3',['loadTree',['../bplustreev2_8h.html#a1e6986d459f875ca7c5166a2cb34d146',1,'bplustreev2.h']]],
+  ['loadtrietree_4',['loadTrieTree',['../trie_8h.html#ad2aa3ceb08b5c05b48b3e56bc2d2926e',1,'trie.h']]]
 ];

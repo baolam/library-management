@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['author_0',['author',['../struct_book.html#af656d9ce7cf239b98da140f5ff3397a3',1,'Book']]],
-  ['authors_1',['authors',['../fake_8h.html#a8fe287a488cbea8ccb168bf09a1973c4',1,'fake.h']]]
+  ['_5ffrom_0',['_from',['../struct_record.html#a92bbdd4708ea08e22672b10153b0a871',1,'Record']]]
 ];
