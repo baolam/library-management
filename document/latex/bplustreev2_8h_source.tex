@@ -1,0 +1,93 @@
+\doxysection{bplustreev2.\+h}
+\hypertarget{bplustreev2_8h_source}{}\label{bplustreev2_8h_source}\index{include/bplustreev2.h@{include/bplustreev2.h}}
+\mbox{\hyperlink{bplustreev2_8h}{Tới Thông tin của file này.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ BPLUSTREEV2\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ BPLUSTREEV2\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ PRINT\_TREE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//<\ Định\ nghĩa\ có\ cho\ phép\ In\ cây\ ra\ hay\ không,\ màn\ hình\ console}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ ORDER\ 10\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//<\ Số\ dữ\ liệu\ quản\ lí\ tối\ đa\ của\ một\ node}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ MAX\_FILE\_NAME\_LENGTH\ 128\ }\textcolor{comment}{//<\ Độ\ dài\ tối\ đa\ của\ tên\ file}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifdef\ PRINT\_TREE}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_record}{Record}}}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{char}\ \_from[MAX\_FILE\_NAME\_LENGTH];\ \textcolor{comment}{//<\ file\ nội\ dung\ lưu\ trữ}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{long}\ offset;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//<\ Vị\ trí\ bắt\ đầu\ lưu\ trữ}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{long}\ length;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//<\ Độ\ dài\ dữ\ liệu\ lưu\ trữ}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ deleted;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//<\ Trạng\ thái\ xoá\ hay\ chưa\ (xoá\ quản\ lí,\ cho\ phương\ thức\ soft-\/delete)}}
+\DoxyCodeLine{00040\ \}\ \mbox{\hyperlink{struct_record}{Record}};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_node}{Node}}}
+\DoxyCodeLine{00052\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ **\mbox{\hyperlink{struct_node_a5cb279f88edbcd6af65300c2b63d7e6e}{pointers}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ *\mbox{\hyperlink{struct_node_ac20243a09347bbb2d3f73234f58d3ad0}{keys}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{struct_node_a34f3ab9670c7b70dad8905359a243c92}{parent}};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_node_a3e5449ec9e41ba98cbaf8f3a993d03c4}{is\_leaf}};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_node_a3d741213ac4ef9a48d6c2bf39c8bd146}{num\_keys}};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{struct_node_af67b110ca1a258b793bf69d306929b22}{next}};}
+\DoxyCodeLine{00082\ \}\ \mbox{\hyperlink{struct_node}{Node}};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00092\ \mbox{\hyperlink{struct_record}{Record}}\ *\mbox{\hyperlink{bplustreev2_8h_a036cf425fcaa04ea78ba832fda3ad5e2}{makeRecord}}(\textcolor{keywordtype}{char}\ \_from[MAX\_FILE\_NAME\_LENGTH],\ \textcolor{keywordtype}{long}\ offset,\ \textcolor{keywordtype}{long}\ length);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00102\ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{bplustreev2_8h_a841bd1bba3e703ec564dea235d6e7301}{leftMost}}(\mbox{\hyperlink{struct_node}{Node}}\ *root);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00107\ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{bplustreev2_8h_a23a45d6d13fe1a5fa82c4e9b2ddf6447}{makeNode}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00114\ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{bplustreev2_8h_af3f6936a5822d3c7b563372a1646d81e}{makeLeaf}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00125\ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{bplustreev2_8h_ac539c35415e0bb03d619917198332b53}{findLeaf}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00134\ \mbox{\hyperlink{struct_record}{Record}}\ *\mbox{\hyperlink{bplustreev2_8h_a0e4ed69811cf4058e1e0f7a311fc627d}{find}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00144\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{bplustreev2_8h_a86db5400d85b6d57c364eada43fce324}{cut}}(\textcolor{keywordtype}{int}\ length);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00155\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{bplustreev2_8h_ae594d5890cf75f3e3debbb99e747407d}{getLeftIndex}}(\mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{struct_node_a34f3ab9670c7b70dad8905359a243c92}{parent}},\ \mbox{\hyperlink{struct_node}{Node}}\ *left);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#ifdef\ PRINT\_TREE}}
+\DoxyCodeLine{00158\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_node}{Node}}\ *queue;}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{keywordtype}{int}\ pathToLeaves(\mbox{\hyperlink{struct_node}{Node}}\ *\textcolor{keyword}{const}\ root,\ \mbox{\hyperlink{struct_node}{Node}}\ *child);}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{keywordtype}{void}\ enqueue(\mbox{\hyperlink{struct_node}{Node}}\ *new\_node);}
+\DoxyCodeLine{00163\ \mbox{\hyperlink{struct_node}{Node}}\ *dequeue(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \textcolor{keywordtype}{void}\ printTree(\mbox{\hyperlink{struct_node}{Node}}\ *\textcolor{keyword}{const}\ root);}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00174\ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{bplustreev2_8h_a7c13d7dbbeb01bed587d135ec15160a2}{startNewTree}}(\textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_record}{Record}}\ *pointer);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoLeaf(\mbox{\hyperlink{struct_node}{Node}}\ *leaf,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_record}{Record}}\ *record);}
+\DoxyCodeLine{00177\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoNode(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \mbox{\hyperlink{struct_node}{Node}}\ *n,\ \textcolor{keywordtype}{int}\ left\_index,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_node}{Node}}\ *right);}
+\DoxyCodeLine{00178\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoNodeAfterSplitting(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \mbox{\hyperlink{struct_node}{Node}}\ *old\_node,\ \textcolor{keywordtype}{int}\ left\_index,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_node}{Node}}\ *right);}
+\DoxyCodeLine{00179\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoNewRoot(\mbox{\hyperlink{struct_node}{Node}}\ *left,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_node}{Node}}\ *right);}
+\DoxyCodeLine{00180\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoParent(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \mbox{\hyperlink{struct_node}{Node}}\ *left,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_node}{Node}}\ *right);}
+\DoxyCodeLine{00181\ \mbox{\hyperlink{struct_node}{Node}}\ *insertIntoLeafAfterSplitting(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \mbox{\hyperlink{struct_node}{Node}}\ *leaf,\ \textcolor{keywordtype}{int}\ key,\ \mbox{\hyperlink{struct_record}{Record}}\ *record);}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00197\ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{bplustreev2_8h_af8204e72519be4ff883be1e6ac9beb82}{insert}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{int}\ key,\ \textcolor{keywordtype}{char}\ \_from[MAX\_FILE\_NAME\_LENGTH],\ \textcolor{keywordtype}{long}\ offset,\ \textcolor{keywordtype}{long}\ length);}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00210\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bplustreev2_8h_a817851a0dbd1a560b8b9fb8fce17b9dc}{saveTree}}(\mbox{\hyperlink{struct_node}{Node}}\ *root,\ \textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00220\ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{bplustreev2_8h_a1e6986d459f875ca7c5166a2cb34d146}{loadTree}}(\textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

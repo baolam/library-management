@@ -37,11 +37,12 @@ void calc_statistic_book(Node *book_management)
     Record *infor;
     Book *book;
 
-    int num = 0;
     int position;
 
     while (book_genre != NULL)
     {
+        int num = 0;
+
         for (; num < book_genre->num_keys; num++)
         {
             infor = (Record *)book_genre->pointers[num];
@@ -52,7 +53,7 @@ void calc_statistic_book(Node *book_management)
                 continue;
             }
 
-            book = (Book *)read_content_from_record_return(infor, book_content_file);
+            book = (Book *)read_content_from_record_return(infor);
             position = find_position(book->genre);
 
             total_books++;
