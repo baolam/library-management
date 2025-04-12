@@ -28,6 +28,8 @@ Những hàm tiện ích dùng để khai thác hiệu quả B+ Tree.
 \doxysubsubsection*{Các hàm}
 \begin{DoxyCompactItemize}
 \item 
+int \mbox{\hyperlink{management_8h_a4128578a9414b538e87f4c09f82546fe}{get\+Start\+Search}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}n, int begining\+Key)
+\begin{DoxyCompactList}\small\item\em Hàm trả về vị trí bắt đầu tìm kiếm trong node lá \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{management_8h_ade27b5b1e9e93aa2f1e6bbb6f8779c0d}{exist\+\_\+record}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, int key)
 \begin{DoxyCompactList}\small\item\em Hàm kiểm tra sự tồn tại của bản ghi ứng với khoá được chỉ định hay không. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{management_8h_a8bf6c338f76f959eb131d2a9695125d6}{add\+\_\+content}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, int key, char content\+\_\+file\mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}, void \texorpdfstring{$\ast$}{*}content, size\+\_\+t size, void(\texorpdfstring{$\ast$}{*}callback)(int id, int code, long offset, long length))
@@ -128,6 +130,28 @@ Hàm trả về false ở một số trường hợp sau\+:
 \end{DoxyParams}
 \begin{DoxyReturn}{Giá trị trả về}
 true là có, false là không 
+\end{DoxyReturn}
+\Hypertarget{management_8h_a4128578a9414b538e87f4c09f82546fe}\index{management.h@{management.h}!getStartSearch@{getStartSearch}}
+\index{getStartSearch@{getStartSearch}!management.h@{management.h}}
+\doxysubsubsection{\texorpdfstring{getStartSearch()}{getStartSearch()}}
+{\footnotesize\ttfamily \label{management_8h_a4128578a9414b538e87f4c09f82546fe} 
+int get\+Start\+Search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{n}{, }\item[{int}]{begining\+Key}{}\end{DoxyParamCaption})}
+
+
+
+Hàm trả về vị trí bắt đầu tìm kiếm trong node lá 
+
+Gọi hàm này để phục vụ tiện ích cho nhóm thao tác tìm kiếm dữ liệu liên tục
+
+
+\begin{DoxyParams}{Các tham số}
+{\em n} & \doxylink{struct_node}{Node} lá \\
+\hline
+{\em begining\+Key} & Key bắt đầu tìm kiếm\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+Vị trí bắt đầu tìm kiếm 
 \end{DoxyReturn}
 \Hypertarget{management_8h_aa6f8367d2e8acfc2677d27711c535bea}\index{management.h@{management.h}!read\_bucket\_content@{read\_bucket\_content}}
 \index{read\_bucket\_content@{read\_bucket\_content}!management.h@{management.h}}

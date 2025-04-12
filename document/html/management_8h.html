@@ -142,6 +142,9 @@ $(function(){initNavTree('management_8h.html',''); initResizable(true); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Các hàm</h2></td></tr>
+<tr class="memitem:a4128578a9414b538e87f4c09f82546fe" id="r_a4128578a9414b538e87f4c09f82546fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4128578a9414b538e87f4c09f82546fe">getStartSearch</a> (<a class="el" href="struct_node.html">Node</a> *n, int beginingKey)</td></tr>
+<tr class="memdesc:a4128578a9414b538e87f4c09f82546fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm trả về vị trí bắt đầu tìm kiếm trong node lá  <br /></td></tr>
+<tr class="separator:a4128578a9414b538e87f4c09f82546fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade27b5b1e9e93aa2f1e6bbb6f8779c0d" id="r_ade27b5b1e9e93aa2f1e6bbb6f8779c0d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade27b5b1e9e93aa2f1e6bbb6f8779c0d">exist_record</a> (<a class="el" href="struct_node.html">Node</a> *root, int key)</td></tr>
 <tr class="memdesc:ade27b5b1e9e93aa2f1e6bbb6f8779c0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm kiểm tra sự tồn tại của bản ghi ứng với khoá được chỉ định hay không.  <br /></td></tr>
 <tr class="separator:ade27b5b1e9e93aa2f1e6bbb6f8779c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -281,6 +284,38 @@ Các hàm</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Giá trị trả về</dt><dd>true là có, false là không </dd></dl>
+
+</div>
+</div>
+<a id="a4128578a9414b538e87f4c09f82546fe" name="a4128578a9414b538e87f4c09f82546fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4128578a9414b538e87f4c09f82546fe">&#9670;&#160;</a></span>getStartSearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getStartSearch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>beginingKey</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hàm trả về vị trí bắt đầu tìm kiếm trong node lá </p>
+<p>Gọi hàm này để phục vụ tiện ích cho nhóm thao tác tìm kiếm dữ liệu liên tục</p>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td><a class="el" href="struct_node.html" title="Node trong cây B+ tree.">Node</a> lá </td></tr>
+    <tr><td class="paramname">beginingKey</td><td>Key bắt đầu tìm kiếm</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Giá trị trả về</dt><dd>Vị trí bắt đầu tìm kiếm </dd></dl>
 
 </div>
 </div>

@@ -46,6 +46,19 @@
 #include <windows.h>
 
 /**
+ * @brief Hàm trả về vị trí bắt đầu tìm kiếm trong node lá
+ *
+ * Gọi hàm này để phục vụ tiện ích cho nhóm thao tác tìm kiếm
+ * dữ liệu liên tục
+ *
+ * @param n Node lá
+ * @param beginingKey Key bắt đầu tìm kiếm
+ *
+ * @return Vị trí bắt đầu tìm kiếm
+ */
+int getStartSearch(Node *n, int beginingKey);
+
+/**
  * @brief Hàm kiểm tra sự tồn tại của bản ghi ứng với khoá được chỉ định hay không
  *
  * Hàm trả về false ở một số trường hợp sau:

@@ -164,8 +164,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>add_book</b> (<a clas
 <tr class="memdesc:ab9223d05c04eaf64efac2e4a8cf2aeec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tìm kiếm sách bằng Id.  <br /></td></tr>
 <tr class="separator:ab9223d05c04eaf64efac2e4a8cf2aeec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbf315a2a4092396b23d8d083661fb6b" id="r_adbf315a2a4092396b23d8d083661fb6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adbf315a2a4092396b23d8d083661fb6b">search_book_by_title</a> (const char *prefix, int maxNumbers)</td></tr>
-<tr class="memdesc:adbf315a2a4092396b23d8d083661fb6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tìm kiếm sách bằng Author.  <br /></td></tr>
+<tr class="memdesc:adbf315a2a4092396b23d8d083661fb6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tìm kiếm sách bằng Title.  <br /></td></tr>
 <tr class="separator:adbf315a2a4092396b23d8d083661fb6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fad7a86d2b117aceddf806d3365e422" id="r_a6fad7a86d2b117aceddf806d3365e422"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_book.html">Book</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6fad7a86d2b117aceddf806d3365e422">search_book_by_title_direct</a> (const char *prefix, int *actualBooks, int maxNumbers)</td></tr>
+<tr class="memdesc:a6fad7a86d2b117aceddf806d3365e422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tìm kiếm sách bằng Title, có hứng kết quả trả về  <br /></td></tr>
+<tr class="separator:a6fad7a86d2b117aceddf806d3365e422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab879ca6938b77771fed16c9a9f9d5ea2" id="r_ab879ca6938b77771fed16c9a9f9d5ea2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_book.html">Book</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab879ca6938b77771fed16c9a9f9d5ea2">retrieve_bucket_books</a> (int beginingKey, int quanities, int *actualBooks)</td></tr>
+<tr class="memdesc:ab879ca6938b77771fed16c9a9f9d5ea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm trả về một tập hợp các quyển sách theo sau một Id tìm kiếm.  <br /></td></tr>
+<tr class="separator:ab879ca6938b77771fed16c9a9f9d5ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad52d1d47f78b08b5e1b73062842a8c34" id="r_ad52d1d47f78b08b5e1b73062842a8c34"><td class="memItemLeft" align="right" valign="top"><a id="ad52d1d47f78b08b5e1b73062842a8c34" name="ad52d1d47f78b08b5e1b73062842a8c34"></a>
 <a class="el" href="struct_book.html">Book</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>search_book</b> (int id)</td></tr>
 <tr class="memdesc:ad52d1d47f78b08b5e1b73062842a8c34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Phục vụ cho nhóm nhiệm vụ mượn, trả sách. <br /></td></tr>
@@ -277,6 +283,44 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>book_content_file</b>
 
 </div>
 </div>
+<a id="ab879ca6938b77771fed16c9a9f9d5ea2" name="ab879ca6938b77771fed16c9a9f9d5ea2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab879ca6938b77771fed16c9a9f9d5ea2">&#9670;&#160;</a></span>retrieve_bucket_books()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_book.html">Book</a> * retrieve_bucket_books </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>beginingKey</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>quanities</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>actualBooks</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hàm trả về một tập hợp các quyển sách theo sau một Id tìm kiếm. </p>
+<p>Dùng hàm này khi cần hứng chính xác một mảng các quyển sách. Được dùng cho nhóm thao tác giao diện</p>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">beginingKey</td><td>là vị trí bắt đầu đọc đầu tiên </td></tr>
+    <tr><td class="paramname">quanities</td><td>là số lượng sách muốn lấy sau khi kiếm Id đầu tiên </td></tr>
+    <tr><td class="paramname">actualBooks</td><td>là số lượng sách thực tế</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Giá trị trả về</dt><dd>là mảng chứa các quyển sách tìm được </dd></dl>
+
+</div>
+</div>
 <a id="ab0d9d44572464bcfc58d438604d0a598" name="ab0d9d44572464bcfc58d438604d0a598"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab0d9d44572464bcfc58d438604d0a598">&#9670;&#160;</a></span>save_book_management()</h2>
 
@@ -342,7 +386,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>book_content_file</b>
       </table>
 </div><div class="memdoc">
 
-<p>Tìm kiếm sách bằng Author. </p>
+<p>Tìm kiếm sách bằng Title. </p>
 <p>Cung cấp vào tên Author hoặc nhóm chữ cái đầu của tên Author muốn tìm kiếm Kết quả hiển thị là những quyển sách có tên bắt đầu bằng từ tìm kiếm</p>
 <dl class="params"><dt>Các tham số</dt><dd>
   <table class="params">
@@ -351,6 +395,46 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>book_content_file</b>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a6fad7a86d2b117aceddf806d3365e422" name="a6fad7a86d2b117aceddf806d3365e422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fad7a86d2b117aceddf806d3365e422">&#9670;&#160;</a></span>search_book_by_title_direct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_book.html">Book</a> * search_book_by_title_direct </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>prefix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>actualBooks</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxNumbers</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tìm kiếm sách bằng Title, có hứng kết quả trả về </p>
+<p>Hàm này sẽ trả về kết quả tìm kiếm số lượng sách, hứng kết quả trả về lưu trữ vào mảng. Việc dùng hàm này sẽ giúp đảm bảo lợi thế khi kết nối giao diện. Giao diện có thể gặp khó khăn khi tiến hành gọi callback</p>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prefix</td><td>là nhóm chữ cái đầu của tên </td></tr>
+    <tr><td class="paramname">books</td><td>là số lượng sách đọc được (mảng) </td></tr>
+    <tr><td class="paramname">actualBooks</td><td>là số lượng sách thực tế (mảng) </td></tr>
+    <tr><td class="paramname">maxNumbers</td><td>là số lượng kết quả tối đa</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Giá trị trả về</dt><dd>là mảng chứa các cuốn sách tìm được </dd></dl>
+<p>Cấp phát bộ nhớ cho <a class="el" href="struct_book.html" title="Cấu trúc dữ liệu cho một cuốn sách.">Book</a></p>
 
 </div>
 </div>

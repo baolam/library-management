@@ -7,5 +7,6 @@ var searchData=
   ['readers_4',['Readers',['../struct_readers.html',1,'']]],
   ['recommendprefix_5',['recommendPrefix',['../trie_8h.html#a759222c75b700283cb2e071ab0da6839',1,'trie.h']]],
   ['record_6',['Record',['../struct_record.html',1,'']]],
-  ['removeword_7',['removeWord',['../trie_8h.html#a6f4bed4c59354e39e2318153f3b6f0ed',1,'trie.h']]]
+  ['removeword_7',['removeWord',['../trie_8h.html#a6f4bed4c59354e39e2318153f3b6f0ed',1,'trie.h']]],
+  ['retrieve_5fbucket_5fbooks_8',['retrieve_bucket_books',['../books_8h.html#ab879ca6938b77771fed16c9a9f9d5ea2',1,'books.c']]]
 ];

@@ -24,6 +24,14 @@ void showListBook()
     scanf("%d", &beginingKey);
     printf("Enter nums:");
     scanf("%d", &nums);
+
+    int actualBooks = 0;
+    Book *books = retrieve_bucket_books(beginingKey, nums, &actualBooks);
+
+    for (int i = 0; i < actualBooks; i++)
+    {
+        show_book(books[i]);
+    }
 }
 
 void getRecommend()
