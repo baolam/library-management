@@ -103,7 +103,7 @@ void return_books(int readerId)
         return;
     }
 
-    // ✅ Trả sách
+    //  Trả sách
     restore_books_to_stock(&b);
     printf("Was the return on time? (1 = Yes, 0 = No): ");
     scanf("%d", &b.onTime);
@@ -132,7 +132,7 @@ void return_books(int readerId)
     printf("Borrow record updated to 'returned'.\n");
 }
 
-// ✅ Cập nhật tồn kho sách
+//  Cập nhật tồn kho sách
 void restore_books_to_stock(BorrowReturn *b)
 {
     for (int i = 0; i < b->totalBooks; i++)
