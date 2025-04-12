@@ -10,7 +10,7 @@
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{books_8h}{books.h}}"{}}}
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{reader_8h}{reader.h}}"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bplustreev2_8h}{bplustreev2.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}utils/bplustreev2.h"{}}}
 \DoxyCodeLine{00010\ }
 \DoxyCodeLine{00011\ \textcolor{comment}{//\ Cấu\ trúc\ BorrowReturn}}
 \DoxyCodeLine{00012\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_borrow_return}{BorrowReturn}}}
@@ -24,11 +24,11 @@
 \DoxyCodeLine{00020\ \}\ \mbox{\hyperlink{struct_borrow_return}{BorrowReturn}};}
 \DoxyCodeLine{00021\ }
 \DoxyCodeLine{00022\ \textcolor{comment}{//\ Biến\ toàn\ cục}}
-\DoxyCodeLine{00023\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_node}{Node}}\ *borrow\_return\_management;}
+\DoxyCodeLine{00023\ \textcolor{keyword}{extern}\ Node\ *borrow\_return\_management;}
 \DoxyCodeLine{00024\ }
 \DoxyCodeLine{00025\ \textcolor{comment}{//\ Khai\ báo\ file}}
-\DoxyCodeLine{00026\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ borrow\_return\_content\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];}
-\DoxyCodeLine{00027\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ borrow\_return\_management\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];}
+\DoxyCodeLine{00026\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ borrow\_return\_content\_file[MAX\_FILE\_NAME\_LENGTH];}
+\DoxyCodeLine{00027\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ borrow\_return\_management\_file[MAX\_FILE\_NAME\_LENGTH];}
 \DoxyCodeLine{00028\ }
 \DoxyCodeLine{00029\ \textcolor{comment}{//\ Hàm\ xử\ lý}}
 \DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ add\_borrow\_record(\mbox{\hyperlink{struct_borrow_return}{BorrowReturn}}\ *b);}

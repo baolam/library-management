@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['chartoindex_0',['charToIndex',['../trie_8h.html#a9199a09472f379d3a8d818cc3dba65fe',1,'trie.h']]],
-  ['cut_1',['cut',['../bplustreev2_8h.html#a86db5400d85b6d57c364eada43fce324',1,'bplustreev2.h']]]
+  ['delete_5fbook_0',['delete_book',['../books_8h.html#a92647df5ddb986901e8113a8ce3f1e3e',1,'books.c']]],
+  ['delete_5freader_1',['delete_reader',['../reader_8h.html#af07dc59049cd7d5342855985c8bf676e',1,'reader.c']]]
 ];

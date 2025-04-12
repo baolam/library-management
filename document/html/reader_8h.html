@@ -118,10 +118,10 @@ $(function(){initNavTree('reader_8h.html',''); initResizable(true); });
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
-<code>#include &lt;<a class="el" href="books_8h_source.html">books.h</a>&gt;</code><br />
-<code>#include &quot;<a class="el" href="management_8h_source.html">management.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="trie_8h_source.html">trie.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="bplustreev2_8h_source.html">bplustreev2.h</a>&quot;</code><br />
+<code>#include &quot;utils/management.h&quot;</code><br />
+<code>#include &quot;utils/trie.h&quot;</code><br />
+<code>#include &quot;utils/bplustreev2.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="books_8h_source.html">books.h</a>&quot;</code><br />
 </div>
 <p><a href="reader_8h_source.html">Tới mã nguồn của file này.</a></p>
 <table class="memberdecls">
@@ -172,6 +172,12 @@ Các hàm</h2></td></tr>
 <tr class="memitem:af07dc59049cd7d5342855985c8bf676e" id="r_af07dc59049cd7d5342855985c8bf676e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af07dc59049cd7d5342855985c8bf676e">delete_reader</a> (int id)</td></tr>
 <tr class="memdesc:af07dc59049cd7d5342855985c8bf676e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Xoá độc giả  <br /></td></tr>
 <tr class="separator:af07dc59049cd7d5342855985c8bf676e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98e7d90352899642bb59d34c01b7686f" id="r_a98e7d90352899642bb59d34c01b7686f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_readers.html">Readers</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98e7d90352899642bb59d34c01b7686f">search_reader</a> (int id)</td></tr>
+<tr class="memdesc:a98e7d90352899642bb59d34c01b7686f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm này sẽ trả về đối tượng Reader ứng với Id được chỉ định.  <br /></td></tr>
+<tr class="separator:a98e7d90352899642bb59d34c01b7686f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adff84d4c954d93c55dad0e44faa7bcce" id="r_adff84d4c954d93c55dad0e44faa7bcce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_readers.html">Readers</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adff84d4c954d93c55dad0e44faa7bcce">retrieve_bucket_readers</a> (int beginingKey, int quanities, int *actualReaders)</td></tr>
+<tr class="memdesc:adff84d4c954d93c55dad0e44faa7bcce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm này sẽ trả về danh sách các độc giả theo sau Id được chỉ định một lượng bao nhiêu đó  <br /></td></tr>
+<tr class="separator:adff84d4c954d93c55dad0e44faa7bcce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc710d40bada0efb7ae7e84c6add17bf" id="r_adc710d40bada0efb7ae7e84c6add17bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc710d40bada0efb7ae7e84c6add17bf">preparate_reader</a> ()</td></tr>
 <tr class="memdesc:adc710d40bada0efb7ae7e84c6add17bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hỗ trợ cho thao tác quản lí  <br /></td></tr>
 <tr class="separator:adc710d40bada0efb7ae7e84c6add17bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -185,23 +191,23 @@ Các hàm</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Các biến</h2></td></tr>
 <tr class="memitem:ad368d836493133b44918341f66c2bba0" id="r_ad368d836493133b44918341f66c2bba0"><td class="memItemLeft" align="right" valign="top"><a id="ad368d836493133b44918341f66c2bba0" name="ad368d836493133b44918341f66c2bba0"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>reader_management_file</b> [<a class="el" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>]</td></tr>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>reader_management_file</b> [MAX_FILE_NAME_LENGTH]</td></tr>
 <tr class="memdesc:ad368d836493133b44918341f66c2bba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">FIle quản lí độc giả (thuần là file quản lí) <br /></td></tr>
 <tr class="separator:ad368d836493133b44918341f66c2bba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb169dcb2d5d8d4c49806daf8b6918a1" id="r_afb169dcb2d5d8d4c49806daf8b6918a1"><td class="memItemLeft" align="right" valign="top"><a id="afb169dcb2d5d8d4c49806daf8b6918a1" name="afb169dcb2d5d8d4c49806daf8b6918a1"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>reader_name_management_file</b> [<a class="el" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>]</td></tr>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>reader_name_management_file</b> [MAX_FILE_NAME_LENGTH]</td></tr>
 <tr class="memdesc:afb169dcb2d5d8d4c49806daf8b6918a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">File quản lí tên kết hợp Id (cây Trie) <br /></td></tr>
 <tr class="separator:afb169dcb2d5d8d4c49806daf8b6918a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24a39c83b3c72475fe3903de8e432def" id="r_a24a39c83b3c72475fe3903de8e432def"><td class="memItemLeft" align="right" valign="top"><a id="a24a39c83b3c72475fe3903de8e432def" name="a24a39c83b3c72475fe3903de8e432def"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>reader_content_file</b> [<a class="el" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>]</td></tr>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>reader_content_file</b> [MAX_FILE_NAME_LENGTH]</td></tr>
 <tr class="memdesc:a24a39c83b3c72475fe3903de8e432def"><td class="mdescLeft">&#160;</td><td class="mdescRight">File nội dung lưu trữ dữ liệu. <br /></td></tr>
 <tr class="separator:a24a39c83b3c72475fe3903de8e432def"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b9adf9e305495e4b9cde29076afe6c1" id="r_a2b9adf9e305495e4b9cde29076afe6c1"><td class="memItemLeft" align="right" valign="top"><a id="a2b9adf9e305495e4b9cde29076afe6c1" name="a2b9adf9e305495e4b9cde29076afe6c1"></a>
-<a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>reader_management</b></td></tr>
+Node *&#160;</td><td class="memItemRight" valign="bottom"><b>reader_management</b></td></tr>
 <tr class="memdesc:a2b9adf9e305495e4b9cde29076afe6c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Đối tượng quản lí chính. <br /></td></tr>
 <tr class="separator:a2b9adf9e305495e4b9cde29076afe6c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b689b2a032121fad99b9a87b3529244" id="r_a4b689b2a032121fad99b9a87b3529244"><td class="memItemLeft" align="right" valign="top"><a id="a4b689b2a032121fad99b9a87b3529244" name="a4b689b2a032121fad99b9a87b3529244"></a>
-<a class="el" href="struct_trie_node.html">TrieNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>reader_trie</b></td></tr>
+TrieNode *&#160;</td><td class="memItemRight" valign="bottom"><b>reader_trie</b></td></tr>
 <tr class="memdesc:a4b689b2a032121fad99b9a87b3529244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Đối tượng quản lí phụ, phục vụ cho thao tác tìm kiếm gợi ý <br /></td></tr>
 <tr class="separator:a4b689b2a032121fad99b9a87b3529244"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -302,6 +308,45 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>reader_content_file</
 
 </div>
 </div>
+<a id="adff84d4c954d93c55dad0e44faa7bcce" name="adff84d4c954d93c55dad0e44faa7bcce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adff84d4c954d93c55dad0e44faa7bcce">&#9670;&#160;</a></span>retrieve_bucket_readers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_readers.html">Readers</a> * retrieve_bucket_readers </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>beginingKey</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>quanities</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>actualReaders</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hàm này sẽ trả về danh sách các độc giả theo sau Id được chỉ định một lượng bao nhiêu đó </p>
+<p>Kết quả trả về của hàm này là một mảng các <a class="el" href="struct_readers.html" title="Cấu trúc quản lí của một độc giả">Readers</a> </p><dl class="section note"><dt>Ghi chú</dt><dd>Dùng xong nhớ xoá đi nhe (gọi hàm free)</dd></dl>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">beginingKey</td><td>là Id bắt đầu </td></tr>
+    <tr><td class="paramname">quanities</td><td>là số lượng muốn tìm kiếm tối đa </td></tr>
+    <tr><td class="paramname">actualReaders</td><td>là kích thước thực tế</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Ghi chú</dt><dd>Việc tồn tại hai tham số trên (quanities, actualReaders) là do có thể vị trí bắt đầu gần cuối, kết quả có thể không trùng lặp giữa cả hai </dd></dl>
+<dl class="section return"><dt>Giá trị trả về</dt><dd>Mảng các độc giả </dd></dl>
+
+</div>
+</div>
 <a id="addae2d4ba1b47818e01b1f4a3f9deb47" name="addae2d4ba1b47818e01b1f4a3f9deb47"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#addae2d4ba1b47818e01b1f4a3f9deb47">&#9670;&#160;</a></span>save_reader_management()</h2>
 
@@ -319,6 +364,27 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>reader_content_file</
 
 <p>Lưu trữ thông tin. </p>
 <p>Kết quả lưu trữ sẽ tạo ra 3 file theo định nghĩa </p>
+
+</div>
+</div>
+<a id="a98e7d90352899642bb59d34c01b7686f" name="a98e7d90352899642bb59d34c01b7686f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98e7d90352899642bb59d34c01b7686f">&#9670;&#160;</a></span>search_reader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_readers.html">Readers</a> * search_reader </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hàm này sẽ trả về đối tượng Reader ứng với Id được chỉ định. </p>
+<p>Là một hàm thao tác trực tiếp trả về Reader, không cần phải thông qua gọi Callback</p>
+<dl class="section return"><dt>Giá trị trả về</dt><dd>Đối tượng Reader, NULL nếu đọc không được </dd></dl>
 
 </div>
 </div>

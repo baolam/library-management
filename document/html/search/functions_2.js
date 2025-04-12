@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['delete_5fbook_0',['delete_book',['../books_8h.html#a92647df5ddb986901e8113a8ce3f1e3e',1,'books.c']]],
-  ['delete_5freader_1',['delete_reader',['../reader_8h.html#af07dc59049cd7d5342855985c8bf676e',1,'reader.c']]]
+  ['load_5fbook_5fmanagement_0',['load_book_management',['../books_8h.html#ade26076641cca3fc5450d909e32762de',1,'books.c']]],
+  ['load_5freader_5fmanagement_1',['load_reader_management',['../reader_8h.html#a230b942c73dc649a1e65d74596c72d42',1,'reader.c']]]
 ];
