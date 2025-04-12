@@ -2,138 +2,559 @@
 <!-- Generated with glade 3.40.0 -->
 <interface>
   <requires lib="gtk+" version="3.24"/>
-  <object class="GtkWindow" id="window">
-    <property name="width-request">1920</property>
-    <property name="height-request">1080</property>
+  <object class="GtkWindow" id="entry_window">
+    <property name="name">Nhập thông tin</property>
+    <property name="width-request">600</property>
+    <property name="height-request">400</property>
     <property name="can-focus">False</property>
+    <property name="window-position">center-always</property>
     <child>
       <object class="GtkFixed">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <child>
+          <!-- n-columns=2 n-rows=6 -->
+          <object class="GtkGrid">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="row-spacing">10</property>
+            <child>
+              <object class="GtkEntry">
+                <property name="width-request">380</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">5</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width-request">120</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">ID:</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Tên sách:</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Tác giả:</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Thể loai:</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Năm xuất bản:</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Số lượng:</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">5</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="x">50</property>
+            <property name="y">40</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="label" translatable="yes">Xác nhận</property>
+            <property name="width-request">200</property>
+            <property name="height-request">50</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="x">200</property>
+            <property name="y">330</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkListStore" id="liststore1">
+    <columns>
+      <!-- column-name gchararray -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray2 -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray3 -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray4 -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray5 -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes"/>
+        <col id="1" translatable="yes"/>
+        <col id="2" translatable="yes"/>
+        <col id="3" translatable="yes"/>
+        <col id="4" translatable="yes"/>
+        <col id="5" translatable="yes"/>
+      </row>
+      <row>
+        <col id="0" translatable="yes"/>
+        <col id="1" translatable="yes"/>
+        <col id="2" translatable="yes"/>
+        <col id="3" translatable="yes"/>
+        <col id="4" translatable="yes"/>
+        <col id="5" translatable="yes"/>
+      </row>
+      <row>
+        <col id="0" translatable="yes"/>
+        <col id="1" translatable="yes"/>
+        <col id="2" translatable="yes"/>
+        <col id="3" translatable="yes"/>
+        <col id="4" translatable="yes"/>
+        <col id="5" translatable="yes"/>
+      </row>
+      <row>
+        <col id="0" translatable="yes"/>
+        <col id="1" translatable="yes"/>
+        <col id="2" translatable="yes"/>
+        <col id="3" translatable="yes"/>
+        <col id="4" translatable="yes"/>
+        <col id="5" translatable="yes"/>
+      </row>
+    </data>
+  </object>
+  <object class="GtkWindow" id="window">
+    <property name="width-request">1600</property>
+    <property name="height-request">900</property>
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="resize-mode">queue</property>
+        <child>
           <object class="GtkButton" id="home-button">
-            <property name="label" translatable="yes">button</property>
-            <property name="width-request">80</property>
-            <property name="height-request">80</property>
+            <property name="width-request">100</property>
+            <property name="height-request">100</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
             <signal name="clicked" handler="on_button_clicked" swapped="no"/>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="pixbuf">assets\lib_icon_55x55.png</property>
+              </object>
+            </child>
           </object>
           <packing>
-            <property name="x">40</property>
-            <property name="y">40</property>
+            <property name="x">50</property>
+            <property name="y">50</property>
           </packing>
         </child>
         <child>
           <object class="GtkNotebook" id="visual">
             <property name="name">notebook</property>
-            <property name="width-request">1920</property>
-            <property name="height-request">920</property>
+            <property name="width-request">1610</property>
+            <property name="height-request">500</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
-            <property name="tab-pos">bottom</property>
-            <property name="show-border">False</property>
             <signal name="change-current-page" handler="gtk_notebook_set_current_page" swapped="no"/>
             <child>
-              <placeholder/>
+              <object class="GtkFixed">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <child>
+                  <object class="GtkBox" id="tab 3">
+                    <property name="width-request">100</property>
+                    <property name="height-request">80</property>
+                    <property name="can-focus">False</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkFixed">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <child>
+                          <object class="GtkSearchEntry">
+                            <property name="width-request">1040</property>
+                            <property name="height-request">60</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="margin-bottom">20</property>
+                            <property name="primary-icon-name">edit-find-symbolic</property>
+                            <property name="primary-icon-activatable">False</property>
+                            <property name="primary-icon-sensitive">False</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkToggleButton">
+                            <property name="label" translatable="yes">Tìm kiếm theo ID</property>
+                            <property name="width-request">200</property>
+                            <property name="height-request">60</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="receives-default">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">1241</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="width-request">100</property>
+                            <property name="height-request">60</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="label" translatable="yes">Chọn tiêu chí:</property>
+                          </object>
+                          <packing>
+                            <property name="x">1134</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkTreeView" id="book_treeview3">
+                        <property name="height-request">450</property>
+                        <property name="can-focus">True</property>
+                        <property name="border-width">10</property>
+                        <property name="model">liststore1</property>
+                        <property name="search-column">0</property>
+                        <child internal-child="selection">
+                          <object class="GtkTreeSelection"/>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="column_id3">
+                            <property name="sizing">fixed</property>
+                            <property name="fixed-width">80</property>
+                            <property name="title" translatable="yes">ID</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_id3"/>
+                              <attributes>
+                                <attribute name="markup">0</attribute>
+                                <attribute name="text">0</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="column_title3">
+                            <property name="fixed-width">400</property>
+                            <property name="title" translatable="yes">Tên sách</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_title3"/>
+                              <attributes>
+                                <attribute name="text">1</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="column_author3">
+                            <property name="fixed-width">150</property>
+                            <property name="title" translatable="yes">Tác giả</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_author3"/>
+                              <attributes>
+                                <attribute name="text">2</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="column_genre3">
+                            <property name="fixed-width">150</property>
+                            <property name="title" translatable="yes">Thể loại</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_genre3"/>
+                              <attributes>
+                                <attribute name="text">3</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="column_year3">
+                            <property name="fixed-width">150</property>
+                            <property name="title" translatable="yes">Năm xuất bản</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_year3"/>
+                              <attributes>
+                                <attribute name="text">4</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="column_quantity3">
+                            <property name="fixed-width">100</property>
+                            <property name="title" translatable="yes">Số lượng</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_quantity3"/>
+                              <attributes>
+                                <attribute name="text">5</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="x">50</property>
+                    <property name="y">50</property>
+                  </packing>
+                </child>
+              </object>
             </child>
             <child type="tab">
               <object class="GtkLabel">
+                <property name="width-request">365</property>
+                <property name="height-request">60</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" translatable="yes">page 1</property>
+                <property name="label" translatable="yes">Quản lý sách</property>
               </object>
               <packing>
                 <property name="tab-fill">False</property>
               </packing>
             </child>
             <child>
-              <object class="GtkFixed">
+              <object class="GtkFixed" id="tab2">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <child>
-                  <object class="GtkStack" id="page">
-                    <property name="width-request">1920</property>
-                    <property name="height-request">700</property>
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <child>
-                      <object class="GtkFixed" id="show_p1">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
-                      </object>
-                      <packing>
-                        <property name="name">page1</property>
-                        <property name="title" translatable="yes">page1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkFixed" id="show_p2">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
-                      </object>
-                      <packing>
-                        <property name="name">page2</property>
-                        <property name="title" translatable="yes">page2</property>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkFixed" id="show_p3">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
-                      </object>
-                      <packing>
-                        <property name="name">page3</property>
-                        <property name="title" translatable="yes">page3</property>
-                        <property name="position">2</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkFixed" id="show_p4">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
-                      </object>
-                      <packing>
-                        <property name="name">page4</property>
-                        <property name="title" translatable="yes">page4</property>
-                        <property name="position">3</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkFixed" id="show_p5">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
-                      </object>
-                      <packing>
-                        <property name="name">page5</property>
-                        <property name="title" translatable="yes">page5</property>
-                        <property name="position">4</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkFixed" id="show_p6">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
-                      </object>
-                      <packing>
-                        <property name="name">page6</property>
-                        <property name="title" translatable="yes">page6</property>
-                        <property name="position">5</property>
-                      </packing>
-                    </child>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkStackSwitcher" id="sw">
+                  <object class="GtkBox" id="tab 2">
                     <property name="width-request">100</property>
                     <property name="height-request">80</property>
                     <property name="can-focus">False</property>
-                    <property name="stack">page</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkFixed">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <child>
+                          <object class="GtkSearchEntry">
+                            <property name="width-request">1040</property>
+                            <property name="height-request">60</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="margin-bottom">20</property>
+                            <property name="primary-icon-name">edit-find-symbolic</property>
+                            <property name="primary-icon-activatable">False</property>
+                            <property name="primary-icon-sensitive">False</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkToggleButton">
+                            <property name="label" translatable="yes">Tìm kiếm theo ID</property>
+                            <property name="width-request">200</property>
+                            <property name="height-request">60</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="receives-default">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">1241</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="width-request">100</property>
+                            <property name="height-request">60</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="label" translatable="yes">Chọn tiêu chí:</property>
+                          </object>
+                          <packing>
+                            <property name="x">1134</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkTreeView" id="book_treeview2">
+                        <property name="height-request">450</property>
+                        <property name="can-focus">True</property>
+                        <property name="border-width">10</property>
+                        <property name="model">liststore1</property>
+                        <property name="search-column">0</property>
+                        <child internal-child="selection">
+                          <object class="GtkTreeSelection"/>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="reader_id">
+                            <property name="sizing">fixed</property>
+                            <property name="fixed-width">80</property>
+                            <property name="title" translatable="yes">ID</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_id2"/>
+                              <attributes>
+                                <attribute name="markup">0</attribute>
+                                <attribute name="text">0</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="reader_name">
+                            <property name="fixed-width">400</property>
+                            <property name="title" translatable="yes">Tên độc giả</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_title2"/>
+                              <attributes>
+                                <attribute name="text">1</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="phone_number">
+                            <property name="fixed-width">150</property>
+                            <property name="title" translatable="yes">Số điện thoại</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_author2"/>
+                              <attributes>
+                                <attribute name="text">2</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="reader_address">
+                            <property name="fixed-width">150</property>
+                            <property name="title" translatable="yes">Địa chỉ</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_genre2"/>
+                              <attributes>
+                                <attribute name="text">3</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
                   </object>
                   <packing>
-                    <property name="y">814</property>
+                    <property name="x">50</property>
+                    <property name="y">50</property>
                   </packing>
                 </child>
               </object>
@@ -143,170 +564,222 @@
             </child>
             <child type="tab">
               <object class="GtkLabel">
+                <property name="width-request">365</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" translatable="yes">page 2</property>
-              </object>
-              <packing>
-                <property name="position">1</property>
-                <property name="tab-fill">False</property>
-              </packing>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child type="tab">
-              <object class="GtkLabel">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="label" translatable="yes">page 3</property>
-              </object>
-              <packing>
-                <property name="position">2</property>
-                <property name="tab-fill">False</property>
-              </packing>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child type="tab">
-              <object class="GtkLabel">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="label" translatable="yes">page 4</property>
-              </object>
-              <packing>
-                <property name="position">3</property>
-                <property name="tab-fill">False</property>
-              </packing>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child type="tab">
-              <object class="GtkLabel">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="label" translatable="yes">page 5</property>
-              </object>
-              <packing>
-                <property name="position">4</property>
-                <property name="tab-fill">False</property>
-              </packing>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child type="tab">
-              <object class="GtkLabel">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="label" translatable="yes">page 6</property>
-              </object>
-              <packing>
-                <property name="position">5</property>
-                <property name="tab-fill">False</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="y">210</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkBox">
-            <property name="width-request">1920</property>
-            <property name="height-request">50</property>
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <child>
-              <object class="GtkButton" id="manage-book">
-                <property name="label" translatable="yes">Quản lý sách</property>
-                <property name="width-request">384</property>
-                <property name="visible">True</property>
-                <property name="can-focus">True</property>
-                <property name="receives-default">True</property>
-                <signal name="clicked" handler="on_button_clicked" swapped="no"/>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="manage-reader">
                 <property name="label" translatable="yes">Quản lý độc giả</property>
-                <property name="width-request">384</property>
-                <property name="visible">True</property>
-                <property name="can-focus">True</property>
-                <property name="receives-default">True</property>
-                <signal name="clicked" handler="on_button_clicked" swapped="no"/>
               </object>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
                 <property name="position">1</property>
+                <property name="tab-fill">False</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="borrow-return">
-                <property name="label" translatable="yes">Quản lý mượn/trả sách</property>
-                <property name="width-request">384</property>
+              <object class="GtkFixed" id="tab3">
                 <property name="visible">True</property>
-                <property name="can-focus">True</property>
-                <property name="receives-default">True</property>
-                <signal name="clicked" handler="on_button_clicked" swapped="no"/>
+                <property name="can-focus">False</property>
+                <child>
+                  <object class="GtkBox" id="tab 1">
+                    <property name="width-request">1500</property>
+                    <property name="can-focus">False</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkFixed">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <child>
+                          <object class="GtkSearchEntry">
+                            <property name="width-request">1040</property>
+                            <property name="height-request">60</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="margin-bottom">20</property>
+                            <property name="primary-icon-name">edit-find-symbolic</property>
+                            <property name="primary-icon-activatable">False</property>
+                            <property name="primary-icon-sensitive">False</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkToggleButton">
+                            <property name="label" translatable="yes">Tìm kiếm theo ID</property>
+                            <property name="width-request">200</property>
+                            <property name="height-request">60</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="receives-default">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">1241</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="width-request">100</property>
+                            <property name="height-request">60</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="label" translatable="yes">Chọn tiêu chí:</property>
+                          </object>
+                          <packing>
+                            <property name="x">1134</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkTreeView" id="book_treeview1">
+                        <property name="height-request">450</property>
+                        <property name="can-focus">True</property>
+                        <property name="border-width">10</property>
+                        <property name="model">liststore1</property>
+                        <property name="search-column">0</property>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="column_id1">
+                            <property name="sizing">fixed</property>
+                            <property name="fixed-width">80</property>
+                            <property name="title" translatable="yes">ID</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_id1"/>
+                              <attributes>
+                                <attribute name="markup">0</attribute>
+                                <attribute name="text">0</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="column_title1">
+                            <property name="fixed-width">400</property>
+                            <property name="title" translatable="yes">Tên sách</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_title1"/>
+                              <attributes>
+                                <attribute name="text">1</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="column_author1">
+                            <property name="fixed-width">150</property>
+                            <property name="title" translatable="yes">Tác giả</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_author1"/>
+                              <attributes>
+                                <attribute name="text">2</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="column_genre1">
+                            <property name="fixed-width">150</property>
+                            <property name="title" translatable="yes">Thể loại</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_genre1"/>
+                              <attributes>
+                                <attribute name="text">3</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="column_year1">
+                            <property name="fixed-width">150</property>
+                            <property name="title" translatable="yes">Năm xuất bản</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_year1"/>
+                              <attributes>
+                                <attribute name="text">4</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="column_quantity1">
+                            <property name="fixed-width">100</property>
+                            <property name="title" translatable="yes">Số lượng</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="renderer_quantity1"/>
+                              <attributes>
+                                <attribute name="text">5</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="x">50</property>
+                    <property name="y">50</property>
+                  </packing>
+                </child>
               </object>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
                 <property name="position">2</property>
               </packing>
             </child>
-            <child>
-              <object class="GtkButton" id="summary">
-                <property name="label" translatable="yes">Thống kê &amp; báo cáo</property>
-                <property name="width-request">384</property>
+            <child type="tab">
+              <object class="GtkLabel">
+                <property name="width-request">365</property>
                 <property name="visible">True</property>
-                <property name="can-focus">True</property>
-                <property name="receives-default">True</property>
-                <signal name="clicked" handler="on_button_clicked" swapped="no"/>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Quản lý mượn/trả</property>
               </object>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">3</property>
+                <property name="position">2</property>
+                <property name="tab-fill">False</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="manual">
-                <property name="label" translatable="yes">Hướng dẫn thao tác</property>
-                <property name="width-request">384</property>
+              <object class="GtkFixed" id="tab4">
                 <property name="visible">True</property>
-                <property name="can-focus">True</property>
-                <property name="receives-default">True</property>
-                <signal name="clicked" handler="on_button_clicked" swapped="no"/>
+                <property name="can-focus">False</property>
               </object>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">4</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel">
+                <property name="width-request">365</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Thống kê</property>
+              </object>
+              <packing>
+                <property name="position">3</property>
+                <property name="tab-fill">False</property>
               </packing>
             </child>
           </object>
           <packing>
-            <property name="y">160</property>
+            <property name="y">200</property>
           </packing>
         </child>
         <child>
-          <object class="GtkImage">
-            <property name="width-request">1920</property>
-            <property name="height-request">160</property>
+          <object class="GtkLabel">
+            <property name="width-request">1248</property>
+            <property name="height-request">150</property>
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="stock">gtk-missing-image</property>
+            <property name="label" translatable="yes">label</property>
           </object>
+          <packing>
+            <property name="x">179</property>
+            <property name="y">27</property>
+          </packing>
         </child>
       </object>
     </child>
