@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keys_0',['keys',['../struct_node.html#ac20243a09347bbb2d3f73234f58d3ad0',1,'Node']]]
+  ['title_0',['title',['../struct_book.html#a8465f8a9dca23179416c97ce6dea7a30',1,'Book']]]
 ];

@@ -1,5 +1,5 @@
-#include "gui.h"
-#include "callbacks.h"
+#include "gui/gui.h"
+#include "gui/callbacks.h"
 
 void on_button_clicked(GtkWidget *widget, gpointer user_data)
 {

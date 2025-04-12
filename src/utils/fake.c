@@ -1,4 +1,4 @@
-#include "fake.h"
+#include "utils/fake.h"
 
 char *titles[] = {
     "The Great Adventure", "Mystery of the Lost Island", "Science and Future",

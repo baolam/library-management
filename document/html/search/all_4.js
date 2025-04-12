@@ -1,9 +1,4 @@
 var searchData=
 [
-  ['delete_5fbook_0',['delete_book',['../books_8h.html#a92647df5ddb986901e8113a8ce3f1e3e',1,'books.c']]],
-  ['delete_5fexisted_1',['DELETE_EXISTED',['../management_8h.html#a8dff01e8c67230d77544c49ed1151a1b',1,'management.h']]],
-  ['delete_5ffailed_2',['DELETE_FAILED',['../management_8h.html#a76c97438a316d3700c4396f66e787e59',1,'management.h']]],
-  ['delete_5freader_3',['delete_reader',['../reader_8h.html#af07dc59049cd7d5342855985c8bf676e',1,'reader.c']]],
-  ['delete_5fsuccess_4',['DELETE_SUCCESS',['../management_8h.html#ae0b9cdebd01857aeb414353c980f6209',1,'management.h']]],
-  ['deleted_5',['deleted',['../struct_record.html#af24b04ddbf3b759db00bca4d7eb03741',1,'Record']]]
+  ['genre_0',['genre',['../struct_book.html#ac67e9cc86d52f340f7d49949e4b37db4',1,'Book']]]
 ];

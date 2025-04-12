@@ -29,10 +29,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <books.h>
-#include "management.h"
-#include "trie.h"
-#include "bplustreev2.h"
+
+#include "utils/management.h"
+#include "utils/trie.h"
+#include "utils/bplustreev2.h"
+#include "books.h"
 
 /**
  * @struct Readers
@@ -138,6 +139,35 @@ void update_reader(Readers *reader);
  * @param id là Id độc giả muốn xoá
  */
 void delete_reader(int id);
+
+// ===== Nhóm hàm hỗ trợ tương tác giao diện ======
+
+/**
+ * @brief Hàm này sẽ trả về đối tượng Reader ứng với Id được chỉ định
+ *
+ * Là một hàm thao tác trực tiếp trả về Reader, không cần phải thông
+ * qua gọi Callback
+ *
+ * @return Đối tượng Reader, NULL nếu đọc không được
+ */
+Readers *search_reader(int id);
+
+/**
+ * @brief Hàm này sẽ trả về danh sách các độc giả theo sau Id được chỉ định một
+ * lượng bao nhiêu đó
+ *
+ * Kết quả trả về của hàm này là một mảng các Readers
+ * @note Dùng xong nhớ xoá đi nhe (gọi hàm free)
+ *
+ * @param beginingKey là Id bắt đầu
+ * @param quanities là số lượng muốn tìm kiếm tối đa
+ * @param actualReaders là kích thước thực tế
+ *
+ * @note Việc tồn tại hai tham số trên (quanities, actualReaders) là do có thể vị trí bắt đầu gần cuối, kết quả có thể
+ * không trùng lặp giữa cả hai
+ * @return Mảng các độc giả
+ */
+Readers *retrieve_bucket_readers(int beginingKey, int quanities, int *actualReaders);
 
 // ===== Persistence =====
 

@@ -173,10 +173,59 @@ void delete_reader_callback(int code)
 
 void delete_reader(int id)
 {
-
     soft_delete(reader_management, id, delete_reader_callback);
 }
-// ------------------- borrow / return -------------------
+
+Readers *search_reader(int id)
+{
+    Record *record = find(reader_management, id);
+    Readers *reader = (Readers *)read_content_from_record_return(record);
+    return reader;
+}
+
+Readers *retrieve_bucket_readers(int beginingKey, int quanities, int *actualReaders)
+{
+    int storage_pos = 0;
+
+    Readers *readers = (Readers *)malloc(sizeof(Readers) * quanities);
+    if (readers == NULL)
+    {
+        *actualReaders = 0;
+        return NULL;
+    }
+
+    Node *n = findLeaf(reader_management, beginingKey);
+    if (n == NULL)
+    {
+        *actualReaders = 0;
+        return NULL;
+    }
+
+    int startSearch = getStartSearch(n, beginingKey);
+    int i;
+
+    while (n != NULL && quanities > 0)
+    {
+        for (i = startSearch; i < n->num_keys && quanities > 0; i++)
+        {
+            Record *record = (Record *)n->pointers[i];
+            Readers *reader = (Readers *)read_content_from_record_return(record);
+
+            if (reader == NULL)
+                continue;
+
+            readers[storage_pos] = *reader;
+            storage_pos++;
+            quanities--;
+        }
+
+        startSearch = 0;
+        n = n->pointers[ORDER - 1];
+    }
+
+    *actualReaders = storage_pos;
+    return readers;
+}
 
 // ------------------- Save / Load Tree -------------------
 void preparate_reader()

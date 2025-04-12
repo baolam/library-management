@@ -227,6 +227,7 @@ Book *retrieve_bucket_books(int beginingKey, int quanities, int *actualBooks)
 
             if (book == NULL)
                 continue;
+
             books[storage_pos] = *book;
             storage_pos++;
             quanities--;

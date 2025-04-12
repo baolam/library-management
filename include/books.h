@@ -21,9 +21,9 @@
 #include <string.h>
 #include <time.h>
 
-#include "management.h"
-#include "trie.h"
-#include "bplustreev2.h"
+#include "utils/management.h"
+#include "utils/trie.h"
+#include "utils/bplustreev2.h"
 
 /**
  * @struct Book
@@ -145,6 +145,7 @@ Book *search_book_by_title_direct(const char *prefix, int *actualBooks, int maxN
  *
  * Dùng hàm này khi cần hứng chính xác một mảng các quyển sách. Được dùng cho
  * nhóm thao tác giao diện
+ * @note Dùng xong nhớ free để tránh lãng phí bộ nhớ
  *
  * @param beginingKey là vị trí bắt đầu đọc đầu tiên
  * @param quanities là số lượng sách muốn lấy sau khi kiếm Id đầu tiên

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['find_0',['find',['../bplustreev2_8h.html#a0e4ed69811cf4058e1e0f7a311fc627d',1,'bplustreev2.h']]],
-  ['findleaf_1',['findLeaf',['../bplustreev2_8h.html#ac539c35415e0bb03d619917198332b53',1,'bplustreev2.h']]],
-  ['freetrie_2',['freeTrie',['../trie_8h.html#ad7b1309180a0be22666afbce536d8c75',1,'trie.h']]]
+  ['retrieve_5fbucket_5fbooks_0',['retrieve_bucket_books',['../books_8h.html#ab879ca6938b77771fed16c9a9f9d5ea2',1,'books.c']]],
+  ['retrieve_5fbucket_5freaders_1',['retrieve_bucket_readers',['../reader_8h.html#adff84d4c954d93c55dad0e44faa7bcce',1,'reader.c']]]
 ];

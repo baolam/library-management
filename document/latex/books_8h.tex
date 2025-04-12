@@ -9,9 +9,9 @@ Lưu trữ những hàm sẽ được dùng cho quản lí sách.
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$time.\+h$>$}\newline
-{\ttfamily \#include "{}management.\+h"{}}\newline
-{\ttfamily \#include "{}trie.\+h"{}}\newline
-{\ttfamily \#include "{}bplustreev2.\+h"{}}\newline
+{\ttfamily \#include "{}utils/management.\+h"{}}\newline
+{\ttfamily \#include "{}utils/trie.\+h"{}}\newline
+{\ttfamily \#include "{}utils/bplustreev2.\+h"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -63,19 +63,19 @@ void \mbox{\hyperlink{books_8h_ade26076641cca3fc5450d909e32762de}{load\+\_\+book
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{books_8h_ae592405ed1cad3dba6f98c41fe7ac5a9}\label{books_8h_ae592405ed1cad3dba6f98c41fe7ac5a9} 
-char {\bfseries book\+\_\+management\+\_\+file} \mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}
+char {\bfseries book\+\_\+management\+\_\+file} \mbox{[}MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}
 \begin{DoxyCompactList}\small\item\em File quản lí sách. \end{DoxyCompactList}\item 
 \Hypertarget{books_8h_a390d31c4003925cffa92edece544dbd1}\label{books_8h_a390d31c4003925cffa92edece544dbd1} 
-char {\bfseries book\+\_\+trie\+\_\+management} \mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}
+char {\bfseries book\+\_\+trie\+\_\+management} \mbox{[}MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}
 \begin{DoxyCompactList}\small\item\em File quản lí cây Trie, dùng hỗ trợ cho tìm kiếm bằng tên tác giả \end{DoxyCompactList}\item 
 \Hypertarget{books_8h_af8765cafbe20084ab4b9dcf76abf2a00}\label{books_8h_af8765cafbe20084ab4b9dcf76abf2a00} 
-char {\bfseries book\+\_\+content\+\_\+file} \mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}
+char {\bfseries book\+\_\+content\+\_\+file} \mbox{[}MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}
 \begin{DoxyCompactList}\small\item\em File chứa nội dung sách, file quản lí chính. \end{DoxyCompactList}\item 
 \Hypertarget{books_8h_a76d586c2492e8d36fda3dc16492a6693}\label{books_8h_a76d586c2492e8d36fda3dc16492a6693} 
-\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries book\+\_\+management}
+Node \texorpdfstring{$\ast$}{*} {\bfseries book\+\_\+management}
 \begin{DoxyCompactList}\small\item\em Cây B+ Tree quản lí sách. \end{DoxyCompactList}\item 
 \Hypertarget{books_8h_a95de0e1b8129a7ede38dff4eb5da683b}\label{books_8h_a95de0e1b8129a7ede38dff4eb5da683b} 
-\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries book\+\_\+trie}
+Trie\+Node \texorpdfstring{$\ast$}{*} {\bfseries book\+\_\+trie}
 \begin{DoxyCompactList}\small\item\em Cây trie quản lí author. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -142,8 +142,9 @@ Bản chất chỉ là tạo node quản lí nếu cây chưa tồn tại \Hyper
 
 Hàm trả về một tập hợp các quyển sách theo sau một Id tìm kiếm. 
 
-Dùng hàm này khi cần hứng chính xác một mảng các quyển sách. Được dùng cho nhóm thao tác giao diện
-
+Dùng hàm này khi cần hứng chính xác một mảng các quyển sách. Được dùng cho nhóm thao tác giao diện \begin{DoxyNote}{Ghi chú}
+Dùng xong nhớ free để tránh lãng phí bộ nhớ
+\end{DoxyNote}
 
 \begin{DoxyParams}{Các tham số}
 {\em begining\+Key} & là vị trí bắt đầu đọc đầu tiên \\
