@@ -59,12 +59,12 @@ void search_reader_by_name(const char *prefix, int maxNumbers)
         TrieNode *temp = searchWord(reader_trie, name);
         if (temp != NULL)
         {
-            for (int j = 0; temp->numIds && maxNumbers > 0; j++)
+            for (int j = 0; j < temp->numIds && maxNumbers > 0; j++)
             {
                 if (exist_record(reader_management, temp->ids[j]))
                 {
-                    maxNumbers--;
                     search_reader_by_id(temp->ids[j]);
+                    maxNumbers--;
                 }
             }
             if (maxNumbers == 0)
