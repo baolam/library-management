@@ -22,27 +22,10 @@ int main()
     // Khởi tạo
     printf("Initializing reader data...\n");
     prepare_reader();
-    if (!load_reader_management())
-    {
-        printf("Error: Failed to load reader management. Starting fresh...\n");
-        reader_management = NULL;
-    }
-    else
-    {
-        printf("Reader management loaded successfully.\n");
-    }
+    load_reader_management();
 
-    printf("Initializing book data...\n");
     prepare_book();
-    if (!load_book_management())
-    {
-        printf("Error: Failed to load book management. Starting fresh...\n");
-        book_management = NULL;
-    }
-    else
-    {
-        printf("Book management loaded successfully.\n");
-    }
+    load_book_management();
 
     printf("Initializing borrow/return data...\n");
     borrow_return_management = loadTree(borrow_return_management_file);

@@ -180,7 +180,7 @@ Book *search_book(int id);
  *
  * Bản chất chỉ là tạo node quản lí nếu cây chưa tồn tại
  */
-void preparate_book();
+void prepare_book();
 
 /**
  * @brief Lưu trữ dữ liệu

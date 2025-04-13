@@ -228,7 +228,7 @@ Readers *retrieve_bucket_readers(int beginingKey, int quanities, int *actualRead
 }
 
 // ------------------- Save / Load Tree -------------------
-void preparate_reader()
+void prepare_reader()
 {
     if (reader_trie == NULL)
     {
@@ -247,20 +247,20 @@ void load_reader_management()
     reader_management = loadTree(reader_management_file);
     if (reader_management == NULL)
     {
-        printf("Failed to load B+ Tree management!\n");
+        printf("(Reader) Failed to load B+ Tree management!\n");
     }
     else
     {
-        printf("Load B+ Tree management successfully!\n");
+        printf("(Reader) Load B+ Tree management successfully!\n");
     }
     reader_trie = loadTrieTree(reader_name_management_file);
     if (reader_trie == NULL)
     {
-        printf("Failed to load Trie management!\n");
+        printf("(Reader) Failed to load Trie management!\n");
     }
     else
     {
-        printf("Load Trie management successfully!\n");
+        printf("(Reader) Load Trie management successfully!\n");
     }
 }
 

@@ -176,7 +176,7 @@ Readers *retrieve_bucket_readers(int beginingKey, int quanities, int *actualRead
  *
  * Gọi hàm này để gán Trie khỏi NULL
  */
-void preparate_reader();
+void prepare_reader();
 
 /**
  * @brief Lưu trữ thông tin
