@@ -10,6 +10,7 @@
 
 char borrow_return_content_file[MAX_FILE_NAME_LENGTH] = "borrow_return.bin";
 char borrow_return_management_file[MAX_FILE_NAME_LENGTH] = "borrow_return_management.bin";
+
 Node *borrow_return_management = NULL;
 
 void add_borrow_record(BorrowReturn *b)
@@ -254,4 +255,14 @@ bool check_book_in_borrow(int bookId)
     }
     fclose(f);
     return false;
+}
+
+void save_borrow_return_management()
+{
+    saveTree(borrow_return_management, borrow_return_management_file);
+}
+
+void load_borrow_return_management()
+{
+    borrow_return_management = loadTree(borrow_return_management_file);
 }

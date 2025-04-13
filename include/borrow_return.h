@@ -83,4 +83,14 @@ void update_book_direct(Book *book);
  */
 bool check_book_in_borrow(int bookId);
 
+/**
+ * @brief Lưu trữ việc quản lí mượn trả
+ */
+void save_borrow_return_management();
+
+/**
+ * @brief Tải dữ liệu quản lí mượn trả từ file
+ */
+void load_borrow_return_management();
+
 #endif // BORROW_RETURN_H
