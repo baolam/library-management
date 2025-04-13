@@ -13,9 +13,21 @@ char borrow_return_management_file[MAX_FILE_NAME_LENGTH] = "borrow_return_manage
 
 Node *borrow_return_management = NULL;
 
+void add_borrow_callback(int id, int code, long offset, long length)
+{
+    if (code == ADD_CONTENT_FAILED)
+    {
+        printf("Id : %d, failed to add!\n", id);
+    }
+    else
+    {
+        printf("Id : %d, added!\n", id);
+    }
+}
+
 void add_borrow_record(BorrowReturn *b)
 {
-    if (b == NULL || b->totalBooks <= 0 || b->totalBooks > 100)
+    if (b == NULL || b->totalBooks <= 0 || b->totalBooks >= MAX_BORROWED_BOOKS)
     {
         printf("Error: Invalid borrow record.\n");
         return;
@@ -66,7 +78,7 @@ void add_borrow_record(BorrowReturn *b)
         borrow_return_content_file,
         b,
         sizeof(BorrowReturn),
-        NULL);
+        add_borrow_callback);
 
     if (new_tree == NULL)
     {

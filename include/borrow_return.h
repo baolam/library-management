@@ -7,7 +7,12 @@
 
 #ifndef BORROW_RETURN_H
 #define BORROW_RETURN_H
+
+/**
+ * @brief Số lượng sách mượn tối đa
+ */
 #define MAX_BORROWED_BOOKS 100
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>

@@ -159,6 +159,7 @@ void borrowBooks()
             ;
         return;
     }
+
     printf("Enter number of books to borrow: ");
     if (scanf("%d", &b.totalBooks) != 1 || b.totalBooks <= 0 || b.totalBooks > 100)
     {
@@ -178,6 +179,7 @@ void borrowBooks()
                 ;
             return;
         }
+
         printf("Enter Quantity: ");
         if (scanf("%d", &b.quantities[i]) != 1 || b.quantities[i] <= 0)
         {
