@@ -3,51 +3,7 @@
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <object class="GtkListStore"/>
-  <object class="GtkMenu" id="book_menu">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <child>
-      <object class="GtkMenuItem" id="book_edit">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="action-name">Sửa</property>
-        <property name="label" translatable="yes">Sửa thông tin sách</property>
-        <property name="use-underline">True</property>
-        <signal name="activate" handler="update_book" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="book_delete">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="action-name">Xóa</property>
-        <property name="label" translatable="yes">Xóa sách</property>
-        <property name="use-underline">True</property>
-        <signal name="activate" handler="delete_book" swapped="no"/>
-      </object>
-    </child>
-  </object>
-  <object class="GtkMenu" id="borrow_event">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <child>
-      <object class="GtkMenuItem" id="borrow_book">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="label" translatable="yes">Mượn sách</property>
-        <property name="use-underline">True</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="return_book">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="label" translatable="yes">Trả sách</property>
-        <property name="use-underline">True</property>
-      </object>
-    </child>
-  </object>
-  <object class="GtkWindow" id="entry_window">
+  <object class="GtkWindow" id="book_entry">
     <property name="name">Nhập thông tin</property>
     <property name="width-request">600</property>
     <property name="height-request">400</property>
@@ -64,7 +20,7 @@
             <property name="can-focus">False</property>
             <property name="row-spacing">10</property>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="e1">
                 <property name="width-request">380</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
@@ -75,7 +31,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="e2">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
@@ -85,7 +41,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="e3">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
@@ -95,7 +51,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="e4">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
@@ -105,7 +61,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="e5">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
@@ -115,7 +71,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="e6">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
@@ -198,7 +154,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="confirm">
             <property name="label" translatable="yes">Xác nhận</property>
             <property name="width-request">200</property>
             <property name="height-request">50</property>
@@ -211,6 +167,50 @@
             <property name="y">330</property>
           </packing>
         </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkMenu" id="book_menu">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkMenuItem" id="book_edit">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="action-name">Sửa</property>
+        <property name="label" translatable="yes">Sửa thông tin sách</property>
+        <property name="use-underline">True</property>
+        <signal name="activate" handler="update_book" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="book_delete">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="action-name">Xóa</property>
+        <property name="label" translatable="yes">Xóa sách</property>
+        <property name="use-underline">True</property>
+        <signal name="activate" handler="delete_book" swapped="no"/>
+      </object>
+    </child>
+  </object>
+  <object class="GtkMenu" id="borrow_event">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkMenuItem" id="borrow_book">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="label" translatable="yes">Mượn sách</property>
+        <property name="use-underline">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="return_book">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="label" translatable="yes">Trả sách</property>
+        <property name="use-underline">True</property>
       </object>
     </child>
   </object>
@@ -557,7 +557,7 @@
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
                             <child>
-                              <object class="GtkSearchEntry" id="search_entry">
+                              <object class="GtkSearchEntry" id="entry_search_book">
                                 <property name="width-request">1040</property>
                                 <property name="height-request">60</property>
                                 <property name="visible">True</property>
@@ -729,14 +729,14 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton" id="book_">
+                      <object class="GtkButton" id="book_add">
                         <property name="label" translatable="yes">Thêm sách</property>
                         <property name="width-request">100</property>
                         <property name="height-request">50</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
-                        <signal name="clicked" handler="add_book" swapped="no"/>
+                        <signal name="clicked" handler="on_book_add_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="x">100</property>

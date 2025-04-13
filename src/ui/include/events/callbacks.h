@@ -3,6 +3,6 @@
 
 #include <gtk/gtk.h>
 
-void on_button_clicked(GtkWidget *widget, gpointer user_data);
+void on_book_add_clicked(GtkWidget *widget, gpointer user_data);
 
 #endif
