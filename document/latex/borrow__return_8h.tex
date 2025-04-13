@@ -1,0 +1,119 @@
+\doxysection{include/borrow\+\_\+return.h File Tham chiếu}
+\hypertarget{borrow__return_8h}{}\label{borrow__return_8h}\index{include/borrow\_return.h@{include/borrow\_return.h}}
+
+
+Quản lý việc mượn và trả sách trong hệ thống thư viện.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}books.\+h"{}}\newline
+{\ttfamily \#include "{}reader.\+h"{}}\newline
+{\ttfamily \#include "{}utils/bplustreev2.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_borrow_return}{Borrow\+Return}}
+\begin{DoxyCompactList}\small\item\em Struct đại diện cho một bản ghi mượn-\/trả sách. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Định nghĩa}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{borrow__return_8h_a0952e94a037eac280b9ee1b49d3e95cf}\label{borrow__return_8h_a0952e94a037eac280b9ee1b49d3e95cf} 
+\#define {\bfseries MAX\+\_\+\+BORROWED\+\_\+\+BOOKS}~100
+\begin{DoxyCompactList}\small\item\em Số lượng sách mượn tối đa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{borrow__return_8h_ab73b402c920f03bb44641490f56ba94d}\label{borrow__return_8h_ab73b402c920f03bb44641490f56ba94d} 
+typedef struct Borrow\+Return {\bfseries Borrow\+Return}
+\begin{DoxyCompactList}\small\item\em Struct đại diện cho một bản ghi mượn-\/trả sách. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Các hàm}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{borrow__return_8h_acd1efdcb57a19296d6fd30d547d47bfa}\label{borrow__return_8h_acd1efdcb57a19296d6fd30d547d47bfa} 
+void {\bfseries add\+\_\+borrow\+\_\+record} (\mbox{\hyperlink{struct_borrow_return}{Borrow\+Return}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Thêm bản ghi mượn sách. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{borrow__return_8h_ab19475356baa01c670623e0c95d998fa}{show\+\_\+borrow\+\_\+record}} (FILE \texorpdfstring{$\ast$}{*}f, long size)
+\begin{DoxyCompactList}\small\item\em Hiển thị các bản ghi mượn sách từ file. \end{DoxyCompactList}\item 
+\Hypertarget{borrow__return_8h_ae3ddf26aa8c6f214f485e638682f20b2}\label{borrow__return_8h_ae3ddf26aa8c6f214f485e638682f20b2} 
+void {\bfseries search\+\_\+borrow\+\_\+record\+\_\+by\+\_\+reader} (int reader\+Id)
+\begin{DoxyCompactList}\small\item\em Tìm bản ghi mượn sách theo ID người đọc. \end{DoxyCompactList}\item 
+\Hypertarget{borrow__return_8h_a2b6bda3e39faebd850ff3488c25cc648}\label{borrow__return_8h_a2b6bda3e39faebd850ff3488c25cc648} 
+void {\bfseries delete\+\_\+borrow\+\_\+record} (int reader\+Id)
+\begin{DoxyCompactList}\small\item\em Xóa bản ghi mượn theo ID người đọc. \end{DoxyCompactList}\item 
+\Hypertarget{borrow__return_8h_a961ad1c096b0a10c15765365130eb796}\label{borrow__return_8h_a961ad1c096b0a10c15765365130eb796} 
+void {\bfseries stat\+\_\+total\+\_\+books\+\_\+by\+\_\+reader} (int reader\+Id)
+\begin{DoxyCompactList}\small\item\em Thống kê tổng số sách đã mượn bởi người đọc. \end{DoxyCompactList}\item 
+\Hypertarget{borrow__return_8h_a6d1031f3d3de9268eea5484521c2096f}\label{borrow__return_8h_a6d1031f3d3de9268eea5484521c2096f} 
+void {\bfseries return\+\_\+books} (int reader\+Id)
+\begin{DoxyCompactList}\small\item\em Xử lý việc trả sách (cập nhật trạng thái, phạt nếu trễ). \end{DoxyCompactList}\item 
+\Hypertarget{borrow__return_8h_a8c3fff20022a9308a55170a9855dbd6a}\label{borrow__return_8h_a8c3fff20022a9308a55170a9855dbd6a} 
+void {\bfseries restore\+\_\+books\+\_\+to\+\_\+stock} (\mbox{\hyperlink{struct_borrow_return}{Borrow\+Return}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Khôi phục lại số lượng sách vào kho (khi trả). \end{DoxyCompactList}\item 
+\Hypertarget{borrow__return_8h_a5c24caa6c8dced26c0dcf2434a78bc9d}\label{borrow__return_8h_a5c24caa6c8dced26c0dcf2434a78bc9d} 
+void {\bfseries update\+\_\+book\+\_\+direct} (\mbox{\hyperlink{struct_book}{Book}} \texorpdfstring{$\ast$}{*}book)
+\begin{DoxyCompactList}\small\item\em Cập nhật trực tiếp dữ liệu sách vào file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{borrow__return_8h_a0debb124a322065a6209e63b9e56a2a4}{check\+\_\+book\+\_\+in\+\_\+borrow}} (int book\+Id)
+\begin{DoxyCompactList}\small\item\em Kiểm tra xem một cuốn sách có đang được mượn hay không. \end{DoxyCompactList}\item 
+\Hypertarget{borrow__return_8h_ae46ecefa1043dad90969d2bc3f81626a}\label{borrow__return_8h_ae46ecefa1043dad90969d2bc3f81626a} 
+void {\bfseries save\+\_\+borrow\+\_\+return\+\_\+management} ()
+\begin{DoxyCompactList}\small\item\em Lưu trữ việc quản lí mượn trả \end{DoxyCompactList}\item 
+\Hypertarget{borrow__return_8h_a3f6198ab52b858e20c54463b4d00e4d2}\label{borrow__return_8h_a3f6198ab52b858e20c54463b4d00e4d2} 
+void {\bfseries load\+\_\+borrow\+\_\+return\+\_\+management} ()
+\begin{DoxyCompactList}\small\item\em Tải dữ liệu quản lí mượn trả từ file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Các biến}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{borrow__return_8h_a974b0a5ef39ead4f57706dd0555b4aca}\label{borrow__return_8h_a974b0a5ef39ead4f57706dd0555b4aca} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries borrow\+\_\+return\+\_\+management}
+\begin{DoxyCompactList}\small\item\em Cây B+ quản lý mượn-\/trả theo ID. \end{DoxyCompactList}\item 
+\Hypertarget{borrow__return_8h_a04f30d552462012a85063968ed30242f}\label{borrow__return_8h_a04f30d552462012a85063968ed30242f} 
+char {\bfseries borrow\+\_\+return\+\_\+content\+\_\+file} \mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Tệp chứa nội dung bản ghi. \end{DoxyCompactList}\item 
+\Hypertarget{borrow__return_8h_a09c52186588892bacc969675814632ae}\label{borrow__return_8h_a09c52186588892bacc969675814632ae} 
+char {\bfseries borrow\+\_\+return\+\_\+management\+\_\+file} \mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Tệp chứa offset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Mô tả chi tiết}
+Quản lý việc mượn và trả sách trong hệ thống thư viện. 
+
+Bao gồm các hàm xử lý mượn sách, trả sách, thống kê và khôi phục tồn kho. 
+
+\doxysubsection{Thông tin về hàm}
+\Hypertarget{borrow__return_8h_a0debb124a322065a6209e63b9e56a2a4}\index{borrow\_return.h@{borrow\_return.h}!check\_book\_in\_borrow@{check\_book\_in\_borrow}}
+\index{check\_book\_in\_borrow@{check\_book\_in\_borrow}!borrow\_return.h@{borrow\_return.h}}
+\doxysubsubsection{\texorpdfstring{check\_book\_in\_borrow()}{check\_book\_in\_borrow()}}
+{\footnotesize\ttfamily \label{borrow__return_8h_a0debb124a322065a6209e63b9e56a2a4} 
+bool check\+\_\+book\+\_\+in\+\_\+borrow (\begin{DoxyParamCaption}\item[{int}]{book\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Kiểm tra xem một cuốn sách có đang được mượn hay không. 
+
+
+\begin{DoxyParams}{Các tham số}
+{\em book\+Id} & ID của cuốn sách cần kiểm tra. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+true nếu sách đang được mượn, false nếu không. 
+\end{DoxyReturn}
+\Hypertarget{borrow__return_8h_ab19475356baa01c670623e0c95d998fa}\index{borrow\_return.h@{borrow\_return.h}!show\_borrow\_record@{show\_borrow\_record}}
+\index{show\_borrow\_record@{show\_borrow\_record}!borrow\_return.h@{borrow\_return.h}}
+\doxysubsubsection{\texorpdfstring{show\_borrow\_record()}{show\_borrow\_record()}}
+{\footnotesize\ttfamily \label{borrow__return_8h_ab19475356baa01c670623e0c95d998fa} 
+void show\+\_\+borrow\+\_\+record (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{f}{, }\item[{long}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Hiển thị các bản ghi mượn sách từ file. 
+
+
+\begin{DoxyParams}{Các tham số}
+{\em f} & Con trỏ file. \\
+\hline
+{\em size} & Kích thước file. \\
+\hline
+\end{DoxyParams}
