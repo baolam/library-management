@@ -115,6 +115,18 @@ void update_book(int id)
     update_content_from_record(record, update_book_callback);
 }
 
+int update_book_from_object(Book *book)
+{
+    Record *record = find(book_management, book->bookId);
+    if (record == NULL || record->deleted)
+    {
+        printf("Reader not found for update.\n");
+        return UPDATE_FAILED;
+    }
+
+    return update_content_without_callback(record, book);
+}
+
 void show_book_record(FILE *f, long size)
 {
     Book book;
@@ -247,7 +259,7 @@ Book *search_book(int id)
     return book;
 }
 
-void preparate_book()
+void prepare_book()
 {
     if (book_trie == NULL)
     {
@@ -266,19 +278,19 @@ void load_book_management()
     book_management = loadTree(book_management_file);
     if (book_management == NULL)
     {
-        printf("Failed to load B+ Tree management!\n");
+        printf("(Book) Failed to load B+ Tree management!\n");
     }
     else
     {
-        printf("Load B+ Tree management successfully!\n");
+        printf("(Book) Load B+ Tree management successfully!\n");
     }
     book_trie = loadTrieTree(book_trie_management);
     if (book_trie == NULL)
     {
-        printf("Failed to load Trie management!\n");
+        printf("(Book) Failed to load Trie management!\n");
     }
     else
     {
-        printf("Load Trie management successfully!\n");
+        printf("(Book) Load Trie management successfully!\n");
     }
 }

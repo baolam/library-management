@@ -159,6 +159,19 @@ void insertIntoTrie(TrieNode *root, char *words, int id);
 void removeWord(TrieNode *root, char *word);
 
 /**
+ * @brief Hàm xoá Id khỏi quản lí.
+ *
+ * Sẽ tiến hành xoá theo thứ tự ưu tiên sau:
+ * + Xoá Id, giảm Id
+ * + Khi không còn dữ liệu, xoá word
+ *
+ * @param root node gốc
+ * @param word từ tìm kiếm muốn xoá
+ * @param id Id muốn xoá
+ */
+void removeIdFromWord(TrieNode *root, char *word, int id);
+
+/**
  * @brief Hàm đưa ra một chuỗi các từ bắt đầu = prefix
  *
  * Hàm này sẽ làm hàm hỗ trợ đưa ra gợi ý

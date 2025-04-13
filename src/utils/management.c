@@ -140,6 +140,17 @@ void update_content_from_record(Record *record, void (*callback)(FILE *f, long p
     __ext_rw_utilize(record, callback);
 }
 
+int update_content_without_callback(Record *record, void *content)
+{
+    FILE *f = fopen(record->_from, "r+");
+    if (f == NULL)
+        return UPDATE_FILE_FAILED;
+    fseek(f, record->offset, SEEK_SET);
+    fwrite(content, 1, record->length, f);
+    fclose(f);
+    return UPDATE_SUCCESS;
+}
+
 void soft_delete(Node *root, int key, void (*callback)(int code))
 {
     if (!exist_record(root, key))

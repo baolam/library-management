@@ -1,11 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "_abcdefgiklmnoprstu",
+  0: "_abcdefgiklmnopqrstu",
   1: "bnrt",
   2: "bfmrt",
   3: "acdefgilmprsu",
-  4: "_abdfgiklmnoprst",
-  5: "admopt"
+  4: "_abdfgiklmnopqrst",
+  5: "b",
+  6: "abdmoptu"
 };
 
 var indexSectionNames =
@@ -15,7 +16,8 @@ var indexSectionNames =
   2: "files",
   3: "functions",
   4: "variables",
-  5: "defines"
+  5: "typedefs",
+  6: "defines"
 };
 
 var indexSectionLabels =
@@ -25,6 +27,7 @@ var indexSectionLabels =
   2: "Files",
   3: "Các hàm",
   4: "Các biến",
-  5: "Định nghĩa"
+  5: "Typedefs",
+  6: "Định nghĩa"
 };
 

@@ -1,8 +1,26 @@
 var searchData=
 [
-  ['title_0',['title',['../struct_book.html#a8465f8a9dca23179416c97ce6dea7a30',1,'Book']]],
-  ['titles_1',['titles',['../fake_8h.html#a7e28b32b579982a2ed278b80adcdd492',1,'fake.c']]],
-  ['total_5fgenre_2',['TOTAL_GENRE',['../fake_8h.html#a69b7a2d67e969d3e0921f3f23d1947f2',1,'fake.h']]],
-  ['trie_2eh_3',['trie.h',['../trie_8h.html',1,'']]],
-  ['trienode_4',['TrieNode',['../struct_trie_node.html',1,'']]]
+  ['save_5fbook_5fmanagement_0',['save_book_management',['../books_8h.html#ab0d9d44572464bcfc58d438604d0a598',1,'books.c']]],
+  ['save_5fborrow_5freturn_5fmanagement_1',['save_borrow_return_management',['../borrow__return_8h.html#ae46ecefa1043dad90969d2bc3f81626a',1,'borrow_return.c']]],
+  ['save_5freader_5fmanagement_2',['save_reader_management',['../reader_8h.html#addae2d4ba1b47818e01b1f4a3f9deb47',1,'reader.c']]],
+  ['savetree_3',['saveTree',['../bplustreev2_8h.html#a817851a0dbd1a560b8b9fb8fce17b9dc',1,'bplustreev2.c']]],
+  ['savetrietree_4',['saveTrieTree',['../trie_8h.html#ad41ba433582647dee30db67afba7553e',1,'trie.c']]],
+  ['search_5fbook_5',['search_book',['../books_8h.html#ad52d1d47f78b08b5e1b73062842a8c34',1,'books.c']]],
+  ['search_5fbook_5fby_5fid_6',['search_book_by_id',['../books_8h.html#ab9223d05c04eaf64efac2e4a8cf2aeec',1,'books.c']]],
+  ['search_5fbook_5fby_5ftitle_7',['search_book_by_title',['../books_8h.html#adbf315a2a4092396b23d8d083661fb6b',1,'books.c']]],
+  ['search_5fbook_5fby_5ftitle_5fdirect_8',['search_book_by_title_direct',['../books_8h.html#a6fad7a86d2b117aceddf806d3365e422',1,'books.c']]],
+  ['search_5fborrow_5frecord_5fby_5freader_9',['search_borrow_record_by_reader',['../borrow__return_8h.html#ae3ddf26aa8c6f214f485e638682f20b2',1,'borrow_return.c']]],
+  ['search_5freader_10',['search_reader',['../reader_8h.html#a98e7d90352899642bb59d34c01b7686f',1,'reader.c']]],
+  ['search_5freader_5fby_5fid_11',['search_reader_by_id',['../reader_8h.html#aace3e4f7c7f60bdae95a4c96ba30df1f',1,'reader.c']]],
+  ['search_5freader_5fby_5fname_12',['search_reader_by_name',['../reader_8h.html#a6d4f6eb8dba36ee51b8f2aecd8d08587',1,'reader.c']]],
+  ['searchprefix_13',['searchPrefix',['../trie_8h.html#a824eaa28a090848b88f367a7379b166b',1,'trie.c']]],
+  ['searchword_14',['searchWord',['../trie_8h.html#a8b319840672eea511cd645f3c00300e4',1,'trie.c']]],
+  ['show_5fbook_15',['show_book',['../books_8h.html#af3ab34040cfd77b3963472d88ec6c276',1,'books.c']]],
+  ['show_5fborrow_5frecord_16',['show_borrow_record',['../borrow__return_8h.html#ab19475356baa01c670623e0c95d998fa',1,'borrow_return.c']]],
+  ['show_5freader_17',['show_reader',['../reader_8h.html#a7f672a88c0a908713f6e9ac68ff3ae65',1,'reader.c']]],
+  ['soft_5fdelete_18',['soft_delete',['../management_8h.html#ad65d5cd8b7422339122a0dbd2077954e',1,'management.c']]],
+  ['startnewtree_19',['startNewTree',['../bplustreev2_8h.html#a7c13d7dbbeb01bed587d135ec15160a2',1,'bplustreev2.c']]],
+  ['stat_5ftotal_5fbooks_5fby_5freader_20',['stat_total_books_by_reader',['../borrow__return_8h.html#a961ad1c096b0a10c15765365130eb796',1,'borrow_return.c']]],
+  ['status_21',['status',['../struct_borrow_return.html#aa864c39a415529643d8f1672eb8252a3',1,'BorrowReturn']]],
+  ['stock_22',['stock',['../struct_book.html#aabc590a14bc23236eac02b198a447f5d',1,'Book']]]
 ];
