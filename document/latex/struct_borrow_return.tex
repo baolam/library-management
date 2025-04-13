@@ -1,28 +1,40 @@
 \doxysection{Borrow\+Return Struct Tham chiếu}
 \hypertarget{struct_borrow_return}{}\label{struct_borrow_return}\index{BorrowReturn@{BorrowReturn}}
+
+
+Struct đại diện cho một bản ghi mượn-\/trả sách.  
+
+
+
+
+{\ttfamily \#include $<$borrow\+\_\+return.\+h$>$}
+
 \doxysubsubsection*{Các thuộc tính Public}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{struct_borrow_return_a328c288cad5743b11c008862b3492605}\label{struct_borrow_return_a328c288cad5743b11c008862b3492605} 
 int {\bfseries reader\+Id}
-\item 
+\begin{DoxyCompactList}\small\item\em ID người đọc. \end{DoxyCompactList}\item 
 \Hypertarget{struct_borrow_return_a62b3191275187443cc8095bd4c1e2d71}\label{struct_borrow_return_a62b3191275187443cc8095bd4c1e2d71} 
 int {\bfseries total\+Books}
-\item 
-\Hypertarget{struct_borrow_return_abaa8786de93f86a91d25348bed670441}\label{struct_borrow_return_abaa8786de93f86a91d25348bed670441} 
-int {\bfseries book\+Ids} \mbox{[}100\mbox{]}
-\item 
-\Hypertarget{struct_borrow_return_a77acf61079ca129c6dea62787cc997a4}\label{struct_borrow_return_a77acf61079ca129c6dea62787cc997a4} 
-int {\bfseries quantities} \mbox{[}100\mbox{]}
-\item 
+\begin{DoxyCompactList}\small\item\em Tổng số sách mượn. \end{DoxyCompactList}\item 
+\Hypertarget{struct_borrow_return_a92557443665c4be63f883fcaf07ac2c3}\label{struct_borrow_return_a92557443665c4be63f883fcaf07ac2c3} 
+int {\bfseries book\+Ids} \mbox{[}\mbox{\hyperlink{borrow__return_8h_a0952e94a037eac280b9ee1b49d3e95cf}{MAX\+\_\+\+BORROWED\+\_\+\+BOOKS}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Danh sách các ID sách đã mượn. \end{DoxyCompactList}\item 
+\Hypertarget{struct_borrow_return_a9118cf8d4086333bd172aa7ab6539948}\label{struct_borrow_return_a9118cf8d4086333bd172aa7ab6539948} 
+int {\bfseries quantities} \mbox{[}\mbox{\hyperlink{borrow__return_8h_a0952e94a037eac280b9ee1b49d3e95cf}{MAX\+\_\+\+BORROWED\+\_\+\+BOOKS}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Số lượng tương ứng với mỗi sách. \end{DoxyCompactList}\item 
 \Hypertarget{struct_borrow_return_aa864c39a415529643d8f1672eb8252a3}\label{struct_borrow_return_aa864c39a415529643d8f1672eb8252a3} 
 int {\bfseries status}
-\item 
-\Hypertarget{struct_borrow_return_a5cf67797bd4d01d8c2458b44e31f72b0}\label{struct_borrow_return_a5cf67797bd4d01d8c2458b44e31f72b0} 
-int {\bfseries on\+Time}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Trạng thái\+: 0 = đang mượn, 1 = đã trả \end{DoxyCompactList}\item 
+\Hypertarget{struct_borrow_return_a4176756d6737cf95a1f613531084616b}\label{struct_borrow_return_a4176756d6737cf95a1f613531084616b} 
+bool {\bfseries on\+Time}
+\begin{DoxyCompactList}\small\item\em Trả đúng hạn (1) hoặc trễ (0) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Mô tả chi tiết}
+Struct đại diện cho một bản ghi mượn-\/trả sách. 
 
 Thông tin cho struct được biên soạn từ các file sau đây\+:\begin{DoxyCompactItemize}
 \item 
-include/borrow\+\_\+return.\+h\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{borrow__return_8h}{borrow\+\_\+return.\+h}}\end{DoxyCompactItemize}

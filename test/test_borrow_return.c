@@ -280,9 +280,9 @@ int main()
 
     // Lưu dữ liệu trước khi thoát
     printf("Saving data before exiting...\n");
-    // save_reader_management();
-    // save_book_management();
-    // save_borrow_return_management();
+    save_reader_management();
+    save_book_management();
+    save_borrow_return_management();
     printf("Data saved successfully. Exiting.\n");
     return 0;
 }

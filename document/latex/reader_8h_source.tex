@@ -16,7 +16,7 @@
 \DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
 \DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
 \DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <string.h>}}
-\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{borrow__return_8h}{borrow\_return.h}}"{}}}
 \DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{management_8h}{utils/management.h}}"{}}}
 \DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{trie_8h}{utils/trie.h}}"{}}}
 \DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bplustreev2_8h}{utils/bplustreev2.h}}"{}}}
@@ -55,22 +55,24 @@
 \DoxyCodeLine{00124\ }
 \DoxyCodeLine{00131\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_a7ebb3fbe5deec927c6943d66c57dcab1}{update\_reader}}(\mbox{\hyperlink{struct_readers}{Readers}}\ *reader);}
 \DoxyCodeLine{00132\ }
-\DoxyCodeLine{00141\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_af07dc59049cd7d5342855985c8bf676e}{delete\_reader}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00141\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{reader_8h_accdcb9e93430a50efb658e446f148696}{update\_reader\_from\_object}}(\mbox{\hyperlink{struct_readers}{Readers}}\ *reader);}
 \DoxyCodeLine{00142\ }
-\DoxyCodeLine{00143\ \textcolor{comment}{//\ =====\ Nhóm\ hàm\ hỗ\ trợ\ tương\ tác\ giao\ diện\ ======}}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00153\ \mbox{\hyperlink{struct_readers}{Readers}}\ *\mbox{\hyperlink{reader_8h_a98e7d90352899642bb59d34c01b7686f}{search\_reader}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00151\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_af07dc59049cd7d5342855985c8bf676e}{delete\_reader}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{comment}{//\ =====\ Nhóm\ hàm\ hỗ\ trợ\ tương\ tác\ giao\ diện\ ======}}
 \DoxyCodeLine{00154\ }
-\DoxyCodeLine{00170\ \mbox{\hyperlink{struct_readers}{Readers}}\ *\mbox{\hyperlink{reader_8h_adff84d4c954d93c55dad0e44faa7bcce}{retrieve\_bucket\_readers}}(\textcolor{keywordtype}{int}\ beginingKey,\ \textcolor{keywordtype}{int}\ quanities,\ \textcolor{keywordtype}{int}\ *actualReaders);}
-\DoxyCodeLine{00171\ }
-\DoxyCodeLine{00172\ \textcolor{comment}{//\ =====\ Persistence\ =====}}
-\DoxyCodeLine{00173\ }
-\DoxyCodeLine{00179\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_adc710d40bada0efb7ae7e84c6add17bf}{preparate\_reader}}();}
-\DoxyCodeLine{00180\ }
-\DoxyCodeLine{00186\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_addae2d4ba1b47818e01b1f4a3f9deb47}{save\_reader\_management}}();}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00194\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_a230b942c73dc649a1e65d74596c72d42}{load\_reader\_management}}();}
-\DoxyCodeLine{00195\ }
-\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ READERS\_H}}
+\DoxyCodeLine{00163\ \mbox{\hyperlink{struct_readers}{Readers}}\ *\mbox{\hyperlink{reader_8h_a98e7d90352899642bb59d34c01b7686f}{search\_reader}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00180\ \mbox{\hyperlink{struct_readers}{Readers}}\ *\mbox{\hyperlink{reader_8h_adff84d4c954d93c55dad0e44faa7bcce}{retrieve\_bucket\_readers}}(\textcolor{keywordtype}{int}\ beginingKey,\ \textcolor{keywordtype}{int}\ quanities,\ \textcolor{keywordtype}{int}\ *actualReaders);}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{comment}{//\ =====\ Persistence\ =====}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00189\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_a27c98836a58bf80f495809968d66f7cf}{prepare\_reader}}();}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00196\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_addae2d4ba1b47818e01b1f4a3f9deb47}{save\_reader\_management}}();}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00204\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_a230b942c73dc649a1e65d74596c72d42}{load\_reader\_management}}();}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ READERS\_H}}
 
 \end{DoxyCode}

@@ -116,9 +116,25 @@ void search_borrow_record_by_reader(int readerId)
     read_content_from_record(record, show_borrow_record);
 }
 
+void delete_borrow_record_callback(int code)
+{
+    if (code == DELETE_FAILED)
+    {
+        printf("Failed to delete!\n");
+    }
+    else if (code == DELETE_EXISTED)
+    {
+        printf("Has deleted before!\n");
+    }
+    else
+    {
+        printf("Delete successfully!\n");
+    }
+}
+
 void delete_borrow_record(int readerId)
 {
-    soft_delete(borrow_return_management, readerId, NULL);
+    soft_delete(borrow_return_management, readerId, delete_borrow_record_callback);
 }
 
 void stat_total_books_by_reader(int readerId)
@@ -130,21 +146,12 @@ void stat_total_books_by_reader(int readerId)
         return;
     }
 
-    BorrowReturn b;
-    FILE *f = fopen(record->_from, "rb");
-    if (f == NULL)
-    {
-        printf("Error: Cannot open file.\n");
-        return;
-    }
-    fseek(f, record->offset, SEEK_SET);
-    fread(&b, sizeof(BorrowReturn), 1, f);
-    fclose(f);
+    BorrowReturn *b = (BorrowReturn *)read_content_from_record_return(record);
 
     int total = 0;
-    for (int i = 0; i < b.totalBooks; i++)
+    for (int i = 0; i < b->totalBooks; i++)
     {
-        total += b.quantities[i];
+        total += b->quantities[i];
     }
 
     printf("Reader %d has borrowed a total of %d books.\n", readerId, total);
@@ -265,6 +272,7 @@ bool check_book_in_borrow(int bookId)
             }
         }
     }
+
     fclose(f);
     return false;
 }
