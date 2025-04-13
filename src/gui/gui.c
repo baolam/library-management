@@ -1,5 +1,5 @@
-#include "gui.h"
-#include "callbacks.h"
+#include "gui/gui.h"
+#include "gui/callbacks.h"
 
 void init_gui(int argc, char *argv[])
 {
@@ -19,7 +19,6 @@ void init_gui(int argc, char *argv[])
 
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
     notebook = GTK_NOTEBOOK(gtk_builder_get_object(builder, "visual"));
-
 
     if (!window)
     {

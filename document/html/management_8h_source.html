@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="vi">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Library management: include/utils/management.h File nguồn</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Library management<span id="projectnumber">&#160;v1</span>
+   </div>
+   <div id="projectbrief">Quản lí thư viện</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Tìm kiếm" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Được biên soạn bởi Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('management_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">management.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="management_8h.html">Tới Thông tin của file này.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#ifndef MANAGEMENT_H</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#define MANAGEMENT_H</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="management_8h.html#ae0b9cdebd01857aeb414353c980f6209">   21</a></span><span class="preprocessor">#define DELETE_SUCCESS 2</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="management_8h.html#a8dff01e8c67230d77544c49ed1151a1b">   27</a></span><span class="preprocessor">#define DELETE_EXISTED 1</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="management_8h.html#a76c97438a316d3700c4396f66e787e59">   32</a></span><span class="preprocessor">#define DELETE_FAILED 0</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="management_8h.html#a7265f51ea717730e55ddbc001f147a85">   37</a></span><span class="preprocessor">#define ADD_CONTENT_FAILED 0</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="management_8h.html#a20019d0a9170f3f74d3e358a39c21626">   42</a></span><span class="preprocessor">#define ADD_CONTENT_SUCCESS 1</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#include &quot;<a class="code" href="bplustreev2_8h.html">utils/bplustreev2.h</a>&quot;</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keywordtype">int</span> <a class="code hl_function" href="management_8h.html#a4128578a9414b538e87f4c09f82546fe">getStartSearch</a>(<a class="code hl_struct" href="struct_node.html">Node</a> *n, <span class="keywordtype">int</span> beginingKey);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keywordtype">bool</span> <a class="code hl_function" href="management_8h.html#ade27b5b1e9e93aa2f1e6bbb6f8779c0d">exist_record</a>(<a class="code hl_struct" href="struct_node.html">Node</a> *root, <span class="keywordtype">int</span> key);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><a class="code hl_struct" href="struct_node.html">Node</a> *<a class="code hl_function" href="management_8h.html#a8bf6c338f76f959eb131d2a9695125d6">add_content</a>(<a class="code hl_struct" href="struct_node.html">Node</a> *root, <span class="keywordtype">int</span> key, <span class="keywordtype">char</span> content_file[<a class="code hl_define" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>], <span class="keywordtype">void</span> *content, <span class="keywordtype">size_t</span> size, <span class="keywordtype">void</span> (*callback)(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">int</span> code, <span class="keywordtype">long</span> offset, <span class="keywordtype">long</span> length));</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keywordtype">void</span> <a class="code hl_function" href="management_8h.html#acb958d60afccf032644f4d29599ed367">read_content</a>(<a class="code hl_struct" href="struct_node.html">Node</a> *root, <span class="keywordtype">int</span> key, <span class="keywordtype">void</span> (*callback)(FILE *f, <span class="keywordtype">long</span> package_size));</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keywordtype">void</span> <a class="code hl_function" href="management_8h.html#ac7392f86e8f2db47cf378993ecf5097f">read_content_from_record</a>(<a class="code hl_struct" href="struct_record.html">Record</a> *record, <span class="keywordtype">void</span> (*callback)(FILE *f, <span class="keywordtype">long</span> package_size));</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keywordtype">void</span> *<a class="code hl_function" href="management_8h.html#af63fa182c73255a620f9dcc18687171a">read_content_from_record_return</a>(<a class="code hl_struct" href="struct_record.html">Record</a> *record);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="keywordtype">void</span> <a class="code hl_function" href="management_8h.html#aa6f8367d2e8acfc2677d27711c535bea">read_bucket_content</a>(<a class="code hl_struct" href="struct_node.html">Node</a> *root, <span class="keywordtype">int</span> beginingKey, <span class="keywordtype">int</span> nums, <span class="keywordtype">void</span> (*callback)(FILE *f, <span class="keywordtype">long</span> package_size));</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keywordtype">void</span> <a class="code hl_function" href="management_8h.html#aa31d7616ed4d24c1ed65a5ca1b6322bb">update_content</a>(<a class="code hl_struct" href="struct_node.html">Node</a> *root, <span class="keywordtype">int</span> key, <span class="keywordtype">void</span> (*callback)(FILE *f, <span class="keywordtype">long</span> package_size));</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="keywordtype">void</span> <a class="code hl_function" href="management_8h.html#a31ced62c7976fca38ed3ffba8e5306be">update_content_from_record</a>(<a class="code hl_struct" href="struct_record.html">Record</a> *record, <span class="keywordtype">void</span> (*callback)(FILE *f, <span class="keywordtype">long</span> package_size));</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="keywordtype">void</span> <a class="code hl_function" href="management_8h.html#ad65d5cd8b7422339122a0dbd2077954e">soft_delete</a>(<a class="code hl_struct" href="struct_node.html">Node</a> *root, <span class="keywordtype">int</span> key, <span class="keywordtype">void</span> (*callback)(<span class="keywordtype">int</span> code));</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="abplustreev2_8h_html"><div class="ttname"><a href="bplustreev2_8h.html">bplustreev2.h</a></div><div class="ttdoc">Những cài đặt cần thiết để khai thác cây B+ tree.</div></div>
+<div class="ttc" id="abplustreev2_8h_html_a9958e549a943ec37c7fbb33685befb02"><div class="ttname"><a href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a></div><div class="ttdeci">#define MAX_FILE_NAME_LENGTH</div><div class="ttdoc">Độ dài tối đa của tên file.</div><div class="ttdef"><b>Definition</b> bplustreev2.h:28</div></div>
+<div class="ttc" id="amanagement_8h_html_a31ced62c7976fca38ed3ffba8e5306be"><div class="ttname"><a href="management_8h.html#a31ced62c7976fca38ed3ffba8e5306be">update_content_from_record</a></div><div class="ttdeci">void update_content_from_record(Record *record, void(*callback)(FILE *f, long package_size))</div><div class="ttdoc">Hàm cập nhật dữ liệu từ bản ghi.</div><div class="ttdef"><b>Definition</b> management.c:138</div></div>
+<div class="ttc" id="amanagement_8h_html_a4128578a9414b538e87f4c09f82546fe"><div class="ttname"><a href="management_8h.html#a4128578a9414b538e87f4c09f82546fe">getStartSearch</a></div><div class="ttdeci">int getStartSearch(Node *n, int beginingKey)</div><div class="ttdoc">Hàm trả về vị trí bắt đầu tìm kiếm trong node lá</div><div class="ttdef"><b>Definition</b> management.c:53</div></div>
+<div class="ttc" id="amanagement_8h_html_a8bf6c338f76f959eb131d2a9695125d6"><div class="ttname"><a href="management_8h.html#a8bf6c338f76f959eb131d2a9695125d6">add_content</a></div><div class="ttdeci">Node * add_content(Node *root, int key, char content_file[MAX_FILE_NAME_LENGTH], void *content, size_t size, void(*callback)(int id, int code, long offset, long length))</div><div class="ttdoc">Hàm thêm dữ liệu vào file lưu trữ, đồng thời cập nhật quản lí B+ tree.</div><div class="ttdef"><b>Definition</b> management.c:162</div></div>
+<div class="ttc" id="amanagement_8h_html_aa31d7616ed4d24c1ed65a5ca1b6322bb"><div class="ttname"><a href="management_8h.html#aa31d7616ed4d24c1ed65a5ca1b6322bb">update_content</a></div><div class="ttdeci">void update_content(Node *root, int key, void(*callback)(FILE *f, long package_size))</div><div class="ttdoc">Hàm cập nhật dữ liệu.</div><div class="ttdef"><b>Definition</b> management.c:133</div></div>
+<div class="ttc" id="amanagement_8h_html_aa6f8367d2e8acfc2677d27711c535bea"><div class="ttname"><a href="management_8h.html#aa6f8367d2e8acfc2677d27711c535bea">read_bucket_content</a></div><div class="ttdeci">void read_bucket_content(Node *root, int beginingKey, int nums, void(*callback)(FILE *f, long package_size))</div><div class="ttdoc">Hàm đọc liên tiếp một nhóm bản ghi từ khoá chỉ định tìm kiếm ban đầu.</div><div class="ttdef"><b>Definition</b> management.c:66</div></div>
+<div class="ttc" id="amanagement_8h_html_ac7392f86e8f2db47cf378993ecf5097f"><div class="ttname"><a href="management_8h.html#ac7392f86e8f2db47cf378993ecf5097f">read_content_from_record</a></div><div class="ttdeci">void read_content_from_record(Record *record, void(*callback)(FILE *f, long package_size))</div><div class="ttdoc">Hàm đọc dữ liệu, một mở rộng của read_content, do có cung cấp thêm Record.</div><div class="ttdef"><b>Definition</b> management.c:48</div></div>
+<div class="ttc" id="amanagement_8h_html_acb958d60afccf032644f4d29599ed367"><div class="ttname"><a href="management_8h.html#acb958d60afccf032644f4d29599ed367">read_content</a></div><div class="ttdeci">void read_content(Node *root, int key, void(*callback)(FILE *f, long package_size))</div><div class="ttdoc">Hàm đọc dữ liệu.</div><div class="ttdef"><b>Definition</b> management.c:43</div></div>
+<div class="ttc" id="amanagement_8h_html_ad65d5cd8b7422339122a0dbd2077954e"><div class="ttname"><a href="management_8h.html#ad65d5cd8b7422339122a0dbd2077954e">soft_delete</a></div><div class="ttdeci">void soft_delete(Node *root, int key, void(*callback)(int code))</div><div class="ttdoc">Hàm xóa dữ liệu.</div><div class="ttdef"><b>Definition</b> management.c:143</div></div>
+<div class="ttc" id="amanagement_8h_html_ade27b5b1e9e93aa2f1e6bbb6f8779c0d"><div class="ttname"><a href="management_8h.html#ade27b5b1e9e93aa2f1e6bbb6f8779c0d">exist_record</a></div><div class="ttdeci">bool exist_record(Node *root, int key)</div><div class="ttdoc">Hàm kiểm tra sự tồn tại của bản ghi ứng với khoá được chỉ định hay không.</div><div class="ttdef"><b>Definition</b> management.c:3</div></div>
+<div class="ttc" id="amanagement_8h_html_af63fa182c73255a620f9dcc18687171a"><div class="ttname"><a href="management_8h.html#af63fa182c73255a620f9dcc18687171a">read_content_from_record_return</a></div><div class="ttdeci">void * read_content_from_record_return(Record *record)</div><div class="ttdoc">Hàm đọc dữ liệu có trả về</div><div class="ttdef"><b>Definition</b> management.c:187</div></div>
+<div class="ttc" id="astruct_node_html"><div class="ttname"><a href="struct_node.html">Node</a></div><div class="ttdoc">Node trong cây B+ tree.</div><div class="ttdef"><b>Definition</b> bplustreev2.h:78</div></div>
+<div class="ttc" id="astruct_record_html"><div class="ttname"><a href="struct_record.html">Record</a></div><div class="ttdoc">Bản ghi dữ liệu lưu trữ</div><div class="ttdef"><b>Definition</b> bplustreev2.h:46</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_821002d4f10779a80d4fb17bc32f21f1.html">utils</a></li><li class="navelem"><a class="el" href="management_8h.html">management.h</a></li>
+    <li class="footer">Được biên soạn bởi <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

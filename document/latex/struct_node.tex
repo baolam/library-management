@@ -1,0 +1,44 @@
+\doxysection{Node Struct Tham chiếu}
+\hypertarget{struct_node}{}\label{struct_node}\index{Node@{Node}}
+
+
+\doxylink{struct_node}{Node} trong cây B+ tree.  
+
+
+
+
+{\ttfamily \#include $<$bplustreev2.\+h$>$}
+
+\doxysubsubsection*{Các thuộc tính Public}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_node_a5cb279f88edbcd6af65300c2b63d7e6e}\label{struct_node_a5cb279f88edbcd6af65300c2b63d7e6e} 
+void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries pointers}
+\begin{DoxyCompactList}\small\item\em dùng để lưu trữ dữ liệu (\doxylink{struct_record}{Record}), hoặc các node con \end{DoxyCompactList}\item 
+\Hypertarget{struct_node_ac20243a09347bbb2d3f73234f58d3ad0}\label{struct_node_ac20243a09347bbb2d3f73234f58d3ad0} 
+int \texorpdfstring{$\ast$}{*} {\bfseries keys}
+\begin{DoxyCompactList}\small\item\em lưu trữ các khóa, định hướng quá trình tìm kiếm \end{DoxyCompactList}\item 
+\Hypertarget{struct_node_a34f3ab9670c7b70dad8905359a243c92}\label{struct_node_a34f3ab9670c7b70dad8905359a243c92} 
+struct \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries parent}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_node}{Node} tổ tiên, kết nối dùng để quản lí \end{DoxyCompactList}\item 
+\Hypertarget{struct_node_a3e5449ec9e41ba98cbaf8f3a993d03c4}\label{struct_node_a3e5449ec9e41ba98cbaf8f3a993d03c4} 
+bool {\bfseries is\+\_\+leaf}
+\begin{DoxyCompactList}\small\item\em Là node lá hay không, chỉ thị trạng thái dùng cho liên kết. \end{DoxyCompactList}\item 
+\Hypertarget{struct_node_a3d741213ac4ef9a48d6c2bf39c8bd146}\label{struct_node_a3d741213ac4ef9a48d6c2bf39c8bd146} 
+int {\bfseries num\+\_\+keys}
+\begin{DoxyCompactList}\small\item\em Số lượng khoá \end{DoxyCompactList}\item 
+\Hypertarget{struct_node_af67b110ca1a258b793bf69d306929b22}\label{struct_node_af67b110ca1a258b793bf69d306929b22} 
+struct \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries next}
+\begin{DoxyCompactList}\small\item\em Trỏ tiếp theo (phục vụ enqueue, dequeue) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Mô tả chi tiết}
+\doxylink{struct_node}{Node} trong cây B+ tree. 
+
+Một node sẽ lưu trữ thông tin quản lí của nhiều bản ghi nếu là node lá Hoặc quản lí nhiều node con khác.
+
+Số lượng quản lí tối đa phụ thuộc vào ORDER được định nghĩa 
+
+Thông tin cho struct được biên soạn từ các file sau đây\+:\begin{DoxyCompactItemize}
+\item 
+include/utils/\mbox{\hyperlink{bplustreev2_8h}{bplustreev2.\+h}}\end{DoxyCompactItemize}

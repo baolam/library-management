@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="vi">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Library management: include/utils/bplustreev2.h File Tham chiếu</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Library management<span id="projectnumber">&#160;v1</span>
+   </div>
+   <div id="projectbrief">Quản lí thư viện</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Tìm kiếm" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Được biên soạn bởi Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('bplustreev2_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Định nghĩa</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Các hàm</a> &#124;
+<a href="#var-members">Các biến</a>  </div>
+  <div class="headertitle"><div class="title">bplustreev2.h File Tham chiếu</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Những cài đặt cần thiết để khai thác cây B+ tree.  
+<a href="#details">Tiếp...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div>
+<p><a href="bplustreev2_8h_source.html">Tới mã nguồn của file này.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_record.html">Record</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bản ghi dữ liệu lưu trữ  <a href="struct_record.html#details">Tiếp...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_node.html">Node</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_node.html" title="Node trong cây B+ tree.">Node</a> trong cây B+ tree.  <a href="struct_node.html#details">Tiếp...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Định nghĩa</h2></td></tr>
+<tr class="memitem:a9b79a4981a7f45ee4a0f7ba5c6076684" id="r_a9b79a4981a7f45ee4a0f7ba5c6076684"><td class="memItemLeft" align="right" valign="top"><a id="a9b79a4981a7f45ee4a0f7ba5c6076684" name="a9b79a4981a7f45ee4a0f7ba5c6076684"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PRINT_TREE</b></td></tr>
+<tr class="memdesc:a9b79a4981a7f45ee4a0f7ba5c6076684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Định nghĩa có cho phép In cây ra hay không, màn hình console. <br /></td></tr>
+<tr class="separator:a9b79a4981a7f45ee4a0f7ba5c6076684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a826715579f0649bd271fb6702a175dbc" id="r_a826715579f0649bd271fb6702a175dbc"><td class="memItemLeft" align="right" valign="top"><a id="a826715579f0649bd271fb6702a175dbc" name="a826715579f0649bd271fb6702a175dbc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ORDER</b>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:a826715579f0649bd271fb6702a175dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Số dữ liệu quản lí tối đa của một node. <br /></td></tr>
+<tr class="separator:a826715579f0649bd271fb6702a175dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9958e549a943ec37c7fbb33685befb02" id="r_a9958e549a943ec37c7fbb33685befb02"><td class="memItemLeft" align="right" valign="top"><a id="a9958e549a943ec37c7fbb33685befb02" name="a9958e549a943ec37c7fbb33685befb02"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_FILE_NAME_LENGTH</b>&#160;&#160;&#160;128</td></tr>
+<tr class="memdesc:a9958e549a943ec37c7fbb33685befb02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Độ dài tối đa của tên file. <br /></td></tr>
+<tr class="separator:a9958e549a943ec37c7fbb33685befb02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a3682aa231845d2be9417bf18de8c5728" id="r_a3682aa231845d2be9417bf18de8c5728"><td class="memItemLeft" align="right" valign="top"><a id="a3682aa231845d2be9417bf18de8c5728" name="a3682aa231845d2be9417bf18de8c5728"></a>
+typedef struct Record&#160;</td><td class="memItemRight" valign="bottom"><b>Record</b></td></tr>
+<tr class="separator:a3682aa231845d2be9417bf18de8c5728"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b09f37e675bcd48a01bf22155996872" id="r_a3b09f37e675bcd48a01bf22155996872"><td class="memItemLeft" align="right" valign="top"><a id="a3b09f37e675bcd48a01bf22155996872" name="a3b09f37e675bcd48a01bf22155996872"></a>
+typedef struct Node&#160;</td><td class="memItemRight" valign="bottom"><b>Node</b></td></tr>
+<tr class="separator:a3b09f37e675bcd48a01bf22155996872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Các hàm</h2></td></tr>
+<tr class="memitem:a036cf425fcaa04ea78ba832fda3ad5e2" id="r_a036cf425fcaa04ea78ba832fda3ad5e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_record.html">Record</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a036cf425fcaa04ea78ba832fda3ad5e2">makeRecord</a> (char _from[<a class="el" href="#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>], long offset, long length)</td></tr>
+<tr class="memdesc:a036cf425fcaa04ea78ba832fda3ad5e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Khởi tạo record.  <br /></td></tr>
+<tr class="separator:a036cf425fcaa04ea78ba832fda3ad5e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a841bd1bba3e703ec564dea235d6e7301" id="r_a841bd1bba3e703ec564dea235d6e7301"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a841bd1bba3e703ec564dea235d6e7301">leftMost</a> (<a class="el" href="struct_node.html">Node</a> *root)</td></tr>
+<tr class="memdesc:a841bd1bba3e703ec564dea235d6e7301"><td class="mdescLeft">&#160;</td><td class="mdescRight">hàm trả về node lá tận cùng bên trái  <br /></td></tr>
+<tr class="separator:a841bd1bba3e703ec564dea235d6e7301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23a45d6d13fe1a5fa82c4e9b2ddf6447" id="r_a23a45d6d13fe1a5fa82c4e9b2ddf6447"><td class="memItemLeft" align="right" valign="top"><a id="a23a45d6d13fe1a5fa82c4e9b2ddf6447" name="a23a45d6d13fe1a5fa82c4e9b2ddf6447"></a>
+<a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>makeNode</b> (void)</td></tr>
+<tr class="memdesc:a23a45d6d13fe1a5fa82c4e9b2ddf6447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Khởi tạo một node. <br /></td></tr>
+<tr class="separator:a23a45d6d13fe1a5fa82c4e9b2ddf6447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3f6936a5822d3c7b563372a1646d81e" id="r_af3f6936a5822d3c7b563372a1646d81e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3f6936a5822d3c7b563372a1646d81e">makeLeaf</a> (void)</td></tr>
+<tr class="memdesc:af3f6936a5822d3c7b563372a1646d81e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Khởi tạo một node lá  <br /></td></tr>
+<tr class="separator:af3f6936a5822d3c7b563372a1646d81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac539c35415e0bb03d619917198332b53" id="r_ac539c35415e0bb03d619917198332b53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac539c35415e0bb03d619917198332b53">findLeaf</a> (<a class="el" href="struct_node.html">Node</a> *root, int key)</td></tr>
+<tr class="memdesc:ac539c35415e0bb03d619917198332b53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Phương thức tìm kiếm.  <br /></td></tr>
+<tr class="separator:ac539c35415e0bb03d619917198332b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e4ed69811cf4058e1e0f7a311fc627d" id="r_a0e4ed69811cf4058e1e0f7a311fc627d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_record.html">Record</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e4ed69811cf4058e1e0f7a311fc627d">find</a> (<a class="el" href="struct_node.html">Node</a> *root, int key)</td></tr>
+<tr class="memdesc:a0e4ed69811cf4058e1e0f7a311fc627d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tìm kiếm bản ghi từ Key.  <br /></td></tr>
+<tr class="separator:a0e4ed69811cf4058e1e0f7a311fc627d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86db5400d85b6d57c364eada43fce324" id="r_a86db5400d85b6d57c364eada43fce324"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86db5400d85b6d57c364eada43fce324">cut</a> (int length)</td></tr>
+<tr class="memdesc:a86db5400d85b6d57c364eada43fce324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Phương thức bổ trợ  <br /></td></tr>
+<tr class="separator:a86db5400d85b6d57c364eada43fce324"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae594d5890cf75f3e3debbb99e747407d" id="r_ae594d5890cf75f3e3debbb99e747407d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae594d5890cf75f3e3debbb99e747407d">getLeftIndex</a> (<a class="el" href="struct_node.html">Node</a> *parent, <a class="el" href="struct_node.html">Node</a> *left)</td></tr>
+<tr class="memdesc:ae594d5890cf75f3e3debbb99e747407d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm hỗ trợ cho việc trả về vị trí bắt đầu chỉ số bên trái đầu tiên của node được chỉ định.  <br /></td></tr>
+<tr class="separator:ae594d5890cf75f3e3debbb99e747407d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64266a1d61f3ad17712694d13c42dc74" id="r_a64266a1d61f3ad17712694d13c42dc74"><td class="memItemLeft" align="right" valign="top"><a id="a64266a1d61f3ad17712694d13c42dc74" name="a64266a1d61f3ad17712694d13c42dc74"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>pathToLeaves</b> (<a class="el" href="struct_node.html">Node</a> *const root, <a class="el" href="struct_node.html">Node</a> *child)</td></tr>
+<tr class="separator:a64266a1d61f3ad17712694d13c42dc74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a287f5132a30fb857ac0ad6006df3a31b" id="r_a287f5132a30fb857ac0ad6006df3a31b"><td class="memItemLeft" align="right" valign="top"><a id="a287f5132a30fb857ac0ad6006df3a31b" name="a287f5132a30fb857ac0ad6006df3a31b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>enqueue</b> (<a class="el" href="struct_node.html">Node</a> *new_node)</td></tr>
+<tr class="separator:a287f5132a30fb857ac0ad6006df3a31b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafe62f25bdbdc7aab13712f83ad3a49c" id="r_aafe62f25bdbdc7aab13712f83ad3a49c"><td class="memItemLeft" align="right" valign="top"><a id="aafe62f25bdbdc7aab13712f83ad3a49c" name="aafe62f25bdbdc7aab13712f83ad3a49c"></a>
+<a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>dequeue</b> (void)</td></tr>
+<tr class="separator:aafe62f25bdbdc7aab13712f83ad3a49c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab31c6c14fa5da96429d1578ba960dd0e" id="r_ab31c6c14fa5da96429d1578ba960dd0e"><td class="memItemLeft" align="right" valign="top"><a id="ab31c6c14fa5da96429d1578ba960dd0e" name="ab31c6c14fa5da96429d1578ba960dd0e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>printTree</b> (<a class="el" href="struct_node.html">Node</a> *const root)</td></tr>
+<tr class="separator:ab31c6c14fa5da96429d1578ba960dd0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c13d7dbbeb01bed587d135ec15160a2" id="r_a7c13d7dbbeb01bed587d135ec15160a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c13d7dbbeb01bed587d135ec15160a2">startNewTree</a> (int key, <a class="el" href="struct_record.html">Record</a> *pointer)</td></tr>
+<tr class="memdesc:a7c13d7dbbeb01bed587d135ec15160a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Phương thức thêm phần tử  <br /></td></tr>
+<tr class="separator:a7c13d7dbbeb01bed587d135ec15160a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a115772fdb9d8e4040b0e259295f3a758" id="r_a115772fdb9d8e4040b0e259295f3a758"><td class="memItemLeft" align="right" valign="top"><a id="a115772fdb9d8e4040b0e259295f3a758" name="a115772fdb9d8e4040b0e259295f3a758"></a>
+<a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>insertIntoLeaf</b> (<a class="el" href="struct_node.html">Node</a> *leaf, int key, <a class="el" href="struct_record.html">Record</a> *record)</td></tr>
+<tr class="separator:a115772fdb9d8e4040b0e259295f3a758"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a721175825a279aef3b109b3288a9dae4" id="r_a721175825a279aef3b109b3288a9dae4"><td class="memItemLeft" align="right" valign="top"><a id="a721175825a279aef3b109b3288a9dae4" name="a721175825a279aef3b109b3288a9dae4"></a>
+<a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>insertIntoNode</b> (<a class="el" href="struct_node.html">Node</a> *root, <a class="el" href="struct_node.html">Node</a> *n, int left_index, int key, <a class="el" href="struct_node.html">Node</a> *right)</td></tr>
+<tr class="separator:a721175825a279aef3b109b3288a9dae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85d4ff9519e1dbad6c80a81d62bbbe36" id="r_a85d4ff9519e1dbad6c80a81d62bbbe36"><td class="memItemLeft" align="right" valign="top"><a id="a85d4ff9519e1dbad6c80a81d62bbbe36" name="a85d4ff9519e1dbad6c80a81d62bbbe36"></a>
+<a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>insertIntoNodeAfterSplitting</b> (<a class="el" href="struct_node.html">Node</a> *root, <a class="el" href="struct_node.html">Node</a> *old_node, int left_index, int key, <a class="el" href="struct_node.html">Node</a> *right)</td></tr>
+<tr class="separator:a85d4ff9519e1dbad6c80a81d62bbbe36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fc42ff887c83feeecd3352574a1f1ff" id="r_a7fc42ff887c83feeecd3352574a1f1ff"><td class="memItemLeft" align="right" valign="top"><a id="a7fc42ff887c83feeecd3352574a1f1ff" name="a7fc42ff887c83feeecd3352574a1f1ff"></a>
+<a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>insertIntoNewRoot</b> (<a class="el" href="struct_node.html">Node</a> *left, int key, <a class="el" href="struct_node.html">Node</a> *right)</td></tr>
+<tr class="separator:a7fc42ff887c83feeecd3352574a1f1ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fc79b1706d86d64309d77c78f786070" id="r_a0fc79b1706d86d64309d77c78f786070"><td class="memItemLeft" align="right" valign="top"><a id="a0fc79b1706d86d64309d77c78f786070" name="a0fc79b1706d86d64309d77c78f786070"></a>
+<a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>insertIntoParent</b> (<a class="el" href="struct_node.html">Node</a> *root, <a class="el" href="struct_node.html">Node</a> *left, int key, <a class="el" href="struct_node.html">Node</a> *right)</td></tr>
+<tr class="separator:a0fc79b1706d86d64309d77c78f786070"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1644c1bd6e88eabda457d409d3a0e8e" id="r_aa1644c1bd6e88eabda457d409d3a0e8e"><td class="memItemLeft" align="right" valign="top"><a id="aa1644c1bd6e88eabda457d409d3a0e8e" name="aa1644c1bd6e88eabda457d409d3a0e8e"></a>
+<a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>insertIntoLeafAfterSplitting</b> (<a class="el" href="struct_node.html">Node</a> *root, <a class="el" href="struct_node.html">Node</a> *leaf, int key, <a class="el" href="struct_record.html">Record</a> *record)</td></tr>
+<tr class="separator:aa1644c1bd6e88eabda457d409d3a0e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8204e72519be4ff883be1e6ac9beb82" id="r_af8204e72519be4ff883be1e6ac9beb82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8204e72519be4ff883be1e6ac9beb82">insert</a> (<a class="el" href="struct_node.html">Node</a> *root, int key, char _from[<a class="el" href="#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>], long offset, long length)</td></tr>
+<tr class="memdesc:af8204e72519be4ff883be1e6ac9beb82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm hỗ trợ cho việc thêm phần tử vào cây.  <br /></td></tr>
+<tr class="separator:af8204e72519be4ff883be1e6ac9beb82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a817851a0dbd1a560b8b9fb8fce17b9dc" id="r_a817851a0dbd1a560b8b9fb8fce17b9dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a817851a0dbd1a560b8b9fb8fce17b9dc">saveTree</a> (<a class="el" href="struct_node.html">Node</a> *root, char *filename)</td></tr>
+<tr class="memdesc:a817851a0dbd1a560b8b9fb8fce17b9dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Phương thức lưu trữ  <br /></td></tr>
+<tr class="separator:a817851a0dbd1a560b8b9fb8fce17b9dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e6986d459f875ca7c5166a2cb34d146" id="r_a1e6986d459f875ca7c5166a2cb34d146"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e6986d459f875ca7c5166a2cb34d146">loadTree</a> (char *filename)</td></tr>
+<tr class="memdesc:a1e6986d459f875ca7c5166a2cb34d146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm hỗ trợ lấy dữ liệu ra từ cây.  <br /></td></tr>
+<tr class="separator:a1e6986d459f875ca7c5166a2cb34d146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Các biến</h2></td></tr>
+<tr class="memitem:ac6c1680293e3be143d1fa9e2466eadae" id="r_ac6c1680293e3be143d1fa9e2466eadae"><td class="memItemLeft" align="right" valign="top"><a id="ac6c1680293e3be143d1fa9e2466eadae" name="ac6c1680293e3be143d1fa9e2466eadae"></a>
+<a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>queue</b></td></tr>
+<tr class="separator:ac6c1680293e3be143d1fa9e2466eadae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Mô tả chi tiết</h2>
+<div class="textblock"><p>Những cài đặt cần thiết để khai thác cây B+ tree. </p>
+<dl class="section author"><dt>Tác giả</dt><dd>Nguyễn Đức Bảo Lâm </dd></dl>
+<dl class="section note"><dt>Ghi chú</dt><dd>Nội dung file có dựa trên <a href="https://www.programiz.com/dsa/b-plus-tree">https://www.programiz.com/dsa/b-plus-tree</a>, chân thành cảm ơn! </dd></dl>
+<dl class="section version"><dt>Phiên bản</dt><dd>1.0</dd></dl>
+<p>File này chứa những định nghĩa, khai báo cần thiết để có thể ứng dụng được B+ Tree vào quản lí thư viện </p>
+</div><h2 class="groupheader">Thông tin về hàm</h2>
+<a id="a86db5400d85b6d57c364eada43fce324" name="a86db5400d85b6d57c364eada43fce324"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86db5400d85b6d57c364eada43fce324">&#9670;&#160;</a></span>cut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cut </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>length</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Phương thức bổ trợ </p>
+<p>Hàm hỗ trợ cho việc chia tách node, dành cho trường hợp yêu cầu chia tách</p>
+<p>Cách chia tách sẽ khác nhau tuỳ theo đầu vào là chẵn hay lẻ </p><dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>số bậc (dựa trên order) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0e4ed69811cf4058e1e0f7a311fc627d" name="a0e4ed69811cf4058e1e0f7a311fc627d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e4ed69811cf4058e1e0f7a311fc627d">&#9670;&#160;</a></span>find()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_record.html">Record</a> * find </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *</td>          <td class="paramname"><span class="paramname"><em>root</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>key</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tìm kiếm bản ghi từ Key. </p>
+<p>Bản chất là một kế thừa mở rộng từ findLeaf </p><dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>node gốc </td></tr>
+    <tr><td class="paramname">key</td><td>khoá tìm kiếm </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac539c35415e0bb03d619917198332b53" name="ac539c35415e0bb03d619917198332b53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac539c35415e0bb03d619917198332b53">&#9670;&#160;</a></span>findLeaf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_node.html">Node</a> * findLeaf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *</td>          <td class="paramname"><span class="paramname"><em>root</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>key</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Phương thức tìm kiếm. </p>
+<p>Tìm kiếm node lá tương ứng với Key</p>
+<p>Dùng phương pháp duyệt cây tương tự như trong cây tìm kiếm nhị phân </p><dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>node gốc </td></tr>
+    <tr><td class="paramname">key</td><td>khoá tìm kiếm </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae594d5890cf75f3e3debbb99e747407d" name="ae594d5890cf75f3e3debbb99e747407d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae594d5890cf75f3e3debbb99e747407d">&#9670;&#160;</a></span>getLeftIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getLeftIndex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *</td>          <td class="paramname"><span class="paramname"><em>left</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hàm hỗ trợ cho việc trả về vị trí bắt đầu chỉ số bên trái đầu tiên của node được chỉ định. </p>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>node cha </td></tr>
+    <tr><td class="paramname">left</td><td>node left, node bên trái</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Giá trị trả về</dt><dd>vị trí bắt đầu chỉ số bên trái đầu tiên </dd></dl>
+
+</div>
+</div>
+<a id="af8204e72519be4ff883be1e6ac9beb82" name="af8204e72519be4ff883be1e6ac9beb82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8204e72519be4ff883be1e6ac9beb82">&#9670;&#160;</a></span>insert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_node.html">Node</a> * insert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *</td>          <td class="paramname"><span class="paramname"><em>root</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>_from</em></span>[MAX_FILE_NAME_LENGTH], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hàm hỗ trợ cho việc thêm phần tử vào cây. </p>
+<p>Thêm phần tử vào cây sẽ thêm nội dung vào node lá, và các node không là node lá sẽ chứa dữ liệu định hướng tìm kiếm.</p>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>node gốc ban đầu </td></tr>
+    <tr><td class="paramname">key</td><td>khoá tìm kiếm </td></tr>
+    <tr><td class="paramname">_from</td><td>file nội dung lưu trữ </td></tr>
+    <tr><td class="paramname">offset</td><td>vị trí bắt đầu lưu trữ trong file </td></tr>
+    <tr><td class="paramname">length</td><td>kích thước dữ liệu</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Giá trị trả về</dt><dd>cây mới sau khi thêm </dd></dl>
+
+</div>
+</div>
+<a id="a841bd1bba3e703ec564dea235d6e7301" name="a841bd1bba3e703ec564dea235d6e7301"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a841bd1bba3e703ec564dea235d6e7301">&#9670;&#160;</a></span>leftMost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_node.html">Node</a> * leftMost </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *</td>          <td class="paramname"><span class="paramname"><em>root</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>hàm trả về node lá tận cùng bên trái </p>
+<p>Hàm này được dùng cho nhóm tác vụ liên quan đến thống kê, báo cáo Yêu cầu duyệt toàn bộ nội dung file, số sách đã lưu trữ, ...</p>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>node gốc cần quản lí </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1e6986d459f875ca7c5166a2cb34d146" name="a1e6986d459f875ca7c5166a2cb34d146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e6986d459f875ca7c5166a2cb34d146">&#9670;&#160;</a></span>loadTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_node.html">Node</a> * loadTree </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hàm hỗ trợ lấy dữ liệu ra từ cây. </p>
+<p>Việc tải nội dung được tiến hành tương ứng thông qua hình thức lưu trữ</p>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>file đã lưu trữ trước đó </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af3f6936a5822d3c7b563372a1646d81e" name="af3f6936a5822d3c7b563372a1646d81e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3f6936a5822d3c7b563372a1646d81e">&#9670;&#160;</a></span>makeLeaf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_node.html">Node</a> * makeLeaf </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Khởi tạo một node lá </p>
+<p>Bản chất là một tinh chỉnh nhỏ của makeNode, thông qua thay đổi thuộc tính is_leaf </p>
+
+</div>
+</div>
+<a id="a036cf425fcaa04ea78ba832fda3ad5e2" name="a036cf425fcaa04ea78ba832fda3ad5e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a036cf425fcaa04ea78ba832fda3ad5e2">&#9670;&#160;</a></span>makeRecord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_record.html">Record</a> * makeRecord </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>_from</em></span>[MAX_FILE_NAME_LENGTH], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Khởi tạo record. </p>
+<p>Tạo dựng record mới từ </p><dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_from</td><td>bản ghi nguồn </td></tr>
+    <tr><td class="paramname">offset</td><td>vị trí bắt đầu </td></tr>
+    <tr><td class="paramname">length</td><td>kích thước dữ liệu </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a817851a0dbd1a560b8b9fb8fce17b9dc" name="a817851a0dbd1a560b8b9fb8fce17b9dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a817851a0dbd1a560b8b9fb8fce17b9dc">&#9670;&#160;</a></span>saveTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void saveTree </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *</td>          <td class="paramname"><span class="paramname"><em>root</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Phương thức lưu trữ </p>
+<p>Hàm hỗ trợ lưu trữ dữ liệu vào file</p>
+<p>File được lưu dưới dạng đuôi .bin Dữ liệu được thành một mảng byte liên tiếp</p>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>tượng trưng cho cây muốn lưu trữ </td></tr>
+    <tr><td class="paramname">filename</td><td>tên file muốn lưu trữ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7c13d7dbbeb01bed587d135ec15160a2" name="a7c13d7dbbeb01bed587d135ec15160a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c13d7dbbeb01bed587d135ec15160a2">&#9670;&#160;</a></span>startNewTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_node.html">Node</a> * startNewTree </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_record.html">Record</a> *</td>          <td class="paramname"><span class="paramname"><em>pointer</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Phương thức thêm phần tử </p>
+<p>Khởi tạo một cây mới (bản chất là <a class="el" href="struct_node.html" title="Node trong cây B+ tree.">Node</a> root) khi chưa tồn tại </p><dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>(khoá tìm kiếm) </td></tr>
+    <tr><td class="paramname">pointer</td><td>(con trỏ trỏ đến dữ liệu ghi) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Giá trị trả về</dt><dd><a class="el" href="struct_node.html" title="Node trong cây B+ tree.">Node</a> gốc </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_821002d4f10779a80d4fb17bc32f21f1.html">utils</a></li><li class="navelem"><a class="el" href="bplustreev2_8h.html">bplustreev2.h</a></li>
+    <li class="footer">Được biên soạn bởi <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -13,7 +13,7 @@
 #include <stdbool.h>
 #include "books.h"
 #include "reader.h"
-#include "bplustreev2.h"
+#include "utils/bplustreev2.h"
 
 /**
  * @brief Struct đại diện cho một bản ghi mượn-trả sách.

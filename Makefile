@@ -14,7 +14,8 @@ OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
 # Biên dịch
 CC = gcc
-CFLAGS = -Wall -I$(INC_DIR) `pkg-config --cflags gtk+-3.0`
+CFLAGS = -Wall -I$(INC_DIR) -I$(SRC_DIR)/utils `pkg-config --cflags gtk+-3.0`
+
 LDFLAGS = `pkg-config --libs gtk+-3.0`
 TARGET = project
 
@@ -53,7 +54,7 @@ $(TEST_DIR)/%.exe: $(TEST_DIR)/%.c $(TEST_OBJS)
 # Clean
 # ====================================
 clean:
-	rm -rf $(OBJ_DIR) $(TARGET) $(TEST_EXES) $(DOCUMENT_DIR)
+	rm -rf $(OBJ_DIR) $(TARGET) $(TEST_EXES)
 
 doc_erase:
 	rm -rf $(DOCUMENT_DIR)

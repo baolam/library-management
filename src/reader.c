@@ -51,7 +51,7 @@ void search_reader_by_id(int id)
     read_content_from_record(record, show_reader_record);
 }
 
-void search_reader_by_name(const char *name, int maxNumbers)
+void search_reader_by_name(const char *prefix, int maxNumbers)
 {
     if (reader_trie == NULL)
     {
@@ -62,19 +62,21 @@ void search_reader_by_name(const char *name, int maxNumbers)
     int recommend_size = 0;
     char *recommend[maxNumbers];
 
-    recommendPrefix(reader_trie, (char *)name, maxNumbers, recommend, &recommend_size);
-    for (int i = 0; i < recommend_size; ++i)
+    recommendPrefix(reader_trie, (char *)prefix, maxNumbers, recommend, &recommend_size);
+
+    for (int i = 0; i < recommend_size; i++)
     {
         char *name = recommend[i];
+
         TrieNode *temp = searchWord(reader_trie, name);
         if (temp != NULL)
         {
-            for (int j = 0; temp->numIds && maxNumbers > 0; ++j)
+            for (int j = 0; j < temp->numIds && maxNumbers > 0; j++)
             {
                 if (exist_record(reader_management, temp->ids[j]))
                 {
-                    maxNumbers--;
                     search_reader_by_id(temp->ids[j]);
+                    maxNumbers--;
                 }
             }
             if (maxNumbers == 0)
@@ -98,11 +100,11 @@ void add_reader_callback(int id, int code, long offset, long length)
     // Luôn in thông báo cho người dùng
     if (code == ADD_CONTENT_SUCCESS)
     {
-        printf("Successfully added reader ID %d!\n", id);
+        printf("Id: %d, Successfully added!\n", id);
     }
     else
     {
-        printf("Failed to add reader ID %d.\n", id);
+        printf("Id: %d, Failed to add reader.\n", id);
     }
 }
 
@@ -267,33 +269,58 @@ void delete_reader_callback(int code)
 
 void delete_reader(int id)
 {
-    // Kiểm tra xem người đọc có đang mượn sách không
-    Record *borrow_record = find(borrow_return_management, id);
-    if (borrow_record != NULL && !borrow_record->deleted)
+    soft_delete(reader_management, id, delete_reader_callback);
+}
+
+Readers *search_reader(int id)
+{
+    Record *record = find(reader_management, id);
+    Readers *reader = (Readers *)read_content_from_record_return(record);
+    return reader;
+}
+
+Readers *retrieve_bucket_readers(int beginingKey, int quanities, int *actualReaders)
+{
+    int storage_pos = 0;
+
+    Readers *readers = (Readers *)malloc(sizeof(Readers) * quanities);
+    if (readers == NULL)
     {
-        BorrowReturn b;
-        FILE *f = fopen(borrow_record->_from, "rb");
-        if (f == NULL)
-        {
-            printf("Error: Cannot open borrow record file %s\n", borrow_record->_from);
-            return;
-        }
-        fseek(f, borrow_record->offset, SEEK_SET);
-        if (fread(&b, sizeof(BorrowReturn), 1, f) != 1)
-        {
-            printf("Error: Failed to read borrow record for Reader ID %d\n", id);
-            fclose(f);
-            return;
-        }
-        fclose(f);
-        if (b.status == 0) // Đang mượn
-        {
-            printf("Error: Reader ID %d is currently borrowing books. Cannot delete.\n", id);
-            return;
-        }
+        *actualReaders = 0;
+        return NULL;
     }
 
-    soft_delete(reader_management, id, delete_reader_callback);
+    Node *n = findLeaf(reader_management, beginingKey);
+    if (n == NULL)
+    {
+        *actualReaders = 0;
+        return NULL;
+    }
+
+    int startSearch = getStartSearch(n, beginingKey);
+    int i;
+
+    while (n != NULL && quanities > 0)
+    {
+        for (i = startSearch; i < n->num_keys && quanities > 0; i++)
+        {
+            Record *record = (Record *)n->pointers[i];
+            Readers *reader = (Readers *)read_content_from_record_return(record);
+
+            if (reader == NULL)
+                continue;
+
+            readers[storage_pos] = *reader;
+            storage_pos++;
+            quanities--;
+        }
+
+        startSearch = 0;
+        n = n->pointers[ORDER - 1];
+    }
+
+    *actualReaders = storage_pos;
+    return readers;
 }
 
 // ------------------- Save / Load Tree -------------------
@@ -343,46 +370,39 @@ void save_reader_management()
 
 bool load_reader_management()
 {
-    FILE *file = fopen(reader_management_file, "r");
-    if (file == NULL)
+    printf("[DEBUG] load_reader_management called\n");
+
+    FILE *f = fopen(reader_management_file, "rb");
+    if (f == NULL)
     {
-#if DEBUG_MODE
-        printf("No existing tree found. Starting new.\n");
-#endif
-        reader_management = NULL;
+        printf("[ERROR] Cannot open reader file: %s\n", reader_management_file);
         return false;
     }
-    fclose(file);
 
-    reader_management = loadTree(reader_management_file);
+    // Lấy size file
+    fseek(f, 0, SEEK_END);
+    long fileSize = ftell(f);
+    rewind(f);
+    printf("[DEBUG] reader file size: %ld\n", fileSize);
+    if (fileSize == 0)
+    {
+        printf("[ERROR] reader file is empty!\n");
+        fclose(f);
+        return false;
+    }
+
+    // Giả sử bạn có struct danh sách
+    reader_management = (Node *)malloc(fileSize);
     if (reader_management == NULL)
     {
-#if DEBUG_MODE
-        printf("Failed to load tree. Initializing new.\n");
-#endif
+        printf("[ERROR] malloc failed\n");
+        fclose(f);
         return false;
     }
 
-    file = fopen(reader_name_management_file, "r");
-    if (file == NULL)
-    {
-#if DEBUG_MODE
-        printf("No existing tree found. Starting new.\n");
-#endif
-        reader_trie = NULL;
-        return false;
-    }
-    fclose(file);
-
-    reader_trie = loadTrieTree(reader_name_management_file);
-    if (reader_trie == NULL)
-    {
-#if DEBUG_MODE
-        printf("Failed to load tree. Initializing new.\n");
-#endif
-        return false;
-    }
-
+    size_t read = fread(reader_management, 1, fileSize, f);
+    printf("[DEBUG] fread result = %zu\n", read);
+    fclose(f);
     return true;
 }
 

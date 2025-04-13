@@ -1,4 +1,4 @@
-#include "management.h"
+#include "utils/management.h"
 
 bool exist_record(Node *root, int key)
 {
@@ -50,6 +50,19 @@ void read_content_from_record(Record *record, void (*callback)(FILE *f, long pac
     __ext_rw_utilize(record, callback);
 }
 
+int getStartSearch(Node *n, int beginingKey)
+{
+    int startSearch;
+    for (startSearch = 0; startSearch < n->num_keys; startSearch++)
+    {
+        if (n->keys[startSearch] < beginingKey)
+            continue;
+        else
+            break;
+    }
+    return startSearch;
+}
+
 void read_bucket_content(Node *root, int beginingKey, int nums, void (*callback)(FILE *f, long package_size))
 {
     Node *n = findLeaf(root, beginingKey);
@@ -60,14 +73,8 @@ void read_bucket_content(Node *root, int beginingKey, int nums, void (*callback)
     }
 
     /// Edge case
-    int startSearch, i;
-    for (startSearch = 0; startSearch < n->num_keys; startSearch++)
-    {
-        if (n->keys[startSearch] < beginingKey)
-            continue;
-        else
-            break;
-    }
+    int i;
+    int startSearch = getStartSearch(n, beginingKey);
 
     while (n != NULL && nums > 0)
     {
@@ -84,6 +91,44 @@ void read_bucket_content(Node *root, int beginingKey, int nums, void (*callback)
         n = n->pointers[ORDER - 1];
     }
 }
+
+// void *read_bucket_content_return(Node *root, int beginingKey, int *actualSize, int nums, size_t package_size)
+// {
+//     Node *n = findLeaf(root, beginingKey);
+//     if (n == NULL)
+//     {
+//         *actualSize = 0;
+//         return NULL;
+//     }
+
+//     int startSearch = getStartSearch(n, beginingKey);
+//     int storage_pos = 0;
+//     int i;
+
+//     void *desired_result = (void *)malloc(package_size * nums);
+//     if (desired_result == NULL)
+//     {
+//         *actualSize = 0;
+//         free(desired_result);
+//         return NULL;
+//     }
+
+//     while (n != NULL && nums > 0)
+//     {
+//         for (i = startSearch; i < n->num_keys && nums > 0; i++)
+//         {
+//             Record *record = (Record *)n->pointers[i];
+//             void *expected = read_content_from_record_return(record);
+//             if (expected == NULL)
+//                 continue;
+//             desired_result[storage_pos] = expected;
+//             storage_pos++;
+//         }
+//     }
+
+//     *actualSize = storage_pos;
+//     return desired_result;
+// }
 
 void update_content(Node *root, int key, void (*callback)(FILE *f, long package_size))
 {
@@ -141,6 +186,9 @@ Node *add_content(Node *root, int key, char content_file[MAX_FILE_NAME_LENGTH], 
 
 void *read_content_from_record_return(Record *record)
 {
+    if (record == NULL || record->deleted)
+        return NULL;
+
     FILE *f = fopen(record->_from, "rb");
     if (f == NULL)
         return NULL;

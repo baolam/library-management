@@ -1,4 +1,4 @@
-#include "trie.h"
+#include "utils/trie.h"
 
 // Convert character to index (a-z and ')
 int charToIndex(char ch)

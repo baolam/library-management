@@ -1,4 +1,4 @@
-#include "gui.h"
+#include "gui/gui.h"
 #include <reader.h>
 
 int main(int argc, char *argv[])

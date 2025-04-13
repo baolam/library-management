@@ -1,0 +1,300 @@
+\doxysection{include/utils/management.h File Tham chiếu}
+\hypertarget{management_8h}{}\label{management_8h}\index{include/utils/management.h@{include/utils/management.h}}
+
+
+Những hàm tiện ích dùng để khai thác hiệu quả B+ Tree.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}utils/bplustreev2.\+h"{}}\newline
+\doxysubsubsection*{Định nghĩa}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{management_8h_ae0b9cdebd01857aeb414353c980f6209}\label{management_8h_ae0b9cdebd01857aeb414353c980f6209} 
+\#define {\bfseries DELETE\+\_\+\+SUCCESS}~2
+\begin{DoxyCompactList}\small\item\em Mã trạng thái xoá thành công. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{management_8h_a8dff01e8c67230d77544c49ed1151a1b}{DELETE\+\_\+\+EXISTED}}~1
+\begin{DoxyCompactList}\small\item\em Mã trạng thái xoá đã tồn tại. \end{DoxyCompactList}\item 
+\Hypertarget{management_8h_a76c97438a316d3700c4396f66e787e59}\label{management_8h_a76c97438a316d3700c4396f66e787e59} 
+\#define {\bfseries DELETE\+\_\+\+FAILED}~0
+\begin{DoxyCompactList}\small\item\em Mã trạng thái xoá thất bại. \end{DoxyCompactList}\item 
+\Hypertarget{management_8h_a7265f51ea717730e55ddbc001f147a85}\label{management_8h_a7265f51ea717730e55ddbc001f147a85} 
+\#define {\bfseries ADD\+\_\+\+CONTENT\+\_\+\+FAILED}~0
+\begin{DoxyCompactList}\small\item\em Mã trạng thái thêm thất bại. \end{DoxyCompactList}\item 
+\Hypertarget{management_8h_a20019d0a9170f3f74d3e358a39c21626}\label{management_8h_a20019d0a9170f3f74d3e358a39c21626} 
+\#define {\bfseries ADD\+\_\+\+CONTENT\+\_\+\+SUCCESS}~1
+\begin{DoxyCompactList}\small\item\em Mã trạng thái thêm thành công. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Các hàm}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{management_8h_a4128578a9414b538e87f4c09f82546fe}{get\+Start\+Search}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}n, int begining\+Key)
+\begin{DoxyCompactList}\small\item\em Hàm trả về vị trí bắt đầu tìm kiếm trong node lá \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{management_8h_ade27b5b1e9e93aa2f1e6bbb6f8779c0d}{exist\+\_\+record}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, int key)
+\begin{DoxyCompactList}\small\item\em Hàm kiểm tra sự tồn tại của bản ghi ứng với khoá được chỉ định hay không. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{management_8h_a8bf6c338f76f959eb131d2a9695125d6}{add\+\_\+content}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, int key, char content\+\_\+file\mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}, void \texorpdfstring{$\ast$}{*}content, size\+\_\+t size, void(\texorpdfstring{$\ast$}{*}callback)(int id, int code, long offset, long length))
+\begin{DoxyCompactList}\small\item\em Hàm thêm dữ liệu vào file lưu trữ, đồng thời cập nhật quản lí B+ tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{management_8h_acb958d60afccf032644f4d29599ed367}{read\+\_\+content}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, int key, void(\texorpdfstring{$\ast$}{*}callback)(FILE \texorpdfstring{$\ast$}{*}f, long package\+\_\+size))
+\begin{DoxyCompactList}\small\item\em Hàm đọc dữ liệu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{management_8h_ac7392f86e8f2db47cf378993ecf5097f}{read\+\_\+content\+\_\+from\+\_\+record}} (\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*}record, void(\texorpdfstring{$\ast$}{*}callback)(FILE \texorpdfstring{$\ast$}{*}f, long package\+\_\+size))
+\begin{DoxyCompactList}\small\item\em Hàm đọc dữ liệu, một mở rộng của read\+\_\+content, do có cung cấp thêm \doxylink{struct_record}{Record}. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{management_8h_af63fa182c73255a620f9dcc18687171a}{read\+\_\+content\+\_\+from\+\_\+record\+\_\+return}} (\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*}record)
+\begin{DoxyCompactList}\small\item\em Hàm đọc dữ liệu có trả về \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{management_8h_aa6f8367d2e8acfc2677d27711c535bea}{read\+\_\+bucket\+\_\+content}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, int begining\+Key, int nums, void(\texorpdfstring{$\ast$}{*}callback)(FILE \texorpdfstring{$\ast$}{*}f, long package\+\_\+size))
+\begin{DoxyCompactList}\small\item\em Hàm đọc liên tiếp một nhóm bản ghi từ khoá chỉ định tìm kiếm ban đầu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{management_8h_aa31d7616ed4d24c1ed65a5ca1b6322bb}{update\+\_\+content}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, int key, void(\texorpdfstring{$\ast$}{*}callback)(FILE \texorpdfstring{$\ast$}{*}f, long package\+\_\+size))
+\begin{DoxyCompactList}\small\item\em Hàm cập nhật dữ liệu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{management_8h_a31ced62c7976fca38ed3ffba8e5306be}{update\+\_\+content\+\_\+from\+\_\+record}} (\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*}record, void(\texorpdfstring{$\ast$}{*}callback)(FILE \texorpdfstring{$\ast$}{*}f, long package\+\_\+size))
+\begin{DoxyCompactList}\small\item\em Hàm cập nhật dữ liệu từ bản ghi. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{management_8h_ad65d5cd8b7422339122a0dbd2077954e}{soft\+\_\+delete}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, int key, void(\texorpdfstring{$\ast$}{*}callback)(int code))
+\begin{DoxyCompactList}\small\item\em Hàm xóa dữ liệu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Mô tả chi tiết}
+Những hàm tiện ích dùng để khai thác hiệu quả B+ Tree. 
+
+\begin{DoxyAuthor}{Tác giả}
+Nguyễn Đức Bảo Lâm 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Phiên bản}
+1.\+0
+\end{DoxyVersion}
+Những hàm được định nghĩa trong file này sẽ tăng hiệu suất cho việc đọc/ghi file, tìm kiếm, thêm/xoá dữ liệu. Đây là file ở mức trừu tượng cao hơn so với B+ tree và Trie.
+
+Tận dụng những tiện ích trong đây sẽ xoá bỏ những khó khăn thao tác do B+ tree mang đến. Đồng thời kết nối giữa B+ Tree và quản lí file nội dung. 
+
+\doxysubsection{Thông tin về định nghĩa}
+\Hypertarget{management_8h_a8dff01e8c67230d77544c49ed1151a1b}\index{management.h@{management.h}!DELETE\_EXISTED@{DELETE\_EXISTED}}
+\index{DELETE\_EXISTED@{DELETE\_EXISTED}!management.h@{management.h}}
+\doxysubsubsection{\texorpdfstring{DELETE\_EXISTED}{DELETE\_EXISTED}}
+{\footnotesize\ttfamily \label{management_8h_a8dff01e8c67230d77544c49ed1151a1b} 
+\#define DELETE\+\_\+\+EXISTED~1}
+
+
+
+Mã trạng thái xoá đã tồn tại. 
+
+\begin{DoxyNote}{Ghi chú}
+thuộc tính deleted của record được set thành true thì mã này sẽ được kích hoạt 
+\end{DoxyNote}
+
+
+\doxysubsection{Thông tin về hàm}
+\Hypertarget{management_8h_a8bf6c338f76f959eb131d2a9695125d6}\index{management.h@{management.h}!add\_content@{add\_content}}
+\index{add\_content@{add\_content}!management.h@{management.h}}
+\doxysubsubsection{\texorpdfstring{add\_content()}{add\_content()}}
+{\footnotesize\ttfamily \label{management_8h_a8bf6c338f76f959eb131d2a9695125d6} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} add\+\_\+content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{int}]{key}{, }\item[{char}]{content\+\_\+file}{\mbox{[}\+MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}, }\item[{void \texorpdfstring{$\ast$}{*}}]{content}{, }\item[{size\+\_\+t}]{size}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{callback~}{)(int id, int code, long offset, long length)}\end{DoxyParamCaption})}
+
+
+
+Hàm thêm dữ liệu vào file lưu trữ, đồng thời cập nhật quản lí B+ tree. 
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & \doxylink{struct_node}{Node} quản lí chính \\
+\hline
+{\em key} & khoá tìm kiếm \\
+\hline
+{\em content\+\_\+file} & file lưu trữ dữ liệu muốn thêm vào \\
+\hline
+{\em content} & nội dung muốn lưu (dùng con trỏ vô kiểu ở đây để tránh định nghĩa hành vi trùng nhau) \\
+\hline
+{\em size} & kích thước dữ liệu lưu trữ \\
+\hline
+{\em callback} & hàm gọi thực thi thông báo để biết trạng thái thêm thành công hay thất bại \\
+\hline
+\end{DoxyParams}
+\Hypertarget{management_8h_ade27b5b1e9e93aa2f1e6bbb6f8779c0d}\index{management.h@{management.h}!exist\_record@{exist\_record}}
+\index{exist\_record@{exist\_record}!management.h@{management.h}}
+\doxysubsubsection{\texorpdfstring{exist\_record()}{exist\_record()}}
+{\footnotesize\ttfamily \label{management_8h_ade27b5b1e9e93aa2f1e6bbb6f8779c0d} 
+bool exist\+\_\+record (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Hàm kiểm tra sự tồn tại của bản ghi ứng với khoá được chỉ định hay không. 
+
+Hàm trả về false ở một số trường hợp sau\+:
+\begin{DoxyItemize}
+\item Không tìm thấy bản ghi ứng với khoá
+\item Bản ghi ứng với khoá đã bị xoá
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & \doxylink{struct_node}{Node} quản lí chính \\
+\hline
+{\em key} & khoá tìm kiếm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+true là có, false là không 
+\end{DoxyReturn}
+\Hypertarget{management_8h_a4128578a9414b538e87f4c09f82546fe}\index{management.h@{management.h}!getStartSearch@{getStartSearch}}
+\index{getStartSearch@{getStartSearch}!management.h@{management.h}}
+\doxysubsubsection{\texorpdfstring{getStartSearch()}{getStartSearch()}}
+{\footnotesize\ttfamily \label{management_8h_a4128578a9414b538e87f4c09f82546fe} 
+int get\+Start\+Search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{n}{, }\item[{int}]{begining\+Key}{}\end{DoxyParamCaption})}
+
+
+
+Hàm trả về vị trí bắt đầu tìm kiếm trong node lá 
+
+Gọi hàm này để phục vụ tiện ích cho nhóm thao tác tìm kiếm dữ liệu liên tục
+
+
+\begin{DoxyParams}{Các tham số}
+{\em n} & \doxylink{struct_node}{Node} lá \\
+\hline
+{\em begining\+Key} & Key bắt đầu tìm kiếm\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+Vị trí bắt đầu tìm kiếm 
+\end{DoxyReturn}
+\Hypertarget{management_8h_aa6f8367d2e8acfc2677d27711c535bea}\index{management.h@{management.h}!read\_bucket\_content@{read\_bucket\_content}}
+\index{read\_bucket\_content@{read\_bucket\_content}!management.h@{management.h}}
+\doxysubsubsection{\texorpdfstring{read\_bucket\_content()}{read\_bucket\_content()}}
+{\footnotesize\ttfamily \label{management_8h_aa6f8367d2e8acfc2677d27711c535bea} 
+void read\+\_\+bucket\+\_\+content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{int}]{begining\+Key}{, }\item[{int}]{nums}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{callback~}{)(FILE \texorpdfstring{$\ast$}{*}f, long package\+\_\+size)}\end{DoxyParamCaption})}
+
+
+
+Hàm đọc liên tiếp một nhóm bản ghi từ khoá chỉ định tìm kiếm ban đầu. 
+
+Đây là một lợi thế mà B+ Tree mang lại. Do dữ liệu được lưu trữ theo dạng tương tự linked list ở những node lá, nên hàm này có thể được tận dụng để tăng tốc độ hiệu quả.
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & \doxylink{struct_node}{Node} quản lí chính \\
+\hline
+{\em begining\+Key} & khoá tìm kiếm ban đầu \\
+\hline
+{\em nums} & số lượng dữ liệu muốn đọc \\
+\hline
+{\em callback} & hàm gọi thao tác đọc thêm, tương tự như các phương thức đọc trên \\
+\hline
+\end{DoxyParams}
+Edge case\Hypertarget{management_8h_acb958d60afccf032644f4d29599ed367}\index{management.h@{management.h}!read\_content@{read\_content}}
+\index{read\_content@{read\_content}!management.h@{management.h}}
+\doxysubsubsection{\texorpdfstring{read\_content()}{read\_content()}}
+{\footnotesize\ttfamily \label{management_8h_acb958d60afccf032644f4d29599ed367} 
+void read\+\_\+content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{int}]{key}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{callback~}{)(FILE \texorpdfstring{$\ast$}{*}f, long package\+\_\+size)}\end{DoxyParamCaption})}
+
+
+
+Hàm đọc dữ liệu. 
+
+Hàm này sẽ tiến hành một số thao tác cần thiết để chuẩn bị đọc dữ liệu. Cụ thể, khi gọi hàm này, logic thực thi sẽ giúp kiểm tra sự tồn tại của file, kiểm tra tính khả thi của dữ liệu, đồng thời nhảy đến vị trí đọc để đọc dữ liệu
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & \doxylink{struct_node}{Node} quản lí chính \\
+\hline
+{\em key} & Khoá tìm kiếm \\
+\hline
+{\em callback} & hàm gọi thao tác để đọc dữ liệu (dùng lệnh fread và dùng struct hứng dữ liệu) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{management_8h_ac7392f86e8f2db47cf378993ecf5097f}\index{management.h@{management.h}!read\_content\_from\_record@{read\_content\_from\_record}}
+\index{read\_content\_from\_record@{read\_content\_from\_record}!management.h@{management.h}}
+\doxysubsubsection{\texorpdfstring{read\_content\_from\_record()}{read\_content\_from\_record()}}
+{\footnotesize\ttfamily \label{management_8h_ac7392f86e8f2db47cf378993ecf5097f} 
+void read\+\_\+content\+\_\+from\+\_\+record (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*}}]{record}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{callback~}{)(FILE \texorpdfstring{$\ast$}{*}f, long package\+\_\+size)}\end{DoxyParamCaption})}
+
+
+
+Hàm đọc dữ liệu, một mở rộng của read\+\_\+content, do có cung cấp thêm \doxylink{struct_record}{Record}. 
+
+Hàm này tận dụng những gì đã được thực hiện ở hàm read\+\_\+content, chỉ tinh chỉnh thêm ở bước nhận tham số đầu vào và chỉ kiểm tra tính khả thi của việc đọc thui
+
+
+\begin{DoxyParams}{Các tham số}
+{\em record} & bản ghi dữ liệu \\
+\hline
+{\em callback} & hàm thao tác đọc dữ liệu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{management_8h_af63fa182c73255a620f9dcc18687171a}\index{management.h@{management.h}!read\_content\_from\_record\_return@{read\_content\_from\_record\_return}}
+\index{read\_content\_from\_record\_return@{read\_content\_from\_record\_return}!management.h@{management.h}}
+\doxysubsubsection{\texorpdfstring{read\_content\_from\_record\_return()}{read\_content\_from\_record\_return()}}
+{\footnotesize\ttfamily \label{management_8h_af63fa182c73255a620f9dcc18687171a} 
+void \texorpdfstring{$\ast$}{*} read\+\_\+content\+\_\+from\+\_\+record\+\_\+return (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*}}]{record}{}\end{DoxyParamCaption})}
+
+
+
+Hàm đọc dữ liệu có trả về 
+
+Hàm này được dùng cho trường hợp gắn kết giao diện, khi nhóm thao tác callback không được hiệu quả hoặc xử lí tương đối phức tạp.
+
+Nguyên lí hoạt động tương tự như hàm read\+\_\+content\+\_\+from\+\_\+record
+
+
+\begin{DoxyParams}{Các tham số}
+{\em record} & bản ghi dữ liệu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+kết quả đọc dữ liệu, con trỏ vô kiểu, cần ép kiểu để sử dụng 
+\end{DoxyReturn}
+\Hypertarget{management_8h_ad65d5cd8b7422339122a0dbd2077954e}\index{management.h@{management.h}!soft\_delete@{soft\_delete}}
+\index{soft\_delete@{soft\_delete}!management.h@{management.h}}
+\doxysubsubsection{\texorpdfstring{soft\_delete()}{soft\_delete()}}
+{\footnotesize\ttfamily \label{management_8h_ad65d5cd8b7422339122a0dbd2077954e} 
+void soft\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{int}]{key}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{callback~}{)(int code)}\end{DoxyParamCaption})}
+
+
+
+Hàm xóa dữ liệu. 
+
+Bản chất chỉ là xoá quản lí. Dữ liệu vẫn còn tồn tại ở file quản lí
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & \doxylink{struct_node}{Node} quản lí chính \\
+\hline
+{\em key} & Khoá quản lí chính \\
+\hline
+{\em callback} & hàm gọi trạng thái của thao tác xoá dữ liệu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{management_8h_aa31d7616ed4d24c1ed65a5ca1b6322bb}\index{management.h@{management.h}!update\_content@{update\_content}}
+\index{update\_content@{update\_content}!management.h@{management.h}}
+\doxysubsubsection{\texorpdfstring{update\_content()}{update\_content()}}
+{\footnotesize\ttfamily \label{management_8h_aa31d7616ed4d24c1ed65a5ca1b6322bb} 
+void update\+\_\+content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{int}]{key}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{callback~}{)(FILE \texorpdfstring{$\ast$}{*}f, long package\+\_\+size)}\end{DoxyParamCaption})}
+
+
+
+Hàm cập nhật dữ liệu. 
+
+Nếu chỉ với việc đọc file txt thông thường. Thao tác sẽ tương đối khó khăn. Nhưng do cách quy về dạng file nhị phân và cách lưu trữ nên việc cập nhật dữ liệu sẽ trở nên dễ dàng hơn (thông qua thao tác fwrite).
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & \doxylink{struct_node}{Node} quản lí chính \\
+\hline
+{\em key} & khoá tìm kiếm \\
+\hline
+{\em callback} & hàm gọi lấy dữ liệu, định nghĩa dữ liệu và viết dữ liệu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{management_8h_a31ced62c7976fca38ed3ffba8e5306be}\index{management.h@{management.h}!update\_content\_from\_record@{update\_content\_from\_record}}
+\index{update\_content\_from\_record@{update\_content\_from\_record}!management.h@{management.h}}
+\doxysubsubsection{\texorpdfstring{update\_content\_from\_record()}{update\_content\_from\_record()}}
+{\footnotesize\ttfamily \label{management_8h_a31ced62c7976fca38ed3ffba8e5306be} 
+void update\+\_\+content\+\_\+from\+\_\+record (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*}}]{record}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{callback~}{)(FILE \texorpdfstring{$\ast$}{*}f, long package\+\_\+size)}\end{DoxyParamCaption})}
+
+
+
+Hàm cập nhật dữ liệu từ bản ghi. 
+
+Là một mở rộng của update\+\_\+content.
+
+
+\begin{DoxyParams}{Các tham số}
+{\em record} & bản ghi dữ liệu \\
+\hline
+{\em callback} & nhiệm vụ tương tự callback trên \\
+\hline
+\end{DoxyParams}
