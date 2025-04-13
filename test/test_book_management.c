@@ -48,7 +48,7 @@ int main()
     int totalBooks = 200;
     int id;
 
-    preparate_book();
+    prepare_book();
 
     printf("Generate book :\n");
     int skipCode;

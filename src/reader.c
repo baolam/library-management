@@ -1,5 +1,6 @@
 #include "reader.h"
-
+#include "borrow_return.h"
+#include <errno.h> // Thêm để lấy mã lỗi hệ thống
 #define TEST_READER
 #define DEBUG_MODE 0
 
@@ -25,6 +26,11 @@ void show_reader(Readers reader)
 
 void show_reader_record(FILE *f, long size)
 {
+    if (f == NULL)
+    {
+        printf("Error: Cannot read reader record.\n");
+        return;
+    }
     Readers r;
     fread(&r, sizeof(Readers), 1, f);
     show_reader(r);
@@ -47,6 +53,12 @@ void search_reader_by_id(int id)
 
 void search_reader_by_name(const char *name, int maxNumbers)
 {
+    if (reader_trie == NULL)
+    {
+        printf("Error: Reader trie is not initialized.\n");
+        return;
+    }
+
     int recommend_size = 0;
     char *recommend[maxNumbers];
 
@@ -73,18 +85,35 @@ void search_reader_by_name(const char *name, int maxNumbers)
 
 void add_reader_callback(int id, int code, long offset, long length)
 {
+#if DEBUG_MODE
     if (code == ADD_CONTENT_SUCCESS)
     {
-        printf("Successfully added!\n");
+        printf("[DEBUG] Successfully added reader ID %d at offset %ld\n", id, offset);
     }
     else
     {
-        printf("Failed to add reader.\n");
+        printf("[DEBUG] Failed to add reader ID %d. Error code: %d\n", id, code);
+    }
+#endif
+    // Luôn in thông báo cho người dùng
+    if (code == ADD_CONTENT_SUCCESS)
+    {
+        printf("Successfully added reader ID %d!\n", id);
+    }
+    else
+    {
+        printf("Failed to add reader ID %d.\n", id);
     }
 }
 
 void add_reader(Readers *r)
 {
+    if (r == NULL)
+    {
+        printf("[DEBUG] Error: Reader pointer is NULL\n");
+        return;
+    }
+
     int key = r->readerId;
 #if DEBUG_MODE
     printf("[DEBUG] Adding reader ID = %d\n", key);
@@ -96,6 +125,37 @@ void add_reader(Readers *r)
         return;
     }
 
+#if DEBUG_MODE
+    printf("[DEBUG] Checking file %s\n", reader_content_file);
+#endif
+    FILE *f = fopen(reader_content_file, "ab");
+    if (f == NULL)
+    {
+#if DEBUG_MODE
+        printf("[DEBUG] Error: Cannot open file %s (errno: %d)\n", reader_content_file, errno);
+#endif
+        printf("Error: Cannot open reader content file.\n");
+        return;
+    }
+#if DEBUG_MODE
+    printf("[DEBUG] File %s opened successfully\n", reader_content_file);
+#endif
+    fclose(f);
+
+#if DEBUG_MODE
+    if (reader_management == NULL)
+    {
+        printf("[DEBUG] reader_management is NULL\n");
+    }
+    else
+    {
+        printf("[DEBUG] reader_management is initialized\n");
+    }
+#endif
+
+#if DEBUG_MODE
+    printf("[DEBUG] Calling add_content for reader ID %d\n", key);
+#endif
     Node *new_tree = add_content(
         reader_management,
         key,
@@ -104,19 +164,48 @@ void add_reader(Readers *r)
         sizeof(Readers),
         add_reader_callback);
 
-    if (new_tree != NULL)
+    if (new_tree == NULL)
+    {
+#if DEBUG_MODE
+        printf("[DEBUG] Failed to add reader to B+ tree\n");
+#endif
+    }
+    else
     {
         reader_management = new_tree;
 #if DEBUG_MODE
+        printf("[DEBUG] Successfully updated B+ tree\n");
         print_tree_keys(reader_management);
 #endif
     }
 
+    // Kiểm tra và khởi tạo reader_trie nếu cần
+    if (reader_trie == NULL)
+    {
+#if DEBUG_MODE
+        printf("[DEBUG] reader_trie is NULL, initializing...\n");
+#endif
+        reader_trie = makeTrieNode();
+        if (reader_trie == NULL)
+        {
+            printf("Error: Failed to initialize reader trie.\n");
+            return;
+        }
+    }
+#if DEBUG_MODE
+    printf("[DEBUG] Inserting %s into trie\n", r->fullName);
+#endif
     insertIntoTrie(reader_trie, r->fullName, key);
 }
 
 void update_reader_callback(FILE *f, long size)
 {
+    if (f == NULL)
+    {
+        printf("Error: Cannot read reader record for update.\n");
+        return;
+    }
+
     Readers r;
     fread(&r, sizeof(Readers), 1, f);
     printf("Current information:\n");
@@ -130,19 +219,26 @@ void update_reader_callback(FILE *f, long size)
     fgets(r.phoneNumber, sizeof(r.phoneNumber), stdin);
     r.phoneNumber[strcspn(r.phoneNumber, "\n")] = 0;
 
-    printf("Enter new strcspnaddress: ");
+    printf("Enter new address: ");
     fgets(r.address, sizeof(r.address), stdin);
     r.address[strcspn(r.address, "\n")] = 0;
 
-    // fseek(f, 0, SEEK_SET);
+    // Ghi đè thông tin mới vào file
+    fseek(f, -sizeof(Readers), SEEK_CUR); // Quay lại vị trí bắt đầu của bản ghi
     fwrite(&r, sizeof(Readers), 1, f);
 
-    printf("Update successful;y!\n");
+    printf("Update successful!\n");
 }
 
 void update_reader(Readers *reader)
 {
-    int key = (reader->readerId);
+    if (reader == NULL)
+    {
+        printf("Error: Reader pointer is NULL.\n");
+        return;
+    }
+
+    int key = reader->readerId;
     Record *record = find(reader_management, key);
     if (record == NULL || record->deleted)
     {
@@ -171,18 +267,72 @@ void delete_reader_callback(int code)
 
 void delete_reader(int id)
 {
+    // Kiểm tra xem người đọc có đang mượn sách không
+    Record *borrow_record = find(borrow_return_management, id);
+    if (borrow_record != NULL && !borrow_record->deleted)
+    {
+        BorrowReturn b;
+        FILE *f = fopen(borrow_record->_from, "rb");
+        if (f == NULL)
+        {
+            printf("Error: Cannot open borrow record file %s\n", borrow_record->_from);
+            return;
+        }
+        fseek(f, borrow_record->offset, SEEK_SET);
+        if (fread(&b, sizeof(BorrowReturn), 1, f) != 1)
+        {
+            printf("Error: Failed to read borrow record for Reader ID %d\n", id);
+            fclose(f);
+            return;
+        }
+        fclose(f);
+        if (b.status == 0) // Đang mượn
+        {
+            printf("Error: Reader ID %d is currently borrowing books. Cannot delete.\n", id);
+            return;
+        }
+    }
 
     soft_delete(reader_management, id, delete_reader_callback);
 }
-// ------------------- borrow / return -------------------
 
 // ------------------- Save / Load Tree -------------------
-void preparate_reader()
+
+void prepare_reader()
 {
     if (reader_trie == NULL)
     {
         reader_trie = makeTrieNode();
+        if (reader_trie == NULL)
+        {
+            printf("Error: Failed to initialize reader trie.\n");
+        }
     }
+
+    // Đảm bảo file tồn tại
+    FILE *file = fopen(reader_management_file, "a");
+    if (file == NULL)
+    {
+        printf("Error: Cannot create reader management file %s\n", reader_management_file);
+        return;
+    }
+    fclose(file);
+
+    file = fopen(reader_name_management_file, "a");
+    if (file == NULL)
+    {
+        printf("Error: Cannot create reader name management file %s\n", reader_name_management_file);
+        return;
+    }
+    fclose(file);
+
+    file = fopen(reader_content_file, "a");
+    if (file == NULL)
+    {
+        printf("Error: Cannot create reader content file %s\n", reader_content_file);
+        return;
+    }
+    fclose(file);
 }
 
 void save_reader_management()
@@ -191,7 +341,7 @@ void save_reader_management()
     saveTrieTree(reader_name_management_file, reader_trie);
 }
 
-void load_reader_management()
+bool load_reader_management()
 {
     FILE *file = fopen(reader_management_file, "r");
     if (file == NULL)
@@ -200,7 +350,7 @@ void load_reader_management()
         printf("No existing tree found. Starting new.\n");
 #endif
         reader_management = NULL;
-        return;
+        return false;
     }
     fclose(file);
 
@@ -210,6 +360,7 @@ void load_reader_management()
 #if DEBUG_MODE
         printf("Failed to load tree. Initializing new.\n");
 #endif
+        return false;
     }
 
     file = fopen(reader_name_management_file, "r");
@@ -219,7 +370,7 @@ void load_reader_management()
         printf("No existing tree found. Starting new.\n");
 #endif
         reader_trie = NULL;
-        return;
+        return false;
     }
     fclose(file);
 
@@ -229,7 +380,10 @@ void load_reader_management()
 #if DEBUG_MODE
         printf("Failed to load tree. Initializing new.\n");
 #endif
+        return false;
     }
+
+    return true;
 }
 
 void print_tree_keys(Node *root)

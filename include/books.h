@@ -38,7 +38,7 @@
 typedef struct
 {
     int bookId;               ///< Mã sách, cũng là khóa chính, dùng như khoá tìm kiếm cho quản lí
-    char title[MAX_TITLE];    ///< tiêu đề của sách, không quá 50 kí tự
+    char title[MAX_TITLE];    ///< Tiêu đề của sách, không quá 50 kí tự
     char author[MAX_AUTHOR];  ///< Tác giả của sách, không quá 50 kí tự
     char genre[MAX_GENRE_NO]; ///< Thể loại sách, không quá 100 kí tự
     int publicationYear;      ///< Năm xuất bản
@@ -46,11 +46,11 @@ typedef struct
 } Book;
 
 extern char book_management_file[MAX_FILE_NAME_LENGTH]; ///< File quản lí sách
-extern char book_trie_management[MAX_FILE_NAME_LENGTH]; ///< File quản lí cây Trie, dùng hỗ trợ cho tìm kiếm bằng tên tác giả
+extern char book_trie_management[MAX_FILE_NAME_LENGTH]; ///< File quản lí cây Trie, dùng hỗ trợ cho tìm kiếm bằng tiêu đề sách
 extern char book_content_file[MAX_FILE_NAME_LENGTH];    ///< File chứa nội dung sách, file quản lí chính
 
 extern Node *book_management; ///< Cây B+ Tree quản lí sách
-extern TrieNode *book_trie;   ///< Cây trie quản lí author
+extern TrieNode *book_trie;   ///< Cây trie quản lí tiêu đề sách
 
 /// Các hàm thao tác với Book
 
@@ -67,7 +67,7 @@ void show_book(Book book);
 /***
  * @brief Thêm một quyển sách mới
  *
- * Việc thêm một quyển sách mới gồm thêm vào cây B+ Tree, cây Trie đối với Author.
+ * Việc thêm một quyển sách mới gồm thêm vào cây B+ Tree, cây Trie đối với tiêu đề.
  * Nguyên tắc hoạt động:
  * Nếu bản ghi đã tồn tại (đảm bảo Id phải mới) --> không thêm
  * Nếu chưa tồn tại tiến hành thêm.
@@ -79,7 +79,7 @@ void add_book(Book *book);
 /**
  * @brief Xóa một quyển sách
  *
- * Việc xoá một quyển sách bao gồm việc xoá bản ghi trong cây B+ Tree, cây Trie đối với Author.
+ * Việc xoá một quyển sách bao gồm việc xoá bản ghi trong cây B+ Tree, cây Trie đối với tiêu đề.
  * Do tính chất dữ liệu lưu trữ trong file nội dung là liên tục
  * nên việc xoá trực tiếp khỏi file nội dung là không nên do sẽ ghi chuyển dịch
  * lưu trữ.
@@ -114,12 +114,12 @@ void update_book(int id);
 void search_book_by_id(int id);
 
 /**
- * @brief Tìm kiếm sách bằng Author
+ * @brief Tìm kiếm sách bằng tiêu đề
  *
- * Cung cấp vào tên Author hoặc nhóm chữ cái đầu của tên Author muốn tìm kiếm
- * Kết quả hiển thị là những quyển sách có tên bắt đầu bằng từ tìm kiếm
+ * Cung cấp vào tiêu đề hoặc nhóm chữ cái đầu của tiêu đề muốn tìm kiếm
+ * Kết quả hiển thị là những quyển sách có tiêu đề bắt đầu bằng từ tìm kiếm
  *
- * @param prefix là nhóm chữ cái đầu của tên Author
+ * @param prefix là nhóm chữ cái đầu của tiêu đề
  * @param maxNumbers là số lượng kết quả tối đa
  */
 void search_book_by_title(const char *prefix, int maxNumbers);
@@ -136,20 +136,18 @@ void search_book_by_title(const char *prefix, int maxNumbers);
  * Cách hoạt động:
  * + Lấy Record tương ứng ứng với Id kèm theo
  * + Đọc dữ liệu từ file nội dung ứng với Record
- * + Gghi nhận dữ liệu và trả về kết quả
+ * + Ghi nhận dữ liệu và trả về kết quả
  *
  * @param id Id của quyển sách cần tìm
  */
 Book *search_book(int id);
 
-/// Lưu trữ vào file, load dữ liệu ra từ file
-
 /**
- * @brief Hàm hỗ trợ cho cây Trie, tìm kiếm = Author
+ * @brief Hàm hỗ trợ cho cây Trie, tìm kiếm bằng tiêu đề
  *
  * Bản chất chỉ là tạo node quản lí nếu cây chưa tồn tại
  */
-void preparate_book();
+void prepare_book();
 
 /**
  * @brief Lưu trữ dữ liệu
@@ -165,6 +163,6 @@ void save_book_management();
  *
  * Lấy nội dung dữ liệu đã lưu trữ trước đó
  */
-void load_book_management();
+bool load_book_management();
 
 #endif
