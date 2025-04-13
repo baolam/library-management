@@ -279,7 +279,6 @@ int main()
     printf("Saving data before exiting...\n");
     save_reader_management();
     save_book_management();
-    saveTree(borrow_return_management, borrow_return_management_file);
     printf("Data saved successfully. Exiting.\n");
     return 0;
 }
