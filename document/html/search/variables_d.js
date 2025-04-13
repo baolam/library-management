@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['title_0',['title',['../struct_book.html#a8465f8a9dca23179416c97ce6dea7a30',1,'Book']]],
-  ['titles_1',['titles',['../fake_8h.html#a7e28b32b579982a2ed278b80adcdd492',1,'fake.h']]]
+  ['quantities_0',['quantities',['../struct_borrow_return.html#a9118cf8d4086333bd172aa7ab6539948',1,'BorrowReturn']]]
 ];

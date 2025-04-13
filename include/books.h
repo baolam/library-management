@@ -21,9 +21,9 @@
 #include <string.h>
 #include <time.h>
 
-#include "management.h"
-#include "trie.h"
-#include "bplustreev2.h"
+#include "utils/management.h"
+#include "utils/trie.h"
+#include "utils/bplustreev2.h"
 
 /**
  * @struct Book
@@ -104,6 +104,14 @@ void delete_book(int id);
 void update_book(int id);
 
 /**
+ * @brief Cập nhật thông tin một quyển sách, cập nhật vào file nội dung
+ *
+ * Gọi hàm này không cần dùng đến callback
+ * @param book cuốn sách muốn cập nhật
+ */
+int update_book_from_object(Book *book);
+
+/**
  * @brief Tìm kiếm sách bằng Id
  *
  * Kết quả trả về sẽ hiển thị ra màn hình console, (chưa tích hợp hiển thị
@@ -145,6 +153,7 @@ Book *search_book_by_title_direct(const char *prefix, int *actualBooks, int maxN
  *
  * Dùng hàm này khi cần hứng chính xác một mảng các quyển sách. Được dùng cho
  * nhóm thao tác giao diện
+ * @note Dùng xong nhớ free để tránh lãng phí bộ nhớ
  *
  * @param beginingKey là vị trí bắt đầu đọc đầu tiên
  * @param quanities là số lượng sách muốn lấy sau khi kiếm Id đầu tiên
@@ -179,7 +188,7 @@ Book *search_book(int id);
  *
  * Bản chất chỉ là tạo node quản lí nếu cây chưa tồn tại
  */
-void preparate_book();
+void prepare_book();
 
 /**
  * @brief Lưu trữ dữ liệu

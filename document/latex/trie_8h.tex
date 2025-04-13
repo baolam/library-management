@@ -1,5 +1,5 @@
-\doxysection{include/trie.h File Tham chiếu}
-\hypertarget{trie_8h}{}\label{trie_8h}\index{include/trie.h@{include/trie.h}}
+\doxysection{include/utils/trie.h File Tham chiếu}
+\hypertarget{trie_8h}{}\label{trie_8h}\index{include/utils/trie.h@{include/utils/trie.h}}
 
 
 Cấu trúc dữ liệu Trie, dùng cho lưu trữ và quản lí các chuỗi kí tự  
@@ -49,6 +49,8 @@ void \mbox{\hyperlink{trie_8h_a20399a270053730c16f4636ddeaa4bdf}{insert\+Into\+T
 \begin{DoxyCompactList}\small\item\em Hàm thêm từ vào Trie. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{trie_8h_a6f4bed4c59354e39e2318153f3b6f0ed}{remove\+Word}} (\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}root, char \texorpdfstring{$\ast$}{*}word)
 \begin{DoxyCompactList}\small\item\em Hàm xóa từ trong Trie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{trie_8h_a4ce1af9902523c25aafd201613db71ab}{remove\+Id\+From\+Word}} (\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}root, char \texorpdfstring{$\ast$}{*}word, int id)
+\begin{DoxyCompactList}\small\item\em Hàm xoá Id khỏi quản lí. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{trie_8h_a759222c75b700283cb2e071ab0da6839}{recommend\+Prefix}} (\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}root, char \texorpdfstring{$\ast$}{*}prefix, int max\+Recommend, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}recommend, int \texorpdfstring{$\ast$}{*}recommend\+Size)
 \begin{DoxyCompactList}\small\item\em Hàm đưa ra một chuỗi các từ bắt đầu = prefix. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{trie_8h_ad7b1309180a0be22666afbce536d8c75}{free\+Trie}} (\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}root)
@@ -177,7 +179,7 @@ Thêm từ vào trie là thêm luôn cả Id ứng với từ đó. Lưu ý khá
 {\em id} & khoá ứng với từ đó \\
 \hline
 \end{DoxyParams}
-\Hypertarget{trie_8h_ad2aa3ceb08b5c05b48b3e56bc2d2926e}\index{trie.h@{trie.h}!loadTrieTree@{loadTrieTree}}
+Make sure lowercase\Hypertarget{trie_8h_ad2aa3ceb08b5c05b48b3e56bc2d2926e}\index{trie.h@{trie.h}!loadTrieTree@{loadTrieTree}}
 \index{loadTrieTree@{loadTrieTree}!trie.h@{trie.h}}
 \doxysubsubsection{\texorpdfstring{loadTrieTree()}{loadTrieTree()}}
 {\footnotesize\ttfamily \label{trie_8h_ad2aa3ceb08b5c05b48b3e56bc2d2926e} 
@@ -231,6 +233,31 @@ Hàm này sẽ làm hàm hỗ trợ đưa ra gợi ý
 {\em recommend} & List danh sách gợi ý \\
 \hline
 {\em recommend\+Size} & kích thước danh sách gợi ý thực tế \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trie_8h_a4ce1af9902523c25aafd201613db71ab}\index{trie.h@{trie.h}!removeIdFromWord@{removeIdFromWord}}
+\index{removeIdFromWord@{removeIdFromWord}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{removeIdFromWord()}{removeIdFromWord()}}
+{\footnotesize\ttfamily \label{trie_8h_a4ce1af9902523c25aafd201613db71ab} 
+void remove\+Id\+From\+Word (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{word}{, }\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Hàm xoá Id khỏi quản lí. 
+
+Sẽ tiến hành xoá theo thứ tự ưu tiên sau\+:
+\begin{DoxyItemize}
+\item Xoá Id, giảm Id
+\item Khi không còn dữ liệu, xoá word
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & node gốc \\
+\hline
+{\em word} & từ tìm kiếm muốn xoá \\
+\hline
+{\em id} & Id muốn xoá \\
 \hline
 \end{DoxyParams}
 \Hypertarget{trie_8h_a6f4bed4c59354e39e2318153f3b6f0ed}\index{trie.h@{trie.h}!removeWord@{removeWord}}

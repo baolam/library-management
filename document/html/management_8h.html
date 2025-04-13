@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library management: include/management.h File Tham chiếu</title>
+<title>Library management: include/utils/management.h File Tham chiếu</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -112,9 +112,8 @@ $(function(){initNavTree('management_8h.html',''); initResizable(true); });
 
 <p>Những hàm tiện ích dùng để khai thác hiệu quả B+ Tree.  
 <a href="#details">Tiếp...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="bplustreev2_8h_source.html">bplustreev2.h</a>&quot;</code><br />
-<code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &lt;windows.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="bplustreev2_8h_source.html">utils/bplustreev2.h</a>&quot;</code><br />
 </div>
 <p><a href="management_8h_source.html">Tới mã nguồn của file này.</a></p>
 <table class="memberdecls">
@@ -139,6 +138,18 @@ $(function(){initNavTree('management_8h.html',''); initResizable(true); });
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>ADD_CONTENT_SUCCESS</b>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:a20019d0a9170f3f74d3e358a39c21626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mã trạng thái thêm thành công. <br /></td></tr>
 <tr class="separator:a20019d0a9170f3f74d3e358a39c21626"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adba71ee53474d8e915228b871ee314dc" id="r_adba71ee53474d8e915228b871ee314dc"><td class="memItemLeft" align="right" valign="top"><a id="adba71ee53474d8e915228b871ee314dc" name="adba71ee53474d8e915228b871ee314dc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UPDATE_FAILED</b>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:adba71ee53474d8e915228b871ee314dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mã trạng thái cập nhật thất bại. <br /></td></tr>
+<tr class="separator:adba71ee53474d8e915228b871ee314dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0f48f2bf0db37d7e5e9ba2f6890bde4" id="r_ab0f48f2bf0db37d7e5e9ba2f6890bde4"><td class="memItemLeft" align="right" valign="top"><a id="ab0f48f2bf0db37d7e5e9ba2f6890bde4" name="ab0f48f2bf0db37d7e5e9ba2f6890bde4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UPDATE_SUCCESS</b>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:ab0f48f2bf0db37d7e5e9ba2f6890bde4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mã trạng thái cập nhật thành công. <br /></td></tr>
+<tr class="separator:ab0f48f2bf0db37d7e5e9ba2f6890bde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab034727e78d0bce5a231ecd3f7f5ec71" id="r_ab034727e78d0bce5a231ecd3f7f5ec71"><td class="memItemLeft" align="right" valign="top"><a id="ab034727e78d0bce5a231ecd3f7f5ec71" name="ab034727e78d0bce5a231ecd3f7f5ec71"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UPDATE_FILE_FAILED</b>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:ab034727e78d0bce5a231ecd3f7f5ec71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mã trạng thái cập nhật thất bại do lỗi file. <br /></td></tr>
+<tr class="separator:ab034727e78d0bce5a231ecd3f7f5ec71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Các hàm</h2></td></tr>
@@ -169,6 +180,9 @@ Các hàm</h2></td></tr>
 <tr class="memitem:a31ced62c7976fca38ed3ffba8e5306be" id="r_a31ced62c7976fca38ed3ffba8e5306be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31ced62c7976fca38ed3ffba8e5306be">update_content_from_record</a> (<a class="el" href="struct_record.html">Record</a> *record, void(*callback)(FILE *f, long package_size))</td></tr>
 <tr class="memdesc:a31ced62c7976fca38ed3ffba8e5306be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm cập nhật dữ liệu từ bản ghi.  <br /></td></tr>
 <tr class="separator:a31ced62c7976fca38ed3ffba8e5306be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62c26c22380dea04c7f251294534d313" id="r_a62c26c22380dea04c7f251294534d313"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62c26c22380dea04c7f251294534d313">update_content_without_callback</a> (<a class="el" href="struct_record.html">Record</a> *record, void *content)</td></tr>
+<tr class="memdesc:a62c26c22380dea04c7f251294534d313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm cập nhật dữ liệu trực tiếp không thông qua gọi callback.  <br /></td></tr>
+<tr class="separator:a62c26c22380dea04c7f251294534d313"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad65d5cd8b7422339122a0dbd2077954e" id="r_ad65d5cd8b7422339122a0dbd2077954e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad65d5cd8b7422339122a0dbd2077954e">soft_delete</a> (<a class="el" href="struct_node.html">Node</a> *root, int key, void(*callback)(int code))</td></tr>
 <tr class="memdesc:ad65d5cd8b7422339122a0dbd2077954e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm xóa dữ liệu.  <br /></td></tr>
 <tr class="separator:ad65d5cd8b7422339122a0dbd2077954e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -359,6 +373,7 @@ Các hàm</h2></td></tr>
   </table>
   </dd>
 </dl>
+<p>Edge case</p>
 
 </div>
 </div>
@@ -563,12 +578,36 @@ Các hàm</h2></td></tr>
 
 </div>
 </div>
+<a id="a62c26c22380dea04c7f251294534d313" name="a62c26c22380dea04c7f251294534d313"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62c26c22380dea04c7f251294534d313">&#9670;&#160;</a></span>update_content_without_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int update_content_without_callback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_record.html">Record</a> *</td>          <td class="paramname"><span class="paramname"><em>record</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>content</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hàm cập nhật dữ liệu trực tiếp không thông qua gọi callback. </p>
+<dl class="section return"><dt>Giá trị trả về</dt><dd>trạng thái cập nhật </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="management_8h.html">management.h</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_821002d4f10779a80d4fb17bc32f21f1.html">utils</a></li><li class="navelem"><a class="el" href="management_8h.html">management.h</a></li>
     <li class="footer">Được biên soạn bởi <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

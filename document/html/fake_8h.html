@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library management: include/fake.h File Tham chiếu</title>
+<title>Library management: include/utils/fake.h File Tham chiếu</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -118,7 +118,7 @@ $(function(){initNavTree('fake_8h.html',''); initResizable(true); });
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="books_8h_source.html">books.h</a>&quot;</code><br />
-<code>#include &quot;reader.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="reader_8h_source.html">reader.h</a>&quot;</code><br />
 </div>
 <p><a href="fake_8h_source.html">Tới mã nguồn của file này.</a></p>
 <table class="memberdecls">
@@ -152,6 +152,26 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><b>authors</b> []</td>
 char *&#160;</td><td class="memItemRight" valign="bottom"><b>genres</b> [<a class="el" href="#a69b7a2d67e969d3e0921f3f23d1947f2">TOTAL_GENRE</a>]</td></tr>
 <tr class="memdesc:aea973a51ee2bdf1588de4f7324c727cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thể loại sách. <br /></td></tr>
 <tr class="separator:aea973a51ee2bdf1588de4f7324c727cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37d874b5ac72b82ad334c4d5bd5a585d" id="r_a37d874b5ac72b82ad334c4d5bd5a585d"><td class="memItemLeft" align="right" valign="top"><a id="a37d874b5ac72b82ad334c4d5bd5a585d" name="a37d874b5ac72b82ad334c4d5bd5a585d"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><b>firstnames</b> []</td></tr>
+<tr class="memdesc:a37d874b5ac72b82ad334c4d5bd5a585d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chứa các tên thông dụng, phục vụ thao tác sinh. <br /></td></tr>
+<tr class="separator:a37d874b5ac72b82ad334c4d5bd5a585d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1339bead67ba2c737905372f193d1f9" id="r_ac1339bead67ba2c737905372f193d1f9"><td class="memItemLeft" align="right" valign="top"><a id="ac1339bead67ba2c737905372f193d1f9" name="ac1339bead67ba2c737905372f193d1f9"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><b>lastnames</b> []</td></tr>
+<tr class="memdesc:ac1339bead67ba2c737905372f193d1f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chứa các họ thông dụng. <br /></td></tr>
+<tr class="separator:ac1339bead67ba2c737905372f193d1f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85893bc837e4da26b41a2d6cf76bb29c" id="r_a85893bc837e4da26b41a2d6cf76bb29c"><td class="memItemLeft" align="right" valign="top"><a id="a85893bc837e4da26b41a2d6cf76bb29c" name="a85893bc837e4da26b41a2d6cf76bb29c"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><b>middlenames</b> []</td></tr>
+<tr class="memdesc:a85893bc837e4da26b41a2d6cf76bb29c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chứa tên đệm. <br /></td></tr>
+<tr class="separator:a85893bc837e4da26b41a2d6cf76bb29c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42591b158aceecb9f7ef75ac38caef9d" id="r_a42591b158aceecb9f7ef75ac38caef9d"><td class="memItemLeft" align="right" valign="top"><a id="a42591b158aceecb9f7ef75ac38caef9d" name="a42591b158aceecb9f7ef75ac38caef9d"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><b>addresses</b> []</td></tr>
+<tr class="memdesc:a42591b158aceecb9f7ef75ac38caef9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chứa địa chỉ <br /></td></tr>
+<tr class="separator:a42591b158aceecb9f7ef75ac38caef9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa5932b79a6ab2dfbd4cb5d55b026ea7" id="r_aaa5932b79a6ab2dfbd4cb5d55b026ea7"><td class="memItemLeft" align="right" valign="top"><a id="aaa5932b79a6ab2dfbd4cb5d55b026ea7" name="aaa5932b79a6ab2dfbd4cb5d55b026ea7"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><b>phone_prefix</b> []</td></tr>
+<tr class="memdesc:aaa5932b79a6ab2dfbd4cb5d55b026ea7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mã số điện thoại. <br /></td></tr>
+<tr class="separator:aaa5932b79a6ab2dfbd4cb5d55b026ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Mô tả chi tiết</h2>
 <div class="textblock"><p>Những hàm sinh dữ liệu cơ bản, ngẫu nhiên phục vụ cho vấn đề của nhóm. </p>
@@ -216,7 +236,7 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><b>genres</b> [<a clas
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="fake_8h.html">fake.h</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_821002d4f10779a80d4fb17bc32f21f1.html">utils</a></li><li class="navelem"><a class="el" href="fake_8h.html">fake.h</a></li>
     <li class="footer">Được biên soạn bởi <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

@@ -1,5 +1,5 @@
 \doxysection{fake.\+h}
-\hypertarget{fake_8h_source}{}\label{fake_8h_source}\index{include/fake.h@{include/fake.h}}
+\hypertarget{fake_8h_source}{}\label{fake_8h_source}\index{include/utils/fake.h@{include/utils/fake.h}}
 \mbox{\hyperlink{fake_8h}{Tới Thông tin của file này.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
@@ -13,20 +13,30 @@
 \DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <time.h>}}
 \DoxyCodeLine{00017\ }
 \DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{books_8h}{books.h}}"{}}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}reader.h"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{reader_8h}{reader.h}}"{}}}
 \DoxyCodeLine{00020\ }
 \DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ TOTAL\_GENRE\ 12}}
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00029\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{fake_8h_a7e28b32b579982a2ed278b80adcdd492}{titles}}[];}
+\DoxyCodeLine{00029\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *titles[];}
 \DoxyCodeLine{00030\ }
-\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{fake_8h_a8fe287a488cbea8ccb168bf09a1973c4}{authors}}[];}
+\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *authors[];}
 \DoxyCodeLine{00035\ }
-\DoxyCodeLine{00039\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{fake_8h_aea973a51ee2bdf1588de4f7324c727cd}{genres}}[\mbox{\hyperlink{fake_8h_a69b7a2d67e969d3e0921f3f23d1947f2}{TOTAL\_GENRE}}];}
+\DoxyCodeLine{00039\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *genres[\mbox{\hyperlink{fake_8h_a69b7a2d67e969d3e0921f3f23d1947f2}{TOTAL\_GENRE}}];}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00049\ \mbox{\hyperlink{struct_book}{Book}}\ \mbox{\hyperlink{fake_8h_a040361527a1381944cb306a9c158087a}{generate\_book}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00044\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *firstnames[];}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *lastnames[];}
 \DoxyCodeLine{00050\ }
-\DoxyCodeLine{00059\ \mbox{\hyperlink{struct_readers}{Readers}}\ \mbox{\hyperlink{fake_8h_ac45ef0c5a4bf3468b95ac25ee16a4b9a}{generate\_reader}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00054\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *middlenames[];}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *addresses[];}
 \DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00064\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *phone\_prefix[];}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00074\ \mbox{\hyperlink{struct_book}{Book}}\ \mbox{\hyperlink{fake_8h_a040361527a1381944cb306a9c158087a}{generate\_book}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00084\ \mbox{\hyperlink{struct_readers}{Readers}}\ \mbox{\hyperlink{fake_8h_ac45ef0c5a4bf3468b95ac25ee16a4b9a}{generate\_reader}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

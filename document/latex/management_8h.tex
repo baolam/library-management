@@ -1,13 +1,12 @@
-\doxysection{include/management.h File Tham chiếu}
-\hypertarget{management_8h}{}\label{management_8h}\index{include/management.h@{include/management.h}}
+\doxysection{include/utils/management.h File Tham chiếu}
+\hypertarget{management_8h}{}\label{management_8h}\index{include/utils/management.h@{include/utils/management.h}}
 
 
 Những hàm tiện ích dùng để khai thác hiệu quả B+ Tree.  
 
 
-{\ttfamily \#include "{}bplustreev2.\+h"{}}\newline
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
-{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include "{}utils/bplustreev2.\+h"{}}\newline
 \doxysubsubsection*{Định nghĩa}
 \begin{DoxyCompactItemize}
 \item 
@@ -24,7 +23,16 @@ Những hàm tiện ích dùng để khai thác hiệu quả B+ Tree.
 \begin{DoxyCompactList}\small\item\em Mã trạng thái thêm thất bại. \end{DoxyCompactList}\item 
 \Hypertarget{management_8h_a20019d0a9170f3f74d3e358a39c21626}\label{management_8h_a20019d0a9170f3f74d3e358a39c21626} 
 \#define {\bfseries ADD\+\_\+\+CONTENT\+\_\+\+SUCCESS}~1
-\begin{DoxyCompactList}\small\item\em Mã trạng thái thêm thành công. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Mã trạng thái thêm thành công. \end{DoxyCompactList}\item 
+\Hypertarget{management_8h_adba71ee53474d8e915228b871ee314dc}\label{management_8h_adba71ee53474d8e915228b871ee314dc} 
+\#define {\bfseries UPDATE\+\_\+\+FAILED}~0
+\begin{DoxyCompactList}\small\item\em Mã trạng thái cập nhật thất bại. \end{DoxyCompactList}\item 
+\Hypertarget{management_8h_ab0f48f2bf0db37d7e5e9ba2f6890bde4}\label{management_8h_ab0f48f2bf0db37d7e5e9ba2f6890bde4} 
+\#define {\bfseries UPDATE\+\_\+\+SUCCESS}~1
+\begin{DoxyCompactList}\small\item\em Mã trạng thái cập nhật thành công. \end{DoxyCompactList}\item 
+\Hypertarget{management_8h_ab034727e78d0bce5a231ecd3f7f5ec71}\label{management_8h_ab034727e78d0bce5a231ecd3f7f5ec71} 
+\#define {\bfseries UPDATE\+\_\+\+FILE\+\_\+\+FAILED}~2
+\begin{DoxyCompactList}\small\item\em Mã trạng thái cập nhật thất bại do lỗi file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Các hàm}
 \begin{DoxyCompactItemize}
 \item 
@@ -46,6 +54,8 @@ void \mbox{\hyperlink{management_8h_aa31d7616ed4d24c1ed65a5ca1b6322bb}{update\+\
 \begin{DoxyCompactList}\small\item\em Hàm cập nhật dữ liệu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{management_8h_a31ced62c7976fca38ed3ffba8e5306be}{update\+\_\+content\+\_\+from\+\_\+record}} (\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*}record, void(\texorpdfstring{$\ast$}{*}callback)(FILE \texorpdfstring{$\ast$}{*}f, long package\+\_\+size))
 \begin{DoxyCompactList}\small\item\em Hàm cập nhật dữ liệu từ bản ghi. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{management_8h_a62c26c22380dea04c7f251294534d313}{update\+\_\+content\+\_\+without\+\_\+callback}} (\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*}record, void \texorpdfstring{$\ast$}{*}content)
+\begin{DoxyCompactList}\small\item\em Hàm cập nhật dữ liệu trực tiếp không thông qua gọi callback. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{management_8h_ad65d5cd8b7422339122a0dbd2077954e}{soft\+\_\+delete}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, int key, void(\texorpdfstring{$\ast$}{*}callback)(int code))
 \begin{DoxyCompactList}\small\item\em Hàm xóa dữ liệu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -176,7 +186,7 @@ Hàm đọc liên tiếp một nhóm bản ghi từ khoá chỉ định tìm ki�
 {\em callback} & hàm gọi thao tác đọc thêm, tương tự như các phương thức đọc trên \\
 \hline
 \end{DoxyParams}
-\Hypertarget{management_8h_acb958d60afccf032644f4d29599ed367}\index{management.h@{management.h}!read\_content@{read\_content}}
+Edge case\Hypertarget{management_8h_acb958d60afccf032644f4d29599ed367}\index{management.h@{management.h}!read\_content@{read\_content}}
 \index{read\_content@{read\_content}!management.h@{management.h}}
 \doxysubsubsection{\texorpdfstring{read\_content()}{read\_content()}}
 {\footnotesize\ttfamily \label{management_8h_acb958d60afccf032644f4d29599ed367} 
@@ -299,3 +309,16 @@ Là một mở rộng của update\+\_\+content.
 {\em callback} & nhiệm vụ tương tự callback trên \\
 \hline
 \end{DoxyParams}
+\Hypertarget{management_8h_a62c26c22380dea04c7f251294534d313}\index{management.h@{management.h}!update\_content\_without\_callback@{update\_content\_without\_callback}}
+\index{update\_content\_without\_callback@{update\_content\_without\_callback}!management.h@{management.h}}
+\doxysubsubsection{\texorpdfstring{update\_content\_without\_callback()}{update\_content\_without\_callback()}}
+{\footnotesize\ttfamily \label{management_8h_a62c26c22380dea04c7f251294534d313} 
+int update\+\_\+content\+\_\+without\+\_\+callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*}}]{record}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{content}{}\end{DoxyParamCaption})}
+
+
+
+Hàm cập nhật dữ liệu trực tiếp không thông qua gọi callback. 
+
+\begin{DoxyReturn}{Giá trị trả về}
+trạng thái cập nhật 
+\end{DoxyReturn}

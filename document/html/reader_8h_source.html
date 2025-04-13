@@ -106,58 +106,106 @@ $(function(){initNavTree('reader_8h_source.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">reader.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef READERS_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define READERS_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#define USER_FOLDER &quot;readers&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;<a class="code" href="books_8h.html">books.h</a>&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="management_8h.html">management.h</a>&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="trie_8h.html">trie.h</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="bplustreev2_8h.html">bplustreev2.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// Struct đại diện cho người đọc</span></div>
-<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="struct_readers.html">   15</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">int</span> readerId;         <span class="comment">// Đổi từ char[] sang int</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">char</span> fullName[100];   <span class="comment">// Tên đầy đủ</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">char</span> phoneNumber[15]; <span class="comment">// Số điện thoại</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">char</span> address[100];    <span class="comment">// Địa chỉ</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>} <a class="code hl_struct" href="struct_readers.html">Readers</a>;</div>
+<a href="reader_8h.html">Tới Thông tin của file này.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef READERS_H</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define READERS_H</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="reader_8h.html#aed4bad19817fb57cd4ff0965458becf6">   17</a></span><span class="preprocessor">#define MAX_FULLNAME 100</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="reader_8h.html#a512c2a75038a8cb1dbc1c25ca243992b">   22</a></span><span class="preprocessor">#define MAX_PHONENUMBER 15</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="reader_8h.html#aaba07841c3e227bc8bdd8ccdad149349">   27</a></span><span class="preprocessor">#define MAX_ADDRESS 100</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="borrow__return_8h.html">borrow_return.h</a>&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;<a class="code" href="management_8h.html">utils/management.h</a>&quot;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &quot;<a class="code" href="trie_8h.html">utils/trie.h</a>&quot;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;<a class="code" href="bplustreev2_8h.html">utils/bplustreev2.h</a>&quot;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;<a class="code" href="books_8h.html">books.h</a>&quot;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="struct_readers.html">   42</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_readers.html">Readers</a></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>{</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="struct_readers.html#ac8797cb6b2da88c200145c5836264d15">   48</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_readers.html#ac8797cb6b2da88c200145c5836264d15">readerId</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="struct_readers.html#ad49946ea466cf2c9f9664fa3a2fb3df5">   53</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_readers.html#ad49946ea466cf2c9f9664fa3a2fb3df5">fullName</a>[<a class="code hl_define" href="reader_8h.html#aed4bad19817fb57cd4ff0965458becf6">MAX_FULLNAME</a>];</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="struct_readers.html#a251114a406343b68d752afb4a4e4cf40">   58</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_readers.html#a251114a406343b68d752afb4a4e4cf40">phoneNumber</a>[<a class="code hl_define" href="reader_8h.html#a512c2a75038a8cb1dbc1c25ca243992b">MAX_PHONENUMBER</a>];</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="struct_readers.html#ac6825b93058e5779e8b019bc6a59b82e">   63</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_readers.html#ac6825b93058e5779e8b019bc6a59b82e">address</a>[<a class="code hl_define" href="reader_8h.html#aaba07841c3e227bc8bdd8ccdad149349">MAX_ADDRESS</a>];</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>} <a class="code hl_struct" href="struct_readers.html">Readers</a>;</div>
 </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">// Biến toàn cục quản lý file và cây</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">extern</span> <span class="keywordtype">char</span> reader_management_file[<a class="code hl_define" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>];</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">extern</span> <span class="keywordtype">char</span> reader_name_management_file[<a class="code hl_define" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>];</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">extern</span> <span class="keywordtype">char</span> reader_content_file[<a class="code hl_define" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>];</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_node.html">Node</a> *reader_management;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_trie_node.html">TrieNode</a> *reader_trie;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// ===== CRUD operations =====</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> show_reader(<a class="code hl_struct" href="struct_readers.html">Readers</a> reader);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">void</span> add_reader(<a class="code hl_struct" href="struct_readers.html">Readers</a> *reader);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keywordtype">void</span> search_reader_by_id(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keywordtype">void</span> search_reader_by_name(<span class="keyword">const</span> <span class="keywordtype">char</span> *name, <span class="keywordtype">int</span> maxNumbers);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keywordtype">void</span> update_reader(<a class="code hl_struct" href="struct_readers.html">Readers</a> *reader);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordtype">void</span> delete_reader(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">// ===== Persistence =====</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keywordtype">void</span> preparate_reader();</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keywordtype">void</span> save_reader_management();</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">void</span> load_reader_management();</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif </span><span class="comment">// READERS_H</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">extern</span> <span class="keywordtype">char</span> reader_management_file[<a class="code hl_define" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>];</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">extern</span> <span class="keywordtype">char</span> reader_name_management_file[<a class="code hl_define" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>];</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">extern</span> <span class="keywordtype">char</span> reader_content_file[<a class="code hl_define" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>];</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_node.html">Node</a> *reader_management;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_trie_node.html">TrieNode</a> *reader_trie;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">// ===== CRUD operations =====</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keywordtype">void</span> <a class="code hl_function" href="reader_8h.html#a7f672a88c0a908713f6e9ac68ff3ae65">show_reader</a>(<a class="code hl_struct" href="struct_readers.html">Readers</a> reader);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keywordtype">void</span> <a class="code hl_function" href="reader_8h.html#a3a6f8889e69108f4353ac25b9e507fc7">add_reader</a>(<a class="code hl_struct" href="struct_readers.html">Readers</a> *reader);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keywordtype">void</span> <a class="code hl_function" href="reader_8h.html#aace3e4f7c7f60bdae95a4c96ba30df1f">search_reader_by_id</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keywordtype">void</span> <a class="code hl_function" href="reader_8h.html#a6d4f6eb8dba36ee51b8f2aecd8d08587">search_reader_by_name</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *prefix, <span class="keywordtype">int</span> maxNumbers);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keywordtype">void</span> <a class="code hl_function" href="reader_8h.html#a7ebb3fbe5deec927c6943d66c57dcab1">update_reader</a>(<a class="code hl_struct" href="struct_readers.html">Readers</a> *reader);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="keywordtype">int</span> <a class="code hl_function" href="reader_8h.html#accdcb9e93430a50efb658e446f148696">update_reader_from_object</a>(<a class="code hl_struct" href="struct_readers.html">Readers</a> *reader);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keywordtype">void</span> <a class="code hl_function" href="reader_8h.html#af07dc59049cd7d5342855985c8bf676e">delete_reader</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">// ===== Nhóm hàm hỗ trợ tương tác giao diện ======</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><a class="code hl_struct" href="struct_readers.html">Readers</a> *<a class="code hl_function" href="reader_8h.html#a98e7d90352899642bb59d34c01b7686f">search_reader</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><a class="code hl_struct" href="struct_readers.html">Readers</a> *<a class="code hl_function" href="reader_8h.html#adff84d4c954d93c55dad0e44faa7bcce">retrieve_bucket_readers</a>(<span class="keywordtype">int</span> beginingKey, <span class="keywordtype">int</span> quanities, <span class="keywordtype">int</span> *actualReaders);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">// ===== Persistence =====</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="keywordtype">void</span> <a class="code hl_function" href="reader_8h.html#a27c98836a58bf80f495809968d66f7cf">prepare_reader</a>();</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="keywordtype">void</span> <a class="code hl_function" href="reader_8h.html#addae2d4ba1b47818e01b1f4a3f9deb47">save_reader_management</a>();</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="keywordtype">void</span> <a class="code hl_function" href="reader_8h.html#a230b942c73dc649a1e65d74596c72d42">load_reader_management</a>();</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="preprocessor">#endif </span><span class="comment">// READERS_H</span></div>
 <div class="ttc" id="abooks_8h_html"><div class="ttname"><a href="books_8h.html">books.h</a></div><div class="ttdoc">Lưu trữ những hàm sẽ được dùng cho quản lí sách.</div></div>
+<div class="ttc" id="aborrow__return_8h_html"><div class="ttname"><a href="borrow__return_8h.html">borrow_return.h</a></div><div class="ttdoc">Quản lý việc mượn và trả sách trong hệ thống thư viện.</div></div>
 <div class="ttc" id="abplustreev2_8h_html"><div class="ttname"><a href="bplustreev2_8h.html">bplustreev2.h</a></div><div class="ttdoc">Những cài đặt cần thiết để khai thác cây B+ tree.</div></div>
 <div class="ttc" id="abplustreev2_8h_html_a9958e549a943ec37c7fbb33685befb02"><div class="ttname"><a href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a></div><div class="ttdeci">#define MAX_FILE_NAME_LENGTH</div><div class="ttdoc">Độ dài tối đa của tên file.</div><div class="ttdef"><b>Definition</b> bplustreev2.h:28</div></div>
 <div class="ttc" id="amanagement_8h_html"><div class="ttname"><a href="management_8h.html">management.h</a></div><div class="ttdoc">Những hàm tiện ích dùng để khai thác hiệu quả B+ Tree.</div></div>
+<div class="ttc" id="areader_8h_html_a230b942c73dc649a1e65d74596c72d42"><div class="ttname"><a href="reader_8h.html#a230b942c73dc649a1e65d74596c72d42">load_reader_management</a></div><div class="ttdeci">void load_reader_management()</div><div class="ttdoc">Tải dữ liệu đã lưu trữ</div><div class="ttdef"><b>Definition</b> reader.c:257</div></div>
+<div class="ttc" id="areader_8h_html_a27c98836a58bf80f495809968d66f7cf"><div class="ttname"><a href="reader_8h.html#a27c98836a58bf80f495809968d66f7cf">prepare_reader</a></div><div class="ttdeci">void prepare_reader()</div><div class="ttdoc">Hỗ trợ cho thao tác quản lí</div><div class="ttdef"><b>Definition</b> reader.c:243</div></div>
+<div class="ttc" id="areader_8h_html_a3a6f8889e69108f4353ac25b9e507fc7"><div class="ttname"><a href="reader_8h.html#a3a6f8889e69108f4353ac25b9e507fc7">add_reader</a></div><div class="ttdeci">void add_reader(Readers *reader)</div><div class="ttdoc">Thêm độc giả vào quản lí</div><div class="ttdef"><b>Definition</b> reader.c:88</div></div>
+<div class="ttc" id="areader_8h_html_a512c2a75038a8cb1dbc1c25ca243992b"><div class="ttname"><a href="reader_8h.html#a512c2a75038a8cb1dbc1c25ca243992b">MAX_PHONENUMBER</a></div><div class="ttdeci">#define MAX_PHONENUMBER</div><div class="ttdoc">Lưu trữ số điện thoại.</div><div class="ttdef"><b>Definition</b> reader.h:22</div></div>
+<div class="ttc" id="areader_8h_html_a6d4f6eb8dba36ee51b8f2aecd8d08587"><div class="ttname"><a href="reader_8h.html#a6d4f6eb8dba36ee51b8f2aecd8d08587">search_reader_by_name</a></div><div class="ttdeci">void search_reader_by_name(const char *prefix, int maxNumbers)</div><div class="ttdoc">Tìm kiếm độc giả dựa theo tên.</div><div class="ttdef"><b>Definition</b> reader.c:48</div></div>
+<div class="ttc" id="areader_8h_html_a7ebb3fbe5deec927c6943d66c57dcab1"><div class="ttname"><a href="reader_8h.html#a7ebb3fbe5deec927c6943d66c57dcab1">update_reader</a></div><div class="ttdeci">void update_reader(Readers *reader)</div><div class="ttdoc">Hàm cập nhật thông tin độc giả</div><div class="ttdef"><b>Definition</b> reader.c:145</div></div>
+<div class="ttc" id="areader_8h_html_a7f672a88c0a908713f6e9ac68ff3ae65"><div class="ttname"><a href="reader_8h.html#a7f672a88c0a908713f6e9ac68ff3ae65">show_reader</a></div><div class="ttdeci">void show_reader(Readers reader)</div><div class="ttdoc">Hiển thị độc giả ra ngoài màn hình Console.</div><div class="ttdef"><b>Definition</b> reader.c:17</div></div>
+<div class="ttc" id="areader_8h_html_a98e7d90352899642bb59d34c01b7686f"><div class="ttname"><a href="reader_8h.html#a98e7d90352899642bb59d34c01b7686f">search_reader</a></div><div class="ttdeci">Readers * search_reader(int id)</div><div class="ttdoc">Hàm này sẽ trả về đối tượng Reader ứng với Id được chỉ định.</div><div class="ttdef"><b>Definition</b> reader.c:191</div></div>
+<div class="ttc" id="areader_8h_html_aaba07841c3e227bc8bdd8ccdad149349"><div class="ttname"><a href="reader_8h.html#aaba07841c3e227bc8bdd8ccdad149349">MAX_ADDRESS</a></div><div class="ttdeci">#define MAX_ADDRESS</div><div class="ttdoc">Địa chỉ</div><div class="ttdef"><b>Definition</b> reader.h:27</div></div>
+<div class="ttc" id="areader_8h_html_aace3e4f7c7f60bdae95a4c96ba30df1f"><div class="ttname"><a href="reader_8h.html#aace3e4f7c7f60bdae95a4c96ba30df1f">search_reader_by_id</a></div><div class="ttdeci">void search_reader_by_id(int id)</div><div class="ttdoc">Tìm kiếm độc giả dựa theo Id.</div><div class="ttdef"><b>Definition</b> reader.c:33</div></div>
+<div class="ttc" id="areader_8h_html_accdcb9e93430a50efb658e446f148696"><div class="ttname"><a href="reader_8h.html#accdcb9e93430a50efb658e446f148696">update_reader_from_object</a></div><div class="ttdeci">int update_reader_from_object(Readers *reader)</div><div class="ttdoc">Hàm cập nhật thông tin độc giả</div><div class="ttdef"><b>Definition</b> reader.c:158</div></div>
+<div class="ttc" id="areader_8h_html_addae2d4ba1b47818e01b1f4a3f9deb47"><div class="ttname"><a href="reader_8h.html#addae2d4ba1b47818e01b1f4a3f9deb47">save_reader_management</a></div><div class="ttdeci">void save_reader_management()</div><div class="ttdoc">Lưu trữ thông tin.</div><div class="ttdef"><b>Definition</b> reader.c:251</div></div>
+<div class="ttc" id="areader_8h_html_adff84d4c954d93c55dad0e44faa7bcce"><div class="ttname"><a href="reader_8h.html#adff84d4c954d93c55dad0e44faa7bcce">retrieve_bucket_readers</a></div><div class="ttdeci">Readers * retrieve_bucket_readers(int beginingKey, int quanities, int *actualReaders)</div><div class="ttdoc">Hàm này sẽ trả về danh sách các độc giả theo sau Id được chỉ định một lượng bao nhiêu đó</div><div class="ttdef"><b>Definition</b> reader.c:198</div></div>
+<div class="ttc" id="areader_8h_html_aed4bad19817fb57cd4ff0965458becf6"><div class="ttname"><a href="reader_8h.html#aed4bad19817fb57cd4ff0965458becf6">MAX_FULLNAME</a></div><div class="ttdeci">#define MAX_FULLNAME</div><div class="ttdoc">Họ và tên.</div><div class="ttdef"><b>Definition</b> reader.h:17</div></div>
+<div class="ttc" id="areader_8h_html_af07dc59049cd7d5342855985c8bf676e"><div class="ttname"><a href="reader_8h.html#af07dc59049cd7d5342855985c8bf676e">delete_reader</a></div><div class="ttdeci">void delete_reader(int id)</div><div class="ttdoc">Xoá độc giả</div><div class="ttdef"><b>Definition</b> reader.c:186</div></div>
 <div class="ttc" id="astruct_node_html"><div class="ttname"><a href="struct_node.html">Node</a></div><div class="ttdoc">Node trong cây B+ tree.</div><div class="ttdef"><b>Definition</b> bplustreev2.h:78</div></div>
-<div class="ttc" id="astruct_readers_html"><div class="ttname"><a href="struct_readers.html">Readers</a></div><div class="ttdef"><b>Definition</b> reader.h:16</div></div>
+<div class="ttc" id="astruct_readers_html"><div class="ttname"><a href="struct_readers.html">Readers</a></div><div class="ttdoc">Cấu trúc quản lí của một độc giả</div><div class="ttdef"><b>Definition</b> reader.h:43</div></div>
+<div class="ttc" id="astruct_readers_html_a251114a406343b68d752afb4a4e4cf40"><div class="ttname"><a href="struct_readers.html#a251114a406343b68d752afb4a4e4cf40">Readers::phoneNumber</a></div><div class="ttdeci">char phoneNumber[MAX_PHONENUMBER]</div><div class="ttdoc">Số điện thoại.</div><div class="ttdef"><b>Definition</b> reader.h:58</div></div>
+<div class="ttc" id="astruct_readers_html_ac6825b93058e5779e8b019bc6a59b82e"><div class="ttname"><a href="struct_readers.html#ac6825b93058e5779e8b019bc6a59b82e">Readers::address</a></div><div class="ttdeci">char address[MAX_ADDRESS]</div><div class="ttdoc">Địa chỉ</div><div class="ttdef"><b>Definition</b> reader.h:63</div></div>
+<div class="ttc" id="astruct_readers_html_ac8797cb6b2da88c200145c5836264d15"><div class="ttname"><a href="struct_readers.html#ac8797cb6b2da88c200145c5836264d15">Readers::readerId</a></div><div class="ttdeci">int readerId</div><div class="ttdoc">Id của độc giả Xem như khoá tìm kiếm (khoá chính) dùng cho mục đích quản lí</div><div class="ttdef"><b>Definition</b> reader.h:48</div></div>
+<div class="ttc" id="astruct_readers_html_ad49946ea466cf2c9f9664fa3a2fb3df5"><div class="ttname"><a href="struct_readers.html#ad49946ea466cf2c9f9664fa3a2fb3df5">Readers::fullName</a></div><div class="ttdeci">char fullName[MAX_FULLNAME]</div><div class="ttdoc">Họ và tên.</div><div class="ttdef"><b>Definition</b> reader.h:53</div></div>
 <div class="ttc" id="astruct_trie_node_html"><div class="ttname"><a href="struct_trie_node.html">TrieNode</a></div><div class="ttdoc">Một TrieNode dùng để lưu trữ dữ liệu.</div><div class="ttdef"><b>Definition</b> trie.h:45</div></div>
 <div class="ttc" id="atrie_8h_html"><div class="ttname"><a href="trie_8h.html">trie.h</a></div><div class="ttdoc">Cấu trúc dữ liệu Trie, dùng cho lưu trữ và quản lí các chuỗi kí tự</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -165,7 +213,7 @@ $(function(){initNavTree('reader_8h_source.html',''); initResizable(true); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><b>reader.h</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="reader_8h.html">reader.h</a></li>
     <li class="footer">Được biên soạn bởi <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

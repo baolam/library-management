@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['update_5fbook_0',['update_book',['../books_8h.html#a3a2c8d018662acf1c6ca6857a9bb7f86',1,'books.c']]],
-  ['update_5fcontent_1',['update_content',['../management_8h.html#aa31d7616ed4d24c1ed65a5ca1b6322bb',1,'management.h']]],
-  ['update_5fcontent_5ffrom_5frecord_2',['update_content_from_record',['../management_8h.html#a31ced62c7976fca38ed3ffba8e5306be',1,'management.h']]]
+  ['title_0',['title',['../struct_book.html#a8465f8a9dca23179416c97ce6dea7a30',1,'Book']]],
+  ['titles_1',['titles',['../fake_8h.html#a7e28b32b579982a2ed278b80adcdd492',1,'fake.c']]],
+  ['total_5fgenre_2',['TOTAL_GENRE',['../fake_8h.html#a69b7a2d67e969d3e0921f3f23d1947f2',1,'fake.h']]],
+  ['totalbooks_3',['totalBooks',['../struct_borrow_return.html#a62b3191275187443cc8095bd4c1e2d71',1,'BorrowReturn']]],
+  ['trie_2eh_4',['trie.h',['../trie_8h.html',1,'']]],
+  ['trienode_5',['TrieNode',['../struct_trie_node.html',1,'']]]
 ];
