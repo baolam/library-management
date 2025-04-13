@@ -1,10 +1,17 @@
 {
+<<<<<<< HEAD
+=======
+  "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build/vcvarsall.bat",
+>>>>>>> d70ea6bc7ece3bdbc2cfb82906d70cca889fa272
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
   "C_Cpp_Runner.debuggerPath": "gdb",
   "C_Cpp_Runner.cStandard": "",
   "C_Cpp_Runner.cppStandard": "",
+<<<<<<< HEAD
   "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/VR_NR/Community/VC/Auxiliary/Build/vcvarsall.bat",
+=======
+>>>>>>> d70ea6bc7ece3bdbc2cfb82906d70cca889fa272
   "C_Cpp_Runner.useMsvc": false,
   "C_Cpp_Runner.warnings": [
     "-Wall",
@@ -57,9 +64,13 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
+<<<<<<< HEAD
     "books.h": "c",
     "reader.h": "c",
     "borrow_return.h": "c",
     "cstdlib": "c"
+=======
+    "reader.h": "c"
+>>>>>>> d70ea6bc7ece3bdbc2cfb82906d70cca889fa272
   }
 }

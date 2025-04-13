@@ -13,6 +13,9 @@ char borrow_return_management_file[MAX_FILE_NAME_LENGTH] = "data/borrow/borrow_r
 
 Node *borrow_return_management = NULL;
 
+int date = 0; // Phong
+int current_year = 0;
+
 void add_borrow_callback(int id, int code, long offset, long length)
 {
     if (code == ADD_CONTENT_FAILED)
@@ -25,8 +28,15 @@ void add_borrow_callback(int id, int code, long offset, long length)
     }
 }
 
-void add_borrow_record(BorrowReturn *b)
+void add_borrow_record(BorrowReturn *b, int day, int month, int year)
 {
+    date = 0; // reset trước khi tính lại
+    update_date(day, month, year);
+    b->date = date;
+    b->current_year = current_year;
+
+    b->status = 0; // trạng thái mặc định: đang mượn
+    int key = b->readerId;
     if (b == NULL || b->totalBooks <= 0 || b->totalBooks >= MAX_BORROWED_BOOKS)
     {
         printf("Error: Invalid borrow record.\n");
@@ -176,7 +186,7 @@ void return_books(int readerId)
     fseek(f, record->offset, SEEK_SET);
     fread(&b, sizeof(BorrowReturn), 1, f);
 
-    if (b.status == 1)
+    if (b.status == BORROWED)
     {
         printf("Books already returned.\n");
         fclose(f);
@@ -185,13 +195,8 @@ void return_books(int readerId)
 
     restore_books_to_stock(&b);
 
-    printf("Was the return on time? (1 = Yes, 0 = No): ");
-    int temp;
-    scanf("%d", &temp);
-    b.onTime = temp ? true : false;
-
-    while (getchar() != '\n')
-        ;
+    int days = calculate_day_difference(b.date, b.current_year);
+    b.onTime = days <= 14 ? 1 : 0;
 
     if (!b.onTime)
     {
@@ -216,6 +221,7 @@ void return_books(int readerId)
     printf("Return processed successfully.\n");
 }
 
+// ✅ Cập nhật tồn kho sách
 void restore_books_to_stock(BorrowReturn *b)
 {
     for (int i = 0; i < b->totalBooks; i++)
@@ -275,6 +281,63 @@ bool check_book_in_borrow(int bookId)
 
     fclose(f);
     return false;
+}
+
+// Phong
+void update_date(int day, int month, int year)
+{
+    for (int i = 1; i < month; i++)
+    {
+        if (i > 12)
+            break;
+        if ((i % 2 == 0 && i < 8) || (i % 2 != 0 && i > 8))
+        {
+            if (i == 2)
+            {
+                if (i % 4 == 0 && i % 100 != 0)
+                {
+                    date += 29;
+                    continue;
+                }
+                date += 28;
+                continue;
+            }
+            date += 30;
+            continue;
+        }
+        date += 31;
+    }
+    date += day;
+    current_year = year;
+}
+
+int calculate_day_difference(int borrow_date, int borrow_year)
+{
+    int year_diff = current_year - borrow_year;
+    return year_diff * 365 + (date - borrow_date);
+}
+
+void load_borrow_return_management()
+{
+    borrow_return_management = loadTree(borrow_return_management_file);
+    if (borrow_return_management == NULL)
+    {
+        printf("Failed to load B+ Tree management for borrow/return!\n");
+    }
+    else
+    {
+        printf("Load B+ Tree management for borrow/return successfully!\n");
+    }
+
+    borrow_return_trie = loadTrieTree(borrow_return_trie_management);
+    if (borrow_return_trie == NULL)
+    {
+        printf("Failed to load Trie management for borrow/return!\n");
+    }
+    else
+    {
+        printf("Load Trie management for borrow/return successfully!\n");
+    }
 }
 
 void save_borrow_return_management()
