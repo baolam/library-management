@@ -1,7 +1,9 @@
 var borrow__return_8h =
 [
     [ "BorrowReturn", "struct_borrow_return.html", "struct_borrow_return" ],
+    [ "BORROWED", "borrow__return_8h.html#a4f03cb6d345f713e55457331875f7f4e", null ],
     [ "MAX_BORROWED_BOOKS", "borrow__return_8h.html#a0952e94a037eac280b9ee1b49d3e95cf", null ],
+    [ "ON_BORROWING", "borrow__return_8h.html#a0b7c1972f700366393c814d04e091990", null ],
     [ "BorrowReturn", "borrow__return_8h.html#ab73b402c920f03bb44641490f56ba94d", null ],
     [ "add_borrow_record", "borrow__return_8h.html#acd1efdcb57a19296d6fd30d547d47bfa", null ],
     [ "check_book_in_borrow", "borrow__return_8h.html#a0debb124a322065a6209e63b9e56a2a4", null ],

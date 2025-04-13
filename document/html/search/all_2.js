@@ -13,6 +13,7 @@ var searchData=
   ['borrow_5freturn_5fcontent_5ffile_10',['borrow_return_content_file',['../borrow__return_8h.html#a04f30d552462012a85063968ed30242f',1,'borrow_return.c']]],
   ['borrow_5freturn_5fmanagement_11',['borrow_return_management',['../borrow__return_8h.html#a974b0a5ef39ead4f57706dd0555b4aca',1,'borrow_return.c']]],
   ['borrow_5freturn_5fmanagement_5ffile_12',['borrow_return_management_file',['../borrow__return_8h.html#a09c52186588892bacc969675814632ae',1,'borrow_return.c']]],
-  ['borrowreturn_13',['BorrowReturn',['../struct_borrow_return.html',1,'BorrowReturn'],['../borrow__return_8h.html#ab73b402c920f03bb44641490f56ba94d',1,'BorrowReturn:&#160;borrow_return.h']]],
-  ['bplustreev2_2eh_14',['bplustreev2.h',['../bplustreev2_8h.html',1,'']]]
+  ['borrowed_13',['BORROWED',['../borrow__return_8h.html#a4f03cb6d345f713e55457331875f7f4e',1,'borrow_return.h']]],
+  ['borrowreturn_14',['BorrowReturn',['../struct_borrow_return.html',1,'BorrowReturn'],['../borrow__return_8h.html#ab73b402c920f03bb44641490f56ba94d',1,'BorrowReturn:&#160;borrow_return.h']]],
+  ['bplustreev2_2eh_15',['bplustreev2.h',['../bplustreev2_8h.html',1,'']]]
 ];

@@ -13,6 +13,16 @@
  */
 #define MAX_BORROWED_BOOKS 100
 
+/**
+ * @brief Mã trạng thái đang mượn sách
+ */
+#define ON_BORROWING 0
+
+/**
+ * @brief Mã trạng thái đã trả sách
+ */
+#define BORROWED 1
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>

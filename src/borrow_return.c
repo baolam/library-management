@@ -69,7 +69,7 @@ void add_borrow_record(BorrowReturn *b)
     }
     fclose(f);
 
-    b->status = 0;
+    b->status = ON_BORROWING;
 
     printf("Adding to borrow_return_management=%p\n", borrow_return_management);
     Node *new_tree = add_content(
@@ -102,7 +102,7 @@ void show_borrow_record(FILE *f, long size)
     {
         printf("  - Book ID: %d | Quantity: %d\n", b.bookIds[i], b.quantities[i]);
     }
-    printf("Status: %s\n", b.status == 0 ? "Borrowing" : "Returned");
+    printf("Status: %s\n", b.status == ON_BORROWING ? "Borrowing" : "Returned");
 }
 
 void search_borrow_record_by_reader(int readerId)
@@ -260,7 +260,7 @@ bool check_book_in_borrow(int bookId)
     BorrowReturn b;
     while (fread(&b, sizeof(BorrowReturn), 1, f))
     {
-        if (b.status == 0)
+        if (b.status == ON_BORROWING)
         {
             for (int i = 0; i < b.totalBooks; i++)
             {

@@ -190,7 +190,7 @@ void borrowBooks()
         }
     }
 
-    b.status = 0;
+    b.status = ON_BORROWING;
     b.onTime = true;
 
 #if DEBUG_MODE
