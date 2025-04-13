@@ -8,8 +8,8 @@
 
 #define DEBUG_MODE 1
 
-char borrow_return_content_file[MAX_FILE_NAME_LENGTH] = "borrow_return.bin";
-char borrow_return_management_file[MAX_FILE_NAME_LENGTH] = "borrow_return_management.bin";
+char borrow_return_content_file[MAX_FILE_NAME_LENGTH] = "data/borrow/borrow_return.bin";
+char borrow_return_management_file[MAX_FILE_NAME_LENGTH] = "data/borrow/borrow_return_management.bin";
 
 Node *borrow_return_management = NULL;
 
