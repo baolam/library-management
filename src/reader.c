@@ -226,7 +226,7 @@ void update_reader_callback(FILE *f, long size)
     r.address[strcspn(r.address, "\n")] = 0;
 
     // Ghi đè thông tin mới vào file
-    fseek(f, -sizeof(Readers), SEEK_CUR); // Quay lại vị trí bắt đầu của bản ghi
+    // fseek(f, -sizeof(Readers), SEEK_CUR); // Quay lại vị trí bắt đầu của bản ghi
     fwrite(&r, sizeof(Readers), 1, f);
 
     printf("Update successful!\n");

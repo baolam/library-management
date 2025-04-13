@@ -154,7 +154,7 @@ void update_book_callback(FILE *f, long package)
     scanf("%d", &book.stock);
 
     // Ghi đè thông tin mới vào file
-    fseek(f, -sizeof(Book), SEEK_CUR); // Quay lại vị trí bắt đầu của bản ghi
+    // fseek(f, -sizeof(Book), SEEK_CUR); // Quay lại vị trí bắt đầu của bản ghi
     fwrite(&book, sizeof(Book), 1, f);
     printf("Update successfully!\n");
 }
