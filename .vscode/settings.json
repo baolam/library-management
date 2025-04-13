@@ -59,6 +59,7 @@
   "files.associations": {
     "books.h": "c",
     "reader.h": "c",
-    "borrow_return.h": "c"
+    "borrow_return.h": "c",
+    "cstdlib": "c"
   }
 }

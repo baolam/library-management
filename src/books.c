@@ -115,6 +115,18 @@ void update_book(int id)
     update_content_from_record(record, update_book_callback);
 }
 
+int update_book_from_object(Book *book)
+{
+    Record *record = find(book_management, book->bookId);
+    if (record == NULL || record->deleted)
+    {
+        printf("Reader not found for update.\n");
+        return UPDATE_FAILED;
+    }
+
+    return update_content_without_callback(record, book);
+}
+
 void show_book_record(FILE *f, long size)
 {
     Book book;

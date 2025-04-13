@@ -104,6 +104,14 @@ void delete_book(int id);
 void update_book(int id);
 
 /**
+ * @brief Cập nhật thông tin một quyển sách, cập nhật vào file nội dung
+ *
+ * Gọi hàm này không cần dùng đến callback
+ * @param book cuốn sách muốn cập nhật
+ */
+int update_book_from_object(Book *book);
+
+/**
  * @brief Tìm kiếm sách bằng Id
  *
  * Kết quả trả về sẽ hiển thị ra màn hình console, (chưa tích hợp hiển thị

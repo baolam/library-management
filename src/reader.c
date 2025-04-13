@@ -155,6 +155,18 @@ void update_reader(Readers *reader)
     update_content_from_record(record, update_reader_callback);
 }
 
+int update_reader_from_object(Readers *reader)
+{
+    Record *record = find(reader_management, reader->readerId);
+    if (record == NULL || record->deleted)
+    {
+        printf("Reader not found for update.\n");
+        return UPDATE_FAILED;
+    }
+
+    return update_content_without_callback(record, reader);
+}
+
 void delete_reader_callback(int code)
 {
     if (code == DELETE_SUCCESS)

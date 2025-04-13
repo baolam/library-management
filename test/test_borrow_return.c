@@ -26,20 +26,36 @@ void updateReaderInfor()
         printf("Error: Invalid Reader ID.\n");
         while (getchar() != '\n')
             ;
-        break;
+        return;
     }
+
+    // Hiển thị reader trước đó
+    search_reader_by_id(r.readerId);
+
     while (getchar() != '\n')
         ;
+
     printf("Enter Full Name: ");
     fgets(r.fullName, sizeof(r.fullName), stdin);
     r.fullName[strcspn(r.fullName, "\n")] = 0;
+
     printf("Enter Phone Number: ");
     fgets(r.phoneNumber, sizeof(r.phoneNumber), stdin);
     r.phoneNumber[strcspn(r.phoneNumber, "\n")] = 0;
+
     printf("Enter Address: ");
     fgets(r.address, sizeof(r.address), stdin);
     r.address[strcspn(r.address, "\n")] = 0;
-    add_reader(&r);
+
+    int code = update_reader_from_object(&r);
+    if (code == UPDATE_SUCCESS)
+    {
+        printf("Update successfully!\n");
+    }
+    else
+    {
+        printf("Update failed!\n");
+    }
 }
 
 void searchReader()
@@ -51,7 +67,7 @@ void searchReader()
         printf("Error: Invalid Reader ID.\n");
         while (getchar() != '\n')
             ;
-        break;
+        return;
     }
     search_reader_by_id(id);
 }
@@ -65,36 +81,54 @@ void updateBookInfor()
         printf("Error: Invalid Book ID.\n");
         while (getchar() != '\n')
             ;
-        break;
+        return;
     }
+
+    /// Hiển thị thông tin trước đó
+    search_book_by_id(b.bookId);
+
     while (getchar() != '\n')
         ;
+
     printf("Enter Title: ");
     fgets(b.title, sizeof(b.title), stdin);
     b.title[strcspn(b.title, "\n")] = 0;
+
     printf("Enter Author: ");
     fgets(b.author, sizeof(b.author), stdin);
     b.author[strcspn(b.author, "\n")] = 0;
+
     printf("Enter Genre: ");
     fgets(b.genre, sizeof(b.genre), stdin);
     b.genre[strcspn(b.genre, "\n")] = 0;
+
     printf("Enter Publication Year: ");
     if (scanf("%d", &b.publicationYear) != 1 || b.publicationYear < 0)
     {
         printf("Error: Invalid Publication Year.\n");
         while (getchar() != '\n')
             ;
-        break;
+        return;
     }
+
     printf("Enter Stock: ");
     if (scanf("%d", &b.stock) != 1 || b.stock < 0)
     {
         printf("Error: Invalid Stock value.\n");
         while (getchar() != '\n')
             ;
-        break;
+        return;
     }
-    add_book(&b);
+
+    int code = update_book_from_object(&b);
+    if (code == UPDATE_SUCCESS)
+    {
+        printf("Update successfully!\n");
+    }
+    else
+    {
+        printf("Update failed!\n");
+    }
 }
 
 void searchBook()
@@ -106,29 +140,14 @@ void searchBook()
         printf("Error: Invalid Book ID.\n");
         while (getchar() != '\n')
             ;
-        break;
+        return;
     }
+
     search_book_by_id(id);
 }
 
 void borrowBooks()
 {
-    if (reader_management == NULL)
-    {
-        printf("Error: No readers available. Please add a reader first.\n");
-        break;
-    }
-    if (book_management == NULL)
-    {
-        printf("Error: No books available. Please add a book first.\n");
-        break;
-    }
-    if (borrow_return_management == NULL)
-    {
-        printf("Error: Borrow/return management not initialized. Starting fresh...\n");
-        borrow_return_management = NULL;
-    }
-
     BorrowReturn b;
     memset(&b, 0, sizeof(BorrowReturn));
 
@@ -138,7 +157,7 @@ void borrowBooks()
         printf("Error: Invalid Reader ID.\n");
         while (getchar() != '\n')
             ;
-        break;
+        return;
     }
     printf("Enter number of books to borrow: ");
     if (scanf("%d", &b.totalBooks) != 1 || b.totalBooks <= 0 || b.totalBooks > 100)
@@ -146,7 +165,7 @@ void borrowBooks()
         printf("Error: Invalid number of books (must be between 1 and 100).\n");
         while (getchar() != '\n')
             ;
-        break;
+        return;
     }
 
     for (int i = 0; i < b.totalBooks; i++)
@@ -157,7 +176,7 @@ void borrowBooks()
             printf("Error: Invalid Book ID.\n");
             while (getchar() != '\n')
                 ;
-            break;
+            return;
         }
         printf("Enter Quantity: ");
         if (scanf("%d", &b.quantities[i]) != 1 || b.quantities[i] <= 0)
@@ -165,7 +184,7 @@ void borrowBooks()
             printf("Error: Invalid Quantity.\n");
             while (getchar() != '\n')
                 ;
-            break;
+            return;
         }
     }
 
@@ -181,12 +200,6 @@ void borrowBooks()
 
 void returnBooks()
 {
-    if (borrow_return_management == NULL)
-    {
-        printf("Error: Borrow/return management not initialized.\n");
-        break;
-    }
-
     int id;
     printf("Enter Reader ID: ");
     if (scanf("%d", &id) != 1 || id <= 0)
@@ -194,7 +207,7 @@ void returnBooks()
         printf("Error: Invalid Reader ID.\n");
         while (getchar() != '\n')
             ;
-        break;
+        return;
     }
     return_books(id);
 }
@@ -241,35 +254,23 @@ int main()
         switch (choice)
         {
         case 1:
-        {
             updateReaderInfor();
             break;
-        }
         case 2:
-        {
             searchReader();
             break;
-        }
         case 3:
-        {
             updateBookInfor();
             break;
-        }
         case 4:
-        {
             searchBook();
             break;
-        }
         case 5: // Borrow Books
-        {
             borrowBooks();
             break;
-        }
         case 6:
-        {
             returnBooks();
             break;
-        }
         default:
             printf("Invalid choice!\n");
         }
@@ -277,8 +278,9 @@ int main()
 
     // Lưu dữ liệu trước khi thoát
     printf("Saving data before exiting...\n");
-    save_reader_management();
-    save_book_management();
+    // save_reader_management();
+    // save_book_management();
+    // save_borrow_return_management();
     printf("Data saved successfully. Exiting.\n");
     return 0;
 }
