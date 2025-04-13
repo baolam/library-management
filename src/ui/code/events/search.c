@@ -6,7 +6,7 @@ void on_search_entry_changed(GtkSearchEntry *entry, gpointer user_data) {
 
     GtkSearchEntry *search_book = GTK_SEARCH_ENTRY(gtk_builder_get_object(builder, "entry_search_book"));
 
-    const gchar *entry_search_book = gtk_entry_get_text(GTK_ENTRY(search_bookbook));
+    const gchar *entry_search_book = gtk_entry_get_text(GTK_ENTRY(search_book));
 
     if (gtk_toggle_button_get_active(toggle)) {
         search_book_by_title(entry_search_book); 
