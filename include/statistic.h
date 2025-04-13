@@ -12,8 +12,17 @@
  #include "fake.h"
  #include "books.h"
  #include "management.h"
+ #include "borrow_return.h"
  
  #include <string.h>
+
+ #define MAX_OVERDUE 1000
+
+ /// Cấu trúc người mượn quá hạn
+ typedef struct OverdueBorrower {
+    int readerId;
+    int days_borrowed;
+} OverdueBorrower;
  
  /// Tổng số sách hiện có (chưa bị xóa)
  extern int total_books;
@@ -23,7 +32,19 @@
  
  /// Bộ đếm số sách theo từng thể loại, chỉ số tương ứng với mảng genres
  extern short counter_genre[TOTAL_GENRE];
- 
+
+ /// Tổng số sách hiện đang được mượn
+ extern int total_borrowed_books;
+
+ /// Tổng số sách quá hạn
+ extern int total_late_books;
+
+ /// Danh sách người mượn quá hạn
+ extern OverdueBorrower overdue_list[MAX_OVERDUE];
+
+ /// tổng số người mượn quá hạn
+ extern int overdue_count;
+
  /**
   * @brief Thiết lập lại dữ liệu thống kê ban đầu
   *
@@ -44,5 +65,25 @@
   */
  void calc_statistic_book(Node *book_management);
  
+ /**
+  * @brief Tính toán lại dữ liệu thống kê sách đang được mượn
+  * 
+  * Duyệt toàn bộ cây B+ Tree để thống kê:
+  * - Tổng số sách đang được mượn (chưa được trả)
+  */
+ void calc_statistic_borrowed_books(Node *borrow_return_management);
+
+ /**
+ * @brief Tạo danh sách người mượn quá hạn
+ * 
+ * xem xét nếu như cuốn sách quá hạn thì thêm vào mảng
+ */
+ void collect_late_borrowers(Node *borrow_return_management);
+
+ /**
+  * @brief In ra danh sách người mượn quá hạn
+  */
+ void list_late_borrowers();
+
  #endif
  
