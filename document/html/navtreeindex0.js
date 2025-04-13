@@ -2,6 +2,7 @@ var NAVTREEINDEX0 =
 {
 "actwithbook_8h_source.html":[1,0,0,2],
 "annotated.html":[0,0],
+"book__treeview_8h_source.html":[1,0,0,0,0,0],
 "books_8h.html":[1,0,0,3],
 "books_8h.html#a0bacc87944c0b8955121b3b9b71664ce":[1,0,0,3,2],
 "books_8h.html#a18d607761a55c0a30b69f9d82f1da73e":[1,0,0,3,3],
@@ -61,10 +62,12 @@ var NAVTREEINDEX0 =
 "bplustreev2_8h.html#af3f6936a5822d3c7b563372a1646d81e":[1,0,0,1,0,12],
 "bplustreev2_8h.html#af8204e72519be4ff883be1e6ac9beb82":[1,0,0,1,0,9],
 "bplustreev2_8h_source.html":[1,0,0,1,0],
-"callbacks_8h_source.html":[1,0,0,0,0],
+"callbacks_8h_source.html":[1,0,0,0,0,1],
+"choose__option_8h_source.html":[1,0,0,0,0,2],
 "classes.html":[0,1],
 "dir_48c1f94cd2ae07e13fa9a9f16a1d541c.html":[1,0,0,0],
 "dir_821002d4f10779a80d4fb17bc32f21f1.html":[1,0,0,1],
+"dir_97b73e2498edd120ce25a721111ff550.html":[1,0,0,0,0],
 "dir_d44c64559bbebec7f509842c48db8b23.html":[1,0,0],
 "fake_8h.html":[1,0,0,1,1],
 "fake_8h.html#a040361527a1381944cb306a9c158087a":[1,0,0,1,1,1],
@@ -133,6 +136,8 @@ var NAVTREEINDEX0 =
 "reader_8h.html#af07dc59049cd7d5342855985c8bf676e":[1,0,0,5,5],
 "reader_8h.html#afb169dcb2d5d8d4c49806daf8b6918a1":[1,0,0,5,19],
 "reader_8h_source.html":[1,0,0,5],
+"search_8h_source.html":[1,0,0,0,0,3],
+"search__toggle_8h_source.html":[1,0,0,0,0,4],
 "statistic_8h_source.html":[1,0,0,6],
 "struct_book.html":[0,0,0],
 "struct_book.html#a29b2239580d36f87078ea8ab6ab5d6aa":[0,0,0,3],
@@ -185,5 +190,6 @@ var NAVTREEINDEX0 =
 "trie_8h.html#ad41ba433582647dee30db67afba7553e":[1,0,0,1,3,13],
 "trie_8h.html#ad7b1309180a0be22666afbce536d8c75":[1,0,0,1,3,6],
 "trie_8h.html#af6ea29bed4964d6146ead204013f3868":[1,0,0,1,3,4],
-"trie_8h_source.html":[1,0,0,1,3]
+"trie_8h_source.html":[1,0,0,1,3],
+"ui__loader_8h_source.html":[1,0,0,0,2]
 };
