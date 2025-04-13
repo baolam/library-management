@@ -60,6 +60,9 @@
     "books.h": "c",
     "reader.h": "c",
     "borrow_return.h": "c",
-    "cstdlib": "c"
+    "cstdlib": "c",
+    "gui.h": "c",
+    "book_treeview.h": "c",
+    "string.h": "c"
   }
 }
