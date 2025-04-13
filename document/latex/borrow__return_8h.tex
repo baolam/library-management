@@ -37,8 +37,8 @@ typedef struct Borrow\+Return {\bfseries Borrow\+Return}
 \doxysubsubsection*{Các hàm}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{borrow__return_8h_acd1efdcb57a19296d6fd30d547d47bfa}\label{borrow__return_8h_acd1efdcb57a19296d6fd30d547d47bfa} 
-void {\bfseries add\+\_\+borrow\+\_\+record} (\mbox{\hyperlink{struct_borrow_return}{Borrow\+Return}} \texorpdfstring{$\ast$}{*}b)
+\Hypertarget{borrow__return_8h_a5c8632e067e20ce52fe74c17782100b8}\label{borrow__return_8h_a5c8632e067e20ce52fe74c17782100b8} 
+void {\bfseries add\+\_\+borrow\+\_\+record} (\mbox{\hyperlink{struct_borrow_return}{Borrow\+Return}} \texorpdfstring{$\ast$}{*}b, int day, int month, int year)
 \begin{DoxyCompactList}\small\item\em Thêm bản ghi mượn sách. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{borrow__return_8h_ab19475356baa01c670623e0c95d998fa}{show\+\_\+borrow\+\_\+record}} (FILE \texorpdfstring{$\ast$}{*}f, long size)
 \begin{DoxyCompactList}\small\item\em Hiển thị các bản ghi mượn sách từ file. \end{DoxyCompactList}\item 
@@ -60,6 +60,12 @@ void {\bfseries restore\+\_\+books\+\_\+to\+\_\+stock} (\mbox{\hyperlink{struct_
 \Hypertarget{borrow__return_8h_a5c24caa6c8dced26c0dcf2434a78bc9d}\label{borrow__return_8h_a5c24caa6c8dced26c0dcf2434a78bc9d} 
 void {\bfseries update\+\_\+book\+\_\+direct} (\mbox{\hyperlink{struct_book}{Book}} \texorpdfstring{$\ast$}{*}book)
 \begin{DoxyCompactList}\small\item\em Cập nhật trực tiếp dữ liệu sách vào file. \end{DoxyCompactList}\item 
+\Hypertarget{borrow__return_8h_a3f38f43bdfd22c036b5ea17091825f98}\label{borrow__return_8h_a3f38f43bdfd22c036b5ea17091825f98} 
+void {\bfseries update\+\_\+date} (int day, int month, int year)
+\item 
+\Hypertarget{borrow__return_8h_a78b83cb9559a6ec1e9f98ac4153ab93b}\label{borrow__return_8h_a78b83cb9559a6ec1e9f98ac4153ab93b} 
+int {\bfseries calculate\+\_\+day\+\_\+difference} (int borrow\+\_\+date, int borrow\+\_\+year)
+\item 
 bool \mbox{\hyperlink{borrow__return_8h_a0debb124a322065a6209e63b9e56a2a4}{check\+\_\+book\+\_\+in\+\_\+borrow}} (int book\+Id)
 \begin{DoxyCompactList}\small\item\em Kiểm tra xem một cuốn sách có đang được mượn hay không. \end{DoxyCompactList}\item 
 \Hypertarget{borrow__return_8h_ae46ecefa1043dad90969d2bc3f81626a}\label{borrow__return_8h_ae46ecefa1043dad90969d2bc3f81626a} 
@@ -73,13 +79,19 @@ void {\bfseries load\+\_\+borrow\+\_\+return\+\_\+management} ()
 \item 
 \Hypertarget{borrow__return_8h_a974b0a5ef39ead4f57706dd0555b4aca}\label{borrow__return_8h_a974b0a5ef39ead4f57706dd0555b4aca} 
 \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries borrow\+\_\+return\+\_\+management}
-\begin{DoxyCompactList}\small\item\em Cây B+ quản lý mượn-\/trả theo ID. \end{DoxyCompactList}\item 
+\item 
 \Hypertarget{borrow__return_8h_a04f30d552462012a85063968ed30242f}\label{borrow__return_8h_a04f30d552462012a85063968ed30242f} 
 char {\bfseries borrow\+\_\+return\+\_\+content\+\_\+file} \mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}
-\begin{DoxyCompactList}\small\item\em Tệp chứa nội dung bản ghi. \end{DoxyCompactList}\item 
+\item 
 \Hypertarget{borrow__return_8h_a09c52186588892bacc969675814632ae}\label{borrow__return_8h_a09c52186588892bacc969675814632ae} 
 char {\bfseries borrow\+\_\+return\+\_\+management\+\_\+file} \mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}
-\begin{DoxyCompactList}\small\item\em Tệp chứa offset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\item 
+\Hypertarget{borrow__return_8h_a06bc9fdc1bb40c3434e1a59de7576632}\label{borrow__return_8h_a06bc9fdc1bb40c3434e1a59de7576632} 
+int {\bfseries date}
+\item 
+\Hypertarget{borrow__return_8h_aae53c0627c9cf201607ea0ef70aed5db}\label{borrow__return_8h_aae53c0627c9cf201607ea0ef70aed5db} 
+int {\bfseries current\+\_\+year}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Mô tả chi tiết}

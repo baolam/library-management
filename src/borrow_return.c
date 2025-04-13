@@ -36,7 +36,7 @@ void add_borrow_record(BorrowReturn *b, int day, int month, int year)
     b->current_year = current_year;
 
     b->status = 0; // trạng thái mặc định: đang mượn
-    int key = b->readerId;
+
     if (b == NULL || b->totalBooks <= 0 || b->totalBooks >= MAX_BORROWED_BOOKS)
     {
         printf("Error: Invalid borrow record.\n");
@@ -317,6 +317,11 @@ int calculate_day_difference(int borrow_date, int borrow_year)
     return year_diff * 365 + (date - borrow_date);
 }
 
+void save_borrow_return_management()
+{
+    saveTree(borrow_return_management, borrow_return_management_file);
+}
+
 void load_borrow_return_management()
 {
     borrow_return_management = loadTree(borrow_return_management_file);
@@ -328,24 +333,4 @@ void load_borrow_return_management()
     {
         printf("Load B+ Tree management for borrow/return successfully!\n");
     }
-
-    borrow_return_trie = loadTrieTree(borrow_return_trie_management);
-    if (borrow_return_trie == NULL)
-    {
-        printf("Failed to load Trie management for borrow/return!\n");
-    }
-    else
-    {
-        printf("Load Trie management for borrow/return successfully!\n");
-    }
-}
-
-void save_borrow_return_management()
-{
-    saveTree(borrow_return_management, borrow_return_management_file);
-}
-
-void load_borrow_return_management()
-{
-    borrow_return_management = loadTree(borrow_return_management_file);
 }

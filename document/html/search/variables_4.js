@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['firstnames_0',['firstnames',['../fake_8h.html#a37d874b5ac72b82ad334c4d5bd5a585d',1,'fake.c']]],
-  ['fullname_1',['fullName',['../struct_readers.html#ad49946ea466cf2c9f9664fa3a2fb3df5',1,'Readers']]]
+  ['deleted_0',['deleted',['../struct_record.html#af24b04ddbf3b759db00bca4d7eb03741',1,'Record']]],
+  ['deleted_5fbooks_1',['deleted_books',['../statistic_8h.html#adb10bbacdb5c0f7f5d2d5e680a1b9c3f',1,'statistic.c']]]
 ];

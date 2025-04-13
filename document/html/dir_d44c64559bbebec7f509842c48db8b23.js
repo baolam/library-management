@@ -6,5 +6,5 @@ var dir_d44c64559bbebec7f509842c48db8b23 =
     [ "books.h", "books_8h.html", "books_8h" ],
     [ "borrow_return.h", "borrow__return_8h.html", "borrow__return_8h" ],
     [ "reader.h", "reader_8h.html", "reader_8h" ],
-    [ "statistic.h", "statistic_8h_source.html", null ]
+    [ "statistic.h", "statistic_8h.html", "statistic_8h" ]
 ];

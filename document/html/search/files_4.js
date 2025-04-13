@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['trie_2eh_0',['trie.h',['../trie_8h.html',1,'']]]
+  ['statistic_2eh_0',['statistic.h',['../statistic_8h.html',1,'']]]
 ];

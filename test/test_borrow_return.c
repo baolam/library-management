@@ -197,7 +197,7 @@ void borrowBooks()
     printf("[DEBUG] Calling add_borrow_record for readerId %d\n", b.readerId);
 #endif
 
-    add_borrow_record(&b);
+    add_borrow_record(&b, 13, 4, 2025);
 }
 
 void returnBooks()
