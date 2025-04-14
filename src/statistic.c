@@ -55,7 +55,7 @@ void calc_statistic_book(Node *book_management)
     {
         for (num = 0; num < book_genre->num_keys; num++)
         {
-            infor = (Record *)book_genre->pointers[num];
+            infor = (Record *)find(book_management, book_genre->keys[num]);
 
             if (infor->deleted)
             {

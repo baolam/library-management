@@ -65,13 +65,14 @@ void delete_book_callback(int code)
     }
     else
     {
-        printf("Failed to delete reader.\n");
+        printf("Failed to delete book.\n");
     }
 }
 
 void delete_book(int id)
 {
     soft_delete(book_management, id, delete_book_callback);
+    save_book_management();
 }
 
 void update_book_callback(FILE *f, long package)
@@ -204,7 +205,7 @@ Book *search_book_by_title_direct(const char *prefix, int *actualBooks, int maxN
                 }
             }
             if (maxNumbers == 0)
-               break;
+                break;
         }
     }
 
@@ -237,6 +238,9 @@ Book *retrieve_bucket_books(int beginingKey, int quanities, int *actualBooks)
     {
         for (i = startSearch; i < n->num_keys && quanities > 0; i++)
         {
+            if (!exist_record(book_management, n->keys[i]))
+                continue;
+
             Record *record = (Record *)n->pointers[i];
             Book *book = (Book *)read_content_from_record_return(record);
 
@@ -247,6 +251,7 @@ Book *retrieve_bucket_books(int beginingKey, int quanities, int *actualBooks)
             storage_pos++;
             quanities--;
         }
+
         startSearch = 0;
         n = n->pointers[ORDER - 1];
     }

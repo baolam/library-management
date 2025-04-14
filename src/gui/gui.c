@@ -1,4 +1,5 @@
 #include "gui/gui.h"
+<<<<<<< HEAD
 #include "gui/events/callbacks.h"
 #include "gui/events/book_treeview.h"
 #include "gui/events/reader_treeview.h"
@@ -6,6 +7,8 @@
 #include "gui/events/search.h"
 
 GtkBuilder *builder = NULL;
+=======
+>>>>>>> e1a7e6a40cfb92d244d1ed2dcee7c0820c9dbbf5
 
 void init_gui(int argc, char *argv[])
 {

@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 
-
 int current_book_page = 1;
 
 void show_onebook_to_layout(GtkListStore *store, Book book)
@@ -41,13 +40,12 @@ void show_book_to_layout(Book *book, int size)
     int i;
     for (i = 0; i < size; i++)
     {
-        show_onebook_to_layout(store, book[i]);                                     
+        show_onebook_to_layout(store, book[i]);
     }
 }
 
 void load_book_to_layout(int beginingKey)
 {
-
     int size = 0;
     Book *book = retrieve_bucket_books(beginingKey, MAX_ROW_ONEPAGE, &size);
     show_book_to_layout(book, size);
