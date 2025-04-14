@@ -15,10 +15,11 @@ var searchData=
   ['search_5freader_5fby_5fname_12',['search_reader_by_name',['../reader_8h.html#a6d4f6eb8dba36ee51b8f2aecd8d08587',1,'reader.c']]],
   ['searchprefix_13',['searchPrefix',['../trie_8h.html#a824eaa28a090848b88f367a7379b166b',1,'trie.c']]],
   ['searchword_14',['searchWord',['../trie_8h.html#a8b319840672eea511cd645f3c00300e4',1,'trie.c']]],
-  ['show_5fbook_15',['show_book',['../books_8h.html#af3ab34040cfd77b3963472d88ec6c276',1,'books.c']]],
-  ['show_5fborrow_5frecord_16',['show_borrow_record',['../borrow__return_8h.html#ab19475356baa01c670623e0c95d998fa',1,'borrow_return.c']]],
-  ['show_5freader_17',['show_reader',['../reader_8h.html#a7f672a88c0a908713f6e9ac68ff3ae65',1,'reader.c']]],
-  ['soft_5fdelete_18',['soft_delete',['../management_8h.html#ad65d5cd8b7422339122a0dbd2077954e',1,'management.c']]],
-  ['startnewtree_19',['startNewTree',['../bplustreev2_8h.html#a7c13d7dbbeb01bed587d135ec15160a2',1,'bplustreev2.c']]],
-  ['stat_5ftotal_5fbooks_5fby_5freader_20',['stat_total_books_by_reader',['../borrow__return_8h.html#a961ad1c096b0a10c15765365130eb796',1,'borrow_return.c']]]
+  ['set_5fup_15',['set_up',['../statistic_8h.html#a9f700c57a8358d4eb1c509027f723c42',1,'statistic.c']]],
+  ['show_5fbook_16',['show_book',['../books_8h.html#af3ab34040cfd77b3963472d88ec6c276',1,'books.c']]],
+  ['show_5fborrow_5frecord_17',['show_borrow_record',['../borrow__return_8h.html#ab19475356baa01c670623e0c95d998fa',1,'borrow_return.c']]],
+  ['show_5freader_18',['show_reader',['../reader_8h.html#a7f672a88c0a908713f6e9ac68ff3ae65',1,'reader.c']]],
+  ['soft_5fdelete_19',['soft_delete',['../management_8h.html#ad65d5cd8b7422339122a0dbd2077954e',1,'management.c']]],
+  ['startnewtree_20',['startNewTree',['../bplustreev2_8h.html#a7c13d7dbbeb01bed587d135ec15160a2',1,'bplustreev2.c']]],
+  ['stat_5ftotal_5fbooks_5fby_5freader_21',['stat_total_books_by_reader',['../borrow__return_8h.html#a961ad1c096b0a10c15765365130eb796',1,'borrow_return.c']]]
 ];

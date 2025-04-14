@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['add_5fborrow_5frecord_0',['add_borrow_record',['../borrow__return_8h.html#acd1efdcb57a19296d6fd30d547d47bfa',1,'borrow_return.c']]],
+  ['add_5fborrow_5frecord_0',['add_borrow_record',['../borrow__return_8h.html#a5c8632e067e20ce52fe74c17782100b8',1,'borrow_return.c']]],
   ['add_5fcontent_1',['add_content',['../management_8h.html#a8bf6c338f76f959eb131d2a9695125d6',1,'management.c']]],
   ['add_5fcontent_5ffailed_2',['ADD_CONTENT_FAILED',['../management_8h.html#a7265f51ea717730e55ddbc001f147a85',1,'management.h']]],
   ['add_5fcontent_5fsuccess_3',['ADD_CONTENT_SUCCESS',['../management_8h.html#a20019d0a9170f3f74d3e358a39c21626',1,'management.h']]],
