@@ -9,7 +9,7 @@ void setup_test_data()
     BorrowReturn br = {
         .readerId = 1,
         .totalBooks = 2,
-        .bookIds = {101, 102},
+        .bookIds = {100, 102},
         .quantities = {1, 2},
         .status = ON_BORROWING,
         .onTime = true};
@@ -20,6 +20,9 @@ int main()
 {
     load_reader_management();
     load_book_management();
+
+    /// Thử hiển thị thông tin sách
+    search_book_by_id(101);
 
     // Setup dữ liệu giả
     setup_test_data();
