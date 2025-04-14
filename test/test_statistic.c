@@ -1,8 +1,10 @@
 #include "statistic.h"
+#include "utils/fake.h"
 #include <stdio.h>
 
 int main(){
     load_borrow_return_management();
+    load_reader_management();
     load_book_management();
 
     if (!book_management) {
@@ -16,8 +18,7 @@ int main(){
 
     set_up();
     calc_statistic_book(book_management);
-    calc_statistic_borrowed_books(borrow_return_management); // Gọi thống kê borrow
-
+    
     int day, month,year;
 
     printf("Day: ");
@@ -27,6 +28,16 @@ int main(){
     printf("Year: ");
     scanf("%d", &year);
 
+    /// Do chưa có dữ liệu Borrow Return nên sinh giả
+    int totalBorrows = 10;
+    for (int i = 0; i < totalBorrows; i++)
+    {
+        BorrowReturn b = generate_borrow_return(i);
+        add_borrow_record(&b, day, month, year);
+        show_borow(b);
+    }
+
+    calc_statistic_borrowed_books(borrow_return_management); // Gọi thống kê borrow
     update_date(day, month, year);
 
     int total_genres = 0;

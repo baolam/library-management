@@ -32,8 +32,8 @@ void add_borrow_record(BorrowReturn *b, int day, int month, int year)
 {
     date = 0; // reset trước khi tính lại
     update_date(day, month, year);
-    b->date = date;
-    b->current_year = current_year;
+    // b->date = date;
+    // b->current_year = current_year;
 
     b->status = 0; // trạng thái mặc định: đang mượn
 
@@ -106,6 +106,11 @@ void show_borrow_record(FILE *f, long size)
 {
     BorrowReturn b;
     fread(&b, sizeof(BorrowReturn), 1, f);
+    show_borow(b);
+}
+
+void show_borow(BorrowReturn b)
+{
     printf("Reader ID: %d\n", b.readerId);
     printf("Borrowed books:\n");
     for (int i = 0; i < b.totalBooks; i++)
@@ -113,6 +118,7 @@ void show_borrow_record(FILE *f, long size)
         printf("  - Book ID: %d | Quantity: %d\n", b.bookIds[i], b.quantities[i]);
     }
     printf("Status: %s\n", b.status == ON_BORROWING ? "Borrowing" : "Returned");
+    printf("Date : %d, Year : %d \n", b.date, b.current_year);
 }
 
 void search_borrow_record_by_reader(int readerId)

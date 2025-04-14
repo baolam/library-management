@@ -87,8 +87,8 @@ void calc_statistic_borrowed_books(Node *borrow_return_management)
             }
 
             borrow = (BorrowReturn *)read_content_from_record_return(infor);
-
-            if (borrow->status == 0) // đang mượn
+            
+            if (borrow->status == ON_BORROWING) // đang mượn
             {
                 for (int i = 0; i < borrow->totalBooks; i++)
                 {

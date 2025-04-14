@@ -60,6 +60,11 @@ extern int current_year;
 void add_borrow_record(BorrowReturn *b, int day, int month, int year);
 
 /**
+ * @brief Hàm hiển thị bản ghi
+ */
+void show_borow(BorrowReturn b);
+
+/**
  * @brief Hiển thị các bản ghi mượn sách từ file.
  * @param f Con trỏ file.
  * @param size Kích thước file.
