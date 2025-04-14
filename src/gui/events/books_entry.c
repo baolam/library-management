@@ -84,6 +84,8 @@ void on_button_confirm_clicked(GtkButton *button, GtkBuilder *_builder)
         }
     }
 
+    clear_book_to_entry();
+
     chosen_action = BOOK_NO_ACTION;
     chosen_id = -1;
 
