@@ -41,6 +41,21 @@
  */
 #define ADD_CONTENT_SUCCESS 1
 
+/**
+ * @brief Mã trạng thái cập nhật thất bại
+ */
+#define UPDATE_FAILED 0
+
+/**
+ * @brief Mã trạng thái cập nhật thành công
+ */
+#define UPDATE_SUCCESS 1
+
+/**
+ * @brief Mã trạng thái cập nhật thất bại do lỗi file
+ */
+#define UPDATE_FILE_FAILED 2
+
 #include <stdbool.h>
 #include "utils/bplustreev2.h"
 
@@ -153,8 +168,15 @@ void update_content(Node *root, int key, void (*callback)(FILE *f, long package_
  *
  * @param record bản ghi dữ liệu
  * @param callback nhiệm vụ tương tự callback trên
+ *
  */
 void update_content_from_record(Record *record, void (*callback)(FILE *f, long package_size));
+
+/**
+ * @brief Hàm cập nhật dữ liệu trực tiếp không thông qua gọi callback
+ * @return trạng thái cập nhật
+ */
+int update_content_without_callback(Record *record, void *content);
 
 /**
  * @brief Hàm xóa dữ liệu

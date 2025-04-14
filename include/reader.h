@@ -29,7 +29,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "borrow_return.h"
 #include "utils/management.h"
 #include "utils/trie.h"
 #include "utils/bplustreev2.h"
@@ -131,6 +131,16 @@ void search_reader_by_name(const char *prefix, int maxNumbers);
 void update_reader(Readers *reader);
 
 /**
+ * @brief Hàm cập nhật thông tin độc giả
+ *
+ * Hàm này sẽ nhận đối tượng đầu vào là một reader hoàn chỉnh.
+ * Công việc cần làm là lưu file thui
+ *
+ * @param reader là đối tượng độc giả muốn Update
+ */
+int update_reader_from_object(Readers *reader);
+
+/**
  * @brief Xoá độc giả
  *
  * Bản chất của thao tác xoá này là xoá để khỏi quản lí thui, dữ liệu độc giả nếu tiến hành
@@ -176,7 +186,7 @@ Readers *retrieve_bucket_readers(int beginingKey, int quanities, int *actualRead
  *
  * Gọi hàm này để gán Trie khỏi NULL
  */
-void preparate_reader();
+void prepare_reader();
 
 /**
  * @brief Lưu trữ thông tin

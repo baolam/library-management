@@ -42,6 +42,8 @@ void \mbox{\hyperlink{books_8h_a92647df5ddb986901e8113a8ce3f1e3e}{delete\+\_\+bo
 \begin{DoxyCompactList}\small\item\em Xóa một quyển sách. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{books_8h_a3a2c8d018662acf1c6ca6857a9bb7f86}{update\+\_\+book}} (int id)
 \begin{DoxyCompactList}\small\item\em Cập nhật thông tin của một quyển sách. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{books_8h_a53cfe66264bb5e35a77b45a86f1cf8e3}{update\+\_\+book\+\_\+from\+\_\+object}} (\mbox{\hyperlink{struct_book}{Book}} \texorpdfstring{$\ast$}{*}book)
+\begin{DoxyCompactList}\small\item\em Cập nhật thông tin một quyển sách, cập nhật vào file nội dung. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{books_8h_ab9223d05c04eaf64efac2e4a8cf2aeec}{search\+\_\+book\+\_\+by\+\_\+id}} (int id)
 \begin{DoxyCompactList}\small\item\em Tìm kiếm sách bằng Id. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{books_8h_adbf315a2a4092396b23d8d083661fb6b}{search\+\_\+book\+\_\+by\+\_\+title}} (const char \texorpdfstring{$\ast$}{*}prefix, int max\+Numbers)
@@ -53,7 +55,7 @@ void \mbox{\hyperlink{books_8h_adbf315a2a4092396b23d8d083661fb6b}{search\+\_\+bo
 \Hypertarget{books_8h_ad52d1d47f78b08b5e1b73062842a8c34}\label{books_8h_ad52d1d47f78b08b5e1b73062842a8c34} 
 \mbox{\hyperlink{struct_book}{Book}} \texorpdfstring{$\ast$}{*} {\bfseries search\+\_\+book} (int id)
 \begin{DoxyCompactList}\small\item\em Phục vụ cho nhóm nhiệm vụ mượn, trả sách. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{books_8h_a95fe8318b6aff05328ee79cfd9e63b67}{preparate\+\_\+book}} ()
+void \mbox{\hyperlink{books_8h_a9362c66097877f5e29f487a20ea86fd1}{prepare\+\_\+book}} ()
 \begin{DoxyCompactList}\small\item\em Lưu trữ vào file, load dữ liệu ra từ file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{books_8h_ab0d9d44572464bcfc58d438604d0a598}{save\+\_\+book\+\_\+management}} ()
 \begin{DoxyCompactList}\small\item\em Lưu trữ dữ liệu. \end{DoxyCompactList}\item 
@@ -120,11 +122,11 @@ void load\+\_\+book\+\_\+management (\begin{DoxyParamCaption}{}{}\end{DoxyParamC
 
 Load dữ liệu. 
 
-Lấy nội dung dữ liệu đã lưu trữ trước đó \Hypertarget{books_8h_a95fe8318b6aff05328ee79cfd9e63b67}\index{books.h@{books.h}!preparate\_book@{preparate\_book}}
-\index{preparate\_book@{preparate\_book}!books.h@{books.h}}
-\doxysubsubsection{\texorpdfstring{preparate\_book()}{preparate\_book()}}
-{\footnotesize\ttfamily \label{books_8h_a95fe8318b6aff05328ee79cfd9e63b67} 
-void preparate\+\_\+book (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+Lấy nội dung dữ liệu đã lưu trữ trước đó \Hypertarget{books_8h_a9362c66097877f5e29f487a20ea86fd1}\index{books.h@{books.h}!prepare\_book@{prepare\_book}}
+\index{prepare\_book@{prepare\_book}!books.h@{books.h}}
+\doxysubsubsection{\texorpdfstring{prepare\_book()}{prepare\_book()}}
+{\footnotesize\ttfamily \label{books_8h_a9362c66097877f5e29f487a20ea86fd1} 
+void prepare\+\_\+book (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -244,5 +246,20 @@ Cập nhật thông tin quyển sách, bản chất là cập nhật file nội 
 Phương thức này được dùng và hiển thị ra console. 
 \begin{DoxyParams}{Các tham số}
 {\em id} & Id của quyển sách cần cập nhật \\
+\hline
+\end{DoxyParams}
+\Hypertarget{books_8h_a53cfe66264bb5e35a77b45a86f1cf8e3}\index{books.h@{books.h}!update\_book\_from\_object@{update\_book\_from\_object}}
+\index{update\_book\_from\_object@{update\_book\_from\_object}!books.h@{books.h}}
+\doxysubsubsection{\texorpdfstring{update\_book\_from\_object()}{update\_book\_from\_object()}}
+{\footnotesize\ttfamily \label{books_8h_a53cfe66264bb5e35a77b45a86f1cf8e3} 
+int update\+\_\+book\+\_\+from\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_book}{Book}} \texorpdfstring{$\ast$}{*}}]{book}{}\end{DoxyParamCaption})}
+
+
+
+Cập nhật thông tin một quyển sách, cập nhật vào file nội dung. 
+
+Gọi hàm này không cần dùng đến callback 
+\begin{DoxyParams}{Các tham số}
+{\em book} & cuốn sách muốn cập nhật \\
 \hline
 \end{DoxyParams}

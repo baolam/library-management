@@ -4,7 +4,7 @@
 int main()
 {
     srand(time(NULL));
-    preparate_reader();
+    prepare_reader();
 
     // int totals = 250;
     // int id;

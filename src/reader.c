@@ -155,6 +155,18 @@ void update_reader(Readers *reader)
     update_content_from_record(record, update_reader_callback);
 }
 
+int update_reader_from_object(Readers *reader)
+{
+    Record *record = find(reader_management, reader->readerId);
+    if (record == NULL || record->deleted)
+    {
+        printf("Reader not found for update.\n");
+        return UPDATE_FAILED;
+    }
+
+    return update_content_without_callback(record, reader);
+}
+
 void delete_reader_callback(int code)
 {
     if (code == DELETE_SUCCESS)
@@ -228,7 +240,7 @@ Readers *retrieve_bucket_readers(int beginingKey, int quanities, int *actualRead
 }
 
 // ------------------- Save / Load Tree -------------------
-void preparate_reader()
+void prepare_reader()
 {
     if (reader_trie == NULL)
     {
@@ -247,20 +259,20 @@ void load_reader_management()
     reader_management = loadTree(reader_management_file);
     if (reader_management == NULL)
     {
-        printf("Failed to load B+ Tree management!\n");
+        printf("(Reader) Failed to load B+ Tree management!\n");
     }
     else
     {
-        printf("Load B+ Tree management successfully!\n");
+        printf("(Reader) Load B+ Tree management successfully!\n");
     }
     reader_trie = loadTrieTree(reader_name_management_file);
     if (reader_trie == NULL)
     {
-        printf("Failed to load Trie management!\n");
+        printf("(Reader) Failed to load Trie management!\n");
     }
     else
     {
-        printf("Load Trie management successfully!\n");
+        printf("(Reader) Load Trie management successfully!\n");
     }
 }
 

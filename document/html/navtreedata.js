@@ -39,6 +39,7 @@ var NAVTREE =
         [ "Tất cả", "globals.html", null ],
         [ "Các hàm", "globals_func.html", null ],
         [ "Các biến", "globals_vars.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
         [ "Định nghĩa", "globals_defs.html", null ]
       ] ]
     ] ]

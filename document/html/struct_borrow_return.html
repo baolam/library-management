@@ -109,6 +109,11 @@ $(function(){initNavTree('struct_borrow_return.html',''); initResizable(true); }
   <div class="headertitle"><div class="title">BorrowReturn Struct Tham chiếu</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Struct đại diện cho một bản ghi mượn-trả sách.  
+ <a href="#details">Tiếp...</a></p>
+
+<p><code>#include &lt;<a class="el" href="borrow__return_8h_source.html">borrow_return.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Các thuộc tính Public</h2></td></tr>
@@ -118,20 +123,28 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>readerId</b></td></tr>
 <tr class="memitem:a62b3191275187443cc8095bd4c1e2d71" id="r_a62b3191275187443cc8095bd4c1e2d71"><td class="memItemLeft" align="right" valign="top"><a id="a62b3191275187443cc8095bd4c1e2d71" name="a62b3191275187443cc8095bd4c1e2d71"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>totalBooks</b></td></tr>
 <tr class="separator:a62b3191275187443cc8095bd4c1e2d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abaa8786de93f86a91d25348bed670441" id="r_abaa8786de93f86a91d25348bed670441"><td class="memItemLeft" align="right" valign="top"><a id="abaa8786de93f86a91d25348bed670441" name="abaa8786de93f86a91d25348bed670441"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>bookIds</b> [100]</td></tr>
-<tr class="separator:abaa8786de93f86a91d25348bed670441"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77acf61079ca129c6dea62787cc997a4" id="r_a77acf61079ca129c6dea62787cc997a4"><td class="memItemLeft" align="right" valign="top"><a id="a77acf61079ca129c6dea62787cc997a4" name="a77acf61079ca129c6dea62787cc997a4"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>quantities</b> [100]</td></tr>
-<tr class="separator:a77acf61079ca129c6dea62787cc997a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92557443665c4be63f883fcaf07ac2c3" id="r_a92557443665c4be63f883fcaf07ac2c3"><td class="memItemLeft" align="right" valign="top"><a id="a92557443665c4be63f883fcaf07ac2c3" name="a92557443665c4be63f883fcaf07ac2c3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>bookIds</b> [<a class="el" href="borrow__return_8h.html#a0952e94a037eac280b9ee1b49d3e95cf">MAX_BORROWED_BOOKS</a>]</td></tr>
+<tr class="separator:a92557443665c4be63f883fcaf07ac2c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9118cf8d4086333bd172aa7ab6539948" id="r_a9118cf8d4086333bd172aa7ab6539948"><td class="memItemLeft" align="right" valign="top"><a id="a9118cf8d4086333bd172aa7ab6539948" name="a9118cf8d4086333bd172aa7ab6539948"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>quantities</b> [<a class="el" href="borrow__return_8h.html#a0952e94a037eac280b9ee1b49d3e95cf">MAX_BORROWED_BOOKS</a>]</td></tr>
+<tr class="separator:a9118cf8d4086333bd172aa7ab6539948"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa864c39a415529643d8f1672eb8252a3" id="r_aa864c39a415529643d8f1672eb8252a3"><td class="memItemLeft" align="right" valign="top"><a id="aa864c39a415529643d8f1672eb8252a3" name="aa864c39a415529643d8f1672eb8252a3"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>status</b></td></tr>
 <tr class="separator:aa864c39a415529643d8f1672eb8252a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cf67797bd4d01d8c2458b44e31f72b0" id="r_a5cf67797bd4d01d8c2458b44e31f72b0"><td class="memItemLeft" align="right" valign="top"><a id="a5cf67797bd4d01d8c2458b44e31f72b0" name="a5cf67797bd4d01d8c2458b44e31f72b0"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>onTime</b></td></tr>
-<tr class="separator:a5cf67797bd4d01d8c2458b44e31f72b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4176756d6737cf95a1f613531084616b" id="r_a4176756d6737cf95a1f613531084616b"><td class="memItemLeft" align="right" valign="top"><a id="a4176756d6737cf95a1f613531084616b" name="a4176756d6737cf95a1f613531084616b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>onTime</b></td></tr>
+<tr class="separator:a4176756d6737cf95a1f613531084616b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f7449b4ebeb9c9f801b36b7d1bbc9cd" id="r_a9f7449b4ebeb9c9f801b36b7d1bbc9cd"><td class="memItemLeft" align="right" valign="top"><a id="a9f7449b4ebeb9c9f801b36b7d1bbc9cd" name="a9f7449b4ebeb9c9f801b36b7d1bbc9cd"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>date</b></td></tr>
+<tr class="separator:a9f7449b4ebeb9c9f801b36b7d1bbc9cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54481dc3592dfc3ee28a694473cb1ca3" id="r_a54481dc3592dfc3ee28a694473cb1ca3"><td class="memItemLeft" align="right" valign="top"><a id="a54481dc3592dfc3ee28a694473cb1ca3" name="a54481dc3592dfc3ee28a694473cb1ca3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>current_year</b></td></tr>
+<tr class="separator:a54481dc3592dfc3ee28a694473cb1ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>Thông tin cho struct được biên soạn từ các file sau đây:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Mô tả chi tiết</h2>
+<div class="textblock"><p>Struct đại diện cho một bản ghi mượn-trả sách. </p>
+</div><hr/>Thông tin cho struct được biên soạn từ các file sau đây:<ul>
 <li>include/<a class="el" href="borrow__return_8h_source.html">borrow_return.h</a></li>
 </ul>
 </div><!-- contents -->

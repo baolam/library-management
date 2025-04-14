@@ -171,6 +171,9 @@ Các hàm</h2></td></tr>
 <tr class="memitem:a6f4bed4c59354e39e2318153f3b6f0ed" id="r_a6f4bed4c59354e39e2318153f3b6f0ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f4bed4c59354e39e2318153f3b6f0ed">removeWord</a> (<a class="el" href="struct_trie_node.html">TrieNode</a> *root, char *word)</td></tr>
 <tr class="memdesc:a6f4bed4c59354e39e2318153f3b6f0ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm xóa từ trong Trie.  <br /></td></tr>
 <tr class="separator:a6f4bed4c59354e39e2318153f3b6f0ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ce1af9902523c25aafd201613db71ab" id="r_a4ce1af9902523c25aafd201613db71ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ce1af9902523c25aafd201613db71ab">removeIdFromWord</a> (<a class="el" href="struct_trie_node.html">TrieNode</a> *root, char *word, int id)</td></tr>
+<tr class="memdesc:a4ce1af9902523c25aafd201613db71ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm xoá Id khỏi quản lí.  <br /></td></tr>
+<tr class="separator:a4ce1af9902523c25aafd201613db71ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a759222c75b700283cb2e071ab0da6839" id="r_a759222c75b700283cb2e071ab0da6839"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a759222c75b700283cb2e071ab0da6839">recommendPrefix</a> (<a class="el" href="struct_trie_node.html">TrieNode</a> *root, char *prefix, int maxRecommend, char **recommend, int *recommendSize)</td></tr>
 <tr class="memdesc:a759222c75b700283cb2e071ab0da6839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm đưa ra một chuỗi các từ bắt đầu = prefix.  <br /></td></tr>
 <tr class="separator:a759222c75b700283cb2e071ab0da6839"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -436,6 +439,46 @@ Các hàm</h2></td></tr>
     <tr><td class="paramname">maxRecommend</td><td>số lượng gợi ý tối đa </td></tr>
     <tr><td class="paramname">recommend</td><td>List danh sách gợi ý </td></tr>
     <tr><td class="paramname">recommendSize</td><td>kích thước danh sách gợi ý thực tế </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4ce1af9902523c25aafd201613db71ab" name="a4ce1af9902523c25aafd201613db71ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ce1af9902523c25aafd201613db71ab">&#9670;&#160;</a></span>removeIdFromWord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void removeIdFromWord </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_trie_node.html">TrieNode</a> *</td>          <td class="paramname"><span class="paramname"><em>root</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>word</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hàm xoá Id khỏi quản lí. </p>
+<p>Sẽ tiến hành xoá theo thứ tự ưu tiên sau:</p><ul>
+<li>Xoá Id, giảm Id</li>
+<li>Khi không còn dữ liệu, xoá word</li>
+</ul>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>node gốc </td></tr>
+    <tr><td class="paramname">word</td><td>từ tìm kiếm muốn xoá </td></tr>
+    <tr><td class="paramname">id</td><td>Id muốn xoá </td></tr>
   </table>
   </dd>
 </dl>

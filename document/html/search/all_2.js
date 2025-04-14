@@ -8,6 +8,8 @@ var searchData=
   ['book_5ftrie_5fmanagement_5',['book_trie_management',['../books_8h.html#a390d31c4003925cffa92edece544dbd1',1,'books.c']]],
   ['bookid_6',['bookId',['../struct_book.html#ad630743841ee8a2e7cacc7d2a3d2b97e',1,'Book']]],
   ['books_2eh_7',['books.h',['../books_8h.html',1,'']]],
-  ['borrowreturn_8',['BorrowReturn',['../struct_borrow_return.html',1,'']]],
-  ['bplustreev2_2eh_9',['bplustreev2.h',['../bplustreev2_8h.html',1,'']]]
+  ['borrow_5freturn_2eh_8',['borrow_return.h',['../borrow__return_8h.html',1,'']]],
+  ['borrowed_9',['BORROWED',['../borrow__return_8h.html#a4f03cb6d345f713e55457331875f7f4e',1,'borrow_return.h']]],
+  ['borrowreturn_10',['BorrowReturn',['../struct_borrow_return.html',1,'BorrowReturn'],['../borrow__return_8h.html#ab73b402c920f03bb44641490f56ba94d',1,'BorrowReturn:&#160;borrow_return.h']]],
+  ['bplustreev2_2eh_11',['bplustreev2.h',['../bplustreev2_8h.html',1,'']]]
 ];

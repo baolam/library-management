@@ -1,47 +1,71 @@
 \doxysection{borrow\+\_\+return.\+h}
 \hypertarget{borrow__return_8h_source}{}\label{borrow__return_8h_source}\index{include/borrow\_return.h@{include/borrow\_return.h}}
-
+\mbox{\hyperlink{borrow__return_8h}{Tới Thông tin của file này.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BORROW\_RETURN\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BORROW\_RETURN\_H}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{books_8h}{books.h}}"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{reader_8h}{reader.h}}"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bplustreev2_8h}{utils/bplustreev2.h}}"{}}}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ BORROW\_RETURN\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ BORROW\_RETURN\_H}}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{comment}{//\ Cấu\ trúc\ BorrowReturn}}
-\DoxyCodeLine{00012\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_borrow_return}{BorrowReturn}}}
-\DoxyCodeLine{00013\ \{}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ readerId;}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ totalBooks;}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ bookIds[100];}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ quantities[100];}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ status;\ \textcolor{comment}{//\ 0\ =\ đang\ mượn,\ 1\ =\ đã\ trả}}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ onTime;\ \textcolor{comment}{//\ 1\ =\ đúng\ hạn,\ 0\ =\ trễ}}
-\DoxyCodeLine{00020\ \}\ \mbox{\hyperlink{struct_borrow_return}{BorrowReturn}};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{comment}{//\ Biến\ toàn\ cục}}
-\DoxyCodeLine{00023\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_node}{Node}}\ *borrow\_return\_management;}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{comment}{//\ Khai\ báo\ file}}
-\DoxyCodeLine{00026\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ borrow\_return\_content\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];}
-\DoxyCodeLine{00027\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ borrow\_return\_management\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \textcolor{comment}{//\ Hàm\ xử\ lý}}
-\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ add\_borrow\_record(\mbox{\hyperlink{struct_borrow_return}{BorrowReturn}}\ *b);}
-\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ show\_borrow\_record(FILE\ *f,\ \textcolor{keywordtype}{long}\ size);}
-\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ search\_borrow\_record\_by\_reader(\textcolor{keywordtype}{int}\ readerId);}
-\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ delete\_borrow\_record(\textcolor{keywordtype}{int}\ readerId);}
-\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ stat\_total\_books\_by\_reader(\textcolor{keywordtype}{int}\ readerId);}
-\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ return\_books(\textcolor{keywordtype}{int}\ readerId);}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \textcolor{comment}{//\ Các\ hàm\ phụ}}
-\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ restore\_books\_to\_stock(\mbox{\hyperlink{struct_borrow_return}{BorrowReturn}}\ *b);}
-\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ update\_book\_direct(\mbox{\hyperlink{struct_book}{Book}}\ *book);}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ MAX\_BORROWED\_BOOKS\ 100}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ ON\_BORROWING\ 0}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ BORROWED\ 1}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{books_8h}{books.h}}"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{reader_8h}{reader.h}}"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bplustreev2_8h}{utils/bplustreev2.h}}"{}}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_borrow_return}{BorrowReturn}}}
+\DoxyCodeLine{00037\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ readerId;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ totalBooks;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ bookIds[\mbox{\hyperlink{borrow__return_8h_a0952e94a037eac280b9ee1b49d3e95cf}{MAX\_BORROWED\_BOOKS}}];}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{int}\ quantities[\mbox{\hyperlink{borrow__return_8h_a0952e94a037eac280b9ee1b49d3e95cf}{MAX\_BORROWED\_BOOKS}}];}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{int}\ status;\ \ \textcolor{comment}{//\ 0\ =\ đang\ mượn,\ 1\ =\ đã\ trả}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{bool}\ onTime;\ \textcolor{comment}{//\ 1\ =\ đúng\ hạn,\ 0\ =\ trễ}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ date;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ current\_year;}
+\DoxyCodeLine{00046\ \}\ \mbox{\hyperlink{struct_borrow_return}{BorrowReturn}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{//\ Biến\ toàn\ cục}}
+\DoxyCodeLine{00049\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_node}{Node}}\ *borrow\_return\_management;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ Khai\ báo\ file}}
+\DoxyCodeLine{00052\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ borrow\_return\_content\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];}
+\DoxyCodeLine{00053\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ borrow\_return\_management\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];}
+\DoxyCodeLine{00054\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ date;}
+\DoxyCodeLine{00055\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ current\_year;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{borrow__return_8h_a5c8632e067e20ce52fe74c17782100b8}{add\_borrow\_record}}(\mbox{\hyperlink{struct_borrow_return}{BorrowReturn}}\ *b,\ \textcolor{keywordtype}{int}\ day,\ \textcolor{keywordtype}{int}\ month,\ \textcolor{keywordtype}{int}\ year);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{borrow__return_8h_ab19475356baa01c670623e0c95d998fa}{show\_borrow\_record}}(FILE\ *f,\ \textcolor{keywordtype}{long}\ size);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{borrow__return_8h_ae3ddf26aa8c6f214f485e638682f20b2}{search\_borrow\_record\_by\_reader}}(\textcolor{keywordtype}{int}\ readerId);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{borrow__return_8h_a2b6bda3e39faebd850ff3488c25cc648}{delete\_borrow\_record}}(\textcolor{keywordtype}{int}\ readerId);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{borrow__return_8h_a961ad1c096b0a10c15765365130eb796}{stat\_total\_books\_by\_reader}}(\textcolor{keywordtype}{int}\ readerId);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{borrow__return_8h_a6d1031f3d3de9268eea5484521c2096f}{return\_books}}(\textcolor{keywordtype}{int}\ readerId);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{borrow__return_8h_a8c3fff20022a9308a55170a9855dbd6a}{restore\_books\_to\_stock}}(\mbox{\hyperlink{struct_borrow_return}{BorrowReturn}}\ *b);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{borrow__return_8h_a5c24caa6c8dced26c0dcf2434a78bc9d}{update\_book\_direct}}(\mbox{\hyperlink{struct_book}{Book}}\ *book);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ update\_date(\textcolor{keywordtype}{int}\ day,\ \textcolor{keywordtype}{int}\ month,\ \textcolor{keywordtype}{int}\ year);\ \textcolor{comment}{//\ Phong}}
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{int}\ calculate\_day\_difference(\textcolor{keywordtype}{int}\ borrow\_date,\ \textcolor{keywordtype}{int}\ borrow\_year);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00107\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{borrow__return_8h_a0debb124a322065a6209e63b9e56a2a4}{check\_book\_in\_borrow}}(\textcolor{keywordtype}{int}\ bookId);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{borrow__return_8h_ae46ecefa1043dad90969d2bc3f81626a}{save\_borrow\_return\_management}}();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00117\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{borrow__return_8h_a3f6198ab52b858e20c54463b4d00e4d2}{load\_borrow\_return\_management}}();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BORROW\_RETURN\_H}}
 
 \end{DoxyCode}

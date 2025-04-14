@@ -11,6 +11,7 @@ var trie_8h =
     [ "loadTrieTree", "trie_8h.html#ad2aa3ceb08b5c05b48b3e56bc2d2926e", null ],
     [ "makeTrieNode", "trie_8h.html#a7728b62702896136d2976b1fb5ea9366", null ],
     [ "recommendPrefix", "trie_8h.html#a759222c75b700283cb2e071ab0da6839", null ],
+    [ "removeIdFromWord", "trie_8h.html#a4ce1af9902523c25aafd201613db71ab", null ],
     [ "removeWord", "trie_8h.html#a6f4bed4c59354e39e2318153f3b6f0ed", null ],
     [ "saveTrieTree", "trie_8h.html#ad41ba433582647dee30db67afba7553e", null ],
     [ "searchPrefix", "trie_8h.html#a824eaa28a090848b88f367a7379b166b", null ],
