@@ -69,7 +69,7 @@ BorrowReturn generate_borrow_return(int readerId)
     BorrowReturn borrowReturn;
     borrowReturn.readerId = readerId;
 
-    borrowReturn.totalBooks = rand() % 5;
+    borrowReturn.totalBooks = 1 + rand() % 5;
     int i;
     for (i = 0; i < borrowReturn.totalBooks; i++)
     {
@@ -80,7 +80,7 @@ BorrowReturn generate_borrow_return(int readerId)
     }
 
     borrowReturn.date = rand() % 365;
-    borrowReturn.current_year = 2023 + rand() % 1;
+    borrowReturn.current_year = 2023 + rand() % 3;
 
     return borrowReturn;
 }

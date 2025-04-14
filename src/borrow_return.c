@@ -45,7 +45,7 @@ void add_borrow_record(BorrowReturn *b)
     if (b == NULL || b->totalBooks <= 0 || b->totalBooks >= MAX_BORROWED_BOOKS)
         return;
 
-    auto_update_time();
+    // auto_update_time();
 
     Record *reader_record = find(reader_management, b->readerId);
     if (reader_record == NULL || reader_record->deleted)
@@ -73,17 +73,17 @@ void add_borrow_record(BorrowReturn *b)
 
     fclose(f);
 
-    for (int i = 0; i < b->totalBooks; i++)
-    {
-        b->status[i] = ON_BORROWING;
-        b->onTime[i] = false;
-    }
+    // for (int i = 0; i < b->totalBooks; i++)
+    // {
+    //     b->status[i] = ON_BORROWING;
+    //     b->onTime[i] = false;
+    // }
 
     /**
      * Cập nhật thời gian
      */
-    b->date = date;
-    b->current_year = current_year;
+    // b->date = date;
+    // b->current_year = current_year;
 
     borrow_return_management = add_content(
         borrow_return_management,
