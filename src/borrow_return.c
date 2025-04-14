@@ -38,13 +38,6 @@ void auto_update_time(time_t now, struct tm *local)
 
 void add_borrow_record(BorrowReturn *b)
 {
-    // date = 0; // reset trước khi tính lại
-    // update_date();
-    // b->date = date;
-    // b->current_year = current_year;
-
-    b->status = 0; // trạng thái mặc định: đang mượn
-
     if (b == NULL || b->totalBooks <= 0 || b->totalBooks >= MAX_BORROWED_BOOKS)
     {
         printf("Error: Invalid borrow record.\n");
@@ -127,6 +120,7 @@ void show_borow(BorrowReturn b)
     }
     printf("Status: %s\n", b.status == ON_BORROWING ? "Borrowing" : "Returned");
     printf("Date : %d, Year : %d \n", b.date, b.current_year);
+    printf("\n");
 }
 
 void search_borrow_record_by_reader(int readerId)
@@ -177,21 +171,30 @@ void return_books(int readerId)
         printf("Error: Cannot open file.\n");
         return;
     }
+
     fseek(f, record->offset, SEEK_SET);
     fread(&b, sizeof(BorrowReturn), 1, f);
 
+    show_borow(b);
+
     if (b.status == BORROWED)
-        if (b.status == NOT_BORROWING)
-        {
-            printf("Books already returned.\n");
-            fclose(f);
-            return;
-        }
+    {
+        printf("Books already returned.\n");
+        fclose(f);
+        return;
+    }
+
+    if (b.status == NOT_BORROWING)
+    {
+        printf("Books have not borrowed yet.\n");
+        fclose(f);
+        return;
+    }
 
     restore_books_to_stock(&b);
 
-    int days = calculate_day_difference(b.date, b.current_year);
-    b.onTime = days <= 14 ? 1 : 0;
+    printf("Fix code here. 193. borrow_return.c \n");
+    b.onTime = true;
 
     if (!b.onTime)
     {
@@ -209,9 +212,12 @@ void return_books(int readerId)
     }
 
     b.status = BORROWED;
+
     fseek(f, record->offset, SEEK_SET);
     fwrite(&b, sizeof(BorrowReturn), 1, f);
     fclose(f);
+
+    show_borow(b);
 
     printf("Return processed successfully.\n");
 }
@@ -261,6 +267,7 @@ bool check_book_in_borrow(int bookId)
     BorrowReturn b;
     while (fread(&b, sizeof(BorrowReturn), 1, f))
     {
+        show_borow(b);
         if (b.status == ON_BORROWING)
         {
             for (int i = 0; i < b.totalBooks; i++)

@@ -8,6 +8,12 @@ int total_late_books = 0;
 OverdueBorrower overdue_list[MAX_OVERDUE];
 int overdue_count = 0;
 
+int calculate_day_difference(int borrow_date, int borrow_year)
+{
+    int year_diff = current_year - borrow_year;
+    return year_diff * 365 + (date - borrow_date);
+}
+
 int find_position(char genre[MAX_GENRE_NO])
 {
     int num;
@@ -96,6 +102,7 @@ void calc_statistic_borrowed_books(Node *borrow_return_management)
                 }
 
                 int diff = calculate_day_difference(borrow->date, borrow->current_year);
+
                 if (diff > 14)
                 {
                     total_late_books++;

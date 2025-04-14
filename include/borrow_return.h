@@ -35,7 +35,7 @@
 /**
  * @brief Mã trạng thái đã trả sách
  */
-#define BORROWED 1
+#define BORROWED 2
 /**
  * @brief không tìm thấy bản ghi -> lỗi
  */
@@ -51,11 +51,11 @@
 /**
  * @brief nếu sách đang nằm trong danh sách mượn
  */
-#define ALREADY_IN_LIST_BORROWED true;
+#define ALREADY_IN_LIST_BORROWED true
 /**
  * @brief  nếu sách không bị ai mượn hoặc đã trả.
  */
-#define NOT_IN_LIST_BORROWED false;
+#define NOT_IN_LIST_BORROWED false
 /**
  * @brief Không có bản ghi nào
  */

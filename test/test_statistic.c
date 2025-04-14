@@ -36,7 +36,7 @@ int main()
     printf("OKOK\n");
     calc_statistic_borrowed_books(borrow_return_management); // Gọi thống kê borrow
     printf("OKOK\n");
-    update_date();
+    // update_date();
     printf("OKOK\n");
 
     int total_genres = 0;

@@ -21,12 +21,13 @@ int main()
 {
     load_reader_management();
     load_book_management();
+    load_borrow_return_management();
 
     /// Thử hiển thị thông tin sách
     search_book_by_id(101);
 
     // Setup dữ liệu giả
-    setup_test_data();
+    // setup_test_data();
 
     // ===== TEST 1: gui_add_borrow_record =====
     BorrowReturn testBorrow = {
@@ -40,11 +41,16 @@ int main()
     int addResult = gui_add_borrow_record(&testBorrow);
     printf("TEST 1 - Add borrow status : %d\n", addResult);
     printf("TEST 1 - Add borrow: %s\n", addResult == BORROW_SUCCESS ? "OK" : "FAIL");
+    printf("\n");
 
     // ===== TEST 2: gui_return_books =====
     int returnResult = gui_return_books(2);
     printf("TEST 2 - Return books status : %d\n", returnResult);
     printf("TEST 2 - Return books: %s\n", returnResult == RETURN_SUCCESS ? "OK" : "FAIL");
+    printf("\n");
+
+    printf("TEST SEARCHING ..... \n");
+    search_borrow_record_by_reader(2);
 
     // ===== TEST 3: gui_is_book_borrowed =====
     bool isBorrowed = gui_is_book_borrowed(101);
