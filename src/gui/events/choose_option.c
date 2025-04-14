@@ -28,18 +28,14 @@ void popup_menu_show(GtkTreeView *treeview, GdkEventButton *event)
     }
 }
 
-
 void on_treeview_row_activated(GtkTreeView *treeview,
-    GtkTreePath *path,
-    GtkTreeViewColumn *column,
-    gpointer user_data)
+                               GtkTreePath *path,
+                               GtkTreeViewColumn *column,
+                               gpointer user_data)
 {
-GdkEventButton *event = (GdkEventButton *)user_data;
-popup_menu_show(treeview, event);
+    GdkEventButton *event = (GdkEventButton *)user_data;
+    popup_menu_show(treeview, event);
 }
-
-
-
 
 void on_book_edit(GtkMenuItem *item, gpointer user_data)
 {
