@@ -1,11 +1,13 @@
 #include "utils/fake.h"
 
-char *titles[] = {
-    "The Great Adventure", "Mystery of the Lost Island", "Science and Future",
-    "A Journey to the Stars", "The Secret of the Old Castle", "Beyond the Horizon",
-    "Programming in C", "Data Structures & Algorithms", "History of Ancient Civilizations",
-    "The Art of War", "Mastering Chess", "Cooking for Beginners", "Psychology and Mind",
-    "The Road to Success", "Artificial Intelligence Basics"};
+char *prefixes[] = {
+    "The", "A", "Beyond", "Inside", "Under", "Whispers of", "Echoes from"};
+
+char *realWords[] = {
+    "Shadow", "Dream", "Empire", "Chronicle", "Legend", "Flame", "Whisper", "Storm"};
+
+char *nonsenseWords[] = {
+    "Zarthul", "Morgix", "Veblor", "Tharnok", "Yuvana", "Quellor", "Droven", "Xandoria", "Vaccum", "Dead", "Live"};
 
 char *authors[] = {
     "John Smith", "Alice Johnson", "Robert Brown", "Emily Davis", "William Wilson",
@@ -35,6 +37,15 @@ char *addresses[] = {
 
 char *phone_prefix[] = {"09", "08", "07", "03", "05"};
 
+void generateRandomBookTitle(char *output, int maxLen)
+{
+    const char *prefix = prefixes[rand() % SIZE(prefixes)];
+    const char *word1 = rand() % 2 ? realWords[rand() % SIZE(realWords)] : nonsenseWords[rand() % SIZE(nonsenseWords)];
+    const char *word2 = rand() % 2 ? realWords[rand() % SIZE(realWords)] : nonsenseWords[rand() % SIZE(nonsenseWords)];
+
+    snprintf(output, maxLen, "%s %s of %s", prefix, word1, word2);
+}
+
 Book generate_book(int id)
 {
     int publicationYear = rand() % 35 + 1990; // Random year from 1990 to 2024
@@ -43,7 +54,7 @@ Book generate_book(int id)
     Book book;
 
     book.bookId = id;
-    strcpy(book.title, titles[rand() % 15]);
+    generateRandomBookTitle(book.title, MAX_TITLE);
     strcpy(book.author, authors[rand() % 14]);
     strcpy(book.genre, genres[rand() % 12]);
     book.publicationYear = publicationYear;
