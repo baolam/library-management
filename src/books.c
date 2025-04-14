@@ -83,8 +83,9 @@ void update_book_callback(FILE *f, long package)
     show_book(book);
 
     printf("Enter title:\n");
-    fgets(book.title, sizeof(book.title), stdin);
-    book.title[strcspn(book.title, "\n")] = 0;
+    char title[MAX_TITLE];
+    fgets(title, sizeof(title), stdin);
+    title[strcspn(title, "\n")] = 0;
 
     printf("Enter author:\n");
     fgets(book.author, sizeof(book.author), stdin);
@@ -99,6 +100,11 @@ void update_book_callback(FILE *f, long package)
 
     printf("Enter stock:\n");
     scanf("%d", &book.stock);
+
+    removeIdFromWord(book_trie, book.title, book.bookId);
+    insertIntoTrie(book_trie, title, book.bookId);
+
+    strcpy(book.title, title);
 
     fwrite(&book, sizeof(Book), 1, f);
     printf("Update successfully!\n");
@@ -124,6 +130,11 @@ int update_book_from_object(Book *book)
         printf("Reader not found for update.\n");
         return UPDATE_FAILED;
     }
+
+    Book *old_book = read_content_from_record_return(record);
+
+    // removeIdFromWord(book_trie, old_book->title, book->bookId);
+    insertIntoTrie(book_trie, book->title, book->bookId);
 
     return update_content_without_callback(record, book);
 }
