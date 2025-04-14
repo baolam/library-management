@@ -6,6 +6,6 @@
 #include "gui/constant.h"
 #include "books.h"
 
-void on_button_confirm_clicked(GtkButton *button, GtkBuilder *_builder);
+void on_book_button_confirm_clicked(GtkButton *button, gpointer user_data);
 
 #endif

@@ -123,6 +123,22 @@ void search_reader_by_id(int id);
 void search_reader_by_name(const char *prefix, int maxNumbers);
 
 /**
+ * @brief Tìm kiếm sách bằng Title, có hứng kết quả trả về
+ *
+ * Hàm này sẽ trả về kết quả tìm kiếm số lượng sách, hứng kết quả trả về lưu trữ vào mảng.
+ * Việc dùng hàm này sẽ giúp đảm bảo lợi thế khi kết nối giao diện. Giao diện có thể gặp
+ * khó khăn khi tiến hành gọi callback
+ *
+ * @param prefix là nhóm chữ cái đầu của tên
+ * @param books là số lượng sách đọc được (mảng)
+ * @param actualBooks là số lượng sách thực tế (mảng)
+ * @param maxNumbers là số lượng kết quả tối đa
+ *
+ * @return là mảng chứa các cuốn sách tìm được
+ */
+Readers *search_reader_by_name_direct(const char *prefix, int *actualReaders, int maxNumbers);
+
+/**
  * @brief Hàm cập nhật thông tin độc giả
  *
  * Hàm này thao tác ở màn hình Console

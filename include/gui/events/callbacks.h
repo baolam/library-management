@@ -6,5 +6,6 @@
 
 
 void on_book_add_clicked(GtkWidget *widget, gpointer user_data);
+void on_reader_add_clicked(GtkWidget *widget, gpointer user_data);
 
 #endif
