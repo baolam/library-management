@@ -8,6 +8,7 @@ void init_gui(int argc, char *argv[])
     GtkWidget *window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
 
     load_book_to_layout(1);
+    load_reader_to_layout(1);
     gtk_builder_connect_signals(builder, NULL);
 
     popup_menu_init(builder);

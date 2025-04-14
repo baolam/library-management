@@ -208,6 +208,46 @@ Readers *search_reader(int id)
     return reader;
 }
 
+Readers *search_reader_by_name_direct(const char *prefix, int *actualReaders, int maxNumbers)
+{
+    int recommendSize = 0, storage_pos = 0;
+    char *recommend[maxNumbers];
+
+    /// Cấp phát bộ nhớ cho Book
+    Readers *readers = (Readers *)malloc(maxNumbers * sizeof(Readers));
+    if (readers == NULL)
+    {
+        printf("Memory allocation failed.\n");
+        *actualReaders = 0;
+        return NULL;
+    }
+
+    recommendPrefix(reader_trie, (char *)prefix, maxNumbers, recommend, &recommendSize);
+    for (int i = 0; i < recommendSize; i++)
+    {
+        char *name = recommend[i];
+        TrieNode *temp = searchWord(reader_trie, name);
+        if (temp != NULL)
+        {
+            for (int j = 0; j < temp->numIds && maxNumbers > 0; j++)
+            {
+                if (exist_record(reader_management, temp->ids[j]))
+                {
+                    Readers *reader = search_reader(temp->ids[j]);
+                    readers[storage_pos] = *reader;
+                    storage_pos++;
+                    maxNumbers--;
+                }
+            }
+            if (maxNumbers == 0)
+               break;
+        }
+    }
+
+    *actualReaders = storage_pos;
+    return readers;
+}
+
 Readers *retrieve_bucket_readers(int beginingKey, int quanities, int *actualReaders)
 {
     int storage_pos = 0;
