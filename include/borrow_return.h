@@ -35,25 +35,34 @@
  */
 typedef struct BorrowReturn
 {
-    int readerId;                       ///< ID người đọc
-    int totalBooks;                     ///< Tổng số sách mượn
-    int bookIds[MAX_BORROWED_BOOKS];    ///< Danh sách các ID sách đã mượn
-    int quantities[MAX_BORROWED_BOOKS]; ///< Số lượng tương ứng với mỗi sách
-    int status;                         ///< Trạng thái: 0 = đang mượn, 1 = đã trả
-    bool onTime;                        ///< Trả đúng hạn (1) hoặc trễ (0)
+    int readerId;
+    int totalBooks;
+    int bookIds[MAX_BORROWED_BOOKS];
+    int quantities[MAX_BORROWED_BOOKS];
+    int status;  // 0 = đang mượn, 1 = đã trả
+    bool onTime; // 1 = đúng hạn, 0 = trễ
+    int date;
+    int current_year;
 } BorrowReturn;
 
-// Biến toàn cục quản lý dữ liệu
-extern Node *borrow_return_management; ///< Cây B+ quản lý mượn-trả theo ID
+// Biến toàn cục
+extern Node *borrow_return_management;
 
-// Tên file lưu dữ liệu
-extern char borrow_return_content_file[MAX_FILE_NAME_LENGTH];    ///< Tệp chứa nội dung bản ghi
-extern char borrow_return_management_file[MAX_FILE_NAME_LENGTH]; ///< Tệp chứa offset
+// Khai báo file
+extern char borrow_return_content_file[MAX_FILE_NAME_LENGTH];
+extern char borrow_return_management_file[MAX_FILE_NAME_LENGTH];
+extern int date;
+extern int current_year;
 
 /**
  * @brief Thêm bản ghi mượn sách.
  */
-void add_borrow_record(BorrowReturn *b);
+void add_borrow_record(BorrowReturn *b, int day, int month, int year);
+
+/**
+ * @brief Hàm hiển thị bản ghi
+ */
+void show_borow(BorrowReturn b);
 
 /**
  * @brief Hiển thị các bản ghi mượn sách từ file.
@@ -91,6 +100,10 @@ void restore_books_to_stock(BorrowReturn *b);
  * @brief Cập nhật trực tiếp dữ liệu sách vào file.
  */
 void update_book_direct(Book *book);
+
+void update_date(int day, int month, int year); // Phong
+int calculate_day_difference(int borrow_date, int borrow_year);
+
 /**
  * @brief Kiểm tra xem một cuốn sách có đang được mượn hay không.
  * @param bookId ID của cuốn sách cần kiểm tra.

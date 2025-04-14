@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="vi">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Library management: include/statistic.h File Tham chiếu</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Library management<span id="projectnumber">&#160;v1</span>
+   </div>
+   <div id="projectbrief">Quản lí thư viện</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Tìm kiếm" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Được biên soạn bởi Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('statistic_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Định nghĩa</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Các hàm</a> &#124;
+<a href="#var-members">Các biến</a>  </div>
+  <div class="headertitle"><div class="title">statistic.h File Tham chiếu</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Quản lý thống kê sách trong hệ thống quản lý thư viện.  
+<a href="#details">Tiếp...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="bplustreev2_8h_source.html">utils/bplustreev2.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="fake_8h_source.html">utils/fake.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="management_8h_source.html">utils/management.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="borrow__return_8h_source.html">borrow_return.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="books_8h_source.html">books.h</a>&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div>
+<p><a href="statistic_8h_source.html">Tới mã nguồn của file này.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_overdue_borrower.html">OverdueBorrower</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cấu trúc người mượn quá hạn.  <a href="struct_overdue_borrower.html#details">Tiếp...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Định nghĩa</h2></td></tr>
+<tr class="memitem:a4b186d0b564405ce7303501c5dc3783b" id="r_a4b186d0b564405ce7303501c5dc3783b"><td class="memItemLeft" align="right" valign="top"><a id="a4b186d0b564405ce7303501c5dc3783b" name="a4b186d0b564405ce7303501c5dc3783b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_OVERDUE</b>&#160;&#160;&#160;1000</td></tr>
+<tr class="separator:a4b186d0b564405ce7303501c5dc3783b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ab04db2efb31456b2d312fb18d5c750c9" id="r_ab04db2efb31456b2d312fb18d5c750c9"><td class="memItemLeft" align="right" valign="top"><a id="ab04db2efb31456b2d312fb18d5c750c9" name="ab04db2efb31456b2d312fb18d5c750c9"></a>
+typedef struct OverdueBorrower&#160;</td><td class="memItemRight" valign="bottom"><b>OverdueBorrower</b></td></tr>
+<tr class="memdesc:ab04db2efb31456b2d312fb18d5c750c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cấu trúc người mượn quá hạn. <br /></td></tr>
+<tr class="separator:ab04db2efb31456b2d312fb18d5c750c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Các hàm</h2></td></tr>
+<tr class="memitem:a9f700c57a8358d4eb1c509027f723c42" id="r_a9f700c57a8358d4eb1c509027f723c42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f700c57a8358d4eb1c509027f723c42">set_up</a> ()</td></tr>
+<tr class="memdesc:a9f700c57a8358d4eb1c509027f723c42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thiết lập lại dữ liệu thống kê ban đầu.  <br /></td></tr>
+<tr class="separator:a9f700c57a8358d4eb1c509027f723c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a426d73572bd5a1888f0af18244c9a462" id="r_a426d73572bd5a1888f0af18244c9a462"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a426d73572bd5a1888f0af18244c9a462">calc_statistic_book</a> (<a class="el" href="struct_node.html">Node</a> *book_management)</td></tr>
+<tr class="memdesc:a426d73572bd5a1888f0af18244c9a462"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tính toán lại dữ liệu thống kê sách.  <br /></td></tr>
+<tr class="separator:a426d73572bd5a1888f0af18244c9a462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86d237054e6030d7131c63c6cd9a1558" id="r_a86d237054e6030d7131c63c6cd9a1558"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86d237054e6030d7131c63c6cd9a1558">calc_statistic_borrowed_books</a> (<a class="el" href="struct_node.html">Node</a> *borrow_return_management)</td></tr>
+<tr class="memdesc:a86d237054e6030d7131c63c6cd9a1558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tính toán lại dữ liệu thống kê sách đang được mượn.  <br /></td></tr>
+<tr class="separator:a86d237054e6030d7131c63c6cd9a1558"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ab528b2b144e47637af496291bde406" id="r_a9ab528b2b144e47637af496291bde406"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ab528b2b144e47637af496291bde406">collect_late_borrowers</a> (<a class="el" href="struct_node.html">Node</a> *borrow_return_management)</td></tr>
+<tr class="memdesc:a9ab528b2b144e47637af496291bde406"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tạo danh sách người mượn quá hạn.  <br /></td></tr>
+<tr class="separator:a9ab528b2b144e47637af496291bde406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac5208f4e2ea7b1fc89ce0b10292986b" id="r_aac5208f4e2ea7b1fc89ce0b10292986b"><td class="memItemLeft" align="right" valign="top"><a id="aac5208f4e2ea7b1fc89ce0b10292986b" name="aac5208f4e2ea7b1fc89ce0b10292986b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>list_late_borrowers</b> ()</td></tr>
+<tr class="memdesc:aac5208f4e2ea7b1fc89ce0b10292986b"><td class="mdescLeft">&#160;</td><td class="mdescRight">In ra danh sách người mượn quá hạn. <br /></td></tr>
+<tr class="separator:aac5208f4e2ea7b1fc89ce0b10292986b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Các biến</h2></td></tr>
+<tr class="memitem:aec49789d18137419ee2b37ebbf8244d3" id="r_aec49789d18137419ee2b37ebbf8244d3"><td class="memItemLeft" align="right" valign="top"><a id="aec49789d18137419ee2b37ebbf8244d3" name="aec49789d18137419ee2b37ebbf8244d3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>total_books</b></td></tr>
+<tr class="memdesc:aec49789d18137419ee2b37ebbf8244d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tổng số sách hiện có (chưa bị xóa) <br /></td></tr>
+<tr class="separator:aec49789d18137419ee2b37ebbf8244d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb10bbacdb5c0f7f5d2d5e680a1b9c3f" id="r_adb10bbacdb5c0f7f5d2d5e680a1b9c3f"><td class="memItemLeft" align="right" valign="top"><a id="adb10bbacdb5c0f7f5d2d5e680a1b9c3f" name="adb10bbacdb5c0f7f5d2d5e680a1b9c3f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>deleted_books</b></td></tr>
+<tr class="memdesc:adb10bbacdb5c0f7f5d2d5e680a1b9c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tổng số sách đã bị xóa (được đánh dấu là deleted) <br /></td></tr>
+<tr class="separator:adb10bbacdb5c0f7f5d2d5e680a1b9c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40b579dab2d2ab12f56b718a5e94507b" id="r_a40b579dab2d2ab12f56b718a5e94507b"><td class="memItemLeft" align="right" valign="top"><a id="a40b579dab2d2ab12f56b718a5e94507b" name="a40b579dab2d2ab12f56b718a5e94507b"></a>
+short&#160;</td><td class="memItemRight" valign="bottom"><b>counter_genre</b> [<a class="el" href="fake_8h.html#a69b7a2d67e969d3e0921f3f23d1947f2">TOTAL_GENRE</a>]</td></tr>
+<tr class="memdesc:a40b579dab2d2ab12f56b718a5e94507b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bộ đếm số sách theo từng thể loại, chỉ số tương ứng với mảng genres. <br /></td></tr>
+<tr class="separator:a40b579dab2d2ab12f56b718a5e94507b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92fafa1d6b9dcffb93c3b0d107f40147" id="r_a92fafa1d6b9dcffb93c3b0d107f40147"><td class="memItemLeft" align="right" valign="top"><a id="a92fafa1d6b9dcffb93c3b0d107f40147" name="a92fafa1d6b9dcffb93c3b0d107f40147"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>total_borrowed_books</b></td></tr>
+<tr class="memdesc:a92fafa1d6b9dcffb93c3b0d107f40147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tổng số sách hiện đang được mượn. <br /></td></tr>
+<tr class="separator:a92fafa1d6b9dcffb93c3b0d107f40147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71bce9dfb82fba789e4233df7f3e54aa" id="r_a71bce9dfb82fba789e4233df7f3e54aa"><td class="memItemLeft" align="right" valign="top"><a id="a71bce9dfb82fba789e4233df7f3e54aa" name="a71bce9dfb82fba789e4233df7f3e54aa"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>total_late_books</b></td></tr>
+<tr class="memdesc:a71bce9dfb82fba789e4233df7f3e54aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tổng số sách quá hạn. <br /></td></tr>
+<tr class="separator:a71bce9dfb82fba789e4233df7f3e54aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e2235f812307e39f475df4897348983" id="r_a0e2235f812307e39f475df4897348983"><td class="memItemLeft" align="right" valign="top"><a id="a0e2235f812307e39f475df4897348983" name="a0e2235f812307e39f475df4897348983"></a>
+<a class="el" href="struct_overdue_borrower.html">OverdueBorrower</a>&#160;</td><td class="memItemRight" valign="bottom"><b>overdue_list</b> [MAX_OVERDUE]</td></tr>
+<tr class="memdesc:a0e2235f812307e39f475df4897348983"><td class="mdescLeft">&#160;</td><td class="mdescRight">Danh sách người mượn quá hạn. <br /></td></tr>
+<tr class="separator:a0e2235f812307e39f475df4897348983"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2597ad56aed98e72c1251feed948482f" id="r_a2597ad56aed98e72c1251feed948482f"><td class="memItemLeft" align="right" valign="top"><a id="a2597ad56aed98e72c1251feed948482f" name="a2597ad56aed98e72c1251feed948482f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>overdue_count</b></td></tr>
+<tr class="memdesc:a2597ad56aed98e72c1251feed948482f"><td class="mdescLeft">&#160;</td><td class="mdescRight">tổng số người mượn quá hạn <br /></td></tr>
+<tr class="separator:a2597ad56aed98e72c1251feed948482f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Mô tả chi tiết</h2>
+<div class="textblock"><p>Quản lý thống kê sách trong hệ thống quản lý thư viện. </p>
+<dl class="section author"><dt>Tác giả</dt><dd>Nguyễn Huy Phong </dd></dl>
+<dl class="section version"><dt>Phiên bản</dt><dd>1.0 </dd></dl>
+</div><h2 class="groupheader">Thông tin về hàm</h2>
+<a id="a426d73572bd5a1888f0af18244c9a462" name="a426d73572bd5a1888f0af18244c9a462"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a426d73572bd5a1888f0af18244c9a462">&#9670;&#160;</a></span>calc_statistic_book()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void calc_statistic_book </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *</td>          <td class="paramname"><span class="paramname"><em>book_management</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tính toán lại dữ liệu thống kê sách. </p>
+<p>Duyệt toàn bộ cây B+ Tree để thống kê:</p><ul>
+<li>Tổng số sách còn tồn tại (không bị xóa)</li>
+<li>Tổng số sách bị xóa</li>
+<li>Số lượng sách theo từng thể loại</li>
+</ul>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">book_management</td><td>Cây B+ Tree quản lý sách </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a86d237054e6030d7131c63c6cd9a1558" name="a86d237054e6030d7131c63c6cd9a1558"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86d237054e6030d7131c63c6cd9a1558">&#9670;&#160;</a></span>calc_statistic_borrowed_books()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void calc_statistic_borrowed_books </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *</td>          <td class="paramname"><span class="paramname"><em>borrow_return_management</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tính toán lại dữ liệu thống kê sách đang được mượn. </p>
+<p>Duyệt toàn bộ cây B+ Tree để thống kê:</p><ul>
+<li>Tổng số sách đang được mượn (chưa được trả) </li>
+</ul>
+
+</div>
+</div>
+<a id="a9ab528b2b144e47637af496291bde406" name="a9ab528b2b144e47637af496291bde406"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ab528b2b144e47637af496291bde406">&#9670;&#160;</a></span>collect_late_borrowers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void collect_late_borrowers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *</td>          <td class="paramname"><span class="paramname"><em>borrow_return_management</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tạo danh sách người mượn quá hạn. </p>
+<p>xem xét nếu như cuốn sách quá hạn thì thêm vào mảng </p>
+
+</div>
+</div>
+<a id="a9f700c57a8358d4eb1c509027f723c42" name="a9f700c57a8358d4eb1c509027f723c42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f700c57a8358d4eb1c509027f723c42">&#9670;&#160;</a></span>set_up()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_up </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Thiết lập lại dữ liệu thống kê ban đầu. </p>
+<p>Gán tất cả các bộ đếm thể loại về 0. Hàm này nên được gọi trước khi bắt đầu thống kê. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="statistic_8h.html">statistic.h</a></li>
+    <li class="footer">Được biên soạn bởi <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

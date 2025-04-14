@@ -106,36 +106,73 @@ $(function(){initNavTree('statistic_8h_source.html',''); initResizable(true); })
   <div class="headertitle"><div class="title">statistic.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef STATISTIC_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define STATISTIC_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="bplustreev2_8h.html">utils/bplustreev2.h</a>&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="fake_8h.html">utils/fake.h</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="management_8h.html">utils/management.h</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="books_8h.html">books.h</a>&quot;</span></div>
+<a href="statistic_8h.html">Tới Thông tin của file này.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef STATISTIC_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define STATISTIC_H</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">extern</span> <span class="keywordtype">short</span> counter_genre[<a class="code hl_define" href="fake_8h.html#a69b7a2d67e969d3e0921f3f23d1947f2">TOTAL_GENRE</a>];</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">extern</span> <span class="keywordtype">int</span> total_books;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">extern</span> <span class="keywordtype">int</span> deleted_books;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keywordtype">void</span> set_up();</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keywordtype">void</span> calc_statistic_book(<a class="code hl_struct" href="struct_node.html">Node</a> *book_management);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="bplustreev2_8h.html">utils/bplustreev2.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="fake_8h.html">utils/fake.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="management_8h.html">utils/management.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="borrow__return_8h.html">borrow_return.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="books_8h.html">books.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define MAX_OVERDUE 1000</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span></div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="struct_overdue_borrower.html">   22</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_overdue_borrower.html">OverdueBorrower</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">int</span> readerId;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">int</span> days_borrowed;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="statistic_8h.html#ab04db2efb31456b2d312fb18d5c750c9">   26</a></span>} <a class="code hl_struct" href="struct_overdue_borrower.html">OverdueBorrower</a>;</div>
+</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">extern</span> <span class="keywordtype">int</span> total_books;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">extern</span> <span class="keywordtype">int</span> deleted_books;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">extern</span> <span class="keywordtype">short</span> counter_genre[<a class="code hl_define" href="fake_8h.html#a69b7a2d67e969d3e0921f3f23d1947f2">TOTAL_GENRE</a>];</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">extern</span> <span class="keywordtype">int</span> total_borrowed_books;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">extern</span> <span class="keywordtype">int</span> total_late_books;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_overdue_borrower.html">OverdueBorrower</a> overdue_list[MAX_OVERDUE];</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">extern</span> <span class="keywordtype">int</span> overdue_count;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">void</span> <a class="code hl_function" href="statistic_8h.html#a9f700c57a8358d4eb1c509027f723c42">set_up</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keywordtype">void</span> <a class="code hl_function" href="statistic_8h.html#a426d73572bd5a1888f0af18244c9a462">calc_statistic_book</a>(<a class="code hl_struct" href="struct_node.html">Node</a> *book_management);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keywordtype">void</span> <a class="code hl_function" href="statistic_8h.html#a86d237054e6030d7131c63c6cd9a1558">calc_statistic_borrowed_books</a>(<a class="code hl_struct" href="struct_node.html">Node</a> *borrow_return_management);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keywordtype">void</span> <a class="code hl_function" href="statistic_8h.html#a9ab528b2b144e47637af496291bde406">collect_late_borrowers</a>(<a class="code hl_struct" href="struct_node.html">Node</a> *borrow_return_management);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keywordtype">void</span> <a class="code hl_function" href="statistic_8h.html#aac5208f4e2ea7b1fc89ce0b10292986b">list_late_borrowers</a>();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="abooks_8h_html"><div class="ttname"><a href="books_8h.html">books.h</a></div><div class="ttdoc">Lưu trữ những hàm sẽ được dùng cho quản lí sách.</div></div>
+<div class="ttc" id="aborrow__return_8h_html"><div class="ttname"><a href="borrow__return_8h.html">borrow_return.h</a></div><div class="ttdoc">Quản lý việc mượn và trả sách trong hệ thống thư viện.</div></div>
 <div class="ttc" id="abplustreev2_8h_html"><div class="ttname"><a href="bplustreev2_8h.html">bplustreev2.h</a></div><div class="ttdoc">Những cài đặt cần thiết để khai thác cây B+ tree.</div></div>
 <div class="ttc" id="afake_8h_html"><div class="ttname"><a href="fake_8h.html">fake.h</a></div><div class="ttdoc">Những hàm sinh dữ liệu cơ bản, ngẫu nhiên phục vụ cho vấn đề của nhóm.</div></div>
 <div class="ttc" id="afake_8h_html_a69b7a2d67e969d3e0921f3f23d1947f2"><div class="ttname"><a href="fake_8h.html#a69b7a2d67e969d3e0921f3f23d1947f2">TOTAL_GENRE</a></div><div class="ttdeci">#define TOTAL_GENRE</div><div class="ttdoc">Thể loại sách tối đa.</div><div class="ttdef"><b>Definition</b> fake.h:24</div></div>
 <div class="ttc" id="amanagement_8h_html"><div class="ttname"><a href="management_8h.html">management.h</a></div><div class="ttdoc">Những hàm tiện ích dùng để khai thác hiệu quả B+ Tree.</div></div>
+<div class="ttc" id="astatistic_8h_html_a426d73572bd5a1888f0af18244c9a462"><div class="ttname"><a href="statistic_8h.html#a426d73572bd5a1888f0af18244c9a462">calc_statistic_book</a></div><div class="ttdeci">void calc_statistic_book(Node *book_management)</div><div class="ttdoc">Tính toán lại dữ liệu thống kê sách.</div><div class="ttdef"><b>Definition</b> statistic.c:39</div></div>
+<div class="ttc" id="astatistic_8h_html_a86d237054e6030d7131c63c6cd9a1558"><div class="ttname"><a href="statistic_8h.html#a86d237054e6030d7131c63c6cd9a1558">calc_statistic_borrowed_books</a></div><div class="ttdeci">void calc_statistic_borrowed_books(Node *borrow_return_management)</div><div class="ttdoc">Tính toán lại dữ liệu thống kê sách đang được mượn.</div><div class="ttdef"><b>Definition</b> statistic.c:71</div></div>
+<div class="ttc" id="astatistic_8h_html_a9ab528b2b144e47637af496291bde406"><div class="ttname"><a href="statistic_8h.html#a9ab528b2b144e47637af496291bde406">collect_late_borrowers</a></div><div class="ttdeci">void collect_late_borrowers(Node *borrow_return_management)</div><div class="ttdoc">Tạo danh sách người mượn quá hạn.</div><div class="ttdef"><b>Definition</b> statistic.c:110</div></div>
+<div class="ttc" id="astatistic_8h_html_a9f700c57a8358d4eb1c509027f723c42"><div class="ttname"><a href="statistic_8h.html#a9f700c57a8358d4eb1c509027f723c42">set_up</a></div><div class="ttdeci">void set_up()</div><div class="ttdoc">Thiết lập lại dữ liệu thống kê ban đầu.</div><div class="ttdef"><b>Definition</b> statistic.c:29</div></div>
+<div class="ttc" id="astatistic_8h_html_aac5208f4e2ea7b1fc89ce0b10292986b"><div class="ttname"><a href="statistic_8h.html#aac5208f4e2ea7b1fc89ce0b10292986b">list_late_borrowers</a></div><div class="ttdeci">void list_late_borrowers()</div><div class="ttdoc">In ra danh sách người mượn quá hạn.</div><div class="ttdef"><b>Definition</b> statistic.c:141</div></div>
 <div class="ttc" id="astruct_node_html"><div class="ttname"><a href="struct_node.html">Node</a></div><div class="ttdoc">Node trong cây B+ tree.</div><div class="ttdef"><b>Definition</b> bplustreev2.h:78</div></div>
+<div class="ttc" id="astruct_overdue_borrower_html"><div class="ttname"><a href="struct_overdue_borrower.html">OverdueBorrower</a></div><div class="ttdoc">Cấu trúc người mượn quá hạn.</div><div class="ttdef"><b>Definition</b> statistic.h:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><b>statistic.h</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="statistic_8h.html">statistic.h</a></li>
     <li class="footer">Được biên soạn bởi <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
