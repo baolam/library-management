@@ -9,6 +9,7 @@ void init_gui(int argc, char *argv[])
 
     load_book_to_layout(1);
     load_reader_to_layout(1);
+
     gtk_builder_connect_signals(builder, NULL);
 
     popup_menu_init(builder);

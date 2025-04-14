@@ -240,7 +240,7 @@ Readers *search_reader_by_name_direct(const char *prefix, int *actualReaders, in
                 }
             }
             if (maxNumbers == 0)
-               break;
+                break;
         }
     }
 
@@ -273,6 +273,9 @@ Readers *retrieve_bucket_readers(int beginingKey, int quanities, int *actualRead
     {
         for (i = startSearch; i < n->num_keys && quanities > 0; i++)
         {
+            if (!exist_record(reader_management, n->keys[i]))
+                continue;
+
             Record *record = (Record *)n->pointers[i];
             Readers *reader = (Readers *)read_content_from_record_return(record);
 
