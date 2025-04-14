@@ -1,9 +1,7 @@
 #ifndef READER_TREEVIEW_H
 #define READER_TREEVIEW_H
 
-#include <gtk/gtk.h>
 #include "gui/constant.h"
-#include "reader.h"
 
 extern int current_reader_page;
 

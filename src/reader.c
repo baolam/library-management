@@ -125,8 +125,9 @@ void update_reader_callback(FILE *f, long size)
     show_reader(r);
 
     printf("Enter new name: ");
-    fgets(r.fullName, sizeof(r.fullName), stdin);
-    r.fullName[strcspn(r.fullName, "\n")] = 0;
+    char fullName[MAX_FULLNAME];
+    fgets(fullName, sizeof(fullName), stdin);
+    fullName[strcspn(fullName, "\n")] = 0;
 
     printf("Enter new phone number: ");
     fgets(r.phoneNumber, sizeof(r.phoneNumber), stdin);
@@ -136,7 +137,11 @@ void update_reader_callback(FILE *f, long size)
     fgets(r.address, sizeof(r.address), stdin);
     r.address[strcspn(r.address, "\n")] = 0;
 
-    // fseek(f, 0, SEEK_SET);
+    removeIdFromWord(reader_trie, r.fullName, r.readerId);
+    insertIntoTrie(reader_trie, fullName, r.readerId);
+
+    strcpy(r.fullName, fullName);
+
     fwrite(&r, sizeof(Readers), 1, f);
 
     printf("Update successful;y!\n");
@@ -152,6 +157,10 @@ void update_reader(Readers *reader)
         return;
     }
 
+    Readers *old_reader = read_content_from_record_return(record);
+    removeIdFromWord(reader_trie, old_reader->fullName, key);
+    insertIntoTrie(reader_trie, reader->fullName, key);
+
     update_content_from_record(record, update_reader_callback);
 }
 
@@ -163,6 +172,10 @@ int update_reader_from_object(Readers *reader)
         printf("Reader not found for update.\n");
         return UPDATE_FAILED;
     }
+
+    Readers *old_reader = read_content_from_record_return(record);
+    removeIdFromWord(reader_trie, old_reader->fullName, reader->readerId);
+    insertIntoTrie(reader_trie, reader->fullName, reader->readerId);
 
     return update_content_without_callback(record, reader);
 }
@@ -227,7 +240,7 @@ Readers *search_reader_by_name_direct(const char *prefix, int *actualReaders, in
                 }
             }
             if (maxNumbers == 0)
-               break;
+                break;
         }
     }
 
@@ -260,6 +273,9 @@ Readers *retrieve_bucket_readers(int beginingKey, int quanities, int *actualRead
     {
         for (i = startSearch; i < n->num_keys && quanities > 0; i++)
         {
+            if (!exist_record(reader_management, n->keys[i]))
+                continue;
+
             Record *record = (Record *)n->pointers[i];
             Readers *reader = (Readers *)read_content_from_record_return(record);
 

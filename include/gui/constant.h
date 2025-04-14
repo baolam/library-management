@@ -32,6 +32,7 @@
 
 #include "events/callbacks.h"
 #include "events/book_treeview.h"
+#include "events/reader_treeview.h"
 #include "events/books_entry.h"
 #include "events/search_toggle.h"
 #include "events/choose_option.h"
