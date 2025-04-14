@@ -15,7 +15,11 @@
 /**
  * @brief Mã trạng thái đang mượn sách
  */
-#define ON_BORROWING 0
+#define ON_BORROWING 1
+/**
+ * @brief mã trạng thái đang không được mượn
+ */
+#define NOT_BORROWING 0
 /**
  * @brief trả về kết quả mượn sách thành công
  */
@@ -35,15 +39,15 @@
 /**
  * @brief không tìm thấy bản ghi -> lỗi
  */
-#define NOT_FOUND 1;
+#define NOT_FOUND 1
 /**
  * @brief Đã trả rồi -> không cho trả nữa
  */
-#define ALREADY_RETURNED 2;
+#define ALREADY_RETURNED 2
 /**
  * @brief trả sách thành công
  */
-#define RETURN_SUCCESS 0;
+#define RETURN_SUCCESS 0
 /**
  * @brief nếu sách đang nằm trong danh sách mượn
  */
