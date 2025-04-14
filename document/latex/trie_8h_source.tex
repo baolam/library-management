@@ -1,0 +1,62 @@
+\doxysection{trie.\+h}
+\hypertarget{trie_8h_source}{}\label{trie_8h_source}\index{include/utils/trie.h@{include/utils/trie.h}}
+\mbox{\hyperlink{trie_8h}{Tới Thông tin của file này.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ TRIE\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ TRIE\_H}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ ALPHABET\_SIZE\ 27}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ MAX\_CHAR\_LENGTH\ 50}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <ctype.h>}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_trie_node}{TrieNode}}}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *children[\mbox{\hyperlink{trie_8h_a6572f1706059832f94025fa12c6c45ed}{ALPHABET\_SIZE}}];}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_trie_node_ab2732ce1e141346865d997859836d663}{isEndOfWord}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_trie_node_a6d44cf1b552c8359af6c17d7f034f2dc}{numIds}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ *\mbox{\hyperlink{struct_trie_node_a7bdf0d415f3d8c515b0f942d623957ac}{ids}};}
+\DoxyCodeLine{00067\ \}\ \mbox{\hyperlink{struct_trie_node}{TrieNode}};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{trie_8h_a9199a09472f379d3a8d818cc3dba65fe}{charToIndex}}(\textcolor{keywordtype}{char}\ ch);}
+\DoxyCodeLine{00080\ \textcolor{comment}{//\ void\ hashWord(mpz\_t\ result,\ char\ *word);}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00090\ \mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *\mbox{\hyperlink{trie_8h_a824eaa28a090848b88f367a7379b166b}{searchPrefix}}(\mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *root,\ \textcolor{keywordtype}{char}\ *prefix);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00106\ \mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *\mbox{\hyperlink{trie_8h_a8b319840672eea511cd645f3c00300e4}{searchWord}}(\mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *root,\ \textcolor{keywordtype}{char}\ *word);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00112\ \mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *\mbox{\hyperlink{trie_8h_a7728b62702896136d2976b1fb5ea9366}{makeTrieNode}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{trie_8h_af6ea29bed4964d6146ead204013f3868}{existPrefix}}(\mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *root,\ \textcolor{keywordtype}{char}\ *prefix);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00137\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{trie_8h_a4260fef866c19f2ca020f102987b387f}{existWord}}(\mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *root,\ \textcolor{keywordtype}{char}\ *word);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00149\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{trie_8h_a20399a270053730c16f4636ddeaa4bdf}{insertIntoTrie}}(\mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *root,\ \textcolor{keywordtype}{char}\ *words,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00159\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{trie_8h_a6f4bed4c59354e39e2318153f3b6f0ed}{removeWord}}(\mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *root,\ \textcolor{keywordtype}{char}\ *word);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00172\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{trie_8h_a4ce1af9902523c25aafd201613db71ab}{removeIdFromWord}}(\mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *root,\ \textcolor{keywordtype}{char}\ *word,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00185\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{trie_8h_a759222c75b700283cb2e071ab0da6839}{recommendPrefix}}(\mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *root,\ \textcolor{keywordtype}{char}\ *prefix,\ \textcolor{keywordtype}{int}\ maxRecommend,\ \textcolor{keywordtype}{char}\ **recommend,\ \textcolor{keywordtype}{int}\ *recommendSize);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00192\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{trie_8h_ad7b1309180a0be22666afbce536d8c75}{freeTrie}}(\mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *root);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00200\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{trie_8h_ad41ba433582647dee30db67afba7553e}{saveTrieTree}}(\textcolor{keywordtype}{char}\ *filename,\ \mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *root);}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00208\ \mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *\mbox{\hyperlink{trie_8h_ad2aa3ceb08b5c05b48b3e56bc2d2926e}{loadTrieTree}}(\textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

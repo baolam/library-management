@@ -1,0 +1,325 @@
+\doxysection{include/utils/bplustreev2.h File Tham chiếu}
+\hypertarget{bplustreev2_8h}{}\label{bplustreev2_8h}\index{include/utils/bplustreev2.h@{include/utils/bplustreev2.h}}
+
+
+Những cài đặt cần thiết để khai thác cây B+ tree.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_record}{Record}}
+\begin{DoxyCompactList}\small\item\em Bản ghi dữ liệu lưu trữ \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_node}{Node}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_node}{Node} trong cây B+ tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Định nghĩa}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{bplustreev2_8h_a9b79a4981a7f45ee4a0f7ba5c6076684}\label{bplustreev2_8h_a9b79a4981a7f45ee4a0f7ba5c6076684} 
+\#define {\bfseries PRINT\+\_\+\+TREE}
+\begin{DoxyCompactList}\small\item\em Định nghĩa có cho phép In cây ra hay không, màn hình console. \end{DoxyCompactList}\item 
+\Hypertarget{bplustreev2_8h_a826715579f0649bd271fb6702a175dbc}\label{bplustreev2_8h_a826715579f0649bd271fb6702a175dbc} 
+\#define {\bfseries ORDER}~10
+\begin{DoxyCompactList}\small\item\em Số dữ liệu quản lí tối đa của một node. \end{DoxyCompactList}\item 
+\Hypertarget{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}\label{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02} 
+\#define {\bfseries MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}~128
+\begin{DoxyCompactList}\small\item\em Độ dài tối đa của tên file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{bplustreev2_8h_a3682aa231845d2be9417bf18de8c5728}\label{bplustreev2_8h_a3682aa231845d2be9417bf18de8c5728} 
+typedef struct Record {\bfseries Record}
+\item 
+\Hypertarget{bplustreev2_8h_a3b09f37e675bcd48a01bf22155996872}\label{bplustreev2_8h_a3b09f37e675bcd48a01bf22155996872} 
+typedef struct Node {\bfseries Node}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Các hàm}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bplustreev2_8h_a036cf425fcaa04ea78ba832fda3ad5e2}{make\+Record}} (char \+\_\+from\mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}, long offset, long length)
+\begin{DoxyCompactList}\small\item\em Khởi tạo record. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bplustreev2_8h_a841bd1bba3e703ec564dea235d6e7301}{left\+Most}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em hàm trả về node lá tận cùng bên trái \end{DoxyCompactList}\item 
+\Hypertarget{bplustreev2_8h_a23a45d6d13fe1a5fa82c4e9b2ddf6447}\label{bplustreev2_8h_a23a45d6d13fe1a5fa82c4e9b2ddf6447} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries make\+Node} (void)
+\begin{DoxyCompactList}\small\item\em Khởi tạo một node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bplustreev2_8h_af3f6936a5822d3c7b563372a1646d81e}{make\+Leaf}} (void)
+\begin{DoxyCompactList}\small\item\em Khởi tạo một node lá \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bplustreev2_8h_ac539c35415e0bb03d619917198332b53}{find\+Leaf}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, int key)
+\begin{DoxyCompactList}\small\item\em Phương thức tìm kiếm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bplustreev2_8h_a0e4ed69811cf4058e1e0f7a311fc627d}{find}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, int key)
+\begin{DoxyCompactList}\small\item\em Tìm kiếm bản ghi từ Key. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{bplustreev2_8h_a86db5400d85b6d57c364eada43fce324}{cut}} (int length)
+\begin{DoxyCompactList}\small\item\em Phương thức bổ trợ \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{bplustreev2_8h_ae594d5890cf75f3e3debbb99e747407d}{get\+Left\+Index}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}parent, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}left)
+\begin{DoxyCompactList}\small\item\em Hàm hỗ trợ cho việc trả về vị trí bắt đầu chỉ số bên trái đầu tiên của node được chỉ định. \end{DoxyCompactList}\item 
+\Hypertarget{bplustreev2_8h_a64266a1d61f3ad17712694d13c42dc74}\label{bplustreev2_8h_a64266a1d61f3ad17712694d13c42dc74} 
+int {\bfseries path\+To\+Leaves} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}const root, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}child)
+\item 
+\Hypertarget{bplustreev2_8h_a287f5132a30fb857ac0ad6006df3a31b}\label{bplustreev2_8h_a287f5132a30fb857ac0ad6006df3a31b} 
+void {\bfseries enqueue} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}new\+\_\+node)
+\item 
+\Hypertarget{bplustreev2_8h_aafe62f25bdbdc7aab13712f83ad3a49c}\label{bplustreev2_8h_aafe62f25bdbdc7aab13712f83ad3a49c} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries dequeue} (void)
+\item 
+\Hypertarget{bplustreev2_8h_ab31c6c14fa5da96429d1578ba960dd0e}\label{bplustreev2_8h_ab31c6c14fa5da96429d1578ba960dd0e} 
+void {\bfseries print\+Tree} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}const root)
+\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bplustreev2_8h_a7c13d7dbbeb01bed587d135ec15160a2}{start\+New\+Tree}} (int key, \mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*}pointer)
+\begin{DoxyCompactList}\small\item\em Phương thức thêm phần tử \end{DoxyCompactList}\item 
+\Hypertarget{bplustreev2_8h_a115772fdb9d8e4040b0e259295f3a758}\label{bplustreev2_8h_a115772fdb9d8e4040b0e259295f3a758} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries insert\+Into\+Leaf} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}leaf, int key, \mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*}record)
+\item 
+\Hypertarget{bplustreev2_8h_a721175825a279aef3b109b3288a9dae4}\label{bplustreev2_8h_a721175825a279aef3b109b3288a9dae4} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries insert\+Into\+Node} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}n, int left\+\_\+index, int key, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}right)
+\item 
+\Hypertarget{bplustreev2_8h_a85d4ff9519e1dbad6c80a81d62bbbe36}\label{bplustreev2_8h_a85d4ff9519e1dbad6c80a81d62bbbe36} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries insert\+Into\+Node\+After\+Splitting} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}old\+\_\+node, int left\+\_\+index, int key, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}right)
+\item 
+\Hypertarget{bplustreev2_8h_a7fc42ff887c83feeecd3352574a1f1ff}\label{bplustreev2_8h_a7fc42ff887c83feeecd3352574a1f1ff} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries insert\+Into\+New\+Root} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}left, int key, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}right)
+\item 
+\Hypertarget{bplustreev2_8h_a0fc79b1706d86d64309d77c78f786070}\label{bplustreev2_8h_a0fc79b1706d86d64309d77c78f786070} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries insert\+Into\+Parent} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}left, int key, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}right)
+\item 
+\Hypertarget{bplustreev2_8h_aa1644c1bd6e88eabda457d409d3a0e8e}\label{bplustreev2_8h_aa1644c1bd6e88eabda457d409d3a0e8e} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries insert\+Into\+Leaf\+After\+Splitting} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}leaf, int key, \mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*}record)
+\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bplustreev2_8h_af8204e72519be4ff883be1e6ac9beb82}{insert}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, int key, char \+\_\+from\mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}, long offset, long length)
+\begin{DoxyCompactList}\small\item\em Hàm hỗ trợ cho việc thêm phần tử vào cây. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bplustreev2_8h_a817851a0dbd1a560b8b9fb8fce17b9dc}{save\+Tree}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root, char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Phương thức lưu trữ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bplustreev2_8h_a1e6986d459f875ca7c5166a2cb34d146}{load\+Tree}} (char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Hàm hỗ trợ lấy dữ liệu ra từ cây. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Các biến}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{bplustreev2_8h_ac6c1680293e3be143d1fa9e2466eadae}\label{bplustreev2_8h_ac6c1680293e3be143d1fa9e2466eadae} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries queue}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Mô tả chi tiết}
+Những cài đặt cần thiết để khai thác cây B+ tree. 
+
+\begin{DoxyAuthor}{Tác giả}
+Nguyễn Đức Bảo Lâm 
+\end{DoxyAuthor}
+\begin{DoxyNote}{Ghi chú}
+Nội dung file có dựa trên \href{https://www.programiz.com/dsa/b-plus-tree}{\texttt{ https\+://www.\+programiz.\+com/dsa/b-\/plus-\/tree}}, chân thành cảm ơn! 
+\end{DoxyNote}
+\begin{DoxyVersion}{Phiên bản}
+1.\+0
+\end{DoxyVersion}
+File này chứa những định nghĩa, khai báo cần thiết để có thể ứng dụng được B+ Tree vào quản lí thư viện 
+
+\doxysubsection{Thông tin về hàm}
+\Hypertarget{bplustreev2_8h_a86db5400d85b6d57c364eada43fce324}\index{bplustreev2.h@{bplustreev2.h}!cut@{cut}}
+\index{cut@{cut}!bplustreev2.h@{bplustreev2.h}}
+\doxysubsubsection{\texorpdfstring{cut()}{cut()}}
+{\footnotesize\ttfamily \label{bplustreev2_8h_a86db5400d85b6d57c364eada43fce324} 
+int cut (\begin{DoxyParamCaption}\item[{int}]{length}{}\end{DoxyParamCaption})}
+
+
+
+Phương thức bổ trợ 
+
+Hàm hỗ trợ cho việc chia tách node, dành cho trường hợp yêu cầu chia tách
+
+Cách chia tách sẽ khác nhau tuỳ theo đầu vào là chẵn hay lẻ 
+\begin{DoxyParams}{Các tham số}
+{\em length} & số bậc (dựa trên order) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{bplustreev2_8h_a0e4ed69811cf4058e1e0f7a311fc627d}\index{bplustreev2.h@{bplustreev2.h}!find@{find}}
+\index{find@{find}!bplustreev2.h@{bplustreev2.h}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily \label{bplustreev2_8h_a0e4ed69811cf4058e1e0f7a311fc627d} 
+\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*} find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Tìm kiếm bản ghi từ Key. 
+
+Bản chất là một kế thừa mở rộng từ find\+Leaf 
+\begin{DoxyParams}{Các tham số}
+{\em root} & node gốc \\
+\hline
+{\em key} & khoá tìm kiếm \\
+\hline
+\end{DoxyParams}
+\Hypertarget{bplustreev2_8h_ac539c35415e0bb03d619917198332b53}\index{bplustreev2.h@{bplustreev2.h}!findLeaf@{findLeaf}}
+\index{findLeaf@{findLeaf}!bplustreev2.h@{bplustreev2.h}}
+\doxysubsubsection{\texorpdfstring{findLeaf()}{findLeaf()}}
+{\footnotesize\ttfamily \label{bplustreev2_8h_ac539c35415e0bb03d619917198332b53} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} find\+Leaf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Phương thức tìm kiếm. 
+
+Tìm kiếm node lá tương ứng với Key
+
+Dùng phương pháp duyệt cây tương tự như trong cây tìm kiếm nhị phân 
+\begin{DoxyParams}{Các tham số}
+{\em root} & node gốc \\
+\hline
+{\em key} & khoá tìm kiếm \\
+\hline
+\end{DoxyParams}
+\Hypertarget{bplustreev2_8h_ae594d5890cf75f3e3debbb99e747407d}\index{bplustreev2.h@{bplustreev2.h}!getLeftIndex@{getLeftIndex}}
+\index{getLeftIndex@{getLeftIndex}!bplustreev2.h@{bplustreev2.h}}
+\doxysubsubsection{\texorpdfstring{getLeftIndex()}{getLeftIndex()}}
+{\footnotesize\ttfamily \label{bplustreev2_8h_ae594d5890cf75f3e3debbb99e747407d} 
+int get\+Left\+Index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{parent}{, }\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{left}{}\end{DoxyParamCaption})}
+
+
+
+Hàm hỗ trợ cho việc trả về vị trí bắt đầu chỉ số bên trái đầu tiên của node được chỉ định. 
+
+
+\begin{DoxyParams}{Các tham số}
+{\em parent} & node cha \\
+\hline
+{\em left} & node left, node bên trái\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+vị trí bắt đầu chỉ số bên trái đầu tiên 
+\end{DoxyReturn}
+\Hypertarget{bplustreev2_8h_af8204e72519be4ff883be1e6ac9beb82}\index{bplustreev2.h@{bplustreev2.h}!insert@{insert}}
+\index{insert@{insert}!bplustreev2.h@{bplustreev2.h}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{bplustreev2_8h_af8204e72519be4ff883be1e6ac9beb82} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{int}]{key}{, }\item[{char}]{\+\_\+from}{\mbox{[}\+MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}, }\item[{long}]{offset}{, }\item[{long}]{length}{}\end{DoxyParamCaption})}
+
+
+
+Hàm hỗ trợ cho việc thêm phần tử vào cây. 
+
+Thêm phần tử vào cây sẽ thêm nội dung vào node lá, và các node không là node lá sẽ chứa dữ liệu định hướng tìm kiếm.
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & node gốc ban đầu \\
+\hline
+{\em key} & khoá tìm kiếm \\
+\hline
+{\em \+\_\+from} & file nội dung lưu trữ \\
+\hline
+{\em offset} & vị trí bắt đầu lưu trữ trong file \\
+\hline
+{\em length} & kích thước dữ liệu\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+cây mới sau khi thêm 
+\end{DoxyReturn}
+\Hypertarget{bplustreev2_8h_a841bd1bba3e703ec564dea235d6e7301}\index{bplustreev2.h@{bplustreev2.h}!leftMost@{leftMost}}
+\index{leftMost@{leftMost}!bplustreev2.h@{bplustreev2.h}}
+\doxysubsubsection{\texorpdfstring{leftMost()}{leftMost()}}
+{\footnotesize\ttfamily \label{bplustreev2_8h_a841bd1bba3e703ec564dea235d6e7301} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} left\+Most (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})}
+
+
+
+hàm trả về node lá tận cùng bên trái 
+
+Hàm này được dùng cho nhóm tác vụ liên quan đến thống kê, báo cáo Yêu cầu duyệt toàn bộ nội dung file, số sách đã lưu trữ, ...
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & node gốc cần quản lí \\
+\hline
+\end{DoxyParams}
+\Hypertarget{bplustreev2_8h_a1e6986d459f875ca7c5166a2cb34d146}\index{bplustreev2.h@{bplustreev2.h}!loadTree@{loadTree}}
+\index{loadTree@{loadTree}!bplustreev2.h@{bplustreev2.h}}
+\doxysubsubsection{\texorpdfstring{loadTree()}{loadTree()}}
+{\footnotesize\ttfamily \label{bplustreev2_8h_a1e6986d459f875ca7c5166a2cb34d146} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} load\+Tree (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Hàm hỗ trợ lấy dữ liệu ra từ cây. 
+
+Việc tải nội dung được tiến hành tương ứng thông qua hình thức lưu trữ
+
+
+\begin{DoxyParams}{Các tham số}
+{\em filename} & file đã lưu trữ trước đó \\
+\hline
+\end{DoxyParams}
+\Hypertarget{bplustreev2_8h_af3f6936a5822d3c7b563372a1646d81e}\index{bplustreev2.h@{bplustreev2.h}!makeLeaf@{makeLeaf}}
+\index{makeLeaf@{makeLeaf}!bplustreev2.h@{bplustreev2.h}}
+\doxysubsubsection{\texorpdfstring{makeLeaf()}{makeLeaf()}}
+{\footnotesize\ttfamily \label{bplustreev2_8h_af3f6936a5822d3c7b563372a1646d81e} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} make\+Leaf (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Khởi tạo một node lá 
+
+Bản chất là một tinh chỉnh nhỏ của make\+Node, thông qua thay đổi thuộc tính is\+\_\+leaf \Hypertarget{bplustreev2_8h_a036cf425fcaa04ea78ba832fda3ad5e2}\index{bplustreev2.h@{bplustreev2.h}!makeRecord@{makeRecord}}
+\index{makeRecord@{makeRecord}!bplustreev2.h@{bplustreev2.h}}
+\doxysubsubsection{\texorpdfstring{makeRecord()}{makeRecord()}}
+{\footnotesize\ttfamily \label{bplustreev2_8h_a036cf425fcaa04ea78ba832fda3ad5e2} 
+\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*} make\+Record (\begin{DoxyParamCaption}\item[{char}]{\+\_\+from}{\mbox{[}\+MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}, }\item[{long}]{offset}{, }\item[{long}]{length}{}\end{DoxyParamCaption})}
+
+
+
+Khởi tạo record. 
+
+Tạo dựng record mới từ 
+\begin{DoxyParams}{Các tham số}
+{\em \+\_\+from} & bản ghi nguồn \\
+\hline
+{\em offset} & vị trí bắt đầu \\
+\hline
+{\em length} & kích thước dữ liệu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{bplustreev2_8h_a817851a0dbd1a560b8b9fb8fce17b9dc}\index{bplustreev2.h@{bplustreev2.h}!saveTree@{saveTree}}
+\index{saveTree@{saveTree}!bplustreev2.h@{bplustreev2.h}}
+\doxysubsubsection{\texorpdfstring{saveTree()}{saveTree()}}
+{\footnotesize\ttfamily \label{bplustreev2_8h_a817851a0dbd1a560b8b9fb8fce17b9dc} 
+void save\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Phương thức lưu trữ 
+
+Hàm hỗ trợ lưu trữ dữ liệu vào file
+
+File được lưu dưới dạng đuôi .bin Dữ liệu được thành một mảng byte liên tiếp
+
+
+\begin{DoxyParams}{Các tham số}
+{\em root} & tượng trưng cho cây muốn lưu trữ \\
+\hline
+{\em filename} & tên file muốn lưu trữ \\
+\hline
+\end{DoxyParams}
+\Hypertarget{bplustreev2_8h_a7c13d7dbbeb01bed587d135ec15160a2}\index{bplustreev2.h@{bplustreev2.h}!startNewTree@{startNewTree}}
+\index{startNewTree@{startNewTree}!bplustreev2.h@{bplustreev2.h}}
+\doxysubsubsection{\texorpdfstring{startNewTree()}{startNewTree()}}
+{\footnotesize\ttfamily \label{bplustreev2_8h_a7c13d7dbbeb01bed587d135ec15160a2} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} start\+New\+Tree (\begin{DoxyParamCaption}\item[{int}]{key}{, }\item[{\mbox{\hyperlink{struct_record}{Record}} \texorpdfstring{$\ast$}{*}}]{pointer}{}\end{DoxyParamCaption})}
+
+
+
+Phương thức thêm phần tử 
+
+Khởi tạo một cây mới (bản chất là \doxylink{struct_node}{Node} root) khi chưa tồn tại 
+\begin{DoxyParams}{Các tham số}
+{\em key} & (khoá tìm kiếm) \\
+\hline
+{\em pointer} & (con trỏ trỏ đến dữ liệu ghi) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Giá trị trả về}
+\doxylink{struct_node}{Node} gốc 
+\end{DoxyReturn}

@@ -45,24 +45,26 @@ void search_reader_by_id(int id)
     read_content_from_record(record, show_reader_record);
 }
 
-void search_reader_by_name(const char *name, int maxNumbers)
+void search_reader_by_name(const char *prefix, int maxNumbers)
 {
     int recommend_size = 0;
     char *recommend[maxNumbers];
 
-    recommendPrefix(reader_trie, (char *)name, maxNumbers, recommend, &recommend_size);
-    for (int i = 0; i < recommend_size; ++i)
+    recommendPrefix(reader_trie, (char *)prefix, maxNumbers, recommend, &recommend_size);
+
+    for (int i = 0; i < recommend_size; i++)
     {
         char *name = recommend[i];
+
         TrieNode *temp = searchWord(reader_trie, name);
         if (temp != NULL)
         {
-            for (int j = 0; temp->numIds && maxNumbers > 0; ++j)
+            for (int j = 0; j < temp->numIds && maxNumbers > 0; j++)
             {
                 if (exist_record(reader_management, temp->ids[j]))
                 {
-                    maxNumbers--;
                     search_reader_by_id(temp->ids[j]);
+                    maxNumbers--;
                 }
             }
             if (maxNumbers == 0)
@@ -75,11 +77,11 @@ void add_reader_callback(int id, int code, long offset, long length)
 {
     if (code == ADD_CONTENT_SUCCESS)
     {
-        printf("Successfully added!\n");
+        printf("Id: %d, Successfully added!\n", id);
     }
     else
     {
-        printf("Failed to add reader.\n");
+        printf("Id: %d, Failed to add reader.\n", id);
     }
 }
 
@@ -153,6 +155,18 @@ void update_reader(Readers *reader)
     update_content_from_record(record, update_reader_callback);
 }
 
+int update_reader_from_object(Readers *reader)
+{
+    Record *record = find(reader_management, reader->readerId);
+    if (record == NULL || record->deleted)
+    {
+        printf("Reader not found for update.\n");
+        return UPDATE_FAILED;
+    }
+
+    return update_content_without_callback(record, reader);
+}
+
 void delete_reader_callback(int code)
 {
     if (code == DELETE_SUCCESS)
@@ -171,13 +185,62 @@ void delete_reader_callback(int code)
 
 void delete_reader(int id)
 {
-
     soft_delete(reader_management, id, delete_reader_callback);
 }
-// ------------------- borrow / return -------------------
+
+Readers *search_reader(int id)
+{
+    Record *record = find(reader_management, id);
+    Readers *reader = (Readers *)read_content_from_record_return(record);
+    return reader;
+}
+
+Readers *retrieve_bucket_readers(int beginingKey, int quanities, int *actualReaders)
+{
+    int storage_pos = 0;
+
+    Readers *readers = (Readers *)malloc(sizeof(Readers) * quanities);
+    if (readers == NULL)
+    {
+        *actualReaders = 0;
+        return NULL;
+    }
+
+    Node *n = findLeaf(reader_management, beginingKey);
+    if (n == NULL)
+    {
+        *actualReaders = 0;
+        return NULL;
+    }
+
+    int startSearch = getStartSearch(n, beginingKey);
+    int i;
+
+    while (n != NULL && quanities > 0)
+    {
+        for (i = startSearch; i < n->num_keys && quanities > 0; i++)
+        {
+            Record *record = (Record *)n->pointers[i];
+            Readers *reader = (Readers *)read_content_from_record_return(record);
+
+            if (reader == NULL)
+                continue;
+
+            readers[storage_pos] = *reader;
+            storage_pos++;
+            quanities--;
+        }
+
+        startSearch = 0;
+        n = n->pointers[ORDER - 1];
+    }
+
+    *actualReaders = storage_pos;
+    return readers;
+}
 
 // ------------------- Save / Load Tree -------------------
-void preparate_reader()
+void prepare_reader()
 {
     if (reader_trie == NULL)
     {
@@ -193,42 +256,23 @@ void save_reader_management()
 
 void load_reader_management()
 {
-    FILE *file = fopen(reader_management_file, "r");
-    if (file == NULL)
-    {
-#if DEBUG_MODE
-        printf("No existing tree found. Starting new.\n");
-#endif
-        reader_management = NULL;
-        return;
-    }
-    fclose(file);
-
     reader_management = loadTree(reader_management_file);
     if (reader_management == NULL)
     {
-#if DEBUG_MODE
-        printf("Failed to load tree. Initializing new.\n");
-#endif
+        printf("(Reader) Failed to load B+ Tree management!\n");
     }
-
-    file = fopen(reader_name_management_file, "r");
-    if (file == NULL)
+    else
     {
-#if DEBUG_MODE
-        printf("No existing tree found. Starting new.\n");
-#endif
-        reader_trie = NULL;
-        return;
+        printf("(Reader) Load B+ Tree management successfully!\n");
     }
-    fclose(file);
-
     reader_trie = loadTrieTree(reader_name_management_file);
     if (reader_trie == NULL)
     {
-#if DEBUG_MODE
-        printf("Failed to load tree. Initializing new.\n");
-#endif
+        printf("(Reader) Failed to load Trie management!\n");
+    }
+    else
+    {
+        printf("(Reader) Load Trie management successfully!\n");
     }
 }
 

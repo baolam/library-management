@@ -21,9 +21,9 @@
 #include <string.h>
 #include <time.h>
 
-#include "management.h"
-#include "trie.h"
-#include "bplustreev2.h"
+#include "utils/management.h"
+#include "utils/trie.h"
+#include "utils/bplustreev2.h"
 
 /**
  * @struct Book
@@ -104,6 +104,14 @@ void delete_book(int id);
 void update_book(int id);
 
 /**
+ * @brief Cập nhật thông tin một quyển sách, cập nhật vào file nội dung
+ *
+ * Gọi hàm này không cần dùng đến callback
+ * @param book cuốn sách muốn cập nhật
+ */
+int update_book_from_object(Book *book);
+
+/**
  * @brief Tìm kiếm sách bằng Id
  *
  * Kết quả trả về sẽ hiển thị ra màn hình console, (chưa tích hợp hiển thị
@@ -114,7 +122,7 @@ void update_book(int id);
 void search_book_by_id(int id);
 
 /**
- * @brief Tìm kiếm sách bằng Author
+ * @brief Tìm kiếm sách bằng Title
  *
  * Cung cấp vào tên Author hoặc nhóm chữ cái đầu của tên Author muốn tìm kiếm
  * Kết quả hiển thị là những quyển sách có tên bắt đầu bằng từ tìm kiếm
@@ -123,6 +131,37 @@ void search_book_by_id(int id);
  * @param maxNumbers là số lượng kết quả tối đa
  */
 void search_book_by_title(const char *prefix, int maxNumbers);
+
+/**
+ * @brief Tìm kiếm sách bằng Title, có hứng kết quả trả về
+ *
+ * Hàm này sẽ trả về kết quả tìm kiếm số lượng sách, hứng kết quả trả về lưu trữ vào mảng.
+ * Việc dùng hàm này sẽ giúp đảm bảo lợi thế khi kết nối giao diện. Giao diện có thể gặp
+ * khó khăn khi tiến hành gọi callback
+ *
+ * @param prefix là nhóm chữ cái đầu của tên
+ * @param books là số lượng sách đọc được (mảng)
+ * @param actualBooks là số lượng sách thực tế (mảng)
+ * @param maxNumbers là số lượng kết quả tối đa
+ *
+ * @return là mảng chứa các cuốn sách tìm được
+ */
+Book *search_book_by_title_direct(const char *prefix, int *actualBooks, int maxNumbers);
+
+/**
+ * @brief Hàm trả về một tập hợp các quyển sách theo sau một Id tìm kiếm
+ *
+ * Dùng hàm này khi cần hứng chính xác một mảng các quyển sách. Được dùng cho
+ * nhóm thao tác giao diện
+ * @note Dùng xong nhớ free để tránh lãng phí bộ nhớ
+ *
+ * @param beginingKey là vị trí bắt đầu đọc đầu tiên
+ * @param quanities là số lượng sách muốn lấy sau khi kiếm Id đầu tiên
+ * @param actualBooks là số lượng sách thực tế
+ *
+ * @return là mảng chứa các quyển sách tìm được
+ */
+Book *retrieve_bucket_books(int beginingKey, int quanities, int *actualBooks);
 
 /// Phục vụ cho nhóm nhiệm vụ mượn, trả sách
 
@@ -149,7 +188,7 @@ Book *search_book(int id);
  *
  * Bản chất chỉ là tạo node quản lí nếu cây chưa tồn tại
  */
-void preparate_book();
+void prepare_book();
 
 /**
  * @brief Lưu trữ dữ liệu

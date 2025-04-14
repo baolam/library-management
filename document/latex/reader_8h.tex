@@ -1,0 +1,287 @@
+\doxysection{include/reader.h File Tham chiếu}
+\hypertarget{reader_8h}{}\label{reader_8h}\index{include/reader.h@{include/reader.h}}
+
+
+File quản lí người đọc.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}borrow\+\_\+return.\+h"{}}\newline
+{\ttfamily \#include "{}utils/management.\+h"{}}\newline
+{\ttfamily \#include "{}utils/trie.\+h"{}}\newline
+{\ttfamily \#include "{}utils/bplustreev2.\+h"{}}\newline
+{\ttfamily \#include "{}books.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_readers}{Readers}}
+\begin{DoxyCompactList}\small\item\em Cấu trúc quản lí của một độc giả \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Định nghĩa}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{reader_8h_aed4bad19817fb57cd4ff0965458becf6}\label{reader_8h_aed4bad19817fb57cd4ff0965458becf6} 
+\#define {\bfseries MAX\+\_\+\+FULLNAME}~100
+\begin{DoxyCompactList}\small\item\em Họ và tên. \end{DoxyCompactList}\item 
+\Hypertarget{reader_8h_a512c2a75038a8cb1dbc1c25ca243992b}\label{reader_8h_a512c2a75038a8cb1dbc1c25ca243992b} 
+\#define {\bfseries MAX\+\_\+\+PHONENUMBER}~15
+\begin{DoxyCompactList}\small\item\em Lưu trữ số điện thoại. \end{DoxyCompactList}\item 
+\Hypertarget{reader_8h_aaba07841c3e227bc8bdd8ccdad149349}\label{reader_8h_aaba07841c3e227bc8bdd8ccdad149349} 
+\#define {\bfseries MAX\+\_\+\+ADDRESS}~100
+\begin{DoxyCompactList}\small\item\em Địa chỉ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{reader_8h_a1e005cc09a1c9faba94143992d25ece3}\label{reader_8h_a1e005cc09a1c9faba94143992d25ece3} 
+typedef struct Readers {\bfseries Readers}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Các hàm}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{reader_8h_a7f672a88c0a908713f6e9ac68ff3ae65}{show\+\_\+reader}} (\mbox{\hyperlink{struct_readers}{Readers}} reader)
+\begin{DoxyCompactList}\small\item\em Hiển thị độc giả ra ngoài màn hình Console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reader_8h_a3a6f8889e69108f4353ac25b9e507fc7}{add\+\_\+reader}} (\mbox{\hyperlink{struct_readers}{Readers}} \texorpdfstring{$\ast$}{*}reader)
+\begin{DoxyCompactList}\small\item\em Thêm độc giả vào quản lí \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reader_8h_aace3e4f7c7f60bdae95a4c96ba30df1f}{search\+\_\+reader\+\_\+by\+\_\+id}} (int id)
+\begin{DoxyCompactList}\small\item\em Tìm kiếm độc giả dựa theo Id. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reader_8h_a6d4f6eb8dba36ee51b8f2aecd8d08587}{search\+\_\+reader\+\_\+by\+\_\+name}} (const char \texorpdfstring{$\ast$}{*}prefix, int max\+Numbers)
+\begin{DoxyCompactList}\small\item\em Tìm kiếm độc giả dựa theo tên. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reader_8h_a7ebb3fbe5deec927c6943d66c57dcab1}{update\+\_\+reader}} (\mbox{\hyperlink{struct_readers}{Readers}} \texorpdfstring{$\ast$}{*}reader)
+\begin{DoxyCompactList}\small\item\em Hàm cập nhật thông tin độc giả \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{reader_8h_accdcb9e93430a50efb658e446f148696}{update\+\_\+reader\+\_\+from\+\_\+object}} (\mbox{\hyperlink{struct_readers}{Readers}} \texorpdfstring{$\ast$}{*}reader)
+\begin{DoxyCompactList}\small\item\em Hàm cập nhật thông tin độc giả \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reader_8h_af07dc59049cd7d5342855985c8bf676e}{delete\+\_\+reader}} (int id)
+\begin{DoxyCompactList}\small\item\em Xoá độc giả \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_readers}{Readers}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{reader_8h_a98e7d90352899642bb59d34c01b7686f}{search\+\_\+reader}} (int id)
+\begin{DoxyCompactList}\small\item\em Hàm này sẽ trả về đối tượng Reader ứng với Id được chỉ định. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_readers}{Readers}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{reader_8h_adff84d4c954d93c55dad0e44faa7bcce}{retrieve\+\_\+bucket\+\_\+readers}} (int begining\+Key, int quanities, int \texorpdfstring{$\ast$}{*}actual\+Readers)
+\begin{DoxyCompactList}\small\item\em Hàm này sẽ trả về danh sách các độc giả theo sau Id được chỉ định một lượng bao nhiêu đó \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reader_8h_a27c98836a58bf80f495809968d66f7cf}{prepare\+\_\+reader}} ()
+\begin{DoxyCompactList}\small\item\em Hỗ trợ cho thao tác quản lí \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reader_8h_addae2d4ba1b47818e01b1f4a3f9deb47}{save\+\_\+reader\+\_\+management}} ()
+\begin{DoxyCompactList}\small\item\em Lưu trữ thông tin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reader_8h_a230b942c73dc649a1e65d74596c72d42}{load\+\_\+reader\+\_\+management}} ()
+\begin{DoxyCompactList}\small\item\em Tải dữ liệu đã lưu trữ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Các biến}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{reader_8h_ad368d836493133b44918341f66c2bba0}\label{reader_8h_ad368d836493133b44918341f66c2bba0} 
+char {\bfseries reader\+\_\+management\+\_\+file} \mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em FIle quản lí độc giả (thuần là file quản lí) \end{DoxyCompactList}\item 
+\Hypertarget{reader_8h_afb169dcb2d5d8d4c49806daf8b6918a1}\label{reader_8h_afb169dcb2d5d8d4c49806daf8b6918a1} 
+char {\bfseries reader\+\_\+name\+\_\+management\+\_\+file} \mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em File quản lí tên kết hợp Id (cây Trie) \end{DoxyCompactList}\item 
+\Hypertarget{reader_8h_a24a39c83b3c72475fe3903de8e432def}\label{reader_8h_a24a39c83b3c72475fe3903de8e432def} 
+char {\bfseries reader\+\_\+content\+\_\+file} \mbox{[}\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\+\_\+\+FILE\+\_\+\+NAME\+\_\+\+LENGTH}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em File nội dung lưu trữ dữ liệu. \end{DoxyCompactList}\item 
+\Hypertarget{reader_8h_a2b9adf9e305495e4b9cde29076afe6c1}\label{reader_8h_a2b9adf9e305495e4b9cde29076afe6c1} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries reader\+\_\+management}
+\begin{DoxyCompactList}\small\item\em Đối tượng quản lí chính. \end{DoxyCompactList}\item 
+\Hypertarget{reader_8h_a4b689b2a032121fad99b9a87b3529244}\label{reader_8h_a4b689b2a032121fad99b9a87b3529244} 
+\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries reader\+\_\+trie}
+\begin{DoxyCompactList}\small\item\em Đối tượng quản lí phụ, phục vụ cho thao tác tìm kiếm gợi ý \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Mô tả chi tiết}
+File quản lí người đọc. 
+
+\begin{DoxyAuthor}{Tác giả}
+Bùi Hải Đăng 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Phiên bản}
+1.\+0
+\end{DoxyVersion}
+File chứa những đoạn chương trình, hàm gọi sẽ được dùng cho viết giao diện, phục vụ hiển thị. Cũng như debug thuật toán 
+
+\doxysubsection{Thông tin về hàm}
+\Hypertarget{reader_8h_a3a6f8889e69108f4353ac25b9e507fc7}\index{reader.h@{reader.h}!add\_reader@{add\_reader}}
+\index{add\_reader@{add\_reader}!reader.h@{reader.h}}
+\doxysubsubsection{\texorpdfstring{add\_reader()}{add\_reader()}}
+{\footnotesize\ttfamily \label{reader_8h_a3a6f8889e69108f4353ac25b9e507fc7} 
+void add\+\_\+reader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_readers}{Readers}} \texorpdfstring{$\ast$}{*}}]{reader}{}\end{DoxyParamCaption})}
+
+
+
+Thêm độc giả vào quản lí 
+
+
+\begin{DoxyParams}{Các tham số}
+{\em reader} & đối tượng độc giả \\
+\hline
+\end{DoxyParams}
+\Hypertarget{reader_8h_af07dc59049cd7d5342855985c8bf676e}\index{reader.h@{reader.h}!delete\_reader@{delete\_reader}}
+\index{delete\_reader@{delete\_reader}!reader.h@{reader.h}}
+\doxysubsubsection{\texorpdfstring{delete\_reader()}{delete\_reader()}}
+{\footnotesize\ttfamily \label{reader_8h_af07dc59049cd7d5342855985c8bf676e} 
+void delete\+\_\+reader (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Xoá độc giả 
+
+Bản chất của thao tác xoá này là xoá để khỏi quản lí thui, dữ liệu độc giả nếu tiến hành lưu trữ vẫn còn tồn tại trong file nội dung
+
+
+\begin{DoxyParams}{Các tham số}
+{\em id} & là Id độc giả muốn xoá \\
+\hline
+\end{DoxyParams}
+\Hypertarget{reader_8h_a230b942c73dc649a1e65d74596c72d42}\index{reader.h@{reader.h}!load\_reader\_management@{load\_reader\_management}}
+\index{load\_reader\_management@{load\_reader\_management}!reader.h@{reader.h}}
+\doxysubsubsection{\texorpdfstring{load\_reader\_management()}{load\_reader\_management()}}
+{\footnotesize\ttfamily \label{reader_8h_a230b942c73dc649a1e65d74596c72d42} 
+void load\+\_\+reader\+\_\+management (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Tải dữ liệu đã lưu trữ 
+
+Dữ liệu tải là dữ liệu quản lí. File nội dung khi nào cần các thao tác thêm/sửa/xoá mới tiến hành kết nối đến \Hypertarget{reader_8h_a27c98836a58bf80f495809968d66f7cf}\index{reader.h@{reader.h}!prepare\_reader@{prepare\_reader}}
+\index{prepare\_reader@{prepare\_reader}!reader.h@{reader.h}}
+\doxysubsubsection{\texorpdfstring{prepare\_reader()}{prepare\_reader()}}
+{\footnotesize\ttfamily \label{reader_8h_a27c98836a58bf80f495809968d66f7cf} 
+void prepare\+\_\+reader (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Hỗ trợ cho thao tác quản lí 
+
+Gọi hàm này để gán Trie khỏi NULL \Hypertarget{reader_8h_adff84d4c954d93c55dad0e44faa7bcce}\index{reader.h@{reader.h}!retrieve\_bucket\_readers@{retrieve\_bucket\_readers}}
+\index{retrieve\_bucket\_readers@{retrieve\_bucket\_readers}!reader.h@{reader.h}}
+\doxysubsubsection{\texorpdfstring{retrieve\_bucket\_readers()}{retrieve\_bucket\_readers()}}
+{\footnotesize\ttfamily \label{reader_8h_adff84d4c954d93c55dad0e44faa7bcce} 
+\mbox{\hyperlink{struct_readers}{Readers}} \texorpdfstring{$\ast$}{*} retrieve\+\_\+bucket\+\_\+readers (\begin{DoxyParamCaption}\item[{int}]{begining\+Key}{, }\item[{int}]{quanities}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{actual\+Readers}{}\end{DoxyParamCaption})}
+
+
+
+Hàm này sẽ trả về danh sách các độc giả theo sau Id được chỉ định một lượng bao nhiêu đó 
+
+Kết quả trả về của hàm này là một mảng các \doxylink{struct_readers}{Readers} \begin{DoxyNote}{Ghi chú}
+Dùng xong nhớ xoá đi nhe (gọi hàm free)
+\end{DoxyNote}
+
+\begin{DoxyParams}{Các tham số}
+{\em begining\+Key} & là Id bắt đầu \\
+\hline
+{\em quanities} & là số lượng muốn tìm kiếm tối đa \\
+\hline
+{\em actual\+Readers} & là kích thước thực tế\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Ghi chú}
+Việc tồn tại hai tham số trên (quanities, actual\+Readers) là do có thể vị trí bắt đầu gần cuối, kết quả có thể không trùng lặp giữa cả hai 
+\end{DoxyNote}
+\begin{DoxyReturn}{Giá trị trả về}
+Mảng các độc giả 
+\end{DoxyReturn}
+\Hypertarget{reader_8h_addae2d4ba1b47818e01b1f4a3f9deb47}\index{reader.h@{reader.h}!save\_reader\_management@{save\_reader\_management}}
+\index{save\_reader\_management@{save\_reader\_management}!reader.h@{reader.h}}
+\doxysubsubsection{\texorpdfstring{save\_reader\_management()}{save\_reader\_management()}}
+{\footnotesize\ttfamily \label{reader_8h_addae2d4ba1b47818e01b1f4a3f9deb47} 
+void save\+\_\+reader\+\_\+management (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Lưu trữ thông tin. 
+
+Kết quả lưu trữ sẽ tạo ra 3 file theo định nghĩa \Hypertarget{reader_8h_a98e7d90352899642bb59d34c01b7686f}\index{reader.h@{reader.h}!search\_reader@{search\_reader}}
+\index{search\_reader@{search\_reader}!reader.h@{reader.h}}
+\doxysubsubsection{\texorpdfstring{search\_reader()}{search\_reader()}}
+{\footnotesize\ttfamily \label{reader_8h_a98e7d90352899642bb59d34c01b7686f} 
+\mbox{\hyperlink{struct_readers}{Readers}} \texorpdfstring{$\ast$}{*} search\+\_\+reader (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Hàm này sẽ trả về đối tượng Reader ứng với Id được chỉ định. 
+
+Là một hàm thao tác trực tiếp trả về Reader, không cần phải thông qua gọi Callback
+
+\begin{DoxyReturn}{Giá trị trả về}
+Đối tượng Reader, NULL nếu đọc không được 
+\end{DoxyReturn}
+\Hypertarget{reader_8h_aace3e4f7c7f60bdae95a4c96ba30df1f}\index{reader.h@{reader.h}!search\_reader\_by\_id@{search\_reader\_by\_id}}
+\index{search\_reader\_by\_id@{search\_reader\_by\_id}!reader.h@{reader.h}}
+\doxysubsubsection{\texorpdfstring{search\_reader\_by\_id()}{search\_reader\_by\_id()}}
+{\footnotesize\ttfamily \label{reader_8h_aace3e4f7c7f60bdae95a4c96ba30df1f} 
+void search\+\_\+reader\+\_\+by\+\_\+id (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Tìm kiếm độc giả dựa theo Id. 
+
+
+\begin{DoxyParams}{Các tham số}
+{\em id} & là Id độc giả \\
+\hline
+\end{DoxyParams}
+\Hypertarget{reader_8h_a6d4f6eb8dba36ee51b8f2aecd8d08587}\index{reader.h@{reader.h}!search\_reader\_by\_name@{search\_reader\_by\_name}}
+\index{search\_reader\_by\_name@{search\_reader\_by\_name}!reader.h@{reader.h}}
+\doxysubsubsection{\texorpdfstring{search\_reader\_by\_name()}{search\_reader\_by\_name()}}
+{\footnotesize\ttfamily \label{reader_8h_a6d4f6eb8dba36ee51b8f2aecd8d08587} 
+void search\+\_\+reader\+\_\+by\+\_\+name (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{prefix}{, }\item[{int}]{max\+Numbers}{}\end{DoxyParamCaption})}
+
+
+
+Tìm kiếm độc giả dựa theo tên. 
+
+Do độc giả có thể trùng tên nên kết quả tìm kiếm là danh sách các độc giả có tên bắt đầu Cụ thể hơn có hai mức khái niệm ở đây\+:
+\begin{DoxyItemize}
+\item Mức 1\+: là dựa vào Prefix, trả về được các tên độc giả bắt đầu bằng Prefix chỉ định
+\item Mức 2\+: Vào sâu một tên, có thể xảy ra trường hợp trùng tên -\/-\/\texorpdfstring{$>$}{>} Yêu cầu lưu quản lí tên trùng luôn Kết quả trả về là hợp của hai kết quả trên, lấy theo số lượng được yêu cầu
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Các tham số}
+{\em prefix} & tiền tố tên bắt đầu ví dụ như Nguyen, Ng, Ba, Bui \\
+\hline
+{\em max\+Numbers} & là số lượng kết quả tối đa được trả vể \\
+\hline
+\end{DoxyParams}
+\Hypertarget{reader_8h_a7f672a88c0a908713f6e9ac68ff3ae65}\index{reader.h@{reader.h}!show\_reader@{show\_reader}}
+\index{show\_reader@{show\_reader}!reader.h@{reader.h}}
+\doxysubsubsection{\texorpdfstring{show\_reader()}{show\_reader()}}
+{\footnotesize\ttfamily \label{reader_8h_a7f672a88c0a908713f6e9ac68ff3ae65} 
+void show\+\_\+reader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_readers}{Readers}}}]{reader}{}\end{DoxyParamCaption})}
+
+
+
+Hiển thị độc giả ra ngoài màn hình Console. 
+
+
+\begin{DoxyParams}{Các tham số}
+{\em reader} & đối tượng độc giả \\
+\hline
+\end{DoxyParams}
+\Hypertarget{reader_8h_a7ebb3fbe5deec927c6943d66c57dcab1}\index{reader.h@{reader.h}!update\_reader@{update\_reader}}
+\index{update\_reader@{update\_reader}!reader.h@{reader.h}}
+\doxysubsubsection{\texorpdfstring{update\_reader()}{update\_reader()}}
+{\footnotesize\ttfamily \label{reader_8h_a7ebb3fbe5deec927c6943d66c57dcab1} 
+void update\+\_\+reader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_readers}{Readers}} \texorpdfstring{$\ast$}{*}}]{reader}{}\end{DoxyParamCaption})}
+
+
+
+Hàm cập nhật thông tin độc giả 
+
+Hàm này thao tác ở màn hình Console 
+\begin{DoxyParams}{Các tham số}
+{\em reader} & là đối tượng độc giả muốn Update, về chi tiết hơn có thể chỉ cần mỗi Id, (độc giả thiếu thông tin) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{reader_8h_accdcb9e93430a50efb658e446f148696}\index{reader.h@{reader.h}!update\_reader\_from\_object@{update\_reader\_from\_object}}
+\index{update\_reader\_from\_object@{update\_reader\_from\_object}!reader.h@{reader.h}}
+\doxysubsubsection{\texorpdfstring{update\_reader\_from\_object()}{update\_reader\_from\_object()}}
+{\footnotesize\ttfamily \label{reader_8h_accdcb9e93430a50efb658e446f148696} 
+int update\+\_\+reader\+\_\+from\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_readers}{Readers}} \texorpdfstring{$\ast$}{*}}]{reader}{}\end{DoxyParamCaption})}
+
+
+
+Hàm cập nhật thông tin độc giả 
+
+Hàm này sẽ nhận đối tượng đầu vào là một reader hoàn chỉnh. Công việc cần làm là lưu file thui
+
+
+\begin{DoxyParams}{Các tham số}
+{\em reader} & là đối tượng độc giả muốn Update \\
+\hline
+\end{DoxyParams}

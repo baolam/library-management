@@ -1,4 +1,4 @@
-#include "fake.h"
+#include "utils/fake.h"
 #include "books.h"
 
 void showMenu()
@@ -24,6 +24,14 @@ void showListBook()
     scanf("%d", &beginingKey);
     printf("Enter nums:");
     scanf("%d", &nums);
+
+    int actualBooks = 0;
+    Book *books = retrieve_bucket_books(beginingKey, nums, &actualBooks);
+
+    for (int i = 0; i < actualBooks; i++)
+    {
+        show_book(books[i]);
+    }
 }
 
 void getRecommend()
@@ -48,7 +56,7 @@ int main()
     int totalBooks = 200;
     int id;
 
-    preparate_book();
+    prepare_book();
 
     printf("Generate book :\n");
     int skipCode;

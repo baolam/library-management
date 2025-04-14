@@ -1,0 +1,78 @@
+\doxysection{reader.\+h}
+\hypertarget{reader_8h_source}{}\label{reader_8h_source}\index{include/reader.h@{include/reader.h}}
+\mbox{\hyperlink{reader_8h}{Tới Thông tin của file này.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ READERS\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ READERS\_H}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ MAX\_FULLNAME\ 100}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ MAX\_PHONENUMBER\ 15}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ MAX\_ADDRESS\ 100}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{borrow__return_8h}{borrow\_return.h}}"{}}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{management_8h}{utils/management.h}}"{}}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{trie_8h}{utils/trie.h}}"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bplustreev2_8h}{utils/bplustreev2.h}}"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{books_8h}{books.h}}"{}}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_readers}{Readers}}}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_readers_ac8797cb6b2da88c200145c5836264d15}{readerId}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_readers_ad49946ea466cf2c9f9664fa3a2fb3df5}{fullName}}[\mbox{\hyperlink{reader_8h_aed4bad19817fb57cd4ff0965458becf6}{MAX\_FULLNAME}}];}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_readers_a251114a406343b68d752afb4a4e4cf40}{phoneNumber}}[\mbox{\hyperlink{reader_8h_a512c2a75038a8cb1dbc1c25ca243992b}{MAX\_PHONENUMBER}}];}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_readers_ac6825b93058e5779e8b019bc6a59b82e}{address}}[\mbox{\hyperlink{reader_8h_aaba07841c3e227bc8bdd8ccdad149349}{MAX\_ADDRESS}}];}
+\DoxyCodeLine{00064\ \}\ \mbox{\hyperlink{struct_readers}{Readers}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ reader\_management\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ reader\_name\_management\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ reader\_content\_file[\mbox{\hyperlink{bplustreev2_8h_a9958e549a943ec37c7fbb33685befb02}{MAX\_FILE\_NAME\_LENGTH}}];}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_node}{Node}}\ *reader\_management;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_trie_node}{TrieNode}}\ *reader\_trie;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{comment}{//\ =====\ CRUD\ operations\ =====}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_a7f672a88c0a908713f6e9ac68ff3ae65}{show\_reader}}(\mbox{\hyperlink{struct_readers}{Readers}}\ reader);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_a3a6f8889e69108f4353ac25b9e507fc7}{add\_reader}}(\mbox{\hyperlink{struct_readers}{Readers}}\ *reader);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_aace3e4f7c7f60bdae95a4c96ba30df1f}{search\_reader\_by\_id}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00123\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_a6d4f6eb8dba36ee51b8f2aecd8d08587}{search\_reader\_by\_name}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *prefix,\ \textcolor{keywordtype}{int}\ maxNumbers);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00131\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_a7ebb3fbe5deec927c6943d66c57dcab1}{update\_reader}}(\mbox{\hyperlink{struct_readers}{Readers}}\ *reader);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00141\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{reader_8h_accdcb9e93430a50efb658e446f148696}{update\_reader\_from\_object}}(\mbox{\hyperlink{struct_readers}{Readers}}\ *reader);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00151\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_af07dc59049cd7d5342855985c8bf676e}{delete\_reader}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{comment}{//\ =====\ Nhóm\ hàm\ hỗ\ trợ\ tương\ tác\ giao\ diện\ ======}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00163\ \mbox{\hyperlink{struct_readers}{Readers}}\ *\mbox{\hyperlink{reader_8h_a98e7d90352899642bb59d34c01b7686f}{search\_reader}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00180\ \mbox{\hyperlink{struct_readers}{Readers}}\ *\mbox{\hyperlink{reader_8h_adff84d4c954d93c55dad0e44faa7bcce}{retrieve\_bucket\_readers}}(\textcolor{keywordtype}{int}\ beginingKey,\ \textcolor{keywordtype}{int}\ quanities,\ \textcolor{keywordtype}{int}\ *actualReaders);}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{comment}{//\ =====\ Persistence\ =====}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00189\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_a27c98836a58bf80f495809968d66f7cf}{prepare\_reader}}();}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00196\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_addae2d4ba1b47818e01b1f4a3f9deb47}{save\_reader\_management}}();}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00204\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reader_8h_a230b942c73dc649a1e65d74596c72d42}{load\_reader\_management}}();}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ READERS\_H}}
+
+\end{DoxyCode}

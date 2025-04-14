@@ -1,0 +1,101 @@
+\doxysection{include/utils/fake.h File Tham chiếu}
+\hypertarget{fake_8h}{}\label{fake_8h}\index{include/utils/fake.h@{include/utils/fake.h}}
+
+
+Những hàm sinh dữ liệu cơ bản, ngẫu nhiên phục vụ cho vấn đề của nhóm.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include "{}books.\+h"{}}\newline
+{\ttfamily \#include "{}reader.\+h"{}}\newline
+\doxysubsubsection*{Định nghĩa}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fake_8h_a69b7a2d67e969d3e0921f3f23d1947f2}\label{fake_8h_a69b7a2d67e969d3e0921f3f23d1947f2} 
+\#define {\bfseries TOTAL\+\_\+\+GENRE}~12
+\begin{DoxyCompactList}\small\item\em Thể loại sách tối đa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Các hàm}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_book}{Book}} \mbox{\hyperlink{fake_8h_a040361527a1381944cb306a9c158087a}{generate\+\_\+book}} (int id)
+\begin{DoxyCompactList}\small\item\em Sinh dữ liệu \doxylink{struct_book}{Book}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_readers}{Readers}} \mbox{\hyperlink{fake_8h_ac45ef0c5a4bf3468b95ac25ee16a4b9a}{generate\+\_\+reader}} (int id)
+\begin{DoxyCompactList}\small\item\em Sinh dữ liệu Reader. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Các biến}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fake_8h_a7e28b32b579982a2ed278b80adcdd492}\label{fake_8h_a7e28b32b579982a2ed278b80adcdd492} 
+char \texorpdfstring{$\ast$}{*} {\bfseries titles} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Tiêu đề của sách. \end{DoxyCompactList}\item 
+\Hypertarget{fake_8h_a8fe287a488cbea8ccb168bf09a1973c4}\label{fake_8h_a8fe287a488cbea8ccb168bf09a1973c4} 
+char \texorpdfstring{$\ast$}{*} {\bfseries authors} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Tên tác giả \end{DoxyCompactList}\item 
+\Hypertarget{fake_8h_aea973a51ee2bdf1588de4f7324c727cd}\label{fake_8h_aea973a51ee2bdf1588de4f7324c727cd} 
+char \texorpdfstring{$\ast$}{*} {\bfseries genres} \mbox{[}\mbox{\hyperlink{fake_8h_a69b7a2d67e969d3e0921f3f23d1947f2}{TOTAL\+\_\+\+GENRE}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Thể loại sách. \end{DoxyCompactList}\item 
+\Hypertarget{fake_8h_a37d874b5ac72b82ad334c4d5bd5a585d}\label{fake_8h_a37d874b5ac72b82ad334c4d5bd5a585d} 
+char \texorpdfstring{$\ast$}{*} {\bfseries firstnames} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Chứa các tên thông dụng, phục vụ thao tác sinh. \end{DoxyCompactList}\item 
+\Hypertarget{fake_8h_ac1339bead67ba2c737905372f193d1f9}\label{fake_8h_ac1339bead67ba2c737905372f193d1f9} 
+char \texorpdfstring{$\ast$}{*} {\bfseries lastnames} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Chứa các họ thông dụng. \end{DoxyCompactList}\item 
+\Hypertarget{fake_8h_a85893bc837e4da26b41a2d6cf76bb29c}\label{fake_8h_a85893bc837e4da26b41a2d6cf76bb29c} 
+char \texorpdfstring{$\ast$}{*} {\bfseries middlenames} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Chứa tên đệm. \end{DoxyCompactList}\item 
+\Hypertarget{fake_8h_a42591b158aceecb9f7ef75ac38caef9d}\label{fake_8h_a42591b158aceecb9f7ef75ac38caef9d} 
+char \texorpdfstring{$\ast$}{*} {\bfseries addresses} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Chứa địa chỉ \end{DoxyCompactList}\item 
+\Hypertarget{fake_8h_aaa5932b79a6ab2dfbd4cb5d55b026ea7}\label{fake_8h_aaa5932b79a6ab2dfbd4cb5d55b026ea7} 
+char \texorpdfstring{$\ast$}{*} {\bfseries phone\+\_\+prefix} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Mã số điện thoại. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Mô tả chi tiết}
+Những hàm sinh dữ liệu cơ bản, ngẫu nhiên phục vụ cho vấn đề của nhóm. 
+
+\begin{DoxyAuthor}{Tác giả}
+Bùi Hải Đăng 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Phiên bản}
+1.\+0
+\end{DoxyVersion}
+Chứa chương trình sinh dữ liệu \doxylink{struct_book}{Book}, Reader 
+
+\doxysubsection{Thông tin về hàm}
+\Hypertarget{fake_8h_a040361527a1381944cb306a9c158087a}\index{fake.h@{fake.h}!generate\_book@{generate\_book}}
+\index{generate\_book@{generate\_book}!fake.h@{fake.h}}
+\doxysubsubsection{\texorpdfstring{generate\_book()}{generate\_book()}}
+{\footnotesize\ttfamily \label{fake_8h_a040361527a1381944cb306a9c158087a} 
+\mbox{\hyperlink{struct_book}{Book}} generate\+\_\+book (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Sinh dữ liệu \doxylink{struct_book}{Book}. 
+
+Hàm này sinh dữ liệu \doxylink{struct_book}{Book} ngẫu nhiên và sẽ gán id (khoá tìm kiếm) ứng với dữ liệu được sinh ra
+
+
+\begin{DoxyParams}{Các tham số}
+{\em id} & khoá tìm kiếm được chỉ định \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fake_8h_ac45ef0c5a4bf3468b95ac25ee16a4b9a}\index{fake.h@{fake.h}!generate\_reader@{generate\_reader}}
+\index{generate\_reader@{generate\_reader}!fake.h@{fake.h}}
+\doxysubsubsection{\texorpdfstring{generate\_reader()}{generate\_reader()}}
+{\footnotesize\ttfamily \label{fake_8h_ac45ef0c5a4bf3468b95ac25ee16a4b9a} 
+\mbox{\hyperlink{struct_readers}{Readers}} generate\+\_\+reader (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Sinh dữ liệu Reader. 
+
+Hàm này sinh dữ liệu Reader giả và sẽ gán id (khoá tìm kiếm) ứng với Reader được sinh ra
+
+
+\begin{DoxyParams}{Các tham số}
+{\em id} & khoá tìm kiếm được chỉ định \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,52 @@
+\doxysection{statistic.\+h}
+\hypertarget{statistic_8h_source}{}\label{statistic_8h_source}\index{include/statistic.h@{include/statistic.h}}
+\mbox{\hyperlink{statistic_8h}{Tới Thông tin của file này.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ STATISTIC\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ STATISTIC\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bplustreev2_8h}{utils/bplustreev2.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fake_8h}{utils/fake.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{management_8h}{utils/management.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{borrow__return_8h}{borrow\_return.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{books_8h}{books.h}}"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ MAX\_OVERDUE\ 1000}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_overdue_borrower}{OverdueBorrower}}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ readerId;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ days\_borrowed;}
+\DoxyCodeLine{00026\ \}\ \mbox{\hyperlink{struct_overdue_borrower}{OverdueBorrower}};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ total\_books;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ deleted\_books;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{short}\ counter\_genre[\mbox{\hyperlink{fake_8h_a69b7a2d67e969d3e0921f3f23d1947f2}{TOTAL\_GENRE}}];}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ total\_borrowed\_books;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ total\_late\_books;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_overdue_borrower}{OverdueBorrower}}\ overdue\_list[MAX\_OVERDUE];}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ overdue\_count;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{statistic_8h_a9f700c57a8358d4eb1c509027f723c42}{set\_up}}();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{statistic_8h_a426d73572bd5a1888f0af18244c9a462}{calc\_statistic\_book}}(\mbox{\hyperlink{struct_node}{Node}}\ *book\_management);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{statistic_8h_a86d237054e6030d7131c63c6cd9a1558}{calc\_statistic\_borrowed\_books}}(\mbox{\hyperlink{struct_node}{Node}}\ *borrow\_return\_management);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{statistic_8h_a9ab528b2b144e47637af496291bde406}{collect\_late\_borrowers}}(\mbox{\hyperlink{struct_node}{Node}}\ *borrow\_return\_management);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{statistic_8h_aac5208f4e2ea7b1fc89ce0b10292986b}{list\_late\_borrowers}}();}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

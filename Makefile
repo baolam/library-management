@@ -53,7 +53,7 @@ $(TEST_DIR)/%.exe: $(TEST_DIR)/%.c $(TEST_OBJS)
 # Clean
 # ====================================
 clean:
-	rm -rf $(OBJ_DIR) $(TARGET) $(TEST_EXES) $(DOCUMENT_DIR)
+	rm -rf $(OBJ_DIR) $(TARGET) $(TEST_EXES)
 
 doc_erase:
 	rm -rf $(DOCUMENT_DIR)

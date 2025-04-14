@@ -1,0 +1,505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="vi">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Library management: include/books.h File Tham chiếu</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Library management<span id="projectnumber">&#160;v1</span>
+   </div>
+   <div id="projectbrief">Quản lí thư viện</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Tìm kiếm" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Được biên soạn bởi Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('books_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Định nghĩa</a> &#124;
+<a href="#func-members">Các hàm</a> &#124;
+<a href="#var-members">Các biến</a>  </div>
+  <div class="headertitle"><div class="title">books.h File Tham chiếu</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Lưu trữ những hàm sẽ được dùng cho quản lí sách.  
+<a href="#details">Tiếp...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="management_8h_source.html">utils/management.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="trie_8h_source.html">utils/trie.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bplustreev2_8h_source.html">utils/bplustreev2.h</a>&quot;</code><br />
+</div>
+<p><a href="books_8h_source.html">Tới mã nguồn của file này.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_book.html">Book</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cấu trúc dữ liệu cho một cuốn sách.  <a href="struct_book.html#details">Tiếp...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Định nghĩa</h2></td></tr>
+<tr class="memitem:a18d607761a55c0a30b69f9d82f1da73e" id="r_a18d607761a55c0a30b69f9d82f1da73e"><td class="memItemLeft" align="right" valign="top"><a id="a18d607761a55c0a30b69f9d82f1da73e" name="a18d607761a55c0a30b69f9d82f1da73e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_TITLE</b>&#160;&#160;&#160;50</td></tr>
+<tr class="memdesc:a18d607761a55c0a30b69f9d82f1da73e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Độ dài tối đa của tiêu đề <br /></td></tr>
+<tr class="separator:a18d607761a55c0a30b69f9d82f1da73e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9986476b23d5ba8a697c60d8130d4e14" id="r_a9986476b23d5ba8a697c60d8130d4e14"><td class="memItemLeft" align="right" valign="top"><a id="a9986476b23d5ba8a697c60d8130d4e14" name="a9986476b23d5ba8a697c60d8130d4e14"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_AUTHOR</b>&#160;&#160;&#160;50</td></tr>
+<tr class="memdesc:a9986476b23d5ba8a697c60d8130d4e14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Độ dài tối đa của tác giả <br /></td></tr>
+<tr class="separator:a9986476b23d5ba8a697c60d8130d4e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bacc87944c0b8955121b3b9b71664ce" id="r_a0bacc87944c0b8955121b3b9b71664ce"><td class="memItemLeft" align="right" valign="top"><a id="a0bacc87944c0b8955121b3b9b71664ce" name="a0bacc87944c0b8955121b3b9b71664ce"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_GENRE_NO</b>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:a0bacc87944c0b8955121b3b9b71664ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Độ dài tối đa của thể loại sách. <br /></td></tr>
+<tr class="separator:a0bacc87944c0b8955121b3b9b71664ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Các hàm</h2></td></tr>
+<tr class="memitem:af3ab34040cfd77b3963472d88ec6c276" id="r_af3ab34040cfd77b3963472d88ec6c276"><td class="memItemLeft" align="right" valign="top"><a id="af3ab34040cfd77b3963472d88ec6c276" name="af3ab34040cfd77b3963472d88ec6c276"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>show_book</b> (<a class="el" href="struct_book.html">Book</a> book)</td></tr>
+<tr class="memdesc:af3ab34040cfd77b3963472d88ec6c276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Các hàm thao tác với <a class="el" href="struct_book.html" title="Cấu trúc dữ liệu cho một cuốn sách.">Book</a>. <br /></td></tr>
+<tr class="separator:af3ab34040cfd77b3963472d88ec6c276"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c7f88a691fdbbc78ffca5e8095a8bd3" id="r_a0c7f88a691fdbbc78ffca5e8095a8bd3"><td class="memItemLeft" align="right" valign="top"><a id="a0c7f88a691fdbbc78ffca5e8095a8bd3" name="a0c7f88a691fdbbc78ffca5e8095a8bd3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>add_book</b> (<a class="el" href="struct_book.html">Book</a> *book)</td></tr>
+<tr class="separator:a0c7f88a691fdbbc78ffca5e8095a8bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92647df5ddb986901e8113a8ce3f1e3e" id="r_a92647df5ddb986901e8113a8ce3f1e3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92647df5ddb986901e8113a8ce3f1e3e">delete_book</a> (int id)</td></tr>
+<tr class="memdesc:a92647df5ddb986901e8113a8ce3f1e3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Xóa một quyển sách.  <br /></td></tr>
+<tr class="separator:a92647df5ddb986901e8113a8ce3f1e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a2c8d018662acf1c6ca6857a9bb7f86" id="r_a3a2c8d018662acf1c6ca6857a9bb7f86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a2c8d018662acf1c6ca6857a9bb7f86">update_book</a> (int id)</td></tr>
+<tr class="memdesc:a3a2c8d018662acf1c6ca6857a9bb7f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cập nhật thông tin của một quyển sách.  <br /></td></tr>
+<tr class="separator:a3a2c8d018662acf1c6ca6857a9bb7f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53cfe66264bb5e35a77b45a86f1cf8e3" id="r_a53cfe66264bb5e35a77b45a86f1cf8e3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53cfe66264bb5e35a77b45a86f1cf8e3">update_book_from_object</a> (<a class="el" href="struct_book.html">Book</a> *book)</td></tr>
+<tr class="memdesc:a53cfe66264bb5e35a77b45a86f1cf8e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cập nhật thông tin một quyển sách, cập nhật vào file nội dung.  <br /></td></tr>
+<tr class="separator:a53cfe66264bb5e35a77b45a86f1cf8e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9223d05c04eaf64efac2e4a8cf2aeec" id="r_ab9223d05c04eaf64efac2e4a8cf2aeec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9223d05c04eaf64efac2e4a8cf2aeec">search_book_by_id</a> (int id)</td></tr>
+<tr class="memdesc:ab9223d05c04eaf64efac2e4a8cf2aeec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tìm kiếm sách bằng Id.  <br /></td></tr>
+<tr class="separator:ab9223d05c04eaf64efac2e4a8cf2aeec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbf315a2a4092396b23d8d083661fb6b" id="r_adbf315a2a4092396b23d8d083661fb6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adbf315a2a4092396b23d8d083661fb6b">search_book_by_title</a> (const char *prefix, int maxNumbers)</td></tr>
+<tr class="memdesc:adbf315a2a4092396b23d8d083661fb6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tìm kiếm sách bằng Title.  <br /></td></tr>
+<tr class="separator:adbf315a2a4092396b23d8d083661fb6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fad7a86d2b117aceddf806d3365e422" id="r_a6fad7a86d2b117aceddf806d3365e422"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_book.html">Book</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6fad7a86d2b117aceddf806d3365e422">search_book_by_title_direct</a> (const char *prefix, int *actualBooks, int maxNumbers)</td></tr>
+<tr class="memdesc:a6fad7a86d2b117aceddf806d3365e422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tìm kiếm sách bằng Title, có hứng kết quả trả về  <br /></td></tr>
+<tr class="separator:a6fad7a86d2b117aceddf806d3365e422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab879ca6938b77771fed16c9a9f9d5ea2" id="r_ab879ca6938b77771fed16c9a9f9d5ea2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_book.html">Book</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab879ca6938b77771fed16c9a9f9d5ea2">retrieve_bucket_books</a> (int beginingKey, int quanities, int *actualBooks)</td></tr>
+<tr class="memdesc:ab879ca6938b77771fed16c9a9f9d5ea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hàm trả về một tập hợp các quyển sách theo sau một Id tìm kiếm.  <br /></td></tr>
+<tr class="separator:ab879ca6938b77771fed16c9a9f9d5ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad52d1d47f78b08b5e1b73062842a8c34" id="r_ad52d1d47f78b08b5e1b73062842a8c34"><td class="memItemLeft" align="right" valign="top"><a id="ad52d1d47f78b08b5e1b73062842a8c34" name="ad52d1d47f78b08b5e1b73062842a8c34"></a>
+<a class="el" href="struct_book.html">Book</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>search_book</b> (int id)</td></tr>
+<tr class="memdesc:ad52d1d47f78b08b5e1b73062842a8c34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Phục vụ cho nhóm nhiệm vụ mượn, trả sách. <br /></td></tr>
+<tr class="separator:ad52d1d47f78b08b5e1b73062842a8c34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9362c66097877f5e29f487a20ea86fd1" id="r_a9362c66097877f5e29f487a20ea86fd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9362c66097877f5e29f487a20ea86fd1">prepare_book</a> ()</td></tr>
+<tr class="memdesc:a9362c66097877f5e29f487a20ea86fd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lưu trữ vào file, load dữ liệu ra từ file.  <br /></td></tr>
+<tr class="separator:a9362c66097877f5e29f487a20ea86fd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0d9d44572464bcfc58d438604d0a598" id="r_ab0d9d44572464bcfc58d438604d0a598"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0d9d44572464bcfc58d438604d0a598">save_book_management</a> ()</td></tr>
+<tr class="memdesc:ab0d9d44572464bcfc58d438604d0a598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lưu trữ dữ liệu.  <br /></td></tr>
+<tr class="separator:ab0d9d44572464bcfc58d438604d0a598"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade26076641cca3fc5450d909e32762de" id="r_ade26076641cca3fc5450d909e32762de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade26076641cca3fc5450d909e32762de">load_book_management</a> ()</td></tr>
+<tr class="memdesc:ade26076641cca3fc5450d909e32762de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load dữ liệu.  <br /></td></tr>
+<tr class="separator:ade26076641cca3fc5450d909e32762de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Các biến</h2></td></tr>
+<tr class="memitem:ae592405ed1cad3dba6f98c41fe7ac5a9" id="r_ae592405ed1cad3dba6f98c41fe7ac5a9"><td class="memItemLeft" align="right" valign="top"><a id="ae592405ed1cad3dba6f98c41fe7ac5a9" name="ae592405ed1cad3dba6f98c41fe7ac5a9"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>book_management_file</b> [<a class="el" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>]</td></tr>
+<tr class="memdesc:ae592405ed1cad3dba6f98c41fe7ac5a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">File quản lí sách. <br /></td></tr>
+<tr class="separator:ae592405ed1cad3dba6f98c41fe7ac5a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a390d31c4003925cffa92edece544dbd1" id="r_a390d31c4003925cffa92edece544dbd1"><td class="memItemLeft" align="right" valign="top"><a id="a390d31c4003925cffa92edece544dbd1" name="a390d31c4003925cffa92edece544dbd1"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>book_trie_management</b> [<a class="el" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>]</td></tr>
+<tr class="memdesc:a390d31c4003925cffa92edece544dbd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">File quản lí cây Trie, dùng hỗ trợ cho tìm kiếm bằng tên tác giả <br /></td></tr>
+<tr class="separator:a390d31c4003925cffa92edece544dbd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8765cafbe20084ab4b9dcf76abf2a00" id="r_af8765cafbe20084ab4b9dcf76abf2a00"><td class="memItemLeft" align="right" valign="top"><a id="af8765cafbe20084ab4b9dcf76abf2a00" name="af8765cafbe20084ab4b9dcf76abf2a00"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>book_content_file</b> [<a class="el" href="bplustreev2_8h.html#a9958e549a943ec37c7fbb33685befb02">MAX_FILE_NAME_LENGTH</a>]</td></tr>
+<tr class="memdesc:af8765cafbe20084ab4b9dcf76abf2a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">File chứa nội dung sách, file quản lí chính. <br /></td></tr>
+<tr class="separator:af8765cafbe20084ab4b9dcf76abf2a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76d586c2492e8d36fda3dc16492a6693" id="r_a76d586c2492e8d36fda3dc16492a6693"><td class="memItemLeft" align="right" valign="top"><a id="a76d586c2492e8d36fda3dc16492a6693" name="a76d586c2492e8d36fda3dc16492a6693"></a>
+<a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>book_management</b></td></tr>
+<tr class="memdesc:a76d586c2492e8d36fda3dc16492a6693"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cây B+ Tree quản lí sách. <br /></td></tr>
+<tr class="separator:a76d586c2492e8d36fda3dc16492a6693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95de0e1b8129a7ede38dff4eb5da683b" id="r_a95de0e1b8129a7ede38dff4eb5da683b"><td class="memItemLeft" align="right" valign="top"><a id="a95de0e1b8129a7ede38dff4eb5da683b" name="a95de0e1b8129a7ede38dff4eb5da683b"></a>
+<a class="el" href="struct_trie_node.html">TrieNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>book_trie</b></td></tr>
+<tr class="memdesc:a95de0e1b8129a7ede38dff4eb5da683b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cây trie quản lí author. <br /></td></tr>
+<tr class="separator:a95de0e1b8129a7ede38dff4eb5da683b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Mô tả chi tiết</h2>
+<div class="textblock"><p>Lưu trữ những hàm sẽ được dùng cho quản lí sách. </p>
+<dl class="section author"><dt>Tác giả</dt><dd>Nguyễn Huy Phong, Nguyễn Đức Bảo Lâm </dd></dl>
+<dl class="section version"><dt>Phiên bản</dt><dd>1.0</dd></dl>
+<p>Một số hàm dùng để quản lí sách </p>
+</div><h2 class="groupheader">Thông tin về hàm</h2>
+<a id="a92647df5ddb986901e8113a8ce3f1e3e" name="a92647df5ddb986901e8113a8ce3f1e3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92647df5ddb986901e8113a8ce3f1e3e">&#9670;&#160;</a></span>delete_book()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void delete_book </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Xóa một quyển sách. </p>
+<p>Việc xoá một quyển sách bao gồm việc xoá bản ghi trong cây B+ Tree, cây Trie đối với Author. Do tính chất dữ liệu lưu trữ trong file nội dung là liên tục nên việc xoá trực tiếp khỏi file nội dung là không nên do sẽ ghi chuyển dịch lưu trữ.</p>
+<p>Phương thức xoá được dùng là soft_delete. Chỉ là xoá khỏi file quản lí, Dữ liệu vẫn tồn tại trong file nội dung</p>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Id của quyển sách cần xoá </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ade26076641cca3fc5450d909e32762de" name="ade26076641cca3fc5450d909e32762de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade26076641cca3fc5450d909e32762de">&#9670;&#160;</a></span>load_book_management()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void load_book_management </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Load dữ liệu. </p>
+<p>Lấy nội dung dữ liệu đã lưu trữ trước đó </p>
+
+</div>
+</div>
+<a id="a9362c66097877f5e29f487a20ea86fd1" name="a9362c66097877f5e29f487a20ea86fd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9362c66097877f5e29f487a20ea86fd1">&#9670;&#160;</a></span>prepare_book()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void prepare_book </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lưu trữ vào file, load dữ liệu ra từ file. </p>
+<p>Hàm hỗ trợ cho cây Trie, tìm kiếm = Author</p>
+<p>Bản chất chỉ là tạo node quản lí nếu cây chưa tồn tại </p>
+
+</div>
+</div>
+<a id="ab879ca6938b77771fed16c9a9f9d5ea2" name="ab879ca6938b77771fed16c9a9f9d5ea2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab879ca6938b77771fed16c9a9f9d5ea2">&#9670;&#160;</a></span>retrieve_bucket_books()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_book.html">Book</a> * retrieve_bucket_books </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>beginingKey</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>quanities</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>actualBooks</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hàm trả về một tập hợp các quyển sách theo sau một Id tìm kiếm. </p>
+<p>Dùng hàm này khi cần hứng chính xác một mảng các quyển sách. Được dùng cho nhóm thao tác giao diện </p><dl class="section note"><dt>Ghi chú</dt><dd>Dùng xong nhớ free để tránh lãng phí bộ nhớ</dd></dl>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">beginingKey</td><td>là vị trí bắt đầu đọc đầu tiên </td></tr>
+    <tr><td class="paramname">quanities</td><td>là số lượng sách muốn lấy sau khi kiếm Id đầu tiên </td></tr>
+    <tr><td class="paramname">actualBooks</td><td>là số lượng sách thực tế</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Giá trị trả về</dt><dd>là mảng chứa các quyển sách tìm được </dd></dl>
+
+</div>
+</div>
+<a id="ab0d9d44572464bcfc58d438604d0a598" name="ab0d9d44572464bcfc58d438604d0a598"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0d9d44572464bcfc58d438604d0a598">&#9670;&#160;</a></span>save_book_management()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void save_book_management </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lưu trữ dữ liệu. </p>
+<p>Nội dung lưu trữ gồm file quản lí B+ Tree, file quản lí cây Trie, file nội dung Lưu trữ trong thư mục data/book </p>
+
+</div>
+</div>
+<a id="ab9223d05c04eaf64efac2e4a8cf2aeec" name="ab9223d05c04eaf64efac2e4a8cf2aeec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9223d05c04eaf64efac2e4a8cf2aeec">&#9670;&#160;</a></span>search_book_by_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void search_book_by_id </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tìm kiếm sách bằng Id. </p>
+<p>Kết quả trả về sẽ hiển thị ra màn hình console, (chưa tích hợp hiển thị trên giao diện)</p>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Id của quyển sách cần tìm </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adbf315a2a4092396b23d8d083661fb6b" name="adbf315a2a4092396b23d8d083661fb6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbf315a2a4092396b23d8d083661fb6b">&#9670;&#160;</a></span>search_book_by_title()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void search_book_by_title </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>prefix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxNumbers</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tìm kiếm sách bằng Title. </p>
+<p>Cung cấp vào tên Author hoặc nhóm chữ cái đầu của tên Author muốn tìm kiếm Kết quả hiển thị là những quyển sách có tên bắt đầu bằng từ tìm kiếm</p>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prefix</td><td>là nhóm chữ cái đầu của tên Author </td></tr>
+    <tr><td class="paramname">maxNumbers</td><td>là số lượng kết quả tối đa </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6fad7a86d2b117aceddf806d3365e422" name="a6fad7a86d2b117aceddf806d3365e422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fad7a86d2b117aceddf806d3365e422">&#9670;&#160;</a></span>search_book_by_title_direct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_book.html">Book</a> * search_book_by_title_direct </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>prefix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>actualBooks</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxNumbers</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tìm kiếm sách bằng Title, có hứng kết quả trả về </p>
+<p>Hàm này sẽ trả về kết quả tìm kiếm số lượng sách, hứng kết quả trả về lưu trữ vào mảng. Việc dùng hàm này sẽ giúp đảm bảo lợi thế khi kết nối giao diện. Giao diện có thể gặp khó khăn khi tiến hành gọi callback</p>
+<dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prefix</td><td>là nhóm chữ cái đầu của tên </td></tr>
+    <tr><td class="paramname">books</td><td>là số lượng sách đọc được (mảng) </td></tr>
+    <tr><td class="paramname">actualBooks</td><td>là số lượng sách thực tế (mảng) </td></tr>
+    <tr><td class="paramname">maxNumbers</td><td>là số lượng kết quả tối đa</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Giá trị trả về</dt><dd>là mảng chứa các cuốn sách tìm được </dd></dl>
+<p>Cấp phát bộ nhớ cho <a class="el" href="struct_book.html" title="Cấu trúc dữ liệu cho một cuốn sách.">Book</a></p>
+
+</div>
+</div>
+<a id="a3a2c8d018662acf1c6ca6857a9bb7f86" name="a3a2c8d018662acf1c6ca6857a9bb7f86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a2c8d018662acf1c6ca6857a9bb7f86">&#9670;&#160;</a></span>update_book()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void update_book </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cập nhật thông tin của một quyển sách. </p>
+<p>Cập nhật thông tin quyển sách, bản chất là cập nhật file nội dung Do tính chất khoá Id là cố định và bất biến một khi được tạo nên không cần thao tác ở cây B+ tree (thao tác cập nhật, chỉ tận dụng thao tác tìm kiếm)</p>
+<p>Phương thức này được dùng và hiển thị ra console. </p><dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Id của quyển sách cần cập nhật </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a53cfe66264bb5e35a77b45a86f1cf8e3" name="a53cfe66264bb5e35a77b45a86f1cf8e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53cfe66264bb5e35a77b45a86f1cf8e3">&#9670;&#160;</a></span>update_book_from_object()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int update_book_from_object </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_book.html">Book</a> *</td>          <td class="paramname"><span class="paramname"><em>book</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cập nhật thông tin một quyển sách, cập nhật vào file nội dung. </p>
+<p>Gọi hàm này không cần dùng đến callback </p><dl class="params"><dt>Các tham số</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">book</td><td>cuốn sách muốn cập nhật </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="books_8h.html">books.h</a></li>
+    <li class="footer">Được biên soạn bởi <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

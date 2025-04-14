@@ -1,0 +1,138 @@
+\doxysection{include/statistic.h File Tham chiếu}
+\hypertarget{statistic_8h}{}\label{statistic_8h}\index{include/statistic.h@{include/statistic.h}}
+
+
+Quản lý thống kê sách trong hệ thống quản lý thư viện.  
+
+
+{\ttfamily \#include "{}utils/bplustreev2.\+h"{}}\newline
+{\ttfamily \#include "{}utils/fake.\+h"{}}\newline
+{\ttfamily \#include "{}utils/management.\+h"{}}\newline
+{\ttfamily \#include "{}borrow\+\_\+return.\+h"{}}\newline
+{\ttfamily \#include "{}books.\+h"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_overdue_borrower}{Overdue\+Borrower}}
+\begin{DoxyCompactList}\small\item\em Cấu trúc người mượn quá hạn. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Định nghĩa}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{statistic_8h_a4b186d0b564405ce7303501c5dc3783b}\label{statistic_8h_a4b186d0b564405ce7303501c5dc3783b} 
+\#define {\bfseries MAX\+\_\+\+OVERDUE}~1000
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{statistic_8h_ab04db2efb31456b2d312fb18d5c750c9}\label{statistic_8h_ab04db2efb31456b2d312fb18d5c750c9} 
+typedef struct Overdue\+Borrower {\bfseries Overdue\+Borrower}
+\begin{DoxyCompactList}\small\item\em Cấu trúc người mượn quá hạn. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Các hàm}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{statistic_8h_a9f700c57a8358d4eb1c509027f723c42}{set\+\_\+up}} ()
+\begin{DoxyCompactList}\small\item\em Thiết lập lại dữ liệu thống kê ban đầu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{statistic_8h_a426d73572bd5a1888f0af18244c9a462}{calc\+\_\+statistic\+\_\+book}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}book\+\_\+management)
+\begin{DoxyCompactList}\small\item\em Tính toán lại dữ liệu thống kê sách. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{statistic_8h_a86d237054e6030d7131c63c6cd9a1558}{calc\+\_\+statistic\+\_\+borrowed\+\_\+books}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}borrow\+\_\+return\+\_\+management)
+\begin{DoxyCompactList}\small\item\em Tính toán lại dữ liệu thống kê sách đang được mượn. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{statistic_8h_a9ab528b2b144e47637af496291bde406}{collect\+\_\+late\+\_\+borrowers}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}borrow\+\_\+return\+\_\+management)
+\begin{DoxyCompactList}\small\item\em Tạo danh sách người mượn quá hạn. \end{DoxyCompactList}\item 
+\Hypertarget{statistic_8h_aac5208f4e2ea7b1fc89ce0b10292986b}\label{statistic_8h_aac5208f4e2ea7b1fc89ce0b10292986b} 
+void {\bfseries list\+\_\+late\+\_\+borrowers} ()
+\begin{DoxyCompactList}\small\item\em In ra danh sách người mượn quá hạn. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Các biến}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{statistic_8h_aec49789d18137419ee2b37ebbf8244d3}\label{statistic_8h_aec49789d18137419ee2b37ebbf8244d3} 
+int {\bfseries total\+\_\+books}
+\begin{DoxyCompactList}\small\item\em Tổng số sách hiện có (chưa bị xóa) \end{DoxyCompactList}\item 
+\Hypertarget{statistic_8h_adb10bbacdb5c0f7f5d2d5e680a1b9c3f}\label{statistic_8h_adb10bbacdb5c0f7f5d2d5e680a1b9c3f} 
+int {\bfseries deleted\+\_\+books}
+\begin{DoxyCompactList}\small\item\em Tổng số sách đã bị xóa (được đánh dấu là deleted) \end{DoxyCompactList}\item 
+\Hypertarget{statistic_8h_a40b579dab2d2ab12f56b718a5e94507b}\label{statistic_8h_a40b579dab2d2ab12f56b718a5e94507b} 
+short {\bfseries counter\+\_\+genre} \mbox{[}\mbox{\hyperlink{fake_8h_a69b7a2d67e969d3e0921f3f23d1947f2}{TOTAL\+\_\+\+GENRE}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Bộ đếm số sách theo từng thể loại, chỉ số tương ứng với mảng genres. \end{DoxyCompactList}\item 
+\Hypertarget{statistic_8h_a92fafa1d6b9dcffb93c3b0d107f40147}\label{statistic_8h_a92fafa1d6b9dcffb93c3b0d107f40147} 
+int {\bfseries total\+\_\+borrowed\+\_\+books}
+\begin{DoxyCompactList}\small\item\em Tổng số sách hiện đang được mượn. \end{DoxyCompactList}\item 
+\Hypertarget{statistic_8h_a71bce9dfb82fba789e4233df7f3e54aa}\label{statistic_8h_a71bce9dfb82fba789e4233df7f3e54aa} 
+int {\bfseries total\+\_\+late\+\_\+books}
+\begin{DoxyCompactList}\small\item\em Tổng số sách quá hạn. \end{DoxyCompactList}\item 
+\Hypertarget{statistic_8h_a0e2235f812307e39f475df4897348983}\label{statistic_8h_a0e2235f812307e39f475df4897348983} 
+\mbox{\hyperlink{struct_overdue_borrower}{Overdue\+Borrower}} {\bfseries overdue\+\_\+list} \mbox{[}MAX\+\_\+\+OVERDUE\mbox{]}
+\begin{DoxyCompactList}\small\item\em Danh sách người mượn quá hạn. \end{DoxyCompactList}\item 
+\Hypertarget{statistic_8h_a2597ad56aed98e72c1251feed948482f}\label{statistic_8h_a2597ad56aed98e72c1251feed948482f} 
+int {\bfseries overdue\+\_\+count}
+\begin{DoxyCompactList}\small\item\em tổng số người mượn quá hạn \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Mô tả chi tiết}
+Quản lý thống kê sách trong hệ thống quản lý thư viện. 
+
+\begin{DoxyAuthor}{Tác giả}
+Nguyễn Huy Phong 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Phiên bản}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Thông tin về hàm}
+\Hypertarget{statistic_8h_a426d73572bd5a1888f0af18244c9a462}\index{statistic.h@{statistic.h}!calc\_statistic\_book@{calc\_statistic\_book}}
+\index{calc\_statistic\_book@{calc\_statistic\_book}!statistic.h@{statistic.h}}
+\doxysubsubsection{\texorpdfstring{calc\_statistic\_book()}{calc\_statistic\_book()}}
+{\footnotesize\ttfamily \label{statistic_8h_a426d73572bd5a1888f0af18244c9a462} 
+void calc\+\_\+statistic\+\_\+book (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{book\+\_\+management}{}\end{DoxyParamCaption})}
+
+
+
+Tính toán lại dữ liệu thống kê sách. 
+
+Duyệt toàn bộ cây B+ Tree để thống kê\+:
+\begin{DoxyItemize}
+\item Tổng số sách còn tồn tại (không bị xóa)
+\item Tổng số sách bị xóa
+\item Số lượng sách theo từng thể loại
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Các tham số}
+{\em book\+\_\+management} & Cây B+ Tree quản lý sách \\
+\hline
+\end{DoxyParams}
+\Hypertarget{statistic_8h_a86d237054e6030d7131c63c6cd9a1558}\index{statistic.h@{statistic.h}!calc\_statistic\_borrowed\_books@{calc\_statistic\_borrowed\_books}}
+\index{calc\_statistic\_borrowed\_books@{calc\_statistic\_borrowed\_books}!statistic.h@{statistic.h}}
+\doxysubsubsection{\texorpdfstring{calc\_statistic\_borrowed\_books()}{calc\_statistic\_borrowed\_books()}}
+{\footnotesize\ttfamily \label{statistic_8h_a86d237054e6030d7131c63c6cd9a1558} 
+void calc\+\_\+statistic\+\_\+borrowed\+\_\+books (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{borrow\+\_\+return\+\_\+management}{}\end{DoxyParamCaption})}
+
+
+
+Tính toán lại dữ liệu thống kê sách đang được mượn. 
+
+Duyệt toàn bộ cây B+ Tree để thống kê\+:
+\begin{DoxyItemize}
+\item Tổng số sách đang được mượn (chưa được trả) 
+\end{DoxyItemize}\Hypertarget{statistic_8h_a9ab528b2b144e47637af496291bde406}\index{statistic.h@{statistic.h}!collect\_late\_borrowers@{collect\_late\_borrowers}}
+\index{collect\_late\_borrowers@{collect\_late\_borrowers}!statistic.h@{statistic.h}}
+\doxysubsubsection{\texorpdfstring{collect\_late\_borrowers()}{collect\_late\_borrowers()}}
+{\footnotesize\ttfamily \label{statistic_8h_a9ab528b2b144e47637af496291bde406} 
+void collect\+\_\+late\+\_\+borrowers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{borrow\+\_\+return\+\_\+management}{}\end{DoxyParamCaption})}
+
+
+
+Tạo danh sách người mượn quá hạn. 
+
+xem xét nếu như cuốn sách quá hạn thì thêm vào mảng \Hypertarget{statistic_8h_a9f700c57a8358d4eb1c509027f723c42}\index{statistic.h@{statistic.h}!set\_up@{set\_up}}
+\index{set\_up@{set\_up}!statistic.h@{statistic.h}}
+\doxysubsubsection{\texorpdfstring{set\_up()}{set\_up()}}
+{\footnotesize\ttfamily \label{statistic_8h_a9f700c57a8358d4eb1c509027f723c42} 
+void set\+\_\+up (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Thiết lập lại dữ liệu thống kê ban đầu. 
+
+Gán tất cả các bộ đếm thể loại về 0. Hàm này nên được gọi trước khi bắt đầu thống kê. 

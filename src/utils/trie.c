@@ -1,4 +1,4 @@
-#include "trie.h"
+#include "utils/trie.h"
 
 // Convert character to index (a-z and ')
 int charToIndex(char ch)
@@ -169,6 +169,43 @@ static bool removeHelper(TrieNode *node, char *word, int depth)
 void removeWord(TrieNode *root, char *word)
 {
     removeHelper(root, word, 0);
+}
+
+int getIndexOfKey(TrieNode *target, int id)
+{
+    int found = -1;
+    int i;
+    for (i = 0; i < target->numIds; i++)
+    {
+        if (target->ids[i] == id)
+        {
+            found = i;
+            break;
+        }
+    }
+    return found;
+}
+
+void removeIdFromWord(TrieNode *root, char *word, int id)
+{
+    if (!root)
+        return;
+
+    TrieNode *target = searchWord(root, word);
+    if (target == NULL)
+        return;
+
+    int position = getIndexOfKey(target, id);
+    if (position == -1)
+        return;
+
+    if (target->numIds == 1)
+    {
+        removeWord(root, word);
+        return;
+    }
+
+    printf("Dong 208. trie.c, chua viet xong ham xoa nha ::)");
 }
 
 // Helper function to find all words with given prefix

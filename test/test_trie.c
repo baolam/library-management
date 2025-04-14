@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "trie.h"
+#include "utils/trie.h"
 
 void test_trie_operations()
 {
@@ -11,6 +11,9 @@ void test_trie_operations()
     insertIntoTrie(root, "hello", 1);
     insertIntoTrie(root, "world", 2);
     insertIntoTrie(root, "hello", 3); // Duplicate word, different ID
+    insertIntoTrie(root, "foo", 4);
+    insertIntoTrie(root, "bar", 5);
+    insertIntoTrie(root, "hello", 6); // Duplicate word, different ID
 
     printf("Checking word existence...\n");
     printf("'hello' exists: %d\n", existWord(root, "hello"));
@@ -18,13 +21,13 @@ void test_trie_operations()
     printf("'test' exists: %d\n", existWord(root, "test"));
 
     printf("Saving trie to file...\n");
-    saveTrieTree("trie.dat", root);
+    saveTrieTree("test/trie.dat", root);
 
     printf("Freeing trie...\n");
     freeTrie(root);
 
     printf("Loading trie from file...\n");
-    root = loadTrieTree("trie.dat");
+    root = loadTrieTree("test/trie.dat");
 
     printf("Checking loaded trie...\n");
 
