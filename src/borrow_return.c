@@ -176,7 +176,7 @@ void return_books(int readerId)
     fseek(f, record->offset, SEEK_SET);
     fread(&b, sizeof(BorrowReturn), 1, f);
 
-    if (b.status == 1)
+    if (b.status == NOT_BORROWING)
     {
         printf("Books already returned.\n");
         fclose(f);
@@ -208,7 +208,7 @@ void return_books(int readerId)
         printf("Books returned on time. No late fee.\n");
     }
 
-    b.status = 1;
+    b.status = BORROWED;
     fseek(f, record->offset, SEEK_SET);
     fwrite(&b, sizeof(BorrowReturn), 1, f);
     fclose(f);
@@ -295,36 +295,50 @@ int gui_add_borrow_record(BorrowReturn *b)
 {
     if (b->totalBooks > MAX_BORROWED_BOOKS)
         return BORROW_FAILED;
+
     for (int i = 0; i < b->totalBooks; ++i)
     {
-        Book *book = find_book_by_id(b->bookIds[i]);
+        Book *book = search_book(b->bookIds[i]);
         if (!book || book->stock < b->quantities[i])
             return BORROW_FAILED_NOT_ENOUGH_BOOK;
-        add_borrow_record(b);
-        return BORROW_SUCCESS;
     }
+
+    add_borrow_record(b);
+    return BORROW_SUCCESS;
 }
+
 int gui_return_books(int readerId)
 {
-    // Tìm bản ghi mượn theo readerId
-    BorrowReturn *record = find_borrow_record(readerId);
-    if (!record)
+    Record *record = find(borrow_return_management, readerId);
+    if (!record || record->deleted)
         return NOT_FOUND;
-    if (record->status == BORROWED)
+
+    BorrowReturn *borrow = (BorrowReturn *)read_content_from_record_return(record);
+    if (borrow->status == BORROWED)
         return ALREADY_RETURNED;
+
     return_books(readerId);
     return RETURN_SUCCESS;
 }
+
 bool gui_is_book_borrowed(int bookId)
 {
-    return check_book_in_borrow(bookId);
+    if (check_book_in_borrow(bookId))
+    {
+        return ON_BORROWING; // Sách đang được mượn
+    }
+    return NOT_BORROWING; // Sách không được mượn
 }
+
 int gui_stat_total_books_by_reader(int readerId)
 {
-    BorrowReturn *record = find_borrow_record(readerId);
-
-    if (!record)
+    Record *record = find(borrow_return_management, readerId);
+    if (record == NULL || record->deleted)
         return NO_RECORD;
 
-    return record->totalBooks;
+    BorrowReturn *b = (BorrowReturn *)read_content_from_record_return(record);
+    if (b == NULL)
+        return NO_RECORD;
+
+    return b->totalBooks;
 }
