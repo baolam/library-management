@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deleted_0',['deleted',['../struct_record.html#af24b04ddbf3b759db00bca4d7eb03741',1,'Record']]]
+  ['counter_5fgenre_0',['counter_genre',['../statistic_8h.html#a40b579dab2d2ab12f56b718a5e94507b',1,'statistic.c']]]
 ];

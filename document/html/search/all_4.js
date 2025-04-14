@@ -6,5 +6,6 @@ var searchData=
   ['delete_5ffailed_3',['DELETE_FAILED',['../management_8h.html#a76c97438a316d3700c4396f66e787e59',1,'management.h']]],
   ['delete_5freader_4',['delete_reader',['../reader_8h.html#af07dc59049cd7d5342855985c8bf676e',1,'reader.c']]],
   ['delete_5fsuccess_5',['DELETE_SUCCESS',['../management_8h.html#ae0b9cdebd01857aeb414353c980f6209',1,'management.h']]],
-  ['deleted_6',['deleted',['../struct_record.html#af24b04ddbf3b759db00bca4d7eb03741',1,'Record']]]
+  ['deleted_6',['deleted',['../struct_record.html#af24b04ddbf3b759db00bca4d7eb03741',1,'Record']]],
+  ['deleted_5fbooks_7',['deleted_books',['../statistic_8h.html#adb10bbacdb5c0f7f5d2d5e680a1b9c3f',1,'statistic.c']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library management: Danh mục các Class</title>
+<title>Library management: OverdueBorrower Struct Tham chiếu</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,7 +77,7 @@ $(function() { codefold.init(0); });
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('annotated.html',''); initResizable(true); });
+$(function(){initNavTree('struct_overdue_borrower.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -103,25 +103,38 @@ $(function(){initNavTree('annotated.html',''); initResizable(true); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Danh mục các Class</div></div>
+  <div class="summary">
+<a href="#pub-attribs">Các thuộc tính Public</a> &#124;
+<a href="struct_overdue_borrower-members.html">Liệt kê tất cả các thành viên</a>  </div>
+  <div class="headertitle"><div class="title">OverdueBorrower Struct Tham chiếu</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Đây là các classes, structs, unions và interfaces với các mô tả tóm tắt:</div><div class="directory">
-<table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_book.html" target="_self">Book</a></td><td class="desc">Cấu trúc dữ liệu cho một cuốn sách </td></tr>
-<tr id="row_1_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_borrow_return.html" target="_self">BorrowReturn</a></td><td class="desc">Struct đại diện cho một bản ghi mượn-trả sách </td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_node.html" target="_self">Node</a></td><td class="desc"><a class="el" href="struct_node.html" title="Node trong cây B+ tree.">Node</a> trong cây B+ tree </td></tr>
-<tr id="row_3_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_overdue_borrower.html" target="_self">OverdueBorrower</a></td><td class="desc">Cấu trúc người mượn quá hạn </td></tr>
-<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_readers.html" target="_self">Readers</a></td><td class="desc">Cấu trúc quản lí của một độc giả </td></tr>
-<tr id="row_5_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_record.html" target="_self">Record</a></td><td class="desc">Bản ghi dữ liệu lưu trữ </td></tr>
-<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_trie_node.html" target="_self">TrieNode</a></td><td class="desc">Một <a class="el" href="struct_trie_node.html" title="Một TrieNode dùng để lưu trữ dữ liệu.">TrieNode</a> dùng để lưu trữ dữ liệu </td></tr>
+
+<p>Cấu trúc người mượn quá hạn.  
+ <a href="#details">Tiếp...</a></p>
+
+<p><code>#include &lt;<a class="el" href="statistic_8h_source.html">statistic.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Các thuộc tính Public</h2></td></tr>
+<tr class="memitem:aa2b28e4251c16d94b24a15424897d215" id="r_aa2b28e4251c16d94b24a15424897d215"><td class="memItemLeft" align="right" valign="top"><a id="aa2b28e4251c16d94b24a15424897d215" name="aa2b28e4251c16d94b24a15424897d215"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>readerId</b></td></tr>
+<tr class="separator:aa2b28e4251c16d94b24a15424897d215"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a479747066bc76cddab650c631f6fb2ec" id="r_a479747066bc76cddab650c631f6fb2ec"><td class="memItemLeft" align="right" valign="top"><a id="a479747066bc76cddab650c631f6fb2ec" name="a479747066bc76cddab650c631f6fb2ec"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>days_borrowed</b></td></tr>
+<tr class="separator:a479747066bc76cddab650c631f6fb2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- directory -->
+<a name="details" id="details"></a><h2 class="groupheader">Mô tả chi tiết</h2>
+<div class="textblock"><p>Cấu trúc người mượn quá hạn. </p>
+</div><hr/>Thông tin cho struct được biên soạn từ các file sau đây:<ul>
+<li>include/<a class="el" href="statistic_8h_source.html">statistic.h</a></li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a class="el" href="struct_overdue_borrower.html">OverdueBorrower</a></li>
     <li class="footer">Được biên soạn bởi <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

@@ -13,6 +13,11 @@ char borrow_return_management_file[MAX_FILE_NAME_LENGTH] = "data/borrow/borrow_r
 
 Node *borrow_return_management = NULL;
 
+int date = 0; // Phong
+int current_year = 0;
+time_t now;
+struct tm *local;
+
 void add_borrow_callback(int id, int code, long offset, long length)
 {
     if (code == ADD_CONTENT_FAILED)
@@ -25,8 +30,21 @@ void add_borrow_callback(int id, int code, long offset, long length)
     }
 }
 
+void auto_update_time(time_t now, struct tm *local)
+{
+    time(&now);
+    local = localtime(&now);
+}
+
 void add_borrow_record(BorrowReturn *b)
 {
+    // date = 0; // reset trước khi tính lại
+    // update_date();
+    // b->date = date;
+    // b->current_year = current_year;
+
+    b->status = 0; // trạng thái mặc định: đang mượn
+
     if (b == NULL || b->totalBooks <= 0 || b->totalBooks >= MAX_BORROWED_BOOKS)
     {
         printf("Error: Invalid borrow record.\n");
@@ -96,6 +114,11 @@ void show_borrow_record(FILE *f, long size)
 {
     BorrowReturn b;
     fread(&b, sizeof(BorrowReturn), 1, f);
+    show_borow(b);
+}
+
+void show_borow(BorrowReturn b)
+{
     printf("Reader ID: %d\n", b.readerId);
     printf("Borrowed books:\n");
     for (int i = 0; i < b.totalBooks; i++)
@@ -103,6 +126,7 @@ void show_borrow_record(FILE *f, long size)
         printf("  - Book ID: %d | Quantity: %d\n", b.bookIds[i], b.quantities[i]);
     }
     printf("Status: %s\n", b.status == ON_BORROWING ? "Borrowing" : "Returned");
+    printf("Date : %d, Year : %d \n", b.date, b.current_year);
 }
 
 void search_borrow_record_by_reader(int readerId)
@@ -156,22 +180,18 @@ void return_books(int readerId)
     fseek(f, record->offset, SEEK_SET);
     fread(&b, sizeof(BorrowReturn), 1, f);
 
-    if (b.status == NOT_BORROWING)
-    {
-        printf("Books already returned.\n");
-        fclose(f);
-        return;
-    }
+    if (b.status == BORROWED)
+        if (b.status == NOT_BORROWING)
+        {
+            printf("Books already returned.\n");
+            fclose(f);
+            return;
+        }
 
     restore_books_to_stock(&b);
 
-    printf("Was the return on time? (1 = Yes, 0 = No): ");
-    int temp;
-    scanf("%d", &temp);
-    b.onTime = temp ? true : false;
-
-    while (getchar() != '\n')
-        ;
+    int days = calculate_day_difference(b.date, b.current_year);
+    b.onTime = days <= 14 ? 1 : 0;
 
     if (!b.onTime)
     {
@@ -196,6 +216,7 @@ void return_books(int readerId)
     printf("Return processed successfully.\n");
 }
 
+// Cập nhật tồn kho sách
 void restore_books_to_stock(BorrowReturn *b)
 {
     for (int i = 0; i < b->totalBooks; i++)

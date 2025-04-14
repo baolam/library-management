@@ -13,6 +13,7 @@ void setup_test_data()
         .quantities = {1, 2},
         .status = ON_BORROWING,
         .onTime = true};
+
     add_borrow_record(&br);
 }
 

@@ -17,6 +17,7 @@
 
 #include "books.h"
 #include "reader.h"
+#include "borrow_return.h"
 
 /**
  * @brief Thể loại sách tối đa
@@ -82,5 +83,7 @@ Book generate_book(int id);
  * @param id khoá tìm kiếm được chỉ định
  */
 Readers generate_reader(int id);
+
+BorrowReturn generate_borrow_return(int readerId);
 
 #endif
