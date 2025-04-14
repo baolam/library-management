@@ -356,8 +356,8 @@
                             <property name="border-width">10</property>
                             <property name="model">liststore1</property>
                             <property name="search-column">0</property>
-                            <signal name="button-press-event" handler="on_treeview_button_press" swapped="no"/>
-                            <signal name="row-activated" handler="on_treeview_row_activated" swapped="no"/>
+                            <signal name="button-press-event" handler="on_book_treeview_button_press" swapped="no"/>
+                            <signal name="row-activated" handler="on_book_treeview_row_activated" swapped="no"/>
                             <child internal-child="selection">
                               <object class="GtkTreeSelection"/>
                             </child>

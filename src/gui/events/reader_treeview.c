@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 
-
 int current_reader_page = 1;
 
 void show_onereader_to_layout(GtkListStore *store, Readers reader)
@@ -21,7 +20,7 @@ void show_onereader_to_layout(GtkListStore *store, Readers reader)
     g_free(readerId);
 }
 
-GtkListStore *reference_store1()
+GtkListStore *reference_store_reader()
 {
     GtkListStore *store = GTK_LIST_STORE(gtk_builder_get_object(builder, "liststore2"));
     gtk_list_store_clear(store);
@@ -30,12 +29,12 @@ GtkListStore *reference_store1()
 
 void show_reader_to_layout(Readers *reader, int size)
 {
-    GtkListStore *store = reference_store1();
+    GtkListStore *store = reference_store_reader();
 
     int i;
     for (i = 0; i < size; i++)
     {
-        show_onereader_to_layout(store, reader[i]);                                     
+        show_onereader_to_layout(store, reader[i]);
     }
 }
 

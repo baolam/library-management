@@ -26,7 +26,7 @@ void show_onebook_to_layout(GtkListStore *store, Book book)
     g_free(stock);
 }
 
-GtkListStore *reference_store()
+GtkListStore *reference_store_book()
 {
     GtkListStore *store = GTK_LIST_STORE(gtk_builder_get_object(builder, "liststore1"));
     gtk_list_store_clear(store);
@@ -35,7 +35,7 @@ GtkListStore *reference_store()
 
 void show_book_to_layout(Book *book, int size)
 {
-    GtkListStore *store = reference_store();
+    GtkListStore *store = reference_store_book();
 
     int i;
     for (i = 0; i < size; i++)

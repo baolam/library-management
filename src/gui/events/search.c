@@ -1,6 +1,5 @@
 #include "gui/events/search.h"
 
-
 void on_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
 {
     GtkToggleButton *toggle = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "toggle_mode"));
@@ -26,7 +25,7 @@ void on_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
             load_book_to_layout(current_book_page);
             return;
         }
-        show_onebook_to_layout(reference_store(), *book);
+        show_onebook_to_layout(reference_store_book(), *book);
     }
 }
 
@@ -54,6 +53,6 @@ void on_search_entry_changed1(GtkSearchEntry *entry, gpointer user_data)
         Readers *reader = search_reader(reader_id);
         if (reader == NULL)
             return;
-        show_onereader_to_layout(reference_store1(), *reader);
+        show_onereader_to_layout(reference_store_reader(), *reader);
     }
 }
