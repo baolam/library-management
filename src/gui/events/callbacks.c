@@ -2,7 +2,7 @@
 
 void open_book_entry_layout()
 {
-    builder = load_ui("ui/UI.glade");
+    // builder = load_ui("ui/UI.glade");
     GtkWidget *add_window = GTK_WIDGET(gtk_builder_get_object(builder, "book_entry"));
     if (add_window)
     {
@@ -16,7 +16,7 @@ void open_book_entry_layout()
 
 void on_reader_add_clicked(GtkWidget *widget, gpointer user_data)
 {
-    builder = load_ui("ui/UI.glade");
+    // builder = load_ui("ui/UI.glade");
     GtkWidget *add_window = GTK_WIDGET(gtk_builder_get_object(builder, "reader_entry"));
     if (add_window)
     {

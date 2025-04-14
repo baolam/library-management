@@ -131,9 +131,9 @@ int update_book_from_object(Book *book)
         return UPDATE_FAILED;
     }
 
-    Book *old_book = read_content_from_record_return(record);
-
+    // Book *old_book = read_content_from_record_return(record);
     // removeIdFromWord(book_trie, old_book->title, book->bookId);
+
     insertIntoTrie(book_trie, book->title, book->bookId);
 
     return update_content_without_callback(record, book);
