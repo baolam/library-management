@@ -17,7 +17,12 @@
 >>>>>>> a30517e3175b56588e3a2b281eece64b4b721ed6
 =======
     "search.h": "c",
+<<<<<<< HEAD
     "choose_option.h": "c"
 >>>>>>> 24f2038c5c190af1a25a576ed5f948d9d4a242d0
+=======
+    "choose_option.h": "c",
+    "constant.h": "c"
+>>>>>>> 10e77882e6acb5928fca1ebdab46abbe275cb06b
   }
 }
