@@ -196,7 +196,7 @@ int calculate_day_difference(int borrow_date, int borrow_year)
     int year_diff = current_year - borrow_year;
     return year_diff * 365 + (date - borrow_date);
 }
-/*void load_borrow_return_management()
+void load_borrow_return_management()
 {
     borrow_return_management = loadTree(borrow_return_management_file);
     if (borrow_return_management == NULL)
@@ -207,14 +207,4 @@ int calculate_day_difference(int borrow_date, int borrow_year)
     {
         printf("Load B+ Tree management for borrow/return successfully!\n");
     }
-
-    borrow_return_trie = loadTrieTree(borrow_return_trie_management);
-    if (borrow_return_trie == NULL)
-    {
-        printf("Failed to load Trie management for borrow/return!\n");
-    }
-    else
-    {
-        printf("Load Trie management for borrow/return successfully!\n");
-    }
-}*/
+}
