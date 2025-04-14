@@ -63,3 +63,23 @@ void calc_statistic_book(Node *book_management)
         book_genre = book_genre->pointers[ORDER - 1];
     }
 }
+
+void stat_total_books_by_reader(int readerId)
+{
+    Record *record = find(borrow_return_management, readerId);
+    if (record == NULL || record->deleted)
+    {
+        printf("No borrow record found.\n");
+        return;
+    }
+
+    BorrowReturn *b = (BorrowReturn *)read_content_from_record_return(record);
+
+    int total = 0;
+    for (int i = 0; i < b->totalBooks; i++)
+    {
+        total += b->quantities[i];
+    }
+
+    printf("Reader %d has borrowed a total of %d books.\n", readerId, total);
+}

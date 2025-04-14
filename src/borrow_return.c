@@ -137,26 +137,6 @@ void delete_borrow_record(int readerId)
     soft_delete(borrow_return_management, readerId, delete_borrow_record_callback);
 }
 
-void stat_total_books_by_reader(int readerId)
-{
-    Record *record = find(borrow_return_management, readerId);
-    if (record == NULL || record->deleted)
-    {
-        printf("No borrow record found.\n");
-        return;
-    }
-
-    BorrowReturn *b = (BorrowReturn *)read_content_from_record_return(record);
-
-    int total = 0;
-    for (int i = 0; i < b->totalBooks; i++)
-    {
-        total += b->quantities[i];
-    }
-
-    printf("Reader %d has borrowed a total of %d books.\n", readerId, total);
-}
-
 void return_books(int readerId)
 {
     Record *record = find(borrow_return_management, readerId);
@@ -315,10 +295,12 @@ int gui_return_books(int readerId)
     return_books(readerId);
     return RETURN_SUCCESS;
 }
+
 bool gui_is_book_borrowed(int bookId)
 {
     return check_book_in_borrow(bookId);
 }
+
 int gui_stat_total_books_by_reader(int readerId)
 {
     BorrowReturn *record = find_borrow_record(readerId);
