@@ -45,6 +45,16 @@ void show_book_to_entry(Book book)
     g_free(stock);
 }
 
+void clear_book_to_entry()
+{
+    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_id")), "");
+    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_title")), "");
+    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_author")), "");
+    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_genre")), "");
+    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_year")), "");
+    gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_quantity")), "");
+}
+
 // Hàm xử lý khi nhấn nút "Xác nhận"
 void on_button_confirm_clicked(GtkButton *button, GtkBuilder *_builder)
 {
