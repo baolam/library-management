@@ -264,6 +264,10 @@ bool check_book_in_borrow(int bookId)
     if (f == NULL)
         return NOT_IN_LIST_BORROWED;
 
+    /**
+     *
+     * Phương thức đọc dữ liệu ở đây bị sai
+     */
     BorrowReturn b;
     while (fread(&b, sizeof(BorrowReturn), 1, f))
     {
