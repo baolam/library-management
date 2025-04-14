@@ -66,6 +66,7 @@
     "string.h": "c",
     "search_toggle.h": "c",
     "search.h": "c",
-    "choose_option.h": "c"
+    "choose_option.h": "c",
+    "constant.h": "c"
   }
 }

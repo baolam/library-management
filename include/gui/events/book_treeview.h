@@ -5,7 +5,7 @@
 #include "gui/constant.h"
 #include "books.h"
 
-extern int currnent_page;
+extern int current_book_page;
 
 GtkListStore *reference_store();
 void show_onebook_to_layout(GtkListStore *store, Book book);

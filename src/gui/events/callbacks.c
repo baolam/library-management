@@ -4,15 +4,13 @@
 #include "gui/ui_loader.h"
 #include "books.h"
 
-int currKey = 1;
-
 void on_book_add_clicked(GtkWidget *widget, gpointer user_data)
 {
-    GtkBuilder *builder = GTK_BUILDER(user_data); // Ép kiểu user_data thành GtkBuilder
+    builder = load_ui("ui/UI.glade");
     GtkWidget *add_window = GTK_WIDGET(gtk_builder_get_object(builder, "book_entry"));
     if (add_window)
     {
-        gtk_widget_show_all(add_window); // Hiện cửa sổ
+        gtk_widget_show_all(add_window);
     }
     else
     {

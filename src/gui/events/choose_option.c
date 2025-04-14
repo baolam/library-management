@@ -43,10 +43,10 @@ popup_menu_show(treeview, event);
 
 void on_book_edit(GtkMenuItem *item, gpointer user_data)
 {
-    // g_print(">> Sửa được chọn!\n");
+    printf(">> Sửa được chọn!\n");
 }
 
 void on_book_delete(GtkMenuItem *item, gpointer user_data)
 {
-    // g_print(">> Xoá được chọn!\n");
+    printf(">> Xoá được chọn!\n");
 }

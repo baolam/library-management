@@ -14,8 +14,6 @@ void on_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
 
     if (gtk_toggle_button_get_active(toggle))
     {
-        printf("Search by name,");
-        printf("Ban co goi tui khum");
         int size = 0;
         Book *books = search_book_by_title_direct(entry_search_book, &size, MAX_ROW_ONEPAGE);
         for (int i = 0; i < size; i++)

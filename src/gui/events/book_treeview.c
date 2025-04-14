@@ -3,7 +3,7 @@
 #include <string.h>
 
 
-int currnent_page = 1;
+int current_book_page = 1;
 
 void show_onebook_to_layout(GtkListStore *store, Book book)
 {
@@ -55,15 +55,15 @@ void load_book_to_layout(int beginingKey)
 
 void on_previous_page1_clicked(GtkWidget *widget, gpointer user_data)
 {
-    if (currnent_page > MAX_ROW_ONEPAGE)
+    if (current_book_page > MAX_ROW_ONEPAGE)
     {
-        currnent_page-=MAX_ROW_ONEPAGE;
-        load_book_to_layout(currnent_page);
+        current_book_page -= MAX_ROW_ONEPAGE;
+        load_book_to_layout(current_book_page);
     }
 }
 
 void on_next_page1_clicked(GtkWidget *widget, gpointer user_data)
 {
-    currnent_page+=MAX_ROW_ONEPAGE;
-    load_book_to_layout(currnent_page);
+    current_book_page += MAX_ROW_ONEPAGE;
+    load_book_to_layout(current_book_page);
 }
