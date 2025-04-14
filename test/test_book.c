@@ -14,10 +14,15 @@ int main()
     // }
     // save_book_management();
 
-    // load_book_management();
+    load_book_management();
 
-    // char prefix[50] = "The";
-    // search_book_by_title(prefix, 5);
-
+    char prefix[50] = "The";
+    int size = 0;
+    Book *books = search_book_by_title_direct("The", &size, 15);
+    for (int i = 0; i < size; i++)
+    {
+        show_book(books[i]);
+    }
+    //search_book_by_title("The", 15);
     return 0;
 }

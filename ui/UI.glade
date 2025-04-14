@@ -178,20 +178,18 @@
       <object class="GtkMenuItem" id="book_edit">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <property name="action-name">Sửa</property>
         <property name="label" translatable="yes">Sửa thông tin sách</property>
         <property name="use-underline">True</property>
-        <signal name="activate" handler="update_book" swapped="no"/>
+        <signal name="activate" handler="on_book_edit" swapped="no"/>
       </object>
     </child>
     <child>
       <object class="GtkMenuItem" id="book_delete">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <property name="action-name">Xóa</property>
         <property name="label" translatable="yes">Xóa sách</property>
         <property name="use-underline">True</property>
-        <signal name="activate" handler="delete_book" swapped="no"/>
+        <signal name="activate" handler="on_book_delete" swapped="no"/>
       </object>
     </child>
   </object>
@@ -478,6 +476,7 @@
                             <property name="border-width">10</property>
                             <property name="model">liststore1</property>
                             <property name="search-column">0</property>
+                            <signal name="button-press-event" handler="on_treeview_button_press" swapped="no"/>
                             <signal name="row-activated" handler="on_treeview_row_activated" swapped="no"/>
                             <child internal-child="selection">
                               <object class="GtkTreeSelection"/>

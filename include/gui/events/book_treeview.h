@@ -7,6 +7,9 @@
 
 extern int currnent_page;
 
-void load_book_to_layout(GtkBuilder *builder, int beginingKey);
+GtkListStore *reference_store();
+void show_onebook_to_layout(GtkListStore *store, Book book);
+void show_book_to_layout(Book *book, int size);
+void load_book_to_layout(int beginingKey);
 
 #endif

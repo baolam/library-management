@@ -10,9 +10,14 @@
     "book_treeview.h": "c",
     "string.h": "c",
     "search_toggle.h": "c",
+<<<<<<< HEAD
     "search.h": "c"
 =======
     "statistic.h": "c"
 >>>>>>> a30517e3175b56588e3a2b281eece64b4b721ed6
+=======
+    "search.h": "c",
+    "choose_option.h": "c"
+>>>>>>> 24f2038c5c190af1a25a576ed5f948d9d4a242d0
   }
 }

@@ -200,8 +200,11 @@ Book *search_book_by_title_direct(const char *prefix, int *actualBooks, int maxN
                     Book *book = search_book(temp->ids[j]);
                     books[storage_pos] = *book;
                     storage_pos++;
+                    maxNumbers--;
                 }
             }
+            if (maxNumbers == 0)
+               break;
         }
     }
 
