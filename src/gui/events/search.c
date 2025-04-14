@@ -11,11 +11,13 @@ void on_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
 
     if (gtk_toggle_button_get_active(toggle))
     {
-        search_book_by_title(entry_search_book, 15);
+        printf("a");
+        search_book_by_title(entry_search_book, MAX_ROW_ONEPAGE);
     }
     else
     {
         int book_id = atoi(entry_search_book);
+        printf("%d", book_id);
         search_book_by_id(book_id);
     }
 }

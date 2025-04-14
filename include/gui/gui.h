@@ -3,6 +3,7 @@
 
 #include <gtk/gtk.h>
 
+#include "gui/constant.h"
 #include "ui_loader.h"
 #include "events/callbacks.h"
 #include "events/book_treeview.h"

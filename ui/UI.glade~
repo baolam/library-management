@@ -20,7 +20,7 @@
             <property name="can-focus">False</property>
             <property name="row-spacing">10</property>
             <child>
-              <object class="GtkEntry" id="e1">
+              <object class="GtkEntry" id="entry_book_id">
                 <property name="width-request">380</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
@@ -31,7 +31,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="e2">
+              <object class="GtkEntry" id="entry_book_title">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
@@ -41,7 +41,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="e3">
+              <object class="GtkEntry" id="entry_book_author">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
@@ -51,7 +51,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="e4">
+              <object class="GtkEntry" id="entry_book_genre">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
@@ -61,7 +61,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="e5">
+              <object class="GtkEntry" id="entry_book_year">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
@@ -71,7 +71,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="e6">
+              <object class="GtkEntry" id="entry_book_quantity">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
@@ -161,6 +161,7 @@
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button_confirm_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">200</property>
@@ -229,128 +230,6 @@
       <!-- column-name gchararray5 -->
       <column type="gchararray"/>
     </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-    </data>
   </object>
   <object class="GtkListStore" id="liststore2">
     <columns>
@@ -498,16 +377,6 @@
       <object class="GtkStack">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <child>
-          <object class="GtkFixed" id="index">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-          </object>
-          <packing>
-            <property name="name">page1</property>
-            <property name="title" translatable="yes">page1</property>
-          </packing>
-        </child>
         <child>
           <object class="GtkFixed" id="main_ui">
             <property name="visible">True</property>
@@ -1112,6 +981,16 @@
           <packing>
             <property name="name">page0</property>
             <property name="title" translatable="yes">page0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFixed" id="index">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+          </object>
+          <packing>
+            <property name="name">page1</property>
+            <property name="title" translatable="yes">page1</property>
             <property name="position">1</property>
           </packing>
         </child>
