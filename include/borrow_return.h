@@ -12,17 +12,50 @@
  * @brief Số lượng sách mượn tối đa
  */
 #define MAX_BORROWED_BOOKS 100
-
 /**
  * @brief Mã trạng thái đang mượn sách
  */
 #define ON_BORROWING 0
-
+/**
+ * @brief trả về kết quả mượn sách thành công
+ */
+#define BORROW_SUCCESS 0
+/**
+ * @brief trả về kết quả mượn sách thất bại(mượn quá số lượng cho phép)
+ */
+#define BORROW_FAILED 1
+/**
+ * @brief trả về kết quả mượn sách thất bại(không đủ sách trong kho)
+ */
+#define BORROW_FAILED_NOT_ENOUGH_BOOK 2
 /**
  * @brief Mã trạng thái đã trả sách
  */
 #define BORROWED 1
-
+/**
+ * @brief không tìm thấy bản ghi -> lỗi
+ */
+#define NOT_FOUND 1;
+/**
+ * @brief Đã trả rồi -> không cho trả nữa
+ */
+#define ALREADY_RETURNED 2;
+/**
+ * @brief trả sách thành công
+ */
+#define RETURN_SUCCESS 0;
+/**
+ * @brief nếu sách đang nằm trong danh sách mượn
+ */
+#define ALREADY_IN_LIST_BORROWED true;
+/**
+ * @brief  nếu sách không bị ai mượn hoặc đã trả.
+ */
+#define NOT_IN_LIST_BORROWED false;
+/**
+ * @brief Không có bản ghi nào
+ */
+#define NO_RECORD -1;
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -107,5 +140,38 @@ void save_borrow_return_management();
  * @brief Tải dữ liệu quản lí mượn trả từ file
  */
 void load_borrow_return_management();
+/********************************************************/
+/**
+ * ================================
+ *  Các hàm hỗ trợ giao diện (GTK)
+ * ================================
+ */
 
+/**
+ * @brief Mượn sách có trả về kết quả để giao diện xử lý.
+ * @param b Con trỏ đến bản ghi mượn sách.
+ * @return 0: thành công, 1: quá số lượng cho phép, 2: sách không đủ trong kho.
+ */
+int gui_add_borrow_record(BorrowReturn *b);
+
+/**
+ * @brief Trả sách có trả về kết quả để giao diện xử lý.
+ * @param readerId ID người đọc.
+ * @return 0: thành công, 1: không có bản ghi, 2: đã trả rồi.
+ */
+int gui_return_books(int readerId);
+
+/**
+ * @brief Kiểm tra một cuốn sách có đang được mượn hay không.
+ * @param bookId ID của cuốn sách.
+ * @return true nếu sách đang được mượn, false nếu không.
+ */
+bool gui_is_book_borrowed(int bookId);
+
+/**
+ * @brief Thống kê tổng số sách người đọc đã mượn.
+ * @param readerId ID người đọc.
+ * @return Số sách đã mượn, hoặc -1 nếu không có bản ghi.
+ */
+int gui_stat_total_books_by_reader(int readerId);
 #endif // BORROW_RETURN_H

@@ -255,7 +255,7 @@ bool check_book_in_borrow(int bookId)
 {
     FILE *f = fopen(borrow_return_content_file, "rb");
     if (f == NULL)
-        return false;
+        return NOT_IN_LIST_BORROWED;
 
     BorrowReturn b;
     while (fread(&b, sizeof(BorrowReturn), 1, f))
@@ -267,14 +267,14 @@ bool check_book_in_borrow(int bookId)
                 if (b.bookIds[i] == bookId)
                 {
                     fclose(f);
-                    return true;
+                    return ALREADY_IN_LIST_BORROWED;
                 }
             }
         }
     }
 
     fclose(f);
-    return false;
+    return NOT_IN_LIST_BORROWED;
 }
 
 void save_borrow_return_management()
@@ -285,4 +285,46 @@ void save_borrow_return_management()
 void load_borrow_return_management()
 {
     borrow_return_management = loadTree(borrow_return_management_file);
+}
+/**
+ * ================================
+ *  Các hàm hỗ trợ giao diện (GTK)
+ * ================================
+ */
+int gui_add_borrow_record(BorrowReturn *b)
+{
+    if (b->totalBooks > MAX_BORROWED_BOOKS)
+        return BORROW_FAILED;
+    for (int i = 0; i < b->totalBooks; ++i)
+    {
+        Book *book = find_book_by_id(b->bookIds[i]);
+        if (!book || book->stock < b->quantities[i])
+            return BORROW_FAILED_NOT_ENOUGH_BOOK;
+        add_borrow_record(b);
+        return BORROW_SUCCESS;
+    }
+}
+int gui_return_books(int readerId)
+{
+    // Tìm bản ghi mượn theo readerId
+    BorrowReturn *record = find_borrow_record(readerId);
+    if (!record)
+        return NOT_FOUND;
+    if (record->status == BORROWED)
+        return ALREADY_RETURNED;
+    return_books(readerId);
+    return RETURN_SUCCESS;
+}
+bool gui_is_book_borrowed(int bookId)
+{
+    return check_book_in_borrow(bookId);
+}
+int gui_stat_total_books_by_reader(int readerId)
+{
+    BorrowReturn *record = find_borrow_record(readerId);
+
+    if (!record)
+        return NO_RECORD;
+
+    return record->totalBooks;
 }
