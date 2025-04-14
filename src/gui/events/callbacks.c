@@ -1,4 +1,10 @@
 #include "gui/events/callbacks.h"
+#include "gui/events/book_treeview.h"
+#include "gui/gui.h"
+#include "gui/ui_loader.h"
+#include "books.h"
+
+int currKey = 1;
 
 void on_book_add_clicked(GtkWidget *widget, gpointer user_data)
 {
@@ -13,3 +19,4 @@ void on_book_add_clicked(GtkWidget *widget, gpointer user_data)
         g_warning("Không tìm thấy cửa sổ 'add_window'!");
     }
 }
+

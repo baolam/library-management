@@ -1,50 +1,31 @@
 #include "book_treeview.h"
+#include "book.h"
 #include <stdio.h>
 #include <string.h>
 
-void load_books_from_file(GtkBuilder *builder, const char *filename) {
+void load_books_from_file(GtkBuilder *builder) {
     GtkListStore *store = GTK_LIST_STORE(gtk_builder_get_object(builder, "liststore1"));
     if (!store) {
         g_warning("Không tìm thấy liststore1 trong Glade");
         return;
     }
 
-    FILE *file = fopen(filename, "r");
-    if (!file) {
-        g_warning("Không thể mở file: %s", filename);
-        return;
+    int size = 0;
+    Book *book = retrieve_bucket_books(beginKey, 15, &size);
+
+    int i;
+    for (i = 0; i < size; i++) {
+    show_book(book[i]);
+
+    GtkTreeIter iter;
+    gtk_list_store_append(store, &iter);
+    gtk_list_store_set(store, &iter,
+        0, book[i].bookId,
+        1, book[i].title,
+        2, book[i].author,
+        3, book[i].genre,
+        4, book[i].publicationYear,
+        5, book[i].stock,
+        -1);
     }
-
-    char line[512];
-    int line_count = 0;
-    while (fgets(line, sizeof(line), file) && line_count < 15) {
-        char *token;
-        char *fields[7]; // ID, title, author, genre, year, quantity
-        int i = 0;
-
-        // Tách các phần bằng '|'
-        token = strtok(line, "|");
-        while (token && i < 7) {
-            fields[i++] = g_strstrip(token);
-            token = strtok(NULL, "|");
-        }
-
-        // Thêm dòng vào ListStore nếu đủ dữ liệu
-        if (i >= 6) {
-            GtkTreeIter iter;
-            gtk_list_store_append(store, &iter);
-            gtk_list_store_set(store, &iter,
-                0, fields[0],
-                1, fields[1],
-                2, fields[2],
-                3, fields[3],
-                4, fields[4],
-                5, fields[6], // Quantity là cột cuối (index 6 do có cả năm)
-                -1);
-        }
-
-        line_count++;
-    }
-
-    fclose(file);
 }
