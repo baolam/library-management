@@ -14,6 +14,16 @@
 #define MAX_BORROWED_BOOKS 100
 
 /**
+ * @brief Tiền phải trả cho sách quá hạn
+ */
+#define LATE_FEE 5000
+
+/**
+ * @brief Quá thời gian, dùng để tính phí
+ */
+#define OVER_DATE 14
+
+/**
  * @brief Mã trạng thái đang mượn sách
  */
 #define ON_BORROWING 1
@@ -139,7 +149,7 @@ void delete_borrow_record(int readerId);
 /**
  * @brief Xử lý việc trả sách (cập nhật trạng thái, phạt nếu trễ).
  */
-void return_books(int readerId);
+void return_books(int readerId, int bookId);
 
 /**
  * @brief Khôi phục lại số lượng sách vào kho (khi trả).
@@ -151,7 +161,6 @@ void restore_books_to_stock(BorrowReturn *b);
  */
 void update_book_direct(Book *book);
 
-void update_date(); // Phong
 int calculate_day_difference(int borrow_date, int borrow_year);
 
 /**
@@ -188,9 +197,10 @@ int gui_add_borrow_record(BorrowReturn *b);
 /**
  * @brief Trả sách có trả về kết quả để giao diện xử lý.
  * @param readerId ID người đọc.
+ * @param bookId ID sách.
  * @return 0: thành công, 1: không có bản ghi, 2: đã trả rồi.
  */
-int gui_return_books(int readerId);
+int gui_return_books(int readerId, int bookId);
 
 /**
  * @brief Kiểm tra một cuốn sách có đang được mượn hay không.
@@ -206,6 +216,6 @@ bool gui_is_book_borrowed(int bookId);
  */
 int gui_stat_total_books_by_reader(int readerId);
 
-void auto_update_time(time_t now, struct tm *local);
+void auto_update_time();
 
 #endif // BORROW_RETURN_H

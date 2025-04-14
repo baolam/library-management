@@ -75,10 +75,10 @@ BorrowReturn generate_borrow_return(int readerId)
     {
         borrowReturn.bookIds[i] = rand() % 100;
         borrowReturn.quantities[i] = 1 + rand() % 3;
+        borrowReturn.status[i] = ON_BORROWING;
+        borrowReturn.onTime[i] = false;
     }
 
-    borrowReturn.status = ON_BORROWING;
-    borrowReturn.onTime = true;
     borrowReturn.date = rand() % 365;
     borrowReturn.current_year = 2023 + rand() % 1;
 

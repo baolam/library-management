@@ -11,8 +11,8 @@ void setup_test_data()
         .totalBooks = 2,
         .bookIds = {100, 102},
         .quantities = {1, 2},
-        .status = ON_BORROWING,
-        .onTime = true};
+        .status = {ON_BORROWING, ON_BORROWING},
+        .onTime = {true, true}};
 
     add_borrow_record(&br);
 }
@@ -35,8 +35,8 @@ int main()
         .totalBooks = 1,
         .bookIds = {101},
         .quantities = {1},
-        .status = ON_BORROWING,
-        .onTime = true};
+        .status = {ON_BORROWING},
+        .onTime = {true}};
 
     int addResult = gui_add_borrow_record(&testBorrow);
     printf("TEST 1 - Add borrow status : %d\n", addResult);
@@ -44,7 +44,7 @@ int main()
     printf("\n");
 
     // ===== TEST 2: gui_return_books =====
-    int returnResult = gui_return_books(2);
+    int returnResult = gui_return_books(2, 101);
     printf("TEST 2 - Return books status : %d\n", returnResult);
     printf("TEST 2 - Return books: %s\n", returnResult == RETURN_SUCCESS ? "OK" : "FAIL");
     printf("\n");

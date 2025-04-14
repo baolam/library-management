@@ -188,10 +188,10 @@ void borrowBooks()
                 ;
             return;
         }
-    }
 
-    b.status = ON_BORROWING;
-    b.onTime = true;
+        b.status[i] = ON_BORROWING;
+        b.onTime[i] = false;
+    }
 
 #if DEBUG_MODE
     printf("[DEBUG] Calling add_borrow_record for readerId %d\n", b.readerId);
@@ -211,7 +211,7 @@ void returnBooks()
             ;
         return;
     }
-    return_books(id);
+    // return_books(id);
 }
 
 int main()
