@@ -8,6 +8,12 @@ int total_late_books = 0;
 OverdueBorrower overdue_list[MAX_OVERDUE];
 int overdue_count = 0;
 
+int calculate_day_difference(int borrow_date, int borrow_year)
+{
+    int year_diff = current_year - borrow_year;
+    return year_diff * 365 + (date - borrow_date);
+}
+
 int find_position(char genre[MAX_GENRE_NO])
 {
     int num;
@@ -82,24 +88,16 @@ void calc_statistic_borrowed_books(Node *borrow_return_management)
             infor = (Record *)borrow_node->pointers[num];
 
             if (infor->deleted)
-            {
                 continue;
-            }
 
             borrow = (BorrowReturn *)read_content_from_record_return(infor);
-            
-            if (borrow->status == ON_BORROWING) // đang mượn
+            for (int i = 0; i < borrow->totalBooks; i++)
             {
-                for (int i = 0; i < borrow->totalBooks; i++)
-                {
-                    total_borrowed_books += borrow->quantities[i];
-                }
-
-                int diff = calculate_day_difference(borrow->date, borrow->current_year);
-                if (diff > 14)
-                {
-                    total_late_books++;
-                }
+                total_borrowed_books += borrow->quantities[i];
+                int day = calculate_day_difference(borrow->date, borrow->current_year);
+                borrow->onTime[i] = day <= OVER_DATE ? true : false;
+                if (!borrow->onTime[i])
+                    total_late_books += borrow->quantities[i];
             }
         }
 
@@ -123,17 +121,22 @@ void collect_late_borrowers(Node *borrow_return_management)
                 continue;
 
             borrow = (BorrowReturn *)read_content_from_record_return(infor);
-            if (borrow->status == 0)
+            for (int i = 0; i < borrow->totalBooks; i++)
             {
-                int diff = calculate_day_difference(borrow->date, borrow->current_year);
-                if (diff > 14 && overdue_count < MAX_OVERDUE)
+                if (borrow->status[i] == ON_BORROWING)
                 {
-                    overdue_list[overdue_count].readerId = borrow->readerId;
-                    overdue_list[overdue_count].days_borrowed = diff;
-                    overdue_count++;
+                    int diff = calculate_day_difference(borrow->date, borrow->current_year);
+                    if (diff > OVER_DATE && overdue_count < MAX_OVERDUE)
+                    {
+                        overdue_list[overdue_count].readerId = borrow->readerId;
+                        overdue_list[overdue_count].days_borrowed = diff;
+                        overdue_count++;
+                        break;
+                    }
                 }
             }
         }
+
         book_node = book_node->pointers[ORDER - 1];
     }
 }
