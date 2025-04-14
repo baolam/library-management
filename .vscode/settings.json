@@ -65,6 +65,7 @@
     "book_treeview.h": "c",
     "string.h": "c",
     "search_toggle.h": "c",
-    "search.h": "c"
+    "search.h": "c",
+    "choose_option.h": "c"
   }
 }
