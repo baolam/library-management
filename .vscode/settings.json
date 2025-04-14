@@ -1,6 +1,28 @@
 {
   "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build/vcvarsall.bat",
   "files.associations": {
+<<<<<<< HEAD
+    "books.h": "c",
+    "reader.h": "c",
+    "borrow_return.h": "c",
+    "cstdlib": "c",
+    "gui.h": "c",
+    "book_treeview.h": "c",
+    "string.h": "c",
+    "search_toggle.h": "c",
+<<<<<<< HEAD
+    "search.h": "c"
+=======
     "statistic.h": "c"
+>>>>>>> a30517e3175b56588e3a2b281eece64b4b721ed6
+=======
+    "search.h": "c",
+<<<<<<< HEAD
+    "choose_option.h": "c"
+>>>>>>> 24f2038c5c190af1a25a576ed5f948d9d4a242d0
+=======
+    "choose_option.h": "c",
+    "constant.h": "c"
+>>>>>>> 10e77882e6acb5928fca1ebdab46abbe275cb06b
   }
 }

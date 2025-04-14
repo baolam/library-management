@@ -3,51 +3,7 @@
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <object class="GtkListStore"/>
-  <object class="GtkMenu" id="book_menu">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <child>
-      <object class="GtkMenuItem" id="book_edit">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="action-name">Sửa</property>
-        <property name="label" translatable="yes">Sửa thông tin sách</property>
-        <property name="use-underline">True</property>
-        <signal name="activate" handler="update_book" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="book_delete">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="action-name">Xóa</property>
-        <property name="label" translatable="yes">Xóa sách</property>
-        <property name="use-underline">True</property>
-        <signal name="activate" handler="delete_book" swapped="no"/>
-      </object>
-    </child>
-  </object>
-  <object class="GtkMenu" id="borrow_event">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <child>
-      <object class="GtkMenuItem" id="borrow_book">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="label" translatable="yes">Mượn sách</property>
-        <property name="use-underline">True</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="return_book">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="label" translatable="yes">Trả sách</property>
-        <property name="use-underline">True</property>
-      </object>
-    </child>
-  </object>
-  <object class="GtkWindow" id="entry_window">
+  <object class="GtkWindow" id="book_entry">
     <property name="name">Nhập thông tin</property>
     <property name="width-request">600</property>
     <property name="height-request">400</property>
@@ -64,10 +20,12 @@
             <property name="can-focus">False</property>
             <property name="row-spacing">10</property>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="entry_book_id">
                 <property name="width-request">380</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
+                <property name="editable">False</property>
+                <property name="placeholder-text" translatable="yes">khoá hiển thị</property>
               </object>
               <packing>
                 <property name="left-attach">1</property>
@@ -75,7 +33,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="entry_book_title">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
@@ -85,7 +43,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="entry_book_author">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
@@ -95,7 +53,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="entry_book_genre">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
@@ -105,7 +63,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="entry_book_year">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
@@ -115,7 +73,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="entry_book_quantity">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
@@ -198,19 +156,62 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="confirm">
             <property name="label" translatable="yes">Xác nhận</property>
             <property name="width-request">200</property>
             <property name="height-request">50</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_book_button_confirm_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">200</property>
             <property name="y">330</property>
           </packing>
         </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkMenu" id="book_menu">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkMenuItem" id="book_edit">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="label" translatable="yes">Sửa thông tin sách</property>
+        <property name="use-underline">True</property>
+        <signal name="activate" handler="on_book_edit" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="book_delete">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="label" translatable="yes">Xóa sách</property>
+        <property name="use-underline">True</property>
+        <signal name="activate" handler="on_book_delete" swapped="no"/>
+      </object>
+    </child>
+  </object>
+  <object class="GtkMenu" id="borrow_event">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkMenuItem" id="borrow_book">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="label" translatable="yes">Mượn sách</property>
+        <property name="use-underline">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="return_book">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="label" translatable="yes">Trả sách</property>
+        <property name="use-underline">True</property>
       </object>
     </child>
   </object>
@@ -229,128 +230,6 @@
       <!-- column-name gchararray5 -->
       <column type="gchararray"/>
     </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-    </data>
   </object>
   <object class="GtkListStore" id="liststore2">
     <columns>
@@ -367,128 +246,6 @@
       <!-- column-name gchararray5 -->
       <column type="gchararray"/>
     </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-    </data>
   </object>
   <object class="GtkWindow" id="window">
     <property name="width-request">1600</property>
@@ -498,16 +255,6 @@
       <object class="GtkStack">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <child>
-          <object class="GtkFixed" id="index">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-          </object>
-          <packing>
-            <property name="name">page1</property>
-            <property name="title" translatable="yes">page1</property>
-          </packing>
-        </child>
         <child>
           <object class="GtkFixed" id="main_ui">
             <property name="visible">True</property>
@@ -557,7 +304,7 @@
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
                             <child>
-                              <object class="GtkSearchEntry" id="search_entry">
+                              <object class="GtkSearchEntry" id="entry_search_book">
                                 <property name="width-request">1040</property>
                                 <property name="height-request">60</property>
                                 <property name="visible">True</property>
@@ -609,6 +356,7 @@
                             <property name="border-width">10</property>
                             <property name="model">liststore1</property>
                             <property name="search-column">0</property>
+                            <signal name="button-press-event" handler="on_treeview_button_press" swapped="no"/>
                             <signal name="row-activated" handler="on_treeview_row_activated" swapped="no"/>
                             <child internal-child="selection">
                               <object class="GtkTreeSelection"/>
@@ -708,9 +456,10 @@
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
+                        <signal name="clicked" handler="on_previous_page1_clicked" swapped="no"/>
                       </object>
                       <packing>
-                        <property name="x">700</property>
+                        <property name="x">600</property>
                         <property name="y">550</property>
                       </packing>
                     </child>
@@ -722,21 +471,22 @@
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
+                        <signal name="clicked" handler="on_next_page1_clicked" swapped="no"/>
                       </object>
                       <packing>
-                        <property name="x">900</property>
+                        <property name="x">800</property>
                         <property name="y">550</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton" id="book_">
+                      <object class="GtkButton" id="book_add">
                         <property name="label" translatable="yes">Thêm sách</property>
                         <property name="width-request">100</property>
                         <property name="height-request">50</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
-                        <signal name="clicked" handler="add_book" swapped="no"/>
+                        <signal name="clicked" handler="on_book_add_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="x">100</property>
@@ -772,7 +522,7 @@
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
                             <child>
-                              <object class="GtkSearchEntry">
+                              <object class="GtkSearchEntry" id="entry_search_reader">
                                 <property name="width-request">1040</property>
                                 <property name="height-request">60</property>
                                 <property name="visible">True</property>
@@ -781,6 +531,7 @@
                                 <property name="primary-icon-name">edit-find-symbolic</property>
                                 <property name="primary-icon-activatable">False</property>
                                 <property name="primary-icon-sensitive">False</property>
+                                <signal name="search-changed" handler="on_search_entry_changed1" swapped="no"/>
                               </object>
                             </child>
                             <child>
@@ -796,13 +547,14 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkToggleButton">
+                              <object class="GtkToggleButton" id="toggle_mode1">
                                 <property name="label" translatable="yes">Tìm kiếm theo ID</property>
                                 <property name="width-request">200</property>
                                 <property name="height-request">60</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">True</property>
                                 <property name="receives-default">True</property>
+                                <signal name="toggled" handler="on_toggle_mode_toggled1" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="x">1200</property>
@@ -891,6 +643,51 @@
                       <packing>
                         <property name="x">100</property>
                         <property name="y">30</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="reader_add">
+                        <property name="label" translatable="yes">Thêm độc giả</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">50</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">True</property>
+                        <signal name="clicked" handler="on_reader_add_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">100</property>
+                        <property name="y">550</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="previous_page2">
+                        <property name="label" translatable="yes">&lt;</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">50</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">True</property>
+                        <signal name="clicked" handler="on_previous_page2_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">600</property>
+                        <property name="y">550</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="next_page2">
+                        <property name="label" translatable="yes">&gt;</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">50</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">True</property>
+                        <signal name="clicked" handler="on_next_page2_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">800</property>
+                        <property name="y">550</property>
                       </packing>
                     </child>
                   </object>
@@ -1112,6 +909,16 @@
           <packing>
             <property name="name">page0</property>
             <property name="title" translatable="yes">page0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFixed" id="index">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+          </object>
+          <packing>
+            <property name="name">page1</property>
+            <property name="title" translatable="yes">page1</property>
             <property name="position">1</property>
           </packing>
         </child>
@@ -1404,6 +1211,130 @@
         <col id="5" translatable="yes"/>
       </row>
     </data>
+  </object>
+  <object class="GtkWindow" id="reader_entry">
+    <property name="width-request">600</property>
+    <property name="height-request">400</property>
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <child>
+          <!-- n-columns=2 n-rows=4 -->
+          <object class="GtkGrid">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="row-spacing">20</property>
+            <child>
+              <object class="GtkEntry" id="entry_reader_id">
+                <property name="width-request">380</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_reader_name">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_reader_number">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_reader_address">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width-request">120</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">ID:</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Tên độc giả:</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Số điện thoại:</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Địa chỉ:</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">3</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="x">50</property>
+            <property name="y">80</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="confirm1">
+            <property name="label" translatable="yes">Xác nhận</property>
+            <property name="width-request">200</property>
+            <property name="height-request">50</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_reader_button_confirm_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">200</property>
+            <property name="y">330</property>
+          </packing>
+        </child>
+      </object>
+    </child>
   </object>
   <object class="GtkMenu" id="reader_event">
     <property name="visible">True</property>
