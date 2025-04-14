@@ -30,15 +30,16 @@ void add_borrow_callback(int id, int code, long offset, long length)
     }
 }
 
-void auto_update_time(time_t now, struct tm *local){
+void auto_update_time(time_t now, struct tm *local)
+{
     time(&now);
     local = localtime(&now);
 }
 
 void add_borrow_record(BorrowReturn *b)
 {
-    date = 0; // reset trước khi tính lại
-    update_date();
+    // date = 0; // reset trước khi tính lại
+    // update_date();
     // b->date = date;
     // b->current_year = current_year;
 
@@ -340,10 +341,10 @@ void load_borrow_return_management()
     borrow_return_management = loadTree(borrow_return_management_file);
     if (borrow_return_management == NULL)
     {
-        printf("Failed to load B+ Tree management for borrow/return!\n");
+        printf("(BorrowReturn) Failed to load B+ Tree management for borrow/return!\n");
     }
     else
     {
-        printf("Load B+ Tree management for borrow/return successfully!\n");
+        printf("(BorrowReturn) Load B+ Tree management for borrow/return successfully!\n");
     }
 }
