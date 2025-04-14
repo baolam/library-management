@@ -2,6 +2,8 @@
 #define CHOOSE_OPTION_H
 
 #include <gtk/gtk.h>
+#include "gui/constant.h"
+
 
 void popup_menu_init(GtkBuilder *builder);
 void popup_menu_show(GtkTreeView *treeview);
