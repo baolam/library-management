@@ -67,6 +67,11 @@ void set_up();
 void calc_statistic_book(Node *book_management);
 
 /**
+ * @brief Thống kê tổng số sách đã mượn bởi người đọc.
+ */
+void stat_total_books_by_reader(int readerId);
+
+/**
  * @brief Tính toán lại dữ liệu thống kê sách đang được mượn
  *
  * Duyệt toàn bộ cây B+ Tree để thống kê:

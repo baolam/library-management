@@ -12,54 +12,68 @@
  * @brief Số lượng sách mượn tối đa
  */
 #define MAX_BORROWED_BOOKS 100
+
 /**
  * @brief Mã trạng thái đang mượn sách
  */
 #define ON_BORROWING 1
+
 /**
  * @brief mã trạng thái đang không được mượn
  */
 #define NOT_BORROWING 0
+
 /**
  * @brief trả về kết quả mượn sách thành công
  */
 #define BORROW_SUCCESS 0
+
 /**
  * @brief trả về kết quả mượn sách thất bại(mượn quá số lượng cho phép)
  */
 #define BORROW_FAILED 1
+
 /**
  * @brief trả về kết quả mượn sách thất bại(không đủ sách trong kho)
  */
 #define BORROW_FAILED_NOT_ENOUGH_BOOK 2
+
 /**
  * @brief Mã trạng thái đã trả sách
  */
 #define BORROWED 2
+
 /**
  * @brief không tìm thấy bản ghi -> lỗi
  */
 #define NOT_FOUND 1
+
 /**
  * @brief Đã trả rồi -> không cho trả nữa
  */
 #define ALREADY_RETURNED 2
+
 /**
  * @brief trả sách thành công
  */
 #define RETURN_SUCCESS 0
+
 /**
  * @brief nếu sách đang nằm trong danh sách mượn
  */
 #define ALREADY_IN_LIST_BORROWED true
+
 /**
  * @brief  nếu sách không bị ai mượn hoặc đã trả.
  */
 #define NOT_IN_LIST_BORROWED false
+
 /**
  * @brief Không có bản ghi nào
  */
+
 #define NO_RECORD -1;
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -77,8 +91,8 @@ typedef struct BorrowReturn
     int totalBooks;
     int bookIds[MAX_BORROWED_BOOKS];
     int quantities[MAX_BORROWED_BOOKS];
-    int status;  // 0 = đang mượn, 1 = đã trả
-    bool onTime; // 1 = đúng hạn, 0 = trễ
+    int status[MAX_BORROWED_BOOKS];  // 0 = đang mượn, 1 = đã trả
+    bool onTime[MAX_BORROWED_BOOKS]; // 1 = đúng hạn, 0 = trễ
     int date;
     int current_year;
 } BorrowReturn;
@@ -89,6 +103,7 @@ extern Node *borrow_return_management;
 // Khai báo file
 extern char borrow_return_content_file[MAX_FILE_NAME_LENGTH];
 extern char borrow_return_management_file[MAX_FILE_NAME_LENGTH];
+
 extern int date;
 extern int current_year;
 extern time_t now;
@@ -120,11 +135,6 @@ void search_borrow_record_by_reader(int readerId);
  * @brief Xóa bản ghi mượn theo ID người đọc.
  */
 void delete_borrow_record(int readerId);
-
-/**
- * @brief Thống kê tổng số sách đã mượn bởi người đọc.
- */
-void stat_total_books_by_reader(int readerId);
 
 /**
  * @brief Xử lý việc trả sách (cập nhật trạng thái, phạt nếu trễ).
