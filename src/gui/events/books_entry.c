@@ -39,6 +39,10 @@ void show_book_to_entry(Book book)
     gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_genre")), book.genre);
     gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_year")), year);
     gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_quantity")), stock);
+
+    g_free(bookId);
+    g_free(year);
+    g_free(stock);
 }
 
 // Hàm xử lý khi nhấn nút "Xác nhận"

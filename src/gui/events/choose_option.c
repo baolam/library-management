@@ -75,8 +75,9 @@ void on_book_edit(GtkMenuItem *item, gpointer user_data)
 
 void on_book_delete(GtkMenuItem *item, gpointer user_data)
 {
-    printf(">> Xoa duoc chon!\n");
     gint id = get_book_id();
+    printf("Chon id : %d\n", id);
+
     delete_book(id);
-    save_book_management();
+    load_book_to_layout(current_book_page);
 }

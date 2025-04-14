@@ -21,7 +21,10 @@ void on_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
         int book_id = atoi(entry_search_book);
         Book *book = search_book(book_id);
         if (book == NULL)
+        {
+            load_book_to_layout(current_book_page);
             return;
+        }
         show_onebook_to_layout(reference_store(), *book);
     }
 }
