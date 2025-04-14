@@ -15,6 +15,8 @@ Node *borrow_return_management = NULL;
 
 int date = 0; // Phong
 int current_year = 0;
+time_t now;
+struct tm *local;
 
 void add_borrow_callback(int id, int code, long offset, long length)
 {
@@ -28,10 +30,15 @@ void add_borrow_callback(int id, int code, long offset, long length)
     }
 }
 
-void add_borrow_record(BorrowReturn *b, int day, int month, int year)
+void auto_update_time(time_t now, struct tm *local){
+    time(&now);
+    local = localtime(&now);
+}
+
+void add_borrow_record(BorrowReturn *b)
 {
     date = 0; // reset trước khi tính lại
-    update_date(day, month, year);
+    update_date();
     // b->date = date;
     // b->current_year = current_year;
 
@@ -227,7 +234,7 @@ void return_books(int readerId)
     printf("Return processed successfully.\n");
 }
 
-// ✅ Cập nhật tồn kho sách
+// Cập nhật tồn kho sách
 void restore_books_to_stock(BorrowReturn *b)
 {
     for (int i = 0; i < b->totalBooks; i++)
@@ -290,9 +297,9 @@ bool check_book_in_borrow(int bookId)
 }
 
 // Phong
-void update_date(int day, int month, int year)
+void update_date()
 {
-    for (int i = 1; i < month; i++)
+    for (int i = 1; i < local->tm_mon + 1; i++)
     {
         if (i > 12)
             break;
@@ -313,8 +320,8 @@ void update_date(int day, int month, int year)
         }
         date += 31;
     }
-    date += day;
-    current_year = year;
+    date += local->tm_mday;
+    current_year = local->tm_year + 1900;
 }
 
 int calculate_day_difference(int borrow_date, int borrow_year)

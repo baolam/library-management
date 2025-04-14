@@ -26,6 +26,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <time.h>
 #include "books.h"
 #include "reader.h"
 #include "utils/bplustreev2.h"
@@ -53,11 +54,13 @@ extern char borrow_return_content_file[MAX_FILE_NAME_LENGTH];
 extern char borrow_return_management_file[MAX_FILE_NAME_LENGTH];
 extern int date;
 extern int current_year;
+extern time_t now;
+extern struct tm *local;
 
 /**
  * @brief Thêm bản ghi mượn sách.
  */
-void add_borrow_record(BorrowReturn *b, int day, int month, int year);
+void add_borrow_record(BorrowReturn *b);
 
 /**
  * @brief Hàm hiển thị bản ghi
@@ -101,7 +104,7 @@ void restore_books_to_stock(BorrowReturn *b);
  */
 void update_book_direct(Book *book);
 
-void update_date(int day, int month, int year); // Phong
+void update_date(); // Phong
 int calculate_day_difference(int borrow_date, int borrow_year);
 
 /**
@@ -120,5 +123,7 @@ void save_borrow_return_management();
  * @brief Tải dữ liệu quản lí mượn trả từ file
  */
 void load_borrow_return_management();
+
+void auto_update_time(time_t now, struct tm *local);
 
 #endif // BORROW_RETURN_H

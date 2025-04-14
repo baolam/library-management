@@ -19,26 +19,18 @@ int main(){
     set_up();
     calc_statistic_book(book_management);
     
-    int day, month,year;
-
-    printf("Day: ");
-    scanf("%d", &day);
-    printf("Month: ");
-    scanf("%d", &month);
-    printf("Year: ");
-    scanf("%d", &year);
 
     /// Do chưa có dữ liệu Borrow Return nên sinh giả
     int totalBorrows = 10;
     for (int i = 0; i < totalBorrows; i++)
     {
         BorrowReturn b = generate_borrow_return(i);
-        add_borrow_record(&b, day, month, year);
+        add_borrow_record(&b);
         show_borow(b);
     }
 
     calc_statistic_borrowed_books(borrow_return_management); // Gọi thống kê borrow
-    update_date(day, month, year);
+    update_date();
 
     int total_genres = 0;
     for (int num = 0; num < TOTAL_GENRE; num++) {
