@@ -18,6 +18,17 @@ int main(){
     calc_statistic_book(book_management);
     calc_statistic_borrowed_books(borrow_return_management); // Gọi thống kê borrow
 
+    int day, month,year;
+
+    printf("Day: ");
+    scanf("%d", &day);
+    printf("Month: ");
+    scanf("%d", &month);
+    printf("Year: ");
+    scanf("%d", &year);
+
+    update_date(day, month, year);
+
     int total_genres = 0;
     for (int num = 0; num < TOTAL_GENRE; num++) {
         if (counter_genre[num] != 0) {
