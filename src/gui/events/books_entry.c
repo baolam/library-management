@@ -44,6 +44,8 @@ void show_book_to_entry(Book book)
 // Hàm xử lý khi nhấn nút "Xác nhận"
 void on_button_confirm_clicked(GtkButton *button, GtkBuilder *_builder)
 {
+    printf("Trang thai hoat dong: %d\n", chosen_action);
+
     Book book = get_book_input();
     if (chosen_action == BOOK_ADD_STATUS)
     {
