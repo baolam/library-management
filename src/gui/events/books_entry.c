@@ -55,24 +55,22 @@ void clear_book_to_entry()
     gtk_entry_set_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_quantity")), "");
 }
 
-// Hàm xử lý khi nhấn nút "Xác nhận"
-void on_book_button_confirm_clicked(GtkButton *button, GtkBuilder *_builder)
+void handle_book_button_confirmed()
 {
-    printf("Trang thai hoat dong: %d\n", chosen_action);
-
     Book book = get_book_input();
-    if (chosen_action == BOOK_ADD_STATUS)
+    switch (book_chosen_action)
+    {
+    case BOOK_ADD_STATUS:
     {
         /// Tiến hành lấy lại Id hợp lí
-        printf("Add book status \n");
         book.bookId = total_books + 1;
         total_books++;
         add_book(&book);
         save_book_management();
+        break;
     }
-    else if (chosen_action == BOOK_UPDATE_STATUS)
+    case BOOK_UPDATE_STATUS:
     {
-        printf("Update book status \n");
         int status = update_book_from_object(&book);
         if (status == UPDATE_SUCCESS)
         {
@@ -84,12 +82,23 @@ void on_book_button_confirm_clicked(GtkButton *button, GtkBuilder *_builder)
         {
             printf("Update failed !\n");
         }
+        break;
     }
+    default:
+        break;
+    }
+}
+
+// Hàm xử lý khi nhấn nút "Xác nhận"
+void on_book_button_confirm_clicked(GtkButton *button, GtkBuilder *_builder)
+{
+    printf("Trang thai hoat dong: %d\n", book_chosen_action);
+    handle_book_button_confirmed();
 
     clear_book_to_entry();
 
-    chosen_action = BOOK_NO_ACTION;
-    chosen_id = -1;
+    book_chosen_action = BOOK_NO_ACTION;
+    book_chosen_id = -1;
 
     gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(builder, "book_entry")));
 }

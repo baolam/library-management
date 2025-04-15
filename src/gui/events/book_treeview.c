@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 
-int current_book_page = 1;
-
 void show_onebook_to_layout(GtkListStore *store, Book book)
 {
     gchar *bookId = g_strdup_printf("%d", book.bookId);
@@ -28,7 +26,7 @@ void show_onebook_to_layout(GtkListStore *store, Book book)
 
 GtkListStore *reference_store_book()
 {
-    GtkListStore *store = GTK_LIST_STORE(gtk_builder_get_object(builder, "liststore1"));
+    GtkListStore *store = GTK_LIST_STORE(gtk_builder_get_object(builder, "book_data"));
     gtk_list_store_clear(store);
     return store;
 }
@@ -51,7 +49,7 @@ void load_book_to_layout(int beginingKey)
     show_book_to_layout(book, size);
 }
 
-void on_previous_page1_clicked(GtkWidget *widget, gpointer user_data)
+void on_previous_book_page_clicked(GtkWidget *widget, gpointer user_data)
 {
     if (current_book_page > MAX_ROW_ONEPAGE)
     {
@@ -60,7 +58,7 @@ void on_previous_page1_clicked(GtkWidget *widget, gpointer user_data)
     }
 }
 
-void on_next_page1_clicked(GtkWidget *widget, gpointer user_data)
+void on_next_book_page_clicked(GtkWidget *widget, gpointer user_data)
 {
     current_book_page += MAX_ROW_ONEPAGE;
     load_book_to_layout(current_book_page);

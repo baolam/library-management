@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 
-int current_reader_page = 1;
-
 void show_onereader_to_layout(GtkListStore *store, Readers reader)
 {
     gchar *readerId = g_strdup_printf("%d", reader.readerId);
@@ -22,7 +20,7 @@ void show_onereader_to_layout(GtkListStore *store, Readers reader)
 
 GtkListStore *reference_store_reader()
 {
-    GtkListStore *store = GTK_LIST_STORE(gtk_builder_get_object(builder, "liststore2"));
+    GtkListStore *store = GTK_LIST_STORE(gtk_builder_get_object(builder, "reader_data"));
     gtk_list_store_clear(store);
     return store;
 }
@@ -46,7 +44,7 @@ void load_reader_to_layout(int beginingKey)
     show_reader_to_layout(reader, size);
 }
 
-void on_previous_page2_clicked(GtkWidget *widget, gpointer user_data)
+void on_previous_reader_page_clicked(GtkWidget *widget, gpointer user_data)
 {
     if (current_reader_page > MAX_ROW_ONEPAGE)
     {
@@ -55,7 +53,7 @@ void on_previous_page2_clicked(GtkWidget *widget, gpointer user_data)
     }
 }
 
-void on_next_page2_clicked(GtkWidget *widget, gpointer user_data)
+void on_next_reader_page_clicked(GtkWidget *widget, gpointer user_data)
 {
     current_reader_page += MAX_ROW_ONEPAGE;
     load_reader_to_layout(current_reader_page);

@@ -1,10 +1,14 @@
 #include "statistic.h"
 
 short counter_genre[TOTAL_GENRE];
+
 int total_books = 0;
 int deleted_books = 0;
+int total_readers = 0;
+int deleted_readers = 0;
 int total_borrowed_books = 0;
 int total_late_books = 0;
+
 OverdueBorrower overdue_list[MAX_OVERDUE];
 int overdue_count = 0;
 
@@ -74,6 +78,31 @@ void calc_statistic_book(Node *book_management)
     }
 }
 
+void calc_statistic_reader(Node *reader_management)
+{
+    Node *reader = leftMost(book_management);
+    Record *infor;
+
+    int num;
+
+    while (reader != NULL)
+    {
+        for (num = 0; num < reader->num_keys; num++)
+        {
+            infor = (Record *)find(book_management, reader->keys[num]);
+            total_readers++;
+
+            if (infor->deleted)
+            {
+                deleted_readers++;
+                continue;
+            }
+        }
+
+        reader = reader->pointers[ORDER - 1];
+    }
+}
+
 void calc_statistic_borrowed_books(Node *borrow_return_management)
 {
     Node *borrow_node = leftMost(borrow_return_management);
@@ -139,6 +168,25 @@ void collect_late_borrowers(Node *borrow_return_management)
 
         book_node = book_node->pointers[ORDER - 1];
     }
+}
+
+int stat_total_books_from_object(BorrowReturn *borrow_return)
+{
+    int totals = 0;
+    int i;
+    for (i = 0; i < borrow_return->totalBooks; i++)
+    {
+        totals += borrow_return->quantities[i];
+    }
+    return totals;
+}
+
+int stat_total_books_by_reader(int readerId)
+{
+    BorrowReturn *borrow_return = search_borrow_by_reader(readerId);
+    if (borrow_return == NULL)
+        return 0;
+    return stat_total_books_from_object(borrow_return);
 }
 
 void list_late_borrowers()

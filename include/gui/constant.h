@@ -21,6 +21,12 @@
  */
 #define BOOK_UPDATE_STATUS 1
 
+#define READER_NO_ACTION -1
+
+#define READER_ADD_STATUS 0
+
+#define READER_UPDATE_STATUS 1
+
 #include <gtk/gtk.h>
 
 #include "ui_loader.h"
@@ -33,7 +39,9 @@
 #include "events/callbacks.h"
 #include "events/book_treeview.h"
 #include "events/reader_treeview.h"
+#include "events/borrow_return_treeview.h"
 #include "events/books_entry.h"
+#include "events/readers_entry.h"
 #include "events/search_toggle.h"
 #include "events/choose_option.h"
 #include "events/search.h"
@@ -54,18 +62,33 @@ extern GtkWidget *book_menu;
  */
 extern GtkWidget *reader_menu;
 
+/**
+ * @brief Trạng thái borrow_menu
+ */
+extern GtkWidget *borrow_menu;
+
 /// Nhóm biến trạng thái chạy của chương trình
 // ===========================================
 
 /**
  * @brief id được chọn
  */
-extern gint chosen_id;
+extern gint book_chosen_id;
 
 /**
  * @brief Hành động được chọn
  */
-extern int chosen_action;
+extern int book_chosen_action;
+
+/**
+ * @brief Id của Reader được chọn
+ */
+extern gint reader_chosen_id;
+
+/**
+ * @brief Hành động được chọn (đối với Reader)
+ */
+extern int reader_chosen_action;
 
 /**
  * @brief Lượng hiển thị hiện tại
@@ -76,5 +99,10 @@ extern int current_book_page;
  * @brief Lượng hiển thị reader hiện tại
  */
 extern int current_reader_page;
+
+/**
+ * @brief Lượng hiển thị borrow hiện tại
+ */
+extern int current_borrow_page;
 
 #endif
