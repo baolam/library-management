@@ -3,7 +3,7 @@
 
 #include "gui/constant.h"
 
-void on_toggle_mode_toggled(GtkToggleButton *toggle, gpointer user_data);
-void on_toggle_mode_toggled1(GtkToggleButton *toggle, gpointer user_data);
+void on_book_toggle_mode_toggled(GtkToggleButton *toggle, gpointer user_data);
+void on_reader_toggle_mode_toggled(GtkToggleButton *toggle, gpointer user_data);
 
 #endif

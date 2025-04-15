@@ -45,9 +45,14 @@ extern GtkBuilder *builder;
 
 /// Nhóm biến trạng thái Menu
 /**
- * @brief Trạng thái menu
+ * @brief Trạng thái book_menu
  */
 extern GtkWidget *book_menu;
+
+/**
+ * @brief Trạng thái reader_menu
+ */
+extern GtkWidget *reader_menu;
 
 /// Nhóm biến trạng thái chạy của chương trình
 // ===========================================
