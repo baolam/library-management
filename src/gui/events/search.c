@@ -8,7 +8,10 @@ void on_book_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
 
     const gchar *entry_search_book = gtk_entry_get_text(GTK_ENTRY(search_book_entry));
     if (strlen(entry_search_book) == 0)
+    {
+        load_book_to_layout(current_book_page);
         return;
+    }
 
     if (gtk_toggle_button_get_active(toggle))
     {
@@ -22,7 +25,7 @@ void on_book_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
         Book *book = search_book(book_id);
         if (book == NULL)
         {
-            load_book_to_layout(current_book_page);
+            load_book_to_layout(1000100);
             return;
         }
         show_onebook_to_layout(reference_store_book(), *book);
@@ -39,7 +42,10 @@ void on_reader_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
     const gchar *entry_search_reader = gtk_entry_get_text(GTK_ENTRY(search_reader_entry));
     // printf("Received data : %s\n", entry_search_reader);
     if (strlen(entry_search_reader) == 0)
+    {
+        load_reader_to_layout(current_book_page);
         return;
+    }
 
     if (gtk_toggle_button_get_active(toggle1))
     {
@@ -52,7 +58,10 @@ void on_reader_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
         int reader_id = atoi(entry_search_reader);
         Readers *reader = search_reader(reader_id);
         if (reader == NULL)
+        {
+            load_reader_to_layout(1000100);
             return;
+        }
         show_onereader_to_layout(reference_store_reader(), *reader);
     }
 }

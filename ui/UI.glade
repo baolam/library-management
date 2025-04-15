@@ -241,6 +241,26 @@
       <column type="gchararray"/>
       <!-- column-name gchararray3 -->
       <column type="gchararray"/>
+      <!-- column-name gchararray4 -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray5 -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkListStore" id="liststore3">
+    <columns>
+      <!-- column-name gchararray -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray2 -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray3 -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray4 -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray5 -->
+      <column type="gchararray"/>
     </columns>
   </object>
   <object class="GtkWindow" id="window">
@@ -248,35 +268,63 @@
     <property name="height-request">900</property>
     <property name="can-focus">False</property>
     <child>
-      <object class="GtkStack">
+      <object class="GtkStack" id="GtkStack">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
+        <child>
+          <object class="GtkFixed" id="index">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <child>
+              <object class="GtkImage">
+                <property name="width-request">1600</property>
+                <property name="height-request">900</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="pixbuf">assets\background.png</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="to_main_ui">
+                <property name="label" translatable="yes">Bắt đầu</property>
+                <property name="width-request">250</property>
+                <property name="height-request">100</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <signal name="clicked" handler="on_to_main_ui_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">450</property>
+                <property name="y">600</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="to_credits">
+                <property name="label" translatable="yes">Lưu ý</property>
+                <property name="width-request">250</property>
+                <property name="height-request">100</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <signal name="clicked" handler="on_to_credits_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">900</property>
+                <property name="y">600</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="name">index</property>
+            <property name="title" translatable="yes">index</property>
+          </packing>
+        </child>
         <child>
           <object class="GtkFixed" id="main_ui">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="resize-mode">queue</property>
-            <child>
-              <object class="GtkButton" id="home-button">
-                <property name="width-request">100</property>
-                <property name="height-request">100</property>
-                <property name="visible">True</property>
-                <property name="can-focus">True</property>
-                <property name="receives-default">True</property>
-                <signal name="clicked" handler="on_button_clicked" swapped="no"/>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <property name="pixbuf">assets\lib_icon_55x55.png</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="x">50</property>
-                <property name="y">50</property>
-              </packing>
-            </child>
             <child>
               <object class="GtkNotebook" id="tab">
                 <property name="name">notebook</property>
@@ -455,7 +503,7 @@
                         <signal name="clicked" handler="on_previous_page1_clicked" swapped="no"/>
                       </object>
                       <packing>
-                        <property name="x">600</property>
+                        <property name="x">650</property>
                         <property name="y">550</property>
                       </packing>
                     </child>
@@ -470,7 +518,7 @@
                         <signal name="clicked" handler="on_next_page1_clicked" swapped="no"/>
                       </object>
                       <packing>
-                        <property name="x">800</property>
+                        <property name="x">850</property>
                         <property name="y">550</property>
                       </packing>
                     </child>
@@ -663,7 +711,7 @@
                         <signal name="clicked" handler="on_previous_page2_clicked" swapped="no"/>
                       </object>
                       <packing>
-                        <property name="x">600</property>
+                        <property name="x">650</property>
                         <property name="y">550</property>
                       </packing>
                     </child>
@@ -678,7 +726,7 @@
                         <signal name="clicked" handler="on_next_page2_clicked" swapped="no"/>
                       </object>
                       <packing>
-                        <property name="x">800</property>
+                        <property name="x">850</property>
                         <property name="y">550</property>
                       </packing>
                     </child>
@@ -714,7 +762,7 @@
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
                             <child>
-                              <object class="GtkSearchEntry">
+                              <object class="GtkSearchEntry" id="entry_search_borrow">
                                 <property name="width-request">1040</property>
                                 <property name="height-request">60</property>
                                 <property name="visible">True</property>
@@ -738,7 +786,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkToggleButton">
+                              <object class="GtkToggleButton" id="toggle_mode2">
                                 <property name="label" translatable="yes">Tìm kiếm theo ID</property>
                                 <property name="width-request">200</property>
                                 <property name="height-request">60</property>
@@ -758,35 +806,40 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkTreeView" id="borrow_treeview">
+                          <object class="GtkTreeView" id="reader_treeview1">
                             <property name="height-request">420</property>
                             <property name="can-focus">True</property>
                             <property name="border-width">10</property>
-                            <property name="model">liststore1</property>
+                            <property name="model">liststore3</property>
                             <property name="search-column">0</property>
                             <child internal-child="selection">
                               <object class="GtkTreeSelection"/>
                             </child>
                             <child>
-                              <object class="GtkTreeViewColumn" id="borrow_id">
+                              <object class="GtkTreeViewColumn" id="reader_id1">
                                 <property name="sizing">fixed</property>
                                 <property name="fixed-width">100</property>
                                 <property name="title" translatable="yes">ID</property>
                                 <child>
                                   <object class="GtkCellRendererText" id="renderer_bid"/>
                                   <attributes>
+                                    <attribute name="alignment">1</attribute>
+                                    <attribute name="background">0</attribute>
+                                    <attribute name="foreground">1</attribute>
                                     <attribute name="markup">0</attribute>
                                     <attribute name="text">0</attribute>
+                                    <attribute name="wrap-width">0</attribute>
+                                    <attribute name="placeholder-text">0</attribute>
                                   </attributes>
                                 </child>
                               </object>
                             </child>
                             <child>
-                              <object class="GtkTreeViewColumn" id="borrow_uname">
+                              <object class="GtkTreeViewColumn" id="borrower_name">
                                 <property name="fixed-width">500</property>
-                                <property name="title" translatable="yes">Tên sách</property>
+                                <property name="title" translatable="yes">Tên độc giả</property>
                                 <child>
-                                  <object class="GtkCellRendererText" id="renderer_borrower"/>
+                                  <object class="GtkCellRendererText" id="renderer_bname"/>
                                   <attributes>
                                     <attribute name="text">1</attribute>
                                   </attributes>
@@ -794,11 +847,11 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkTreeViewColumn" id="borrow_title">
+                              <object class="GtkTreeViewColumn" id="reader_number1">
                                 <property name="fixed-width">200</property>
-                                <property name="title" translatable="yes">Tác giả</property>
+                                <property name="title" translatable="yes">Số điện thoại</property>
                                 <child>
-                                  <object class="GtkCellRendererText" id="renderer_btitle"/>
+                                  <object class="GtkCellRendererText" id="renderer_number1"/>
                                   <attributes>
                                     <attribute name="text">2</attribute>
                                   </attributes>
@@ -806,37 +859,13 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkTreeViewColumn" id="borrow_isdue">
+                              <object class="GtkTreeViewColumn" id="reader_address1">
                                 <property name="fixed-width">200</property>
-                                <property name="title" translatable="yes">Thể loại</property>
+                                <property name="title" translatable="yes">Địa chỉ</property>
                                 <child>
-                                  <object class="GtkCellRendererText" id="renderer_isdue"/>
+                                  <object class="GtkCellRendererText" id="renderer_address1"/>
                                   <attributes>
                                     <attribute name="text">3</attribute>
-                                  </attributes>
-                                </child>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkTreeViewColumn" id="borrow_isreturn">
-                                <property name="fixed-width">200</property>
-                                <property name="title" translatable="yes">Năm xuất bản</property>
-                                <child>
-                                  <object class="GtkCellRendererText" id="renderer_isreturn"/>
-                                  <attributes>
-                                    <attribute name="text">4</attribute>
-                                  </attributes>
-                                </child>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkTreeViewColumn" id="borrow_quantity">
-                                <property name="fixed-width">200</property>
-                                <property name="title" translatable="yes">Số lượng</property>
-                                <child>
-                                  <object class="GtkCellRendererText" id="renderer_bquantity"/>
-                                  <attributes>
-                                    <attribute name="text">5</attribute>
                                   </attributes>
                                 </child>
                               </object>
@@ -852,6 +881,48 @@
                       <packing>
                         <property name="x">100</property>
                         <property name="y">30</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="reader_add1">
+                        <property name="label" translatable="yes">Thêm độc giả</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">50</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">True</property>
+                      </object>
+                      <packing>
+                        <property name="x">100</property>
+                        <property name="y">550</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="previous_page3">
+                        <property name="label" translatable="yes">&lt;</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">50</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">True</property>
+                      </object>
+                      <packing>
+                        <property name="x">650</property>
+                        <property name="y">550</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="next_page3">
+                        <property name="label" translatable="yes">&gt;</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">50</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">True</property>
+                      </object>
+                      <packing>
+                        <property name="x">850</property>
+                        <property name="y">550</property>
                       </packing>
                     </child>
                   </object>
@@ -897,20 +968,40 @@
                 <property name="y">200</property>
               </packing>
             </child>
+            <child>
+              <object class="GtkImage">
+                <property name="width-request">100</property>
+                <property name="height-request">80</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="pixbuf">assets\background1.png</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="to_index">
+                <property name="width-request">100</property>
+                <property name="height-request">80</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <signal name="clicked" handler="on_to_index_clicked" swapped="no"/>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="pixbuf">assets\lib_icon_55x55.png</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="x">50</property>
+                <property name="y">50</property>
+              </packing>
+            </child>
           </object>
           <packing>
-            <property name="name">page0</property>
-            <property name="title" translatable="yes">page0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkFixed" id="index">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-          </object>
-          <packing>
-            <property name="name">page1</property>
-            <property name="title" translatable="yes">page1</property>
+            <property name="name">main_ui</property>
+            <property name="title" translatable="yes">main_ui</property>
             <property name="position">1</property>
           </packing>
         </child>
@@ -918,153 +1009,36 @@
           <object class="GtkFixed" id="credits">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <child>
+              <object class="GtkButton" id="to_index1">
+                <property name="width-request">100</property>
+                <property name="height-request">80</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <signal name="clicked" handler="on_to_index_clicked" swapped="no"/>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="pixbuf">assets\lib_icon_55x55.png</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="x">50</property>
+                <property name="y">50</property>
+              </packing>
+            </child>
           </object>
           <packing>
-            <property name="name">page2</property>
-            <property name="title" translatable="yes">page2</property>
+            <property name="name">credits</property>
+            <property name="title" translatable="yes">credits</property>
             <property name="position">2</property>
           </packing>
         </child>
       </object>
     </child>
-  </object>
-  <object class="GtkListStore" id="liststore3">
-    <columns>
-      <!-- column-name gchararray -->
-      <column type="gchararray"/>
-      <!-- column-name gchararray1 -->
-      <column type="gchararray"/>
-      <!-- column-name gchararray2 -->
-      <column type="gchararray"/>
-      <!-- column-name gchararray3 -->
-      <column type="gchararray"/>
-      <!-- column-name gchararray4 -->
-      <column type="gchararray"/>
-      <!-- column-name gchararray5 -->
-      <column type="gchararray"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-        <col id="3" translatable="yes"/>
-        <col id="4" translatable="yes"/>
-        <col id="5" translatable="yes"/>
-      </row>
-    </data>
   </object>
   <object class="GtkListStore" id="liststore4">
     <columns>
