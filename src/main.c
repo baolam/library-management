@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
     load_reader_management();
 
     calc_statistic_book(book_management);
+    printf("Total books : %d\n", total_books);
 
     init_gui(argc, argv);
     return 0;

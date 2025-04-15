@@ -56,6 +56,7 @@ void calc_statistic_book(Node *book_management)
         for (num = 0; num < book_genre->num_keys; num++)
         {
             infor = (Record *)find(book_management, book_genre->keys[num]);
+            total_books++;
 
             if (infor->deleted)
             {
@@ -66,7 +67,6 @@ void calc_statistic_book(Node *book_management)
             book = (Book *)read_content_from_record_return(infor);
             position = find_position(book->genre);
 
-            total_books++;
             counter_genre[position]++;
         }
 
@@ -85,7 +85,7 @@ void calc_statistic_borrowed_books(Node *borrow_return_management)
         int num = 0;
         for (; num < borrow_node->num_keys; num++)
         {
-            infor = (Record *)borrow_node->pointers[num];
+            infor = (Record *)find(borrow_return_management, borrow_node->keys[num]);
 
             if (infor->deleted)
                 continue;
@@ -116,7 +116,7 @@ void collect_late_borrowers(Node *borrow_return_management)
     {
         for (int i = 0; i < book_node->num_keys; i++)
         {
-            infor = (Record *)book_node->pointers[i];
+            infor = (Record *)find(borrow_return_management, book_node->keys[i]);
             if (infor->deleted)
                 continue;
 
