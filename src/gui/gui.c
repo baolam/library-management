@@ -12,7 +12,9 @@ void init_gui(int argc, char *argv[])
 
     gtk_builder_connect_signals(builder, NULL);
 
-    popup_menu_init(builder);
+    popup_book_menu_init(builder);
+    popup_reader_menu_init(builder);
+
     gtk_widget_show_all(window);
 
     gtk_main();

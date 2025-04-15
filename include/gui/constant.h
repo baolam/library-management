@@ -43,6 +43,17 @@
  */
 extern GtkBuilder *builder;
 
+/// Nhóm biến trạng thái Menu
+/**
+ * @brief Trạng thái book_menu
+ */
+extern GtkWidget *book_menu;
+
+/**
+ * @brief Trạng thái reader_menu
+ */
+extern GtkWidget *reader_menu;
+
 /// Nhóm biến trạng thái chạy của chương trình
 // ===========================================
 
@@ -60,5 +71,10 @@ extern int chosen_action;
  * @brief Lượng hiển thị hiện tại
  */
 extern int current_book_page;
+
+/**
+ * @brief Lượng hiển thị reader hiện tại
+ */
+extern int current_reader_page;
 
 #endif
