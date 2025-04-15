@@ -25,11 +25,17 @@ typedef struct OverdueBorrower
     int days_borrowed;
 } OverdueBorrower;
 
-/// Tổng số sách hiện có (chưa bị xóa)
+/// Tổng số sách hiện có
 extern int total_books;
 
 /// Tổng số sách đã bị xóa (được đánh dấu là deleted)
 extern int deleted_books;
+
+/// Tổng số độc giả
+extern int total_readers;
+
+/// Tổng số reader đã bị xoá (được đánh dấu là deleted)
+extern int deleted_readers;
 
 /// Bộ đếm số sách theo từng thể loại, chỉ số tương ứng với mảng genres
 extern short counter_genre[TOTAL_GENRE];
@@ -67,9 +73,21 @@ void set_up();
 void calc_statistic_book(Node *book_management);
 
 /**
+ * @brief Tính toán lại dữ liệu thống kê độc giả
+ *
+ * Duyệt toàn bộ cây B+ Tree để thống kê:
+ * - Tổng số sách còn tồn tại (không bị xóa)
+ * - Tổng số sách bị xóa
+ * - Số lượng sách theo từng thể loại
+ *
+ * @param reader_management Cây B+ Tree quản lý sách
+ */
+void calc_statistic_reader(Node *reader_management);
+
+/**
  * @brief Thống kê tổng số sách đã mượn bởi người đọc.
  */
-void stat_total_books_by_reader(int readerId);
+int stat_total_books_by_reader(int readerId);
 
 /**
  * @brief Tính toán lại dữ liệu thống kê sách đang được mượn

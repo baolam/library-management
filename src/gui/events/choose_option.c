@@ -94,17 +94,22 @@ void on_book_edit(GtkMenuItem *item, gpointer user_data)
 {
     printf(">> Sua duoc chon!\n");
 
-    chosen_action = BOOK_UPDATE_STATUS;
-    gint id = get_book_id();
-    chosen_id = id;
+    book_chosen_action = BOOK_UPDATE_STATUS;
+    book_chosen_id = get_book_id();
+    printf("Chosen book id : %d\n", book_chosen_id);
 
     /// Tiến hành hiển thị giao diện
     open_book_entry_layout();
 
     /// Tiến hành hiển thị dữ liệu đã sửa
-    Book *book = search_book(id);
+    Book *book = search_book(book_chosen_id);
+
     if (book)
         show_book_to_entry(*book);
+    else
+    {
+        printf("Book la NULL \n");
+    }
 }
 
 void on_book_delete(GtkMenuItem *item, gpointer user_data)
@@ -119,12 +124,45 @@ void on_book_delete(GtkMenuItem *item, gpointer user_data)
 /// ----------------------------------------------------------------------------------
 /// Nhóm phần thao tác reader
 /// ----------------------------------------------------------------------------------
+gint get_reader_id()
+{
+    GtkWidget *treeview = GTK_WIDGET(gtk_builder_get_object(builder, "reader_treeview"));
+    GtkTreeSelection *selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
+
+    GtkTreeModel *model;
+    GtkTreeIter iter;
+
+    if (gtk_tree_selection_get_selected(selection, &model, &iter))
+    {
+        gchar *id_str;
+        gtk_tree_model_get(model, &iter, 0, &id_str, -1);
+        gint id = atoi(id_str);
+        return id;
+    }
+
+    return -1;
+}
+
 void on_reader_edit(GtkMenuItem *item, gpointer user_data)
 {
     printf(">> Sua duoc chon!\n");
+    reader_chosen_action = READER_UPDATE_STATUS;
+    reader_chosen_id = get_reader_id();
+
+    open_reader_entry_layout();
+
+    Readers *reader = search_reader(reader_chosen_id);
+    if (reader)
+        show_reader_to_entry(*reader);
 }
 
 void on_reader_delete(GtkMenuItem *item, gpointer user_data)
 {
     printf(">> Xoa duoc chon!\n");
+
+    gint id = get_reader_id();
+    printf("Chon id : %d\n", id);
+
+    delete_reader(id);
+    load_reader_to_layout(current_reader_page);
 }

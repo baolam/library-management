@@ -28,7 +28,7 @@ void show_onebook_to_layout(GtkListStore *store, Book book)
 
 GtkListStore *reference_store_book()
 {
-    GtkListStore *store = GTK_LIST_STORE(gtk_builder_get_object(builder, "liststore1"));
+    GtkListStore *store = GTK_LIST_STORE(gtk_builder_get_object(builder, "book_data"));
     gtk_list_store_clear(store);
     return store;
 }

@@ -142,6 +142,12 @@ void show_borrow_record(FILE *f, long size);
 void search_borrow_record_by_reader(int readerId);
 
 /**
+ * @brief Tìm bản ghi mượn sách theo ID người đọc
+ * @return Kết quả bản ghi dữ liệu
+ */
+BorrowReturn *search_borrow_by_reader(int readerId);
+
+/**
  * @brief Xóa bản ghi mượn theo ID người đọc.
  */
 void delete_borrow_record(int readerId);

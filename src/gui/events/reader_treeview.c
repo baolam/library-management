@@ -22,7 +22,7 @@ void show_onereader_to_layout(GtkListStore *store, Readers reader)
 
 GtkListStore *reference_store_reader()
 {
-    GtkListStore *store = GTK_LIST_STORE(gtk_builder_get_object(builder, "liststore2"));
+    GtkListStore *store = GTK_LIST_STORE(gtk_builder_get_object(builder, "reader_data"));
     gtk_list_store_clear(store);
     return store;
 }

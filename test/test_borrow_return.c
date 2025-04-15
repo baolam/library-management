@@ -216,92 +216,28 @@ void returnBooks()
 
 int main()
 {
-<<<<<<< HEAD
-    load_reader_management();
+    // load_reader_management();
 
-    int readerId = 1001;
+    // int readerId = 1001;
 
     // Mượn 2 cuốn
-    borrow_book(readerId, 2001, 1);
-    borrow_book(readerId, 2002, 2);
+    // borrow_book(readerId, 2001, 1);
+    // borrow_book(readerId, 2002, 2);
 
     // Hiển thị sách đã mượn
-    search_borrow_record_by_reader(readerId);
+    // search_borrow_record_by_reader(readerId);
 
     // Trả sách
-    return_books(readerId);
+    // return_books(readerId);
 
     // Thống kê
-    stat_total_books_by_reader(readerId);
-=======
-    // Khởi tạo
-    printf("Initializing reader data...\n");
-    prepare_reader();
-    load_reader_management();
-
-    prepare_book();
-    load_book_management();
-
-    printf("Initializing borrow/return data...\n");
-    borrow_return_management = loadTree(borrow_return_management_file);
-    if (borrow_return_management == NULL)
-    {
-        printf("No existing borrow management file. Starting fresh.\n");
-        borrow_return_management = NULL;
-    }
-    else
-    {
-        printf("Borrow/return management loaded successfully.\n");
-    }
-
-    int choice;
-    while (1)
-    {
-        show_menu();
-        if (scanf("%d", &choice) != 1) // Kiểm tra lỗi nhập liệu
-        {
-            printf("Error: Invalid input. Please enter a number.\n");
-            while (getchar() != '\n')
-                ; // Xóa bộ đệm
-            continue;
-        }
-        while (getchar() != '\n')
-            ; // Xóa bộ đệm
-
-        if (choice == 7)
-            break;
-
-        switch (choice)
-        {
-        case 1:
-            updateReaderInfor();
-            break;
-        case 2:
-            searchReader();
-            break;
-        case 3:
-            updateBookInfor();
-            break;
-        case 4:
-            searchBook();
-            break;
-        case 5: // Borrow Books
-            borrowBooks();
-            break;
-        case 6:
-            returnBooks();
-            break;
-        default:
-            printf("Invalid choice!\n");
-        }
-    }
->>>>>>> a30517e3175b56588e3a2b281eece64b4b721ed6
+    // stat_total_books_by_reader(readerId);
 
     // Lưu dữ liệu trước khi thoát
     printf("Saving data before exiting...\n");
-    save_reader_management();
-    save_book_management();
-    save_borrow_return_management();
+    // save_reader_management();
+    // save_book_management();
+    // save_borrow_return_management();
     printf("Data saved successfully. Exiting.\n");
     return 0;
 }

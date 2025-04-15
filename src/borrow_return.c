@@ -108,6 +108,15 @@ void search_borrow_record_by_reader(int readerId)
     read_content_from_record(record, show_borrow_record);
 }
 
+BorrowReturn *search_borrow_by_reader(int readerId)
+{
+    Record *record = find(borrow_return_management, readerId);
+    if (record == NULL || record->deleted)
+        return NULL;
+    BorrowReturn *result = (BorrowReturn *)read_content_from_record_return(record);
+    return result;
+}
+
 void delete_borrow_record_callback(int code)
 {
     if (code == DELETE_FAILED)
