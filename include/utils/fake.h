@@ -25,9 +25,24 @@
 #define TOTAL_GENRE 12
 
 /**
- * @brief Tiêu đề của sách
+ * Hàm lấy kích thước
  */
-extern char *titles[];
+#define SIZE(arr) (sizeof(arr) / sizeof(arr[0]))
+
+/**
+ * @brief Tiền tố (phục vụ sinh sách)
+ */
+extern char *prefixes[];
+
+/**
+ * @brief Từ thực tế
+ */
+extern char *realWords[];
+
+/**
+ * @brief Từ vô nghĩa
+ */
+extern char *nonsenseWords[];
 
 /**
  * @brief Tên tác giả

@@ -205,7 +205,24 @@ void removeIdFromWord(TrieNode *root, char *word, int id)
         return;
     }
 
-    printf("Dong 208. trie.c, chua viet xong ham xoa nha ::)");
+    // printf("Dong 208. trie.c, chua viet xong ham xoa nha ::)");
+
+    int *temp = malloc((target->numIds - 1) * sizeof(int));
+    int i, j;
+    for (i = 0, j = 0; i < target->numIds; i++, j++)
+    {
+        if (j == position)
+            j++;
+        temp[i] = target->ids[j];
+    }
+
+    for (i = 0; i < target->numIds - 1; i++)
+    {
+        target->ids[i] = temp[i];
+    }
+    target->numIds--;
+
+    free(temp);
 }
 
 // Helper function to find all words with given prefix

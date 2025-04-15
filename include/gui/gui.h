@@ -1,9 +1,7 @@
 #ifndef GUI_H
 #define GUI_H
 
-#include <gtk/gtk.h>
-
-extern GtkBuilder *builder;
+#include "gui/constant.h"
 
 void init_gui(int argc, char *argv[]);
 

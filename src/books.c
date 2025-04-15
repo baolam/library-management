@@ -34,6 +34,7 @@ void add_book(Book *book)
 {
     if (exist_record(book_management, book->bookId))
     {
+        update_book_from_object(book);
         return;
     }
 
@@ -65,13 +66,14 @@ void delete_book_callback(int code)
     }
     else
     {
-        printf("Failed to delete reader.\n");
+        printf("Failed to delete book.\n");
     }
 }
 
 void delete_book(int id)
 {
     soft_delete(book_management, id, delete_book_callback);
+    save_book_management();
 }
 
 void update_book_callback(FILE *f, long package)
@@ -82,8 +84,9 @@ void update_book_callback(FILE *f, long package)
     show_book(book);
 
     printf("Enter title:\n");
-    fgets(book.title, sizeof(book.title), stdin);
-    book.title[strcspn(book.title, "\n")] = 0;
+    char title[MAX_TITLE];
+    fgets(title, sizeof(title), stdin);
+    title[strcspn(title, "\n")] = 0;
 
     printf("Enter author:\n");
     fgets(book.author, sizeof(book.author), stdin);
@@ -98,6 +101,11 @@ void update_book_callback(FILE *f, long package)
 
     printf("Enter stock:\n");
     scanf("%d", &book.stock);
+
+    removeIdFromWord(book_trie, book.title, book.bookId);
+    insertIntoTrie(book_trie, title, book.bookId);
+
+    strcpy(book.title, title);
 
     fwrite(&book, sizeof(Book), 1, f);
     printf("Update successfully!\n");
@@ -120,9 +128,14 @@ int update_book_from_object(Book *book)
     Record *record = find(book_management, book->bookId);
     if (record == NULL || record->deleted)
     {
-        printf("Reader not found for update.\n");
+        printf("Book not found for update.\n");
         return UPDATE_FAILED;
     }
+
+    // Book *old_book = read_content_from_record_return(record);
+    // removeIdFromWord(book_trie, old_book->title, book->bookId);
+
+    insertIntoTrie(book_trie, book->title, book->bookId);
 
     return update_content_without_callback(record, book);
 }
@@ -200,8 +213,11 @@ Book *search_book_by_title_direct(const char *prefix, int *actualBooks, int maxN
                     Book *book = search_book(temp->ids[j]);
                     books[storage_pos] = *book;
                     storage_pos++;
+                    maxNumbers--;
                 }
             }
+            if (maxNumbers == 0)
+                break;
         }
     }
 
@@ -234,6 +250,9 @@ Book *retrieve_bucket_books(int beginingKey, int quanities, int *actualBooks)
     {
         for (i = startSearch; i < n->num_keys && quanities > 0; i++)
         {
+            if (!exist_record(book_management, n->keys[i]))
+                continue;
+
             Record *record = (Record *)n->pointers[i];
             Book *book = (Book *)read_content_from_record_return(record);
 
@@ -244,6 +263,7 @@ Book *retrieve_bucket_books(int beginingKey, int quanities, int *actualBooks)
             storage_pos++;
             quanities--;
         }
+
         startSearch = 0;
         n = n->pointers[ORDER - 1];
     }
