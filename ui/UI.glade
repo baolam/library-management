@@ -336,12 +336,14 @@
       <object class="GtkMenuItem" id="book_borrow_borrow">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
+        <property name="label" translatable="yes">Mượn</property>
       </object>
     </child>
     <child>
       <object class="GtkMenuItem" id="book_borrow_return">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
+        <property name="label" translatable="yes">Trả</property>
       </object>
     </child>
   </object>
@@ -835,14 +837,14 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton" id="previous_page1">
+                      <object class="GtkButton" id="previous_book_page">
                         <property name="label" translatable="yes">&lt;</property>
                         <property name="width-request">100</property>
                         <property name="height-request">50</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
-                        <signal name="clicked" handler="on_previous_page1_clicked" swapped="no"/>
+                        <signal name="clicked" handler="on_previous_book_page_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="x">650</property>
@@ -850,14 +852,14 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton" id="next_page1">
+                      <object class="GtkButton" id="next_book_page">
                         <property name="label" translatable="yes">&gt;</property>
                         <property name="width-request">100</property>
                         <property name="height-request">50</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
-                        <signal name="clicked" handler="on_next_page1_clicked" swapped="no"/>
+                        <signal name="clicked" handler="on_next_book_page_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="x">850</property>
@@ -1043,14 +1045,14 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton" id="previous_page2">
+                      <object class="GtkButton" id="previous_reader_page">
                         <property name="label" translatable="yes">&lt;</property>
                         <property name="width-request">100</property>
                         <property name="height-request">50</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
-                        <signal name="clicked" handler="on_previous_page2_clicked" swapped="no"/>
+                        <signal name="clicked" handler="on_previous_reader_page_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="x">650</property>
@@ -1058,14 +1060,14 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton" id="next_page2">
+                      <object class="GtkButton" id="next_reader_page">
                         <property name="label" translatable="yes">&gt;</property>
                         <property name="width-request">100</property>
                         <property name="height-request">50</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
-                        <signal name="clicked" handler="on_next_page2_clicked" swapped="no"/>
+                        <signal name="clicked" handler="on_next_reader_page_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="x">850</property>
@@ -1154,6 +1156,8 @@
                             <property name="border-width">10</property>
                             <property name="model">borrow_data</property>
                             <property name="search-column">0</property>
+                            <signal name="button-press-event" handler="on_borrow_treeview_button_press" swapped="no"/>
+                            <signal name="row-activated" handler="on_borrow_treeview_row_activated" swapped="no"/>
                             <child internal-child="selection">
                               <object class="GtkTreeSelection"/>
                             </child>
@@ -1258,13 +1262,14 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton" id="previous_page3">
+                      <object class="GtkButton" id="previous_borrow_page">
                         <property name="label" translatable="yes">&lt;</property>
                         <property name="width-request">100</property>
                         <property name="height-request">50</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
+                        <signal name="clicked" handler="on_previous_borrow_page_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="x">650</property>
@@ -1272,13 +1277,14 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton" id="next_page3">
+                      <object class="GtkButton" id="next_borrow_page">
                         <property name="label" translatable="yes">&gt;</property>
                         <property name="width-request">100</property>
                         <property name="height-request">50</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
+                        <signal name="clicked" handler="on_next_borrow_page_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="x">850</property>

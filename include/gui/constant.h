@@ -39,6 +39,7 @@
 #include "events/callbacks.h"
 #include "events/book_treeview.h"
 #include "events/reader_treeview.h"
+#include "events/borrow_return_treeview.h"
 #include "events/books_entry.h"
 #include "events/readers_entry.h"
 #include "events/search_toggle.h"
@@ -60,6 +61,11 @@ extern GtkWidget *book_menu;
  * @brief Trạng thái reader_menu
  */
 extern GtkWidget *reader_menu;
+
+/**
+ * @brief Trạng thái borrow_menu
+ */
+extern GtkWidget *borrow_menu;
 
 /// Nhóm biến trạng thái chạy của chương trình
 // ===========================================
@@ -93,5 +99,10 @@ extern int current_book_page;
  * @brief Lượng hiển thị reader hiện tại
  */
 extern int current_reader_page;
+
+/**
+ * @brief Lượng hiển thị borrow hiện tại
+ */
+extern int current_borrow_page;
 
 #endif

@@ -40,6 +40,26 @@ void popup_reader_menu_show(GtkTreeView *treeview, GdkEventButton *event)
     }
 }
 
+void popup_borrow_menu_init(GtkBuilder *_builder)
+{
+    borrow_menu = GTK_WIDGET(gtk_builder_get_object(_builder, "borrow_menu"));
+    gtk_widget_show_all(borrow_menu);
+}
+
+void popup_borrow_menu_show(GtkTreeView *treeview, GdkEventButton *event)
+{
+    if (event == NULL)
+        return;
+
+    if (event->type == GDK_2BUTTON_PRESS && event->button == GDK_BUTTON_PRIMARY)
+    {
+        if (borrow_menu)
+        {
+            gtk_menu_popup_at_pointer(GTK_MENU(borrow_menu), (GdkEvent *)event);
+        }
+    }
+}
+
 gboolean on_book_treeview_button_press(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 {
     popup_book_menu_show(GTK_TREE_VIEW(widget), event);
@@ -64,6 +84,18 @@ void on_reader_treeview_row_activated(GtkTreeView *treeview, GtkTreePath *path, 
 gboolean on_reader_treeview_button_press(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 {
     popup_reader_menu_show(GTK_TREE_VIEW(widget), event);
+    return FALSE;
+}
+
+void on_borrow_treeview_row_activated(GtkTreeView *treeview, GtkTreePath *path, GtkTreeViewColumn *column, gpointer user_data)
+{
+    GdkEventButton *event = (GdkEventButton *)user_data;
+    popup_borrow_menu_show(treeview, event);
+}
+
+gboolean on_borrow_treeview_button_press(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+{
+    popup_borrow_menu_show(GTK_TREE_VIEW(widget), event);
     return FALSE;
 }
 

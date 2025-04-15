@@ -148,6 +148,21 @@ void search_borrow_record_by_reader(int readerId);
 BorrowReturn *search_borrow_by_reader(int readerId);
 
 /**
+ * @brief Hàm trả về một tập hợp các bản ghi mượn theo sau một Id tìm kiếm
+ *
+ * Dùng hàm này khi cần hứng chính xác một mảng các lần mượn. Được dùng cho
+ * nhóm thao tác giao diện
+ * @note Dùng xong nhớ free để tránh lãng phí bộ nhớ
+ *
+ * @param beginingKey là vị trí bắt đầu đọc đầu tiên
+ * @param quanities là số lượng sách muốn lấy sau khi kiếm Id đầu tiên
+ * @param actualBorrows là số lượng mượn thực tế
+ *
+ * @return là mảng chứa các lần mượn tìm được
+ */
+BorrowReturn *retrieve_bucket_borrows(int beginingKey, int quanities, int *actualBorrows);
+
+/**
  * @brief Xóa bản ghi mượn theo ID người đọc.
  */
 void delete_borrow_record(int readerId);

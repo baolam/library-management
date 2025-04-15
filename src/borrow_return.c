@@ -117,6 +117,53 @@ BorrowReturn *search_borrow_by_reader(int readerId)
     return result;
 }
 
+BorrowReturn *retrieve_bucket_borrows(int beginingKey, int quanities, int *actualBorrows)
+{
+    int storage_pos = 0;
+
+    BorrowReturn *borrows = (BorrowReturn *)malloc(quanities * sizeof(BorrowReturn));
+    if (borrows == NULL)
+    {
+        *actualBorrows = 0;
+        return NULL;
+    }
+
+    Node *n = findLeaf(borrow_return_management, beginingKey);
+    if (n == NULL)
+    {
+        *actualBorrows = 0;
+        return NULL;
+    }
+
+    int startSearch = getStartSearch(n, beginingKey);
+    int i;
+
+    while (n != NULL && quanities > 0)
+    {
+        for (i = startSearch; i < n->num_keys && quanities > 0; i++)
+        {
+            if (!exist_record(borrow_return_management, n->keys[i]))
+                continue;
+
+            Record *record = (Record *)n->pointers[i];
+            BorrowReturn *borrow = (BorrowReturn *)read_content_from_record_return(record);
+
+            if (borrow == NULL)
+                continue;
+
+            borrows[storage_pos] = *borrow;
+            storage_pos++;
+            quanities--;
+        }
+
+        startSearch = 0;
+        n = n->pointers[ORDER - 1];
+    }
+
+    *actualBorrows = storage_pos;
+    return borrows;
+}
+
 void delete_borrow_record_callback(int code)
 {
     if (code == DELETE_FAILED)
