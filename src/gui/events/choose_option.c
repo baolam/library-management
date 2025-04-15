@@ -63,7 +63,7 @@ void on_reader_treeview_row_activated(GtkTreeView *treeview, GtkTreePath *path, 
 
 gboolean on_reader_treeview_button_press(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 {
-    popup_book_menu_show(GTK_TREE_VIEW(widget), event);
+    popup_reader_menu_show(GTK_TREE_VIEW(widget), event);
     return FALSE;
 }
 
