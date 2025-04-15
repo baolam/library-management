@@ -24,13 +24,15 @@ int main()
     calc_statistic_book(book_management);
 
     /// Do chưa có dữ liệu Borrow Return nên sinh giả
-    int totalBorrows = 10;
-    for (int i = 0; i < totalBorrows; i++)
-    {
-        BorrowReturn b = generate_borrow_return(i);
-        add_borrow_record(&b);
-        show_borow(b);
-    }
+    // int totalBorrows = 10;
+    // for (int i = 0; i < totalBorrows; i++)
+    // {
+    //     BorrowReturn b = generate_borrow_return(i);
+    //     add_borrow_record(&b);
+    //     show_borow(b);
+    // }
+
+    // save_borrow_return_management();
 
     auto_update_time();
     calc_statistic_borrowed_books(borrow_return_management); // Gọi thống kê borrow

@@ -1188,8 +1188,8 @@
                             </child>
                             <child>
                               <object class="GtkTreeViewColumn" id="borrowed_quantity">
-                                <property name="fixed-width">200</property>
-                                <property name="title" translatable="yes">Số sách mượn</property>
+                                <property name="fixed-width">250</property>
+                                <property name="title" translatable="yes">Số sách mượn khác nhau</property>
                                 <child>
                                   <object class="GtkCellRendererText" id="renderer_bquantity"/>
                                   <attributes>
@@ -1201,7 +1201,7 @@
                             <child>
                               <object class="GtkTreeViewColumn" id="status">
                                 <property name="fixed-width">200</property>
-                                <property name="title" translatable="yes">Trạng thái</property>
+                                <property name="title" translatable="yes">Tổng số sách mượn</property>
                                 <child>
                                   <object class="GtkCellRendererText" id="renderer_status"/>
                                   <attributes>

@@ -81,11 +81,12 @@ BorrowReturn generate_borrow_return(int readerId)
     borrowReturn.readerId = readerId;
 
     borrowReturn.totalBooks = 1 + rand() % 5;
+
     int i;
     for (i = 0; i < borrowReturn.totalBooks; i++)
     {
         borrowReturn.bookIds[i] = rand() % 100;
-        borrowReturn.quantities[i] = 1 + rand() % 3;
+        borrowReturn.quantities[i] = 1 + rand() % 5;
         borrowReturn.status[i] = ON_BORROWING;
         borrowReturn.onTime[i] = false;
     }

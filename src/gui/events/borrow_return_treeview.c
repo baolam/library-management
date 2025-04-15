@@ -12,6 +12,7 @@ void show_oneborrow_to_layout(GtkListStore *store, BorrowReturn borrow)
     gchar *readerId = g_strdup_printf("%d", borrow.readerId);
     gchar *date = g_strdup_printf("%d", borrow.date);
     gchar *totalBooks = g_strdup_printf("%d", borrow.totalBooks);
+    gchar *quanities = g_strdup_printf("%d", stat_total_books_from_object(&borrow));
 
     Readers *reader = search_reader(borrow.readerId);
     if (reader == NULL)
@@ -23,7 +24,7 @@ void show_oneborrow_to_layout(GtkListStore *store, BorrowReturn borrow)
                        0, readerId,
                        1, reader->fullName,
                        2, totalBooks,
-                       3, "...",
+                       3, quanities,
                        4, "...",
                        5, date,
                        -1);

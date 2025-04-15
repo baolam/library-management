@@ -170,10 +170,23 @@ void collect_late_borrowers(Node *borrow_return_management)
     }
 }
 
+int stat_total_books_from_object(BorrowReturn *borrow_return)
+{
+    int totals = 0;
+    int i;
+    for (i = 0; i < borrow_return->totalBooks; i++)
+    {
+        totals += borrow_return->quantities[i];
+    }
+    return totals;
+}
+
 int stat_total_books_by_reader(int readerId)
 {
     BorrowReturn *borrow_return = search_borrow_by_reader(readerId);
-    return 0;
+    if (borrow_return == NULL)
+        return 0;
+    return stat_total_books_from_object(borrow_return);
 }
 
 void list_late_borrowers()

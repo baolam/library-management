@@ -85,7 +85,12 @@ void calc_statistic_book(Node *book_management);
 void calc_statistic_reader(Node *reader_management);
 
 /**
- * @brief Thống kê tổng số sách đã mượn bởi người đọc.
+ * @brief Hàm tiện ích tính tổng số sách đã mượn và trả từ một bản ghi
+ */
+int stat_total_books_from_object(BorrowReturn *borrow_return);
+
+/**
+ * @brief Thống kê tổng số sách đã mượn và trả bởi người đọc.
  */
 int stat_total_books_by_reader(int readerId);
 
