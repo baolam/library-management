@@ -484,7 +484,6 @@ void printTree(Node *const root)
 
 #endif
 
-// Helper function to write a node to file
 static void writeNode(FILE *fp, Node *node)
 {
     if (!node)
@@ -497,29 +496,22 @@ static void writeNode(FILE *fp, Node *node)
     // Write keys
     fwrite(node->keys, sizeof(int), node->num_keys, fp);
 
-    if (node->is_leaf)
-    {
-        // Write records for leaf nodes
-        for (int i = 0; i < node->num_keys; i++)
-        {
-            Record *record = (Record *)node->pointers[i];
-            fwrite(record, sizeof(Record), 1, fp);
-        }
-        // Write next leaf pointer
-        bool has_next = (node->pointers[ORDER - 1] != NULL);
-        fwrite(&has_next, sizeof(bool), 1, fp);
-        if (has_next)
-        {
-            writeNode(fp, (Node *)node->pointers[ORDER - 1]);
-        }
-    }
-    else
+    if (!node->is_leaf)
     {
         // Write child pointers for internal nodes
         for (int i = 0; i <= node->num_keys; i++)
         {
             Node *child = (Node *)node->pointers[i];
             writeNode(fp, child);
+        }
+    }
+    else
+    {
+        // Write records for leaf nodes
+        for (int i = 0; i < node->num_keys; i++)
+        {
+            Record *record = (Record *)node->pointers[i];
+            fwrite(record, sizeof(Record), 1, fp);
         }
     }
 }
@@ -539,12 +531,12 @@ void saveTree(Node *root, char *filename)
         exit(EXIT_FAILURE);
     }
 
-    // Write tree structure
+    // Write entire tree recursively including leaf nodes
     writeNode(fp, root);
+
     fclose(fp);
 }
 
-// Helper function to read a node from file
 static Node *readNode(FILE *fp)
 {
     Node *node = makeNode();
@@ -556,7 +548,7 @@ static Node *readNode(FILE *fp)
     fread(&node->num_keys, sizeof(int), 1, fp);
 
     // Allocate memory for keys
-    node->keys = (int *)malloc(ORDER * sizeof(int));
+    node->keys = (int *)malloc((ORDER - 1) * sizeof(int));
     if (!node->keys)
     {
         free(node);
@@ -568,7 +560,7 @@ static Node *readNode(FILE *fp)
 
     if (node->is_leaf)
     {
-        // Read records for leaf nodes
+        // Allocate pointers for records
         node->pointers = (void **)malloc(ORDER * sizeof(Record *));
         if (!node->pointers)
         {
@@ -577,16 +569,14 @@ static Node *readNode(FILE *fp)
             return NULL;
         }
 
+        // Read records for leaf nodes
         for (int i = 0; i < node->num_keys; i++)
         {
             Record *record = (Record *)malloc(sizeof(Record));
             if (!record)
             {
-                // Clean up allocated memory
                 for (int j = 0; j < i; j++)
-                {
                     free((Record *)node->pointers[j]);
-                }
                 free(node->keys);
                 free(node->pointers);
                 free(node);
@@ -595,35 +585,11 @@ static Node *readNode(FILE *fp)
             fread(record, sizeof(Record), 1, fp);
             node->pointers[i] = record;
         }
-
-        // Read next leaf pointer if exists
-        bool has_next = false;
-        fread(&has_next, sizeof(bool), 1, fp);
-        if (has_next)
-        {
-            Node *next_leaf = readNode(fp);
-            if (!next_leaf)
-            {
-                // Clean up allocated memory
-                for (int j = 0; j < node->num_keys; j++)
-                {
-                    free((Record *)node->pointers[j]);
-                }
-                free(node->keys);
-                free(node->pointers);
-                free(node);
-                return NULL;
-            }
-            node->pointers[ORDER - 1] = next_leaf;
-        }
-        else
-        {
-            node->pointers[ORDER - 1] = NULL;
-        }
+        node->pointers[ORDER - 1] = NULL;
     }
     else
     {
-        // Read child pointers for internal nodes
+        // Allocate pointers for child nodes
         node->pointers = (void **)malloc((ORDER + 1) * sizeof(Node *));
         if (!node->pointers)
         {
@@ -632,6 +598,7 @@ static Node *readNode(FILE *fp)
             return NULL;
         }
 
+        // Read child nodes recursively
         for (int i = 0; i <= node->num_keys; i++)
         {
             Node *child = readNode(fp);
@@ -655,10 +622,35 @@ static Node *readNode(FILE *fp)
     return node;
 }
 
+static void linkLeafNodes(Node *node, Node **prev_leaf)
+{
+    if (node == NULL)
+        return;
+
+    if (node->is_leaf)
+    {
+        if (*prev_leaf != NULL)
+        {
+            (*prev_leaf)->pointers[ORDER - 1] = node;
+        }
+        *prev_leaf = node;
+    }
+    else
+    {
+        for (int i = 0; i <= node->num_keys; i++)
+        {
+            linkLeafNodes((Node *)node->pointers[i], prev_leaf);
+        }
+    }
+}
+
 Node *loadTree(char *filename)
 {
     if (!filename)
+    {
+        printf("No file!\n");
         return NULL;
+    }
 
     FILE *fp = fopen(filename, "rb");
     if (!fp)
@@ -667,7 +659,23 @@ Node *loadTree(char *filename)
         return NULL;
     }
 
+    // Read entire tree recursively including leaf nodes
     Node *root = readNode(fp);
+
+    if (root == NULL)
+    {
+        fclose(fp);
+        return NULL;
+    }
+
+    // Link leaf nodes in order
+    Node *prev_leaf = NULL;
+    linkLeafNodes(root, &prev_leaf);
+    if (prev_leaf != NULL)
+    {
+        prev_leaf->pointers[ORDER - 1] = NULL;
+    }
+
     fclose(fp);
     return root;
 }

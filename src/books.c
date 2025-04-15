@@ -34,6 +34,7 @@ void add_book(Book *book)
 {
     if (exist_record(book_management, book->bookId))
     {
+        update_book_from_object(book);
         return;
     }
 
@@ -127,7 +128,7 @@ int update_book_from_object(Book *book)
     Record *record = find(book_management, book->bookId);
     if (record == NULL || record->deleted)
     {
-        printf("Reader not found for update.\n");
+        printf("Book not found for update.\n");
         return UPDATE_FAILED;
     }
 

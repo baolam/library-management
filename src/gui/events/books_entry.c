@@ -64,6 +64,7 @@ void on_book_button_confirm_clicked(GtkButton *button, GtkBuilder *_builder)
     if (chosen_action == BOOK_ADD_STATUS)
     {
         /// Tiến hành lấy lại Id hợp lí
+        printf("Add book status \n");
         book.bookId = total_books + 1;
         total_books++;
         add_book(&book);
@@ -71,6 +72,7 @@ void on_book_button_confirm_clicked(GtkButton *button, GtkBuilder *_builder)
     }
     else if (chosen_action == BOOK_UPDATE_STATUS)
     {
+        printf("Update book status \n");
         int status = update_book_from_object(&book);
         if (status == UPDATE_SUCCESS)
         {
