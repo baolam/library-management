@@ -630,13 +630,20 @@
             </child>
             <child>
               <object class="GtkButton" id="to_main_ui">
-                <property name="label" translatable="yes">Bắt đầu</property>
                 <property name="width-request">250</property>
                 <property name="height-request">100</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
                 <signal name="clicked" handler="on_to_main_ui_clicked" swapped="no"/>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">&lt;span font="17" weight ="bold" foreground="#DC143C"&gt;Thêm sách&lt;/span&gt;</property>
+                    <property name="use-markup">True</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="x">450</property>
@@ -645,13 +652,20 @@
             </child>
             <child>
               <object class="GtkButton" id="to_credits">
-                <property name="label" translatable="yes">Lưu ý</property>
                 <property name="width-request">250</property>
                 <property name="height-request">100</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
                 <signal name="clicked" handler="on_to_credits_clicked" swapped="no"/>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">&lt;span font="17" weight ="bold" foreground="#DC143C"&gt;Nội quy thư viện&lt;/span&gt;</property>
+                    <property name="use-markup">True</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="x">900</property>
@@ -1738,6 +1752,15 @@
           <object class="GtkFixed" id="credits">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <child>
+              <object class="GtkImage">
+                <property name="width-request">100</property>
+                <property name="height-request">80</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="pixbuf">assets\regulation.png</property>
+              </object>
+            </child>
             <child>
               <object class="GtkButton" id="to_index1">
                 <property name="width-request">100</property>
