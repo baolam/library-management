@@ -710,10 +710,11 @@
                                 <property name="height-request">60</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="label" translatable="yes">Chọn tiêu chí:</property>
+                                <property name="label" translatable="yes">&lt;span font="10" weight ="bold" foreground="green"&gt;Chọn tiêu chí:&lt;/span&gt;</property>
+                                <property name="use-markup">True</property>
                               </object>
                               <packing>
-                                <property name="x">1100</property>
+                                <property name="x">1090</property>
                               </packing>
                             </child>
                             <child>
@@ -868,13 +869,20 @@
                     </child>
                     <child>
                       <object class="GtkButton" id="book_add">
-                        <property name="label" translatable="yes">Thêm sách</property>
                         <property name="width-request">100</property>
                         <property name="height-request">50</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
                         <signal name="clicked" handler="on_book_add_clicked" swapped="no"/>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="label" translatable="yes">&lt;span font="14" weight ="bold" foreground="Orange"&gt;Thêm sách&lt;/span&gt;</property>
+                            <property name="use-markup">True</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="x">100</property>
@@ -889,7 +897,8 @@
                     <property name="height-request">60</property>
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Quản lý sách</property>
+                    <property name="label" translatable="yes">&lt;span font="14" weight ="bold" foreground="navy"&gt;Quản lý sách&lt;/span&gt;</property>
+                    <property name="use-markup">True</property>
                   </object>
                   <packing>
                     <property name="tab-fill">False</property>
@@ -928,10 +937,11 @@
                                 <property name="height-request">60</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="label" translatable="yes">Chọn tiêu chí:</property>
+                                <property name="label" translatable="yes">&lt;span font="10" weight ="bold" foreground="green"&gt;Chọn tiêu chí:&lt;/span&gt;</property>
+                                <property name="use-markup">True</property>
                               </object>
                               <packing>
-                                <property name="x">1100</property>
+                                <property name="x">1090</property>
                               </packing>
                             </child>
                             <child>
@@ -1031,13 +1041,20 @@
                     </child>
                     <child>
                       <object class="GtkButton" id="reader_add">
-                        <property name="label" translatable="yes">Thêm độc giả</property>
                         <property name="width-request">100</property>
                         <property name="height-request">50</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
                         <signal name="clicked" handler="on_reader_add_clicked" swapped="no"/>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="label" translatable="yes">&lt;span font="14" weight ="bold" foreground="Orange"&gt;Thêm độc giả&lt;/span&gt;</property>
+                            <property name="use-markup">True</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="x">100</property>
@@ -1084,7 +1101,8 @@
                     <property name="width-request">365</property>
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Quản lý độc giả</property>
+                    <property name="label" translatable="yes">&lt;span font="14" weight ="bold" foreground="navy"&gt;Quản lý độc giả&lt;/span&gt;</property>
+                    <property name="use-markup">True</property>
                   </object>
                   <packing>
                     <property name="position">1</property>
@@ -1123,10 +1141,11 @@
                                 <property name="height-request">60</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="label" translatable="yes">Chọn tiêu chí:</property>
+                                <property name="label" translatable="yes">&lt;span font="10" weight ="bold" foreground="green"&gt;Chọn tiêu chí:&lt;/span&gt;</property>
+                                <property name="use-markup">True</property>
                               </object>
                               <packing>
-                                <property name="x">1100</property>
+                                <property name="x">1090</property>
                               </packing>
                             </child>
                             <child>
@@ -1176,7 +1195,7 @@
                             </child>
                             <child>
                               <object class="GtkTreeViewColumn" id="borrower_name">
-                                <property name="fixed-width">500</property>
+                                <property name="fixed-width">400</property>
                                 <property name="title" translatable="yes">Tên người mượn</property>
                                 <child>
                                   <object class="GtkCellRendererText" id="renderer_bname"/>
@@ -1200,8 +1219,8 @@
                             </child>
                             <child>
                               <object class="GtkTreeViewColumn" id="status">
-                                <property name="fixed-width">200</property>
-                                <property name="title" translatable="yes">Tổng số sách mượn</property>
+                                <property name="fixed-width">250</property>
+                                <property name="title" translatable="yes">Tổng số sách mượn và trả</property>
                                 <child>
                                   <object class="GtkCellRendererText" id="renderer_status"/>
                                   <attributes>
@@ -1249,12 +1268,19 @@
                     </child>
                     <child>
                       <object class="GtkButton" id="borrow_add">
-                        <property name="label" translatable="yes">Thêm bản ghi</property>
                         <property name="width-request">100</property>
                         <property name="height-request">50</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="label" translatable="yes">&lt;span font="14" weight ="bold" foreground="orange"&gt;Thêm bản ghi&lt;/span&gt;</property>
+                            <property name="use-markup">True</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="x">100</property>
@@ -1301,7 +1327,8 @@
                     <property name="width-request">365</property>
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Quản lý mượn/trả</property>
+                    <property name="label" translatable="yes">&lt;span font="14" weight ="bold" foreground="navy"&gt;Quản lý mượn/trả&lt;/span&gt;</property>
+                    <property name="use-markup">True</property>
                   </object>
                   <packing>
                     <property name="position">2</property>
@@ -1312,6 +1339,341 @@
                   <object class="GtkFixed" id="tab4">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="width-request">1600</property>
+                        <property name="height-request">600</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <child>
+                          <object class="GtkFixed">
+                            <property name="width-request">800</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="width-request">800</property>
+                                <property name="height-request">80</property>
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <property name="label" translatable="yes">&lt;span font="20" weight="bold" foreground="green"&gt;Thống kê chung&lt;/span&gt;
+</property>
+                                <property name="use-markup">True</property>
+                              </object>
+                              <packing>
+                                <property name="y">10</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <!-- n-columns=2 n-rows=5 -->
+                              <object class="GtkGrid">
+                                <property name="width-request">518</property>
+                                <property name="height-request">320</property>
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <property name="row-spacing">30</property>
+                                <property name="column-spacing">20</property>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="width-request">400</property>
+                                    <property name="visible">True</property>
+                                    <property name="can-focus">False</property>
+                                    <property name="label" translatable="yes">&lt;span font="16" foreground="#CD853F"&gt;Tổng số sách trong thư viện&lt;/span&gt;</property>
+                                    <property name="use-markup">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left-attach">0</property>
+                                    <property name="top-attach">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="visible">True</property>
+                                    <property name="can-focus">False</property>
+                                    <property name="label" translatable="yes">&lt;span font="16" foreground="#CD853F"&gt;Số thể loại ( genres )&lt;/span&gt;</property>
+                                    <property name="use-markup">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left-attach">0</property>
+                                    <property name="top-attach">1</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="visible">True</property>
+                                    <property name="can-focus">False</property>
+                                    <property name="label" translatable="yes">&lt;span font="16" foreground="#CD853F"&gt;Số sách đang mượn&lt;/span&gt;</property>
+                                    <property name="use-markup">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left-attach">0</property>
+                                    <property name="top-attach">2</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="visible">True</property>
+                                    <property name="can-focus">False</property>
+                                    <property name="label" translatable="yes">&lt;span font="16" foreground="#CD853F"&gt;Số sách mượn quá hạn&lt;/span&gt;</property>
+                                    <property name="use-markup">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left-attach">0</property>
+                                    <property name="top-attach">3</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="visible">True</property>
+                                    <property name="can-focus">False</property>
+                                    <property name="label" translatable="yes">&lt;span font="16" foreground="#CD853F"&gt;Số người mượn quá hạn&lt;/span&gt;</property>
+                                    <property name="use-markup">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left-attach">0</property>
+                                    <property name="top-attach">4</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="width-request">0</property>
+                                    <property name="visible">True</property>
+                                    <property name="can-focus">False</property>
+                                    <property name="label" translatable="yes">&lt;span font="14" foreground="black"&gt;Label&lt;/span&gt;</property>
+                                    <property name="use-markup">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left-attach">1</property>
+                                    <property name="top-attach">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="visible">True</property>
+                                    <property name="can-focus">False</property>
+                                    <property name="label" translatable="yes">label</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left-attach">1</property>
+                                    <property name="top-attach">1</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="visible">True</property>
+                                    <property name="can-focus">False</property>
+                                    <property name="label" translatable="yes">label</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left-attach">1</property>
+                                    <property name="top-attach">2</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="visible">True</property>
+                                    <property name="can-focus">False</property>
+                                    <property name="label" translatable="yes">label</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left-attach">1</property>
+                                    <property name="top-attach">3</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="visible">True</property>
+                                    <property name="can-focus">False</property>
+                                    <property name="label" translatable="yes">label</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left-attach">1</property>
+                                    <property name="top-attach">4</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="x">130</property>
+                                <property name="y">160</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkFixed">
+                            <property name="width-request">800</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="width-request">800</property>
+                                <property name="height-request">80</property>
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <property name="label" translatable="yes">&lt;span font="20" weight ="bold" foreground="Green"&gt;Danh sách quá hạn&lt;/span&gt;</property>
+                                <property name="use-markup">True</property>
+                              </object>
+                              <packing>
+                                <property name="y">10</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox" id="tab 5">
+                                <property name="width-request">100</property>
+                                <property name="height-request">80</property>
+                                <property name="can-focus">False</property>
+                                <property name="orientation">vertical</property>
+                                <child>
+                                  <object class="GtkFixed">
+                                    <property name="visible">True</property>
+                                    <property name="can-focus">False</property>
+                                    <child>
+                                      <object class="GtkSearchEntry" id="entry_search_borrow1">
+                                        <property name="width-request">384</property>
+                                        <property name="height-request">60</property>
+                                        <property name="visible">True</property>
+                                        <property name="can-focus">True</property>
+                                        <property name="margin-bottom">20</property>
+                                        <property name="primary-icon-name">edit-find-symbolic</property>
+                                        <property name="primary-icon-activatable">False</property>
+                                        <property name="primary-icon-sensitive">False</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="width-request">100</property>
+                                        <property name="height-request">60</property>
+                                        <property name="visible">True</property>
+                                        <property name="can-focus">False</property>
+                                        <property name="label" translatable="yes">&lt;span font="10" weight ="bold" foreground="green"&gt;Chọn tiêu chí:&lt;/span&gt;</property>
+                                        <property name="use-markup">True</property>
+                                      </object>
+                                      <packing>
+                                        <property name="x">390</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkToggleButton" id="toggle_mode3">
+                                        <property name="label" translatable="yes">Tìm kiếm theo ID</property>
+                                        <property name="width-request">200</property>
+                                        <property name="height-request">60</property>
+                                        <property name="visible">True</property>
+                                        <property name="can-focus">True</property>
+                                        <property name="receives-default">True</property>
+                                      </object>
+                                      <packing>
+                                        <property name="x">500</property>
+                                      </packing>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkTreeView" id="borrow_treeview1">
+                                    <property name="height-request">300</property>
+                                    <property name="can-focus">True</property>
+                                    <property name="border-width">10</property>
+                                    <property name="model">borrow_data</property>
+                                    <property name="search-column">0</property>
+                                    <child internal-child="selection">
+                                      <object class="GtkTreeSelection"/>
+                                    </child>
+                                    <child>
+                                      <object class="GtkTreeViewColumn" id="borrow_id1">
+                                        <property name="sizing">fixed</property>
+                                        <property name="fixed-width">100</property>
+                                        <property name="title" translatable="yes">ReaderID</property>
+                                        <child>
+                                          <object class="GtkCellRendererText" id="renderer_bid3"/>
+                                          <attributes>
+                                            <attribute name="text">0</attribute>
+                                          </attributes>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkTreeViewColumn" id="borrower_name1">
+                                        <property name="fixed-width">400</property>
+                                        <property name="title" translatable="yes">Tên người mượn</property>
+                                        <child>
+                                          <object class="GtkCellRendererText" id="renderer_bname1"/>
+                                          <attributes>
+                                            <attribute name="text">1</attribute>
+                                          </attributes>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkTreeViewColumn" id="overdue_count">
+                                        <property name="fixed-width">200</property>
+                                        <property name="title" translatable="yes">Số ngày quá hạn</property>
+                                        <child>
+                                          <object class="GtkCellRendererText" id="renderer_bquantity3"/>
+                                          <attributes>
+                                            <attribute name="text">4</attribute>
+                                          </attributes>
+                                        </child>
+                                      </object>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">True</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="x">50</property>
+                                <property name="y">100</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="previous_statistics_page">
+                                <property name="label" translatable="yes">&lt;</property>
+                                <property name="width-request">100</property>
+                                <property name="height-request">50</property>
+                                <property name="visible">True</property>
+                                <property name="can-focus">True</property>
+                                <property name="receives-default">True</property>
+                              </object>
+                              <packing>
+                                <property name="x">250</property>
+                                <property name="y">520</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="next_statistics_page">
+                                <property name="label" translatable="yes">&gt;</property>
+                                <property name="width-request">100</property>
+                                <property name="height-request">50</property>
+                                <property name="visible">True</property>
+                                <property name="can-focus">True</property>
+                                <property name="receives-default">True</property>
+                              </object>
+                              <packing>
+                                <property name="x">450</property>
+                                <property name="y">520</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="position">3</property>
@@ -1322,7 +1684,8 @@
                     <property name="width-request">365</property>
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Thống kê</property>
+                    <property name="label" translatable="yes">&lt;span font="14" weight ="bold" foreground="navy"&gt;Thống kê&lt;/span&gt;</property>
+                    <property name="use-markup">True</property>
                   </object>
                   <packing>
                     <property name="position">3</property>

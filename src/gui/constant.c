@@ -1,5 +1,6 @@
 #include "gui/constant.h"
 
+GtkCssProvider *css_provider = NULL;
 GtkBuilder *builder = NULL;
 GtkWidget *book_menu = NULL;
 GtkWidget *reader_menu = NULL;
