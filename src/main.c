@@ -6,6 +6,7 @@
 int main(int argc, char *argv[])
 {
     auto_update_time();
+
     printf("Nam hien tai: %d\n", system_current_year);
     printf("Ngay hien tai: %d\n", system_date);
 
@@ -19,8 +20,10 @@ int main(int argc, char *argv[])
     collect_late_borrowers(borrow_return_management);
     collect_genres();
 
-    printf("Total books : %d\n", total_books);
-    printf("Total readers : %d\n", total_readers);
+    // list_late_borrowers();
+
+    // printf("Total books : %d\n", total_books);
+    // printf("Total readers : %d\n", total_readers);
 
     init_gui(argc, argv);
     return 0;

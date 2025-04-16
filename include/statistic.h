@@ -22,7 +22,7 @@
 typedef struct OverdueBorrower
 {
     int readerId;
-    int days_borrowed;
+    int late_fees;
 } OverdueBorrower;
 
 /// Tổng số sách hiện có

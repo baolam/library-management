@@ -921,6 +921,16 @@
       </object>
     </child>
   </object>
+  <object class="GtkListStore" id="overdue_borrowers_data">
+    <columns>
+      <!-- column-name gchararray -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray2 -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
   <object class="GtkListStore" id="reader_data">
     <columns>
       <!-- column-name gchararray -->
@@ -1859,11 +1869,11 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkTreeView" id="borrow_treeview1">
+                                  <object class="GtkTreeView" id="overdue_borrowers_treeview">
                                     <property name="height-request">300</property>
                                     <property name="can-focus">True</property>
                                     <property name="border-width">10</property>
-                                    <property name="model">borrow_data</property>
+                                    <property name="model">overdue_borrowers_data</property>
                                     <property name="search-column">0</property>
                                     <child internal-child="selection">
                                       <object class="GtkTreeSelection"/>
@@ -1883,7 +1893,7 @@
                                     </child>
                                     <child>
                                       <object class="GtkTreeViewColumn" id="borrower_name1">
-                                        <property name="fixed-width">400</property>
+                                        <property name="fixed-width">300</property>
                                         <property name="title" translatable="yes">Tên người mượn</property>
                                         <child>
                                           <object class="GtkCellRendererText" id="renderer_bname1"/>
@@ -1894,13 +1904,13 @@
                                       </object>
                                     </child>
                                     <child>
-                                      <object class="GtkTreeViewColumn" id="overdue_count">
+                                      <object class="GtkTreeViewColumn" id="late_fees">
                                         <property name="fixed-width">200</property>
-                                        <property name="title" translatable="yes">Số ngày quá hạn</property>
+                                        <property name="title" translatable="yes">Tổng tiền phạt (VND)</property>
                                         <child>
                                           <object class="GtkCellRendererText" id="renderer_bquantity3"/>
                                           <attributes>
-                                            <attribute name="text">4</attribute>
+                                            <attribute name="text">2</attribute>
                                           </attributes>
                                         </child>
                                       </object>
@@ -1926,6 +1936,7 @@
                                 <property name="visible">True</property>
                                 <property name="can-focus">True</property>
                                 <property name="receives-default">True</property>
+                                <signal name="clicked" handler="on_previous_statistics_page_clicked" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="x">250</property>
@@ -1940,6 +1951,7 @@
                                 <property name="visible">True</property>
                                 <property name="can-focus">True</property>
                                 <property name="receives-default">True</property>
+                                <signal name="clicked" handler="on_next_statistics_page_clicked" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="x">450</property>
