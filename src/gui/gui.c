@@ -16,6 +16,7 @@ void init_gui(int argc, char *argv[])
     popup_book_menu_init(builder);
     popup_reader_menu_init(builder);
     popup_borrow_menu_init(builder);
+    popup_book_borrow_menu_init(builder);
 
     gtk_widget_show_all(window);
 

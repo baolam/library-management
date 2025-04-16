@@ -6,14 +6,14 @@ int main()
     srand(time(NULL));
     prepare_reader();
 
-    // int totals = 250;
-    // int id;
-    // for (id = 1; id <= totals; id++)
-    // {
-    //     Readers reader = generate_reader(id);
-    //     add_reader(&reader);
-    // }
-    // save_reader_management();
+    int totals = 250;
+    int id;
+    for (id = 1; id <= totals; id++)
+    {
+        Readers reader = generate_reader(id);
+        add_reader(&reader);
+    }
+    save_reader_management();
 
     load_reader_management();
 

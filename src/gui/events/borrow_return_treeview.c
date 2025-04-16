@@ -10,9 +10,10 @@ GtkListStore *reference_borrow_return_store()
 void show_oneborrow_to_layout(GtkListStore *store, BorrowReturn borrow)
 {
     gchar *readerId = g_strdup_printf("%d", borrow.readerId);
-    gchar *date = g_strdup_printf("%d", borrow.date);
+    // gchar *date = g_strdup_printf("%d", borrow.date);
     gchar *totalBooks = g_strdup_printf("%d", borrow.totalBooks);
     gchar *quanities = g_strdup_printf("%d", stat_total_books_from_object(&borrow));
+    gchar *overduebooks = g_strdup_printf("%d", stat_overdue_books_from_object(&borrow));
 
     Readers *reader = search_reader(borrow.readerId);
     if (reader == NULL)
@@ -25,12 +26,11 @@ void show_oneborrow_to_layout(GtkListStore *store, BorrowReturn borrow)
                        1, reader->fullName,
                        2, totalBooks,
                        3, quanities,
-                       4, "...",
-                       5, date,
+                       4, overduebooks,
                        -1);
 
     g_free(readerId);
-    g_free(date);
+    // g_free(date);
     g_free(totalBooks);
 }
 

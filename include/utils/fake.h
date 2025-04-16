@@ -101,4 +101,6 @@ Readers generate_reader(int id);
 
 BorrowReturn generate_borrow_return(int readerId);
 
+BorrowReturn default_borrow_return(int readerId);
+
 #endif

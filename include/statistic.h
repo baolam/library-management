@@ -89,6 +89,10 @@ void calc_statistic_reader(Node *reader_management);
  */
 int stat_total_books_from_object(BorrowReturn *borrow_return);
 
+int stat_overdue_books_from_object(BorrowReturn *borrow_return);
+
+void get_borrow_time(int day_of_year, int year, int *day, int *month);
+
 /**
  * @brief Thống kê tổng số sách đã mượn và trả bởi người đọc.
  */

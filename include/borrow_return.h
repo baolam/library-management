@@ -92,6 +92,16 @@
 #include "reader.h"
 #include "utils/bplustreev2.h"
 
+typedef struct BookBorrowInfor
+{
+    int bookId;
+    int quantity;
+    int status;
+    bool onTime;
+    int date;
+    int current_year;
+} BookBorrowInfor;
+
 /**
  * @brief Struct đại diện cho một bản ghi mượn-trả sách.
  */
@@ -99,12 +109,7 @@ typedef struct BorrowReturn
 {
     int readerId;
     int totalBooks;
-    int bookIds[MAX_BORROWED_BOOKS];
-    int quantities[MAX_BORROWED_BOOKS];
-    int status[MAX_BORROWED_BOOKS];  // 0 = đang mượn, 1 = đã trả
-    bool onTime[MAX_BORROWED_BOOKS]; // 1 = đúng hạn, 0 = trễ
-    int date;
-    int current_year;
+    BookBorrowInfor infors[MAX_BORROWED_BOOKS];
 } BorrowReturn;
 
 // Biến toàn cục
@@ -114,8 +119,9 @@ extern Node *borrow_return_management;
 extern char borrow_return_content_file[MAX_FILE_NAME_LENGTH];
 extern char borrow_return_management_file[MAX_FILE_NAME_LENGTH];
 
-extern int date;
-extern int current_year;
+extern int system_date;
+extern int system_current_year;
+
 extern time_t now;
 extern struct tm *local;
 
@@ -162,6 +168,8 @@ BorrowReturn *search_borrow_by_reader(int readerId);
  */
 BorrowReturn *retrieve_bucket_borrows(int beginingKey, int quanities, int *actualBorrows);
 
+void update_borrow_infor(BorrowReturn *borrow_return);
+
 /**
  * @brief Xóa bản ghi mượn theo ID người đọc.
  */
@@ -170,7 +178,7 @@ void delete_borrow_record(int readerId);
 /**
  * @brief Xử lý việc trả sách (cập nhật trạng thái, phạt nếu trễ).
  */
-void return_books(int readerId, int bookId);
+int return_books(int readerId, int bookId);
 
 /**
  * @brief Khôi phục lại số lượng sách vào kho (khi trả).
@@ -181,6 +189,14 @@ void restore_books_to_stock(BorrowReturn *b);
  * @brief Cập nhật trực tiếp dữ liệu sách vào file.
  */
 void update_book_direct(Book *book);
+
+bool exist_bookid_bookborrow(BorrowReturn *b, int bookId);
+
+bool add_bookborrow(BorrowReturn *b, int bookId, int quanities);
+
+void delete_bookborrow(BorrowReturn *b, int bookId);
+
+int getPosition(BookBorrowInfor infor[], int size, int searchId);
 
 int calculate_day_difference(int borrow_date, int borrow_year);
 
