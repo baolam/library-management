@@ -19,10 +19,13 @@ gboolean on_reader_treeview_button_press(GtkWidget *widget, GdkEventButton *even
 void on_borrow_treeview_row_activated(GtkTreeView *treeview, GtkTreePath *path, GtkTreeViewColumn *column, gpointer user_data);
 gboolean on_borrow_treeview_button_press(GtkWidget *widget, GdkEventButton *event, gpointer user_data);
 
-void on_book_edit(GtkMenuItem *item, gpointer user_data);
-void on_book_delete(GtkMenuItem *item, gpointer user_data);
+void on_book_edit_activate(GtkMenuItem *item, gpointer user_data);
+void on_book_delete_activate(GtkMenuItem *item, gpointer user_data);
 
-void on_reader_edit(GtkMenuItem *item, gpointer user_data);
-void on_reader_delete(GtkMenuItem *item, gpointer user_data);
+void on_reader_edit_activate(GtkMenuItem *item, gpointer user_data);
+void on_reader_delete_activate(GtkMenuItem *item, gpointer user_data);
+
+void on_borrow_detail_activate(GtkMenuItem *item, gpointer user_data);
+void on_borrow_erase_activate(GtkMenuItem *item, gpointer user_data);
 
 #endif

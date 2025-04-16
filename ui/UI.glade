@@ -164,12 +164,14 @@
       <object class="GtkFixed" id="tab5">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
+        <property name="margin-bottom">86</property>
         <child>
           <object class="GtkBox" id="tab 4">
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="can-focus">False</property>
             <property name="orientation">vertical</property>
+            <property name="spacing">3</property>
             <child>
               <object class="GtkFixed">
                 <property name="visible">True</property>
@@ -318,6 +320,19 @@
                 <property name="expand">True</property>
                 <property name="fill">True</property>
                 <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="label" translatable="yes">Thêm sách mượn</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
               </packing>
             </child>
           </object>
@@ -542,7 +557,7 @@
         <property name="can-focus">False</property>
         <property name="label" translatable="yes">Sửa thông tin sách</property>
         <property name="use-underline">True</property>
-        <signal name="activate" handler="on_book_edit" swapped="no"/>
+        <signal name="activate" handler="on_book_edit_activate" swapped="no"/>
       </object>
     </child>
     <child>
@@ -551,7 +566,7 @@
         <property name="can-focus">False</property>
         <property name="label" translatable="yes">Xóa sách</property>
         <property name="use-underline">True</property>
-        <signal name="activate" handler="on_book_delete" swapped="no"/>
+        <signal name="activate" handler="on_book_delete_activate" swapped="no"/>
       </object>
     </child>
   </object>
@@ -580,6 +595,7 @@
         <property name="can-focus">False</property>
         <property name="label" translatable="yes">Chi tiết</property>
         <property name="use-underline">True</property>
+        <signal name="activate" handler="on_borrow_detail_activate" swapped="no"/>
       </object>
     </child>
     <child>
@@ -717,7 +733,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkToggleButton" id="toggle_mode">
+                              <object class="GtkToggleButton" id="toggle_book_mode">
                                 <property name="label" translatable="yes">Tìm kiếm theo ID</property>
                                 <property name="width-request">200</property>
                                 <property name="height-request">60</property>
@@ -935,7 +951,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkToggleButton" id="toggle_mode1">
+                              <object class="GtkToggleButton" id="toggle_reader_mode">
                                 <property name="label" translatable="yes">Tìm kiếm theo ID</property>
                                 <property name="width-request">200</property>
                                 <property name="height-request">60</property>
@@ -1115,6 +1131,7 @@
                                 <property name="primary-icon-name">edit-find-symbolic</property>
                                 <property name="primary-icon-activatable">False</property>
                                 <property name="primary-icon-sensitive">False</property>
+                                <signal name="search-changed" handler="on_borrow_search_entry_changed" swapped="no"/>
                               </object>
                             </child>
                             <child>
@@ -1130,13 +1147,14 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkToggleButton" id="toggle_mode2">
+                              <object class="GtkToggleButton" id="toggle_borrow_mode">
                                 <property name="label" translatable="yes">Tìm kiếm theo ID</property>
                                 <property name="width-request">200</property>
                                 <property name="height-request">60</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">True</property>
                                 <property name="receives-default">True</property>
+                                <signal name="toggled" handler="on_borrow_toggle_mode_toggled" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="x">1200</property>
@@ -1539,7 +1557,7 @@
         <property name="can-focus">False</property>
         <property name="label" translatable="yes">Sửa thông tin độc giả</property>
         <property name="use-underline">True</property>
-        <signal name="activate" handler="on_reader_edit" swapped="no"/>
+        <signal name="activate" handler="on_reader_edit_activate" swapped="no"/>
       </object>
     </child>
     <child>
@@ -1548,7 +1566,7 @@
         <property name="can-focus">False</property>
         <property name="label" translatable="yes">Xóa độc giả</property>
         <property name="use-underline">True</property>
-        <signal name="activate" handler="on_reader_delete" swapped="no"/>
+        <signal name="activate" handler="on_reader_delete_activate" swapped="no"/>
       </object>
     </child>
   </object>

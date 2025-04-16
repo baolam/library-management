@@ -122,7 +122,7 @@ gint get_book_id()
     return -1;
 }
 
-void on_book_edit(GtkMenuItem *item, gpointer user_data)
+void on_book_edit_activate(GtkMenuItem *item, gpointer user_data)
 {
     printf(">> Sua duoc chon!\n");
 
@@ -144,7 +144,7 @@ void on_book_edit(GtkMenuItem *item, gpointer user_data)
     }
 }
 
-void on_book_delete(GtkMenuItem *item, gpointer user_data)
+void on_book_delete_activate(GtkMenuItem *item, gpointer user_data)
 {
     gint id = get_book_id();
     printf("Chon id : %d\n", id);
@@ -175,7 +175,7 @@ gint get_reader_id()
     return -1;
 }
 
-void on_reader_edit(GtkMenuItem *item, gpointer user_data)
+void on_reader_edit_activate(GtkMenuItem *item, gpointer user_data)
 {
     printf(">> Sua duoc chon!\n");
     reader_chosen_action = READER_UPDATE_STATUS;
@@ -188,7 +188,7 @@ void on_reader_edit(GtkMenuItem *item, gpointer user_data)
         show_reader_to_entry(*reader);
 }
 
-void on_reader_delete(GtkMenuItem *item, gpointer user_data)
+void on_reader_delete_activate(GtkMenuItem *item, gpointer user_data)
 {
     printf(">> Xoa duoc chon!\n");
 
@@ -197,4 +197,37 @@ void on_reader_delete(GtkMenuItem *item, gpointer user_data)
 
     delete_reader(id);
     load_reader_to_layout(current_reader_page);
+}
+
+// ------------------------------------------------------------------------------
+// Phần thao tác giao diện borrow
+// ------------------------------------------------------------------------------
+gint get_borrow_id()
+{
+    GtkWidget *treeview = GTK_WIDGET(gtk_builder_get_object(builder, "borrow_treeview"));
+    GtkTreeSelection *selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
+
+    GtkTreeModel *model;
+    GtkTreeIter iter;
+
+    if (gtk_tree_selection_get_selected(selection, &model, &iter))
+    {
+        gchar *id_str;
+        gtk_tree_model_get(model, &iter, 0, &id_str, -1);
+        gint id = atoi(id_str);
+        return id;
+    }
+
+    return -1;
+}
+
+void on_borrow_detail_activate(GtkMenuItem *item, gpointer user_data)
+{
+    printf(">>> Chi tiet duoc kich hoat \n");
+    open_borrow_book_layout();
+}
+
+void on_borrow_erase_activate(GtkMenuItem *item, gpointer user_data)
+{
+    printf(">>> Xoa borrow duoc kich hoat \n");
 }

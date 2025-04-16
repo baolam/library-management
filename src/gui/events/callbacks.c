@@ -2,7 +2,6 @@
 
 void open_book_entry_layout()
 {
-    // builder = load_ui("ui/UI.glade");
     GtkWidget *add_window = GTK_WIDGET(gtk_builder_get_object(builder, "book_entry"));
     if (add_window)
     {
@@ -17,6 +16,19 @@ void open_book_entry_layout()
 void open_reader_entry_layout()
 {
     GtkWidget *add_window = GTK_WIDGET(gtk_builder_get_object(builder, "reader_entry"));
+    if (add_window)
+    {
+        gtk_widget_show_all(add_window);
+    }
+    else
+    {
+        g_warning("Không tìm thấy cửa sổ 'add_window'!");
+    }
+}
+
+void open_borrow_book_layout()
+{
+    GtkWidget *add_window = GTK_WIDGET(gtk_builder_get_object(builder, "borrow_detail_layout"));
     if (add_window)
     {
         gtk_widget_show_all(add_window);
