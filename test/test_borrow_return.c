@@ -191,8 +191,8 @@ void borrowBooks()
 
         b.infors[i].status = ON_BORROWING;
         b.infors[i].onTime = false;
-        b.infors[i].date = date;
-        b.infors[i].current_year = current_year;
+        b.infors[i].date = system_date;
+        b.infors[i].current_year = system_current_year;
     }
 
 #if DEBUG_MODE

@@ -89,6 +89,14 @@ void on_borrow_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
     if (gtk_toggle_button_get_active(toggle))
     {
         printf(">>> Chuc nang dang bi khoa:\n");
+        // int size = 0;
+        // Readers *readers = search_reader_by_name_direct(entry_search, &size, MAX_ROW_ONEPAGE);
+        // BorrowReturn borrowReturn[size];
+        // for (int i = 0; i < size; i++)
+        // {
+        //     borrowReturn[i] = *((BorrowReturn *)search_borrow_by_reader(readers[i].readerId));
+        // }
+        // show_borrow_to_layout(borrowReturn, size);
         return;
     }
     else

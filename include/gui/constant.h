@@ -59,6 +59,7 @@
 #include "events/borrow_book_return_treeview.h"
 #include "events/books_entry.h"
 #include "events/readers_entry.h"
+#include "events/book_borrow_entry.h"
 #include "events/search_toggle.h"
 #include "events/choose_option.h"
 #include "events/search.h"
@@ -83,6 +84,8 @@ extern GtkWidget *reader_menu;
  * @brief Trạng thái borrow_menu
  */
 extern GtkWidget *borrow_menu;
+
+extern GtkWidget *book_borrow_menu;
 
 /// Nhóm biến trạng thái chạy của chương trình
 // ===========================================

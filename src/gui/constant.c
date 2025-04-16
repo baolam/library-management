@@ -4,6 +4,7 @@ GtkBuilder *builder = NULL;
 GtkWidget *book_menu = NULL;
 GtkWidget *reader_menu = NULL;
 GtkWidget *borrow_menu = NULL;
+GtkWidget *book_borrow_menu = NULL;
 
 gint book_chosen_id = -1;
 int book_chosen_action = BOOK_NO_ACTION;

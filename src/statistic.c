@@ -14,8 +14,8 @@ int overdue_count = 0;
 
 int calculate_day_difference(int borrow_date, int borrow_year)
 {
-    int year_diff = current_year - borrow_year;
-    return year_diff * 365 + (date - borrow_date);
+    int year_diff = system_current_year - borrow_year;
+    return year_diff * 365 + (system_date - borrow_date);
 }
 
 int find_position(char genre[MAX_GENRE_NO])
@@ -123,8 +123,16 @@ void calc_statistic_borrowed_books(Node *borrow_return_management)
             for (int i = 0; i < borrow->totalBooks; i++)
             {
                 total_borrowed_books += borrow->infors[i].quantity;
+
                 int day = calculate_day_difference(borrow->infors[i].date, borrow->infors[i].current_year);
-                borrow->infors[i].onTime = day <= OVER_DATE ? true : false;
+                borrow->infors[i].onTime = day <= OVER_DATE;
+
+                /// Thử nghiệm chương trình
+                // show_borow(*borrow);
+                // printf("Day difference : %d\n", day);
+                // printf("Ontime : %d\n", borrow->infors[i].onTime);
+                // printf("-----------------------------------\n");
+
                 if (!borrow->infors[i].onTime)
                     total_late_books += borrow->infors[i].quantity;
             }
@@ -181,12 +189,38 @@ int stat_total_books_from_object(BorrowReturn *borrow_return)
     return totals;
 }
 
+int stat_overdue_books_from_object(BorrowReturn *borrow_return)
+{
+    int totals = 0;
+    int i;
+    for (i = 0; i < borrow_return->totalBooks; i++)
+    {
+        totals += !(calculate_day_difference(borrow_return->infors[i].date, borrow_return->infors[i].current_year) <= OVER_DATE);
+    }
+    return totals;
+}
+
 int stat_total_books_by_reader(int readerId)
 {
     BorrowReturn *borrow_return = search_borrow_by_reader(readerId);
     if (borrow_return == NULL)
         return 0;
     return stat_total_books_from_object(borrow_return);
+}
+
+void get_borrow_time(int day_of_year, int year, int *day, int *month)
+{
+    struct tm date = {0};
+
+    date.tm_year = year - 1900; // Năm tính từ 1900
+    date.tm_mon = 0;            // Tháng 0 = tháng 1
+    date.tm_mday = day_of_year; // mktime tự động xử lý nếu > 31
+
+    // Normalize lại thời gian (để xử lý ngày vượt quá trong tháng)
+    mktime(&date);
+
+    *day = date.tm_mday;
+    *month = date.tm_mon + 1;
 }
 
 void list_late_borrowers()

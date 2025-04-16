@@ -13,8 +13,8 @@ char borrow_return_management_file[MAX_FILE_NAME_LENGTH] = "data/borrow/borrow_r
 
 Node *borrow_return_management = NULL;
 
-int date = 0; // Phong
-int current_year = 0;
+int system_date = 0;
+int system_current_year = 0;
 
 time_t now;
 struct tm *local;
@@ -36,13 +36,13 @@ void auto_update_time()
     time(&now);
     local = localtime(&now);
 
-    current_year = local->tm_year + 1900;
-    date = local->tm_yday + 1;
+    system_current_year = local->tm_year + 1900;
+    system_date = local->tm_yday + 1;
 }
 
 void add_borrow_record(BorrowReturn *b)
 {
-    if (b == NULL || b->totalBooks <= 0 || b->totalBooks >= MAX_BORROWED_BOOKS)
+    if (b == NULL || b->totalBooks < 0 || b->totalBooks >= MAX_BORROWED_BOOKS)
         return;
 
     Record *reader_record = find(reader_management, b->readerId);
@@ -95,7 +95,7 @@ void show_borow(BorrowReturn b)
     printf("Borrowed books:\n");
     for (int i = 0; i < b.totalBooks; i++)
     {
-        printf("  - Book ID: %d | Quantity: %d | Status : %s\n", b.infors[i].bookId, b.infors[i].quantity, b.infors[i].status == ON_BORROWING ? "Borrowing" : "Returned");
+        printf("  - Book ID: %d | Quantity: %d | Status : %s | Ontime : %s \n", b.infors[i].bookId, b.infors[i].quantity, b.infors[i].status == ON_BORROWING ? "Borrowing" : "Returned", b.infors[i].onTime ? "On Time" : "Late");
     }
     printf("Date : %d, Year : %d \n", b.infors[0].date, b.infors[0].current_year);
     printf("\n");
@@ -197,6 +197,37 @@ int getPosition(BookBorrowInfor infor[], int size, int searchId)
     return -1;
 }
 
+void update_borrow_infor(BorrowReturn *borrow_return)
+{
+    Record *record = find(borrow_return_management, borrow_return->readerId);
+    if (record == NULL || record->deleted)
+    {
+        printf("Da xoa, co loi, khong the ghi nhan Borrow!\n");
+        return;
+    }
+
+    int status = update_content_without_callback(record, borrow_return);
+    if (status == UPDATE_SUCCESS)
+    {
+        printf("Cap nhat thanh cong!\n");
+    }
+    else
+    {
+        printf("Cap nhat that bai \n");
+    }
+}
+
+bool exist_bookid_bookborrow(BorrowReturn *b, int bookId)
+{
+    int i;
+    for (i = 0; i < b->totalBooks; i++)
+    {
+        if (b->infors[i].bookId == bookId)
+            return true;
+    }
+    return false;
+}
+
 bool add_bookborrow(BorrowReturn *b, int bookId, int quanities)
 {
     bool existed = getPosition(b->infors, b->totalBooks, bookId) != -1;
@@ -212,11 +243,17 @@ bool add_bookborrow(BorrowReturn *b, int bookId, int quanities)
     infor.quantity = quanities;
     infor.onTime = false;
     infor.status = ON_BORROWING;
-    infor.date = date;
-    infor.current_year = current_year;
+    infor.date = system_date;
+    infor.current_year = system_current_year;
 
     b->infors[b->totalBooks] = infor;
     b->totalBooks++;
+
+    Book *effected_book = search_book(bookId);
+    effected_book->stock -= quanities;
+
+    update_book_direct(effected_book);
+    update_borrow_infor(b);
 
     return true;
 }
@@ -225,29 +262,32 @@ void delete_bookborrow(BorrowReturn *b, int bookId)
 {
 }
 
-void return_books(int readerId, int bookId)
+int return_books(int readerId, int bookId)
 {
+    int late_fees = 0;
+
     Record *record = find(borrow_return_management, readerId);
     if (record == NULL || record->deleted)
-        return;
+        return 0;
 
     BorrowReturn b;
     FILE *f = fopen(record->_from, "rb+");
     if (f == NULL)
-        return;
+        return 0;
 
     fseek(f, record->offset, SEEK_SET);
     fread(&b, sizeof(BorrowReturn), 1, f);
 
-    show_borow(b);
+    // show_borow(b);
 
     int index = getPosition(b.infors, b.totalBooks, bookId);
     if (index == -1)
-        return;
+        return 0;
     if (b.infors[index].status != ON_BORROWING)
-        return;
+        return 0;
 
     restore_books_to_stock(&b);
+
     int day = calculate_day_difference(b.infors[index].date, b.infors[index].current_year);
     b.infors[index].onTime = day <= OVER_DATE ? true : false;
 
@@ -259,6 +299,7 @@ void return_books(int readerId, int bookId)
             total += b.infors[i].quantity * LATE_FEE;
         }
         printf("Late return! Total fee: %d VND\n", total);
+        late_fees = total;
     }
     else
     {
@@ -271,9 +312,10 @@ void return_books(int readerId, int bookId)
     fwrite(&b, sizeof(BorrowReturn), 1, f);
     fclose(f);
 
-    show_borow(b);
+    // show_borow(b);
 
     printf("Return processed successfully.\n");
+    return late_fees;
 }
 
 // Cập nhật tồn kho sách
