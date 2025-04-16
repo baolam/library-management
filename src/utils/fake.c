@@ -85,14 +85,16 @@ BorrowReturn generate_borrow_return(int readerId)
     int i;
     for (i = 0; i < borrowReturn.totalBooks; i++)
     {
-        borrowReturn.bookIds[i] = rand() % 100;
-        borrowReturn.quantities[i] = 1 + rand() % 5;
-        borrowReturn.status[i] = ON_BORROWING;
-        borrowReturn.onTime[i] = false;
-    }
+        BookBorrowInfor infor;
+        infor.bookId = 1 + rand() % 50;
+        infor.quantity = 1 + rand() % 5;
+        infor.status = ON_BORROWING;
+        infor.onTime = false;
+        infor.date = 1 + rand() % 365;
+        infor.current_year = 2023 + rand() % 3;
 
-    borrowReturn.date = rand() % 365;
-    borrowReturn.current_year = 2023 + rand() % 3;
+        borrowReturn.infors[i] = infor;
+    }
 
     return borrowReturn;
 }

@@ -172,7 +172,7 @@ void borrowBooks()
     for (int i = 0; i < b.totalBooks; i++)
     {
         printf("Enter Book ID %d: ", i + 1);
-        if (scanf("%d", &b.bookIds[i]) != 1 || b.bookIds[i] <= 0)
+        if (scanf("%d", &b.infors[i].bookId) != 1 || b.infors[i].bookId <= 0)
         {
             printf("Error: Invalid Book ID.\n");
             while (getchar() != '\n')
@@ -181,7 +181,7 @@ void borrowBooks()
         }
 
         printf("Enter Quantity: ");
-        if (scanf("%d", &b.quantities[i]) != 1 || b.quantities[i] <= 0)
+        if (scanf("%d", &b.infors[i].quantity) != 1 || b.infors[i].quantity <= 0)
         {
             printf("Error: Invalid Quantity.\n");
             while (getchar() != '\n')
@@ -189,8 +189,10 @@ void borrowBooks()
             return;
         }
 
-        b.status[i] = ON_BORROWING;
-        b.onTime[i] = false;
+        b.infors[i].status = ON_BORROWING;
+        b.infors[i].onTime = false;
+        b.infors[i].date = date;
+        b.infors[i].current_year = current_year;
     }
 
 #if DEBUG_MODE
@@ -216,6 +218,8 @@ void returnBooks()
 
 int main()
 {
+    auto_update_time();
+
     // load_reader_management();
 
     // int readerId = 1001;

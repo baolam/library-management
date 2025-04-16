@@ -45,8 +45,8 @@ void show_borrowbook_to_layout(BorrowReturn *borrow, int size)
     int i;
     for (i = current_book_borrow_page - 1; i < borrow->totalBooks && size > 0; i++)
     {
-        Book *book = search_book(borrow->bookIds[i]);
-        show_oneborrowbook_to_layout(store, *book, borrow->status[i], borrow->quantities[i]);
+        Book *book = search_book(borrow->infors[i].bookId);
+        show_oneborrowbook_to_layout(store, *book, borrow->infors[i].status, borrow->infors[i].quantity);
         size--;
     }
 }

@@ -51,17 +51,18 @@ void add_borrow_record(BorrowReturn *b)
 
     for (int i = 0; i < b->totalBooks; i++)
     {
-        Book *book = search_book(b->bookIds[i]);
+        Book *book = search_book(b->infors[i].bookId);
         if (book == NULL)
             return;
 
-        if (book->stock < b->quantities[i])
+        if (book->stock < b->infors[i].quantity)
         {
             printf("Error: Not enough stock for Book ID %d. Available: %d, Requested: %d.\n",
-                   b->bookIds[i], book->stock, b->quantities[i]);
+                   b->infors[i].bookId, book->stock, b->infors[i].quantity);
             return;
         }
-        book->stock -= b->quantities[i];
+
+        book->stock -= b->infors[i].quantity;
         update_book_direct(book);
     }
 
@@ -94,9 +95,9 @@ void show_borow(BorrowReturn b)
     printf("Borrowed books:\n");
     for (int i = 0; i < b.totalBooks; i++)
     {
-        printf("  - Book ID: %d | Quantity: %d | Status : %s\n", b.bookIds[i], b.quantities[i], b.status[i] == ON_BORROWING ? "Borrowing" : "Returned");
+        printf("  - Book ID: %d | Quantity: %d | Status : %s\n", b.infors[i].bookId, b.infors[i].quantity, b.infors[i].status == ON_BORROWING ? "Borrowing" : "Returned");
     }
-    printf("Date : %d, Year : %d \n", b.date, b.current_year);
+    printf("Date : %d, Year : %d \n", b.infors[0].date, b.infors[0].current_year);
     printf("\n");
 }
 
@@ -185,12 +186,12 @@ void delete_borrow_record(int readerId)
     soft_delete(borrow_return_management, readerId, delete_borrow_record_callback);
 }
 
-int getPosition(int bookId[], int size, int searchId)
+int getPosition(BookBorrowInfor infor[], int size, int searchId)
 {
     int i;
     for (i = 0; i < size; i++)
     {
-        if (searchId == bookId[i])
+        if (searchId == infor[i].bookId)
             return i;
     }
     return -1;
@@ -198,17 +199,23 @@ int getPosition(int bookId[], int size, int searchId)
 
 bool add_bookborrow(BorrowReturn *b, int bookId, int quanities)
 {
-    bool existed = getPosition(b->bookIds, b->totalBooks, bookId) != -1;
+    bool existed = getPosition(b->infors, b->totalBooks, bookId) != -1;
     if (existed)
     {
         printf("Da ton tai Book Id \n");
         return false;
     }
 
-    b->bookIds[b->totalBooks] = bookId;
-    b->quantities[b->totalBooks] = quantities;
-    b->status[b->totalBooks] = ON_BORROWING;
-    b->onTime[b->totalBooks] = false;
+    BookBorrowInfor infor;
+
+    infor.bookId = bookId;
+    infor.quantity = quanities;
+    infor.onTime = false;
+    infor.status = ON_BORROWING;
+    infor.date = date;
+    infor.current_year = current_year;
+
+    b->infors[b->totalBooks] = infor;
     b->totalBooks++;
 
     return true;
@@ -234,20 +241,22 @@ void return_books(int readerId, int bookId)
 
     show_borow(b);
 
-    int index = getPosition(b.bookIds, b.totalBooks, bookId);
-    if (b.status[index] != ON_BORROWING)
+    int index = getPosition(b.infors, b.totalBooks, bookId);
+    if (index == -1)
+        return;
+    if (b.infors[index].status != ON_BORROWING)
         return;
 
     restore_books_to_stock(&b);
-    int day = calculate_day_difference(b.date, b.current_year);
-    b.onTime[index] = day <= OVER_DATE ? true : false;
+    int day = calculate_day_difference(b.infors[index].date, b.infors[index].current_year);
+    b.infors[index].onTime = day <= OVER_DATE ? true : false;
 
-    if (!b.onTime[index])
+    if (!b.infors[index].onTime)
     {
         int total = 0;
         for (int i = 0; i < b.totalBooks; i++)
         {
-            total += b.quantities[i] * LATE_FEE;
+            total += b.infors[i].quantity * LATE_FEE;
         }
         printf("Late return! Total fee: %d VND\n", total);
     }
@@ -256,7 +265,7 @@ void return_books(int readerId, int bookId)
         printf("Books returned on time. No late fee.\n");
     }
 
-    b.status[index] = BORROWED;
+    b.infors[index].status = BORROWED;
 
     fseek(f, record->offset, SEEK_SET);
     fwrite(&b, sizeof(BorrowReturn), 1, f);
@@ -272,12 +281,12 @@ void restore_books_to_stock(BorrowReturn *b)
 {
     for (int i = 0; i < b->totalBooks; i++)
     {
-        Book *book = search_book(b->bookIds[i]);
+        Book *book = search_book(b->infors[i].bookId);
         if (book != NULL)
         {
-            book->stock += b->quantities[i];
+            book->stock += b->infors[i].quantity;
             update_book_direct(book);
-            printf("Restored %d copies of Book ID %d.\n", b->quantities[i], b->bookIds[i]);
+            printf("Restored %d copies of Book ID %d.\n", b->infors[i].quantity, b->infors[i].bookId);
         }
     }
 }
@@ -349,8 +358,8 @@ int gui_add_borrow_record(BorrowReturn *b)
 
     for (int i = 0; i < b->totalBooks; ++i)
     {
-        Book *book = search_book(b->bookIds[i]);
-        if (!book || book->stock < b->quantities[i])
+        Book *book = search_book(b->infors[i].bookId);
+        if (!book || book->stock < b->infors[i].quantity)
             return BORROW_FAILED_NOT_ENOUGH_BOOK;
     }
 
@@ -365,9 +374,9 @@ int gui_return_books(int readerId, int bookId)
         return NOT_FOUND;
 
     BorrowReturn *borrow = (BorrowReturn *)read_content_from_record_return(record);
-    int index = getPosition(borrow->bookIds, borrow->totalBooks, bookId);
+    int index = getPosition(borrow->infors, borrow->totalBooks, bookId);
 
-    if (borrow->status[index] == BORROWED)
+    if (borrow->infors[index].status == BORROWED)
         return ALREADY_RETURNED;
 
     return_books(readerId, bookId);

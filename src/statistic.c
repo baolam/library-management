@@ -122,11 +122,11 @@ void calc_statistic_borrowed_books(Node *borrow_return_management)
             borrow = (BorrowReturn *)read_content_from_record_return(infor);
             for (int i = 0; i < borrow->totalBooks; i++)
             {
-                total_borrowed_books += borrow->quantities[i];
-                int day = calculate_day_difference(borrow->date, borrow->current_year);
-                borrow->onTime[i] = day <= OVER_DATE ? true : false;
-                if (!borrow->onTime[i])
-                    total_late_books += borrow->quantities[i];
+                total_borrowed_books += borrow->infors[i].quantity;
+                int day = calculate_day_difference(borrow->infors[i].date, borrow->infors[i].current_year);
+                borrow->infors[i].onTime = day <= OVER_DATE ? true : false;
+                if (!borrow->infors[i].onTime)
+                    total_late_books += borrow->infors[i].quantity;
             }
         }
 
@@ -152,9 +152,9 @@ void collect_late_borrowers(Node *borrow_return_management)
             borrow = (BorrowReturn *)read_content_from_record_return(infor);
             for (int i = 0; i < borrow->totalBooks; i++)
             {
-                if (borrow->status[i] == ON_BORROWING)
+                if (borrow->infors[i].status == ON_BORROWING)
                 {
-                    int diff = calculate_day_difference(borrow->date, borrow->current_year);
+                    int diff = calculate_day_difference(borrow->infors[i].date, borrow->infors[i].current_year);
                     if (diff > OVER_DATE && overdue_count < MAX_OVERDUE)
                     {
                         overdue_list[overdue_count].readerId = borrow->readerId;
@@ -176,7 +176,7 @@ int stat_total_books_from_object(BorrowReturn *borrow_return)
     int i;
     for (i = 0; i < borrow_return->totalBooks; i++)
     {
-        totals += borrow_return->quantities[i];
+        totals += borrow_return->infors[i].quantity;
     }
     return totals;
 }

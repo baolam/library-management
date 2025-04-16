@@ -92,6 +92,16 @@
 #include "reader.h"
 #include "utils/bplustreev2.h"
 
+typedef struct BookBorrowInfor
+{
+    int bookId;
+    int quantity;
+    int status;
+    bool onTime;
+    int date;
+    int current_year;
+} BookBorrowInfor;
+
 /**
  * @brief Struct đại diện cho một bản ghi mượn-trả sách.
  */
@@ -99,12 +109,7 @@ typedef struct BorrowReturn
 {
     int readerId;
     int totalBooks;
-    int bookIds[MAX_BORROWED_BOOKS];
-    int quantities[MAX_BORROWED_BOOKS];
-    int status[MAX_BORROWED_BOOKS];  // 0 = đang mượn, 1 = đã trả
-    bool onTime[MAX_BORROWED_BOOKS]; // 1 = đúng hạn, 0 = trễ
-    int date;
-    int current_year;
+    BookBorrowInfor infors[MAX_BORROWED_BOOKS];
 } BorrowReturn;
 
 // Biến toàn cục
