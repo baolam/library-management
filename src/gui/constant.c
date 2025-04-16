@@ -19,5 +19,6 @@ int current_book_page = 1;
 int current_reader_page = 1;
 int current_borrow_page = 1;
 int current_book_borrow_page = 1;
+int current_statistic_borrower_page = 0;
 
 BorrowReturn *temp_borrow = NULL;

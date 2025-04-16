@@ -8,6 +8,8 @@ int total_readers = 0;
 int deleted_readers = 0;
 int total_borrowed_books = 0;
 int total_late_books = 0;
+int total_late_borrowers = 0;
+int total_genres = 0;
 
 OverdueBorrower overdue_list[MAX_OVERDUE];
 int overdue_count = 0;
@@ -158,6 +160,9 @@ void collect_late_borrowers(Node *borrow_return_management)
                 continue;
 
             borrow = (BorrowReturn *)read_content_from_record_return(infor);
+            bool initalize = false;
+            bool memorize_has_late = false;
+
             for (int i = 0; i < borrow->totalBooks; i++)
             {
                 if (borrow->infors[i].status == ON_BORROWING)
@@ -165,13 +170,19 @@ void collect_late_borrowers(Node *borrow_return_management)
                     int diff = calculate_day_difference(borrow->infors[i].date, borrow->infors[i].current_year);
                     if (diff > OVER_DATE && overdue_count < MAX_OVERDUE)
                     {
-                        overdue_list[overdue_count].readerId = borrow->readerId;
-                        overdue_list[overdue_count].days_borrowed = diff;
-                        overdue_count++;
-                        break;
+                        memorize_has_late = true;
+                        if (!initalize)
+                        {
+                            initalize = true;
+                            overdue_list[overdue_count].readerId = borrow->readerId;
+                            overdue_list[overdue_count].late_fees = 0;
+                        }
+                        overdue_list[overdue_count].late_fees += borrow->infors[i].quantity * LATE_FEE;
                     }
                 }
             }
+            if (memorize_has_late)
+                overdue_count++;
         }
 
         book_node = book_node->pointers[ORDER - 1];
@@ -223,13 +234,24 @@ void get_borrow_time(int day_of_year, int year, int *day, int *month)
     *month = date.tm_mon + 1;
 }
 
+void collect_genres()
+{
+    for (int num = 0; num < TOTAL_GENRE; num++)
+    {
+        if (counter_genre[num] != 0)
+        {
+            total_genres++;
+        }
+    }
+}
+
 void list_late_borrowers()
 {
     printf("List of overdue borrowers:\n");
     for (int i = 0; i < overdue_count; i++)
     {
-        printf("- Reader ID: %d | Days borrowed: %d\n",
+        printf("- Reader ID: %d | Late fees: %d\n",
                overdue_list[i].readerId,
-               overdue_list[i].days_borrowed);
+               overdue_list[i].late_fees);
     }
 }

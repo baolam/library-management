@@ -22,7 +22,7 @@
 typedef struct OverdueBorrower
 {
     int readerId;
-    int days_borrowed;
+    int late_fees;
 } OverdueBorrower;
 
 /// Tổng số sách hiện có
@@ -45,6 +45,11 @@ extern int total_borrowed_books;
 
 /// Tổng số sách quá hạn
 extern int total_late_books;
+
+/// Tổng số thể loại sách
+extern int total_genres;
+
+// extern int total_late_borrowers;
 
 /// Danh sách người mượn quá hạn
 extern OverdueBorrower overdue_list[MAX_OVERDUE];
@@ -112,6 +117,8 @@ void calc_statistic_borrowed_books(Node *borrow_return_management);
  * xem xét nếu như cuốn sách quá hạn thì thêm vào mảng
  */
 void collect_late_borrowers(Node *borrow_return_management);
+
+void collect_genres();
 
 /**
  * @brief In ra danh sách người mượn quá hạn

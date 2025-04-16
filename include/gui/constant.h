@@ -6,6 +6,8 @@
  */
 #define MAX_ROW_ONEPAGE 15
 
+#define MAX_ROW_BORROWER_PAGE 10
+
 /**
  * @brief Không thực hiện hành động nào hết
  */
@@ -63,6 +65,7 @@
 #include "events/search_toggle.h"
 #include "events/choose_option.h"
 #include "events/search.h"
+#include "events/statistic_show.h"
 
 /**
  * @brief Cấu trúc giao diện chính
@@ -129,6 +132,8 @@ extern int current_book_page;
  * @brief Lượng hiển thị reader hiện tại
  */
 extern int current_reader_page;
+
+extern int current_statistic_borrower_page;
 
 /**
  * @brief Lượng hiển thị borrow hiện tại
