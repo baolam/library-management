@@ -199,6 +199,34 @@ void on_reader_delete_activate(GtkMenuItem *item, gpointer user_data)
     load_reader_to_layout(current_reader_page);
 }
 
+void on_reader_borrow_activate(GtkMenuItem *item, gpointer user_data)
+{
+    printf(">>> Muon sach duoc kich hoat \n");
+    GtkWidget *parent_window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
+    GtkWidget *dialog = gtk_message_dialog_new(GTK_WINDOW(parent_window),
+                                               GTK_DIALOG_MODAL,
+                                               GTK_MESSAGE_QUESTION,
+                                               GTK_BUTTONS_YES_NO,
+                                               "Bạn có chắc muốn thực hiện hành động này?");
+    gtk_window_set_title(GTK_WINDOW(dialog), "Xác nhận");
+    gint response = gtk_dialog_run(GTK_DIALOG(dialog));
+    gtk_widget_destroy(dialog);
+
+    if (response == GTK_RESPONSE_YES)
+    {
+        borrow_chosen_id = get_reader_id();
+        /// Kiểm thử không rỗng
+        if (search_borrow_by_reader(borrow_chosen_id) == NULL)
+        {
+            /// Khởi tạo giả, rùi tiến hành add
+            BorrowReturn default_borrow = default_borrow_return(borrow_chosen_id);
+            add_borrow_record(&default_borrow);
+            save_borrow_return_management();
+        }
+        open_borrow_book_layout();
+    }
+}
+
 // ------------------------------------------------------------------------------
 // Phần thao tác giao diện borrow
 // ------------------------------------------------------------------------------
@@ -224,7 +252,10 @@ gint get_borrow_id()
 void on_borrow_detail_activate(GtkMenuItem *item, gpointer user_data)
 {
     printf(">>> Chi tiet duoc kich hoat \n");
+    borrow_chosen_id = get_borrow_id();
+    printf(">>> ID duoc chon: %d \n", borrow_chosen_id);
     open_borrow_book_layout();
+    load_borrowbook_to_layout();
 }
 
 void on_borrow_erase_activate(GtkMenuItem *item, gpointer user_data)

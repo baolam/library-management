@@ -27,5 +27,6 @@ void on_reader_delete_activate(GtkMenuItem *item, gpointer user_data);
 
 void on_borrow_detail_activate(GtkMenuItem *item, gpointer user_data);
 void on_borrow_erase_activate(GtkMenuItem *item, gpointer user_data);
+void on_reader_borrow_activate(GtkMenuItem *item, gpointer user_data);
 
 #endif

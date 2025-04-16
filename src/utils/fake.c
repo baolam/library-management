@@ -96,3 +96,13 @@ BorrowReturn generate_borrow_return(int readerId)
 
     return borrowReturn;
 }
+
+BorrowReturn default_borrow_return(int readerId)
+{
+    BorrowReturn borrowReturn;
+
+    borrowReturn.readerId = readerId;
+    borrowReturn.totalBooks = 0;
+
+    return borrowReturn;
+}

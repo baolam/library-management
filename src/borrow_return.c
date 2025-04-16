@@ -196,6 +196,28 @@ int getPosition(int bookId[], int size, int searchId)
     return -1;
 }
 
+bool add_bookborrow(BorrowReturn *b, int bookId, int quanities)
+{
+    bool existed = getPosition(b->bookIds, b->totalBooks, bookId) != -1;
+    if (existed)
+    {
+        printf("Da ton tai Book Id \n");
+        return false;
+    }
+
+    b->bookIds[b->totalBooks] = bookId;
+    b->quantities[b->totalBooks] = quantities;
+    b->status[b->totalBooks] = ON_BORROWING;
+    b->onTime[b->totalBooks] = false;
+    b->totalBooks++;
+
+    return true;
+}
+
+void delete_bookborrow(BorrowReturn *b, int bookId)
+{
+}
+
 void return_books(int readerId, int bookId)
 {
     Record *record = find(borrow_return_management, readerId);

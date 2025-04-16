@@ -39,6 +39,20 @@ void open_borrow_book_layout()
     }
 }
 
+gboolean on_window_delete_event(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+{
+    gtk_widget_hide(widget);
+    printf(">>> Su kien dong cua so duoc kich hoat \n");
+    return TRUE;
+}
+
+gboolean on_main_window_delete_event(GtkWidget *widge, GdkEvent *event, gpointer user_data)
+{
+    /// Hàm gọi đóng toàn bộ cửa sổ và thoát chương trình
+    // gtk_main_quit();
+    return FALSE;
+}
+
 void on_reader_add_clicked(GtkWidget *widget, gpointer user_data)
 {
     reader_chosen_action = READER_ADD_STATUS;
@@ -50,6 +64,13 @@ void on_book_add_clicked(GtkWidget *widget, gpointer user_data)
     /// Tiến hành nhớ trạng thái
     book_chosen_action = BOOK_ADD_STATUS;
     open_book_entry_layout();
+}
+
+void on_borrow_add_clicked(GtkWidget *widget, gpointer user_data)
+{
+    /// Tiến hành nhớ trạng thái
+    borrow_chosen_action = BORROW_ADD_STATUS;
+    open_borrow_book_layout();
 }
 
 void on_to_index_clicked(GtkButton *button, gpointer user_data)

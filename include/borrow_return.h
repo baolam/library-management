@@ -182,6 +182,10 @@ void restore_books_to_stock(BorrowReturn *b);
  */
 void update_book_direct(Book *book);
 
+bool add_bookborrow(BorrowReturn *b, int bookId, int quanities);
+
+void delete_bookborrow(BorrowReturn *b, int bookId);
+
 int calculate_day_difference(int borrow_date, int borrow_year);
 
 /**
