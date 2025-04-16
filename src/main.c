@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
     calc_statistic_reader(reader_management);
     calc_statistic_borrowed_books(borrow_return_management);
     collect_late_borrowers(borrow_return_management);
+    collect_genres();
 
     printf("Total books : %d\n", total_books);
     printf("Total readers : %d\n", total_readers);

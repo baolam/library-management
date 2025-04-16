@@ -63,6 +63,7 @@
 #include "events/search_toggle.h"
 #include "events/choose_option.h"
 #include "events/search.h"
+#include "events/statistic_show.h"
 
 /**
  * @brief Cấu trúc giao diện chính

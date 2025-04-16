@@ -8,6 +8,8 @@ int total_readers = 0;
 int deleted_readers = 0;
 int total_borrowed_books = 0;
 int total_late_books = 0;
+int total_late_borrowers = 0;
+int total_genres = 0;
 
 OverdueBorrower overdue_list[MAX_OVERDUE];
 int overdue_count = 0;
@@ -221,6 +223,17 @@ void get_borrow_time(int day_of_year, int year, int *day, int *month)
 
     *day = date.tm_mday;
     *month = date.tm_mon + 1;
+}
+
+void collect_genres()
+{
+    for (int num = 0; num < TOTAL_GENRE; num++)
+    {
+        if (counter_genre[num] != 0)
+        {
+            total_genres++;
+        }
+    }
 }
 
 void list_late_borrowers()
