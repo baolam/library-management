@@ -25,6 +25,7 @@ void on_book_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
     }
     else
     {
+        if (isdigit(entry_search[0])) {
         int book_id = atoi(entry_search);
         Book *book = search_book(book_id);
         if (book == NULL)
@@ -33,6 +34,7 @@ void on_book_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
             return;
         }
         show_onebook_to_layout(reference_store_book(), *book);
+    }
     }
 }
 
@@ -62,6 +64,7 @@ void on_reader_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
     }
     else
     {
+        if (isdigit(entry_search[0])) {
         int reader_id = atoi(entry_search);
         Readers *reader = search_reader(reader_id);
         // if (reader == NULL)
@@ -70,6 +73,7 @@ void on_reader_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
         //     return;
         // }
         show_onereader_to_layout(reference_store_reader(), *reader);
+        }
     }
 }
 
@@ -101,6 +105,7 @@ void on_borrow_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
     }
     else
     {
+        if (isdigit(entry_search[0])) {
         int reader_id = atoi(entry_search);
         BorrowReturn *borrow_return = search_borrow_by_reader(reader_id);
         if (borrow_return == NULL)
@@ -109,6 +114,7 @@ void on_borrow_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
             return;
         }
         show_oneborrow_to_layout(reference_borrow_return_store(), *borrow_return);
+       }
     }
 }
 
@@ -137,6 +143,7 @@ void on_entry_search_book_borrow_search_changed(GtkSearchEntry *entry, gpointer 
     }
     else
     {
+        if (isdigit(entry_search[0])) {
         int book_id = atoi(entry_search);
         Book *book = search_book(book_id);
         if (book == NULL)
@@ -145,5 +152,6 @@ void on_entry_search_book_borrow_search_changed(GtkSearchEntry *entry, gpointer 
             return;
         }
         show_onebook_to_layout(reference_store_book(), *book);
+        }
     }
 }
