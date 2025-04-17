@@ -174,7 +174,7 @@ int update_reader_from_object(Readers *reader)
     }
 
     Readers *old_reader = read_content_from_record_return(record);
-    removeIdFromWord(reader_trie, old_reader->fullName, reader->readerId);
+    //removeIdFromWord(reader_trie, old_reader->fullName, reader->readerId);
     insertIntoTrie(reader_trie, reader->fullName, reader->readerId);
 
     return update_content_without_callback(record, reader);
