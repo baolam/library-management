@@ -247,13 +247,26 @@ void on_reader_borrow_activate(GtkMenuItem *item, gpointer user_data)
     if (response == GTK_RESPONSE_YES)
     {
         borrow_chosen_id = get_reader_id();
+        temp_borrow = (BorrowReturn *)search_borrow_by_reader(borrow_chosen_id);
 
         /// Kiểm thử không rỗng
-        if (search_borrow_by_reader(borrow_chosen_id) == NULL)
+        if (temp_borrow == NULL)
         {
+            printf(">>> Doc gia voi Id %d chua duoc them truoc do \n", borrow_chosen_id);
+
             /// Khởi tạo giả, rùi tiến hành add
             BorrowReturn default_borrow = default_borrow_return(borrow_chosen_id);
             add_borrow_record(&default_borrow);
+
+            temp_borrow = (BorrowReturn *)search_borrow_by_reader(borrow_chosen_id);
+            if (temp_borrow == NULL)
+            {
+                printf("Loi khong mong muon \n");
+                return;
+            }
+
+            /// Tiến hành việc gán temp_borrow để thao tác
+            // temp_borrow = (BorrowReturn *)search_borrow_by_reader(borrow_chosen_id);
 
             save_borrow_return_management();
 
