@@ -69,6 +69,8 @@ void show_warning_add_borrow_failed()
 
 void on_book_borrow_confirmed_clicked(GtkButton *button, GtkBuilder *_builder)
 {
+    printf("Lenh goi them sach o book_borrow_layout \n");
+
     BookBorrowEntry entry = get_book_borrow_input();
 
     /// Kiểm thử sự hợp lí dữ liệu
@@ -77,6 +79,8 @@ void on_book_borrow_confirmed_clicked(GtkButton *button, GtkBuilder *_builder)
         show_warning_quantity();
         return;
     }
+
+    printf("Chua hieu temp_borrow dung hem %d\n", temp_borrow != NULL);
 
     if (add_bookborrow(temp_borrow, entry.bookId, entry.quantity))
     {

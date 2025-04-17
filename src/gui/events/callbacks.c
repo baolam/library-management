@@ -127,6 +127,8 @@ void on_book_borrow_add_clicked(GtkWidget *widget, gpointer user_data)
     }
 
     printf(">>> Id sach duoc chon la : %d \n", chosen_id);
+    printf(">>> Temp_borrow co khac rong khong : %d \n", temp_borrow != NULL);
+
     /// Kiểm thử id sách đó đã tồn tại hay chưa
     if (exist_bookid_bookborrow(temp_borrow, chosen_id))
     {
@@ -138,6 +140,12 @@ void on_book_borrow_add_clicked(GtkWidget *widget, gpointer user_data)
     entry.bookId = chosen_id;
 
     Book *wanted_book = search_book(chosen_id);
+    if (wanted_book == NULL)
+    {
+        printf("Loi khong ngo toi o day \n");
+        return;
+    }
+
     entry.left = wanted_book->stock;
 
     entry.quantity = 1;

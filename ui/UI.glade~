@@ -686,7 +686,6 @@
             </child>
           </object>
           <packing>
-            <property name="x">100</property>
             <property name="y">30</property>
           </packing>
         </child>
@@ -972,13 +971,20 @@
             </child>
             <child>
               <object class="GtkButton" id="to_main_ui">
-                <property name="label" translatable="yes">Bắt đầu</property>
                 <property name="width-request">250</property>
                 <property name="height-request">100</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
                 <signal name="clicked" handler="on_to_main_ui_clicked" swapped="no"/>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">&lt;span font="17" weight ="bold" foreground="#DC143C"&gt;Thêm sách&lt;/span&gt;</property>
+                    <property name="use-markup">True</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="x">450</property>
@@ -987,13 +993,20 @@
             </child>
             <child>
               <object class="GtkButton" id="to_credits">
-                <property name="label" translatable="yes">Lưu ý</property>
                 <property name="width-request">250</property>
                 <property name="height-request">100</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
                 <signal name="clicked" handler="on_to_credits_clicked" swapped="no"/>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">&lt;span font="17" weight ="bold" foreground="#DC143C"&gt;Nội quy thư viện&lt;/span&gt;</property>
+                    <property name="use-markup">True</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="x">900</property>
@@ -1052,10 +1065,11 @@
                                 <property name="height-request">60</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="label" translatable="yes">Chọn tiêu chí:</property>
+                                <property name="label" translatable="yes">&lt;span font="10" weight ="bold" foreground="green"&gt;Chọn tiêu chí:&lt;/span&gt;</property>
+                                <property name="use-markup">True</property>
                               </object>
                               <packing>
-                                <property name="x">1100</property>
+                                <property name="x">1090</property>
                               </packing>
                             </child>
                             <child>
@@ -1210,13 +1224,20 @@
                     </child>
                     <child>
                       <object class="GtkButton" id="book_add">
-                        <property name="label" translatable="yes">Thêm sách</property>
                         <property name="width-request">100</property>
                         <property name="height-request">50</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
                         <signal name="clicked" handler="on_book_add_clicked" swapped="no"/>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="label" translatable="yes">&lt;span font="14" weight ="bold" foreground="Orange"&gt;Thêm sách&lt;/span&gt;</property>
+                            <property name="use-markup">True</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="x">100</property>
@@ -1231,7 +1252,8 @@
                     <property name="height-request">60</property>
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Quản lý sách</property>
+                    <property name="label" translatable="yes">&lt;span font="14" weight ="bold" foreground="navy"&gt;Quản lý sách&lt;/span&gt;</property>
+                    <property name="use-markup">True</property>
                   </object>
                   <packing>
                     <property name="tab-fill">False</property>
@@ -1270,10 +1292,11 @@
                                 <property name="height-request">60</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="label" translatable="yes">Chọn tiêu chí:</property>
+                                <property name="label" translatable="yes">&lt;span font="10" weight ="bold" foreground="green"&gt;Chọn tiêu chí:&lt;/span&gt;</property>
+                                <property name="use-markup">True</property>
                               </object>
                               <packing>
-                                <property name="x">1100</property>
+                                <property name="x">1090</property>
                               </packing>
                             </child>
                             <child>
@@ -1373,13 +1396,20 @@
                     </child>
                     <child>
                       <object class="GtkButton" id="reader_add">
-                        <property name="label" translatable="yes">Thêm độc giả</property>
                         <property name="width-request">100</property>
                         <property name="height-request">50</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
                         <signal name="clicked" handler="on_reader_add_clicked" swapped="no"/>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="label" translatable="yes">&lt;span font="14" weight ="bold" foreground="Orange"&gt;Thêm độc giả&lt;/span&gt;</property>
+                            <property name="use-markup">True</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="x">100</property>
@@ -1426,7 +1456,8 @@
                     <property name="width-request">365</property>
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Quản lý độc giả</property>
+                    <property name="label" translatable="yes">&lt;span font="14" weight ="bold" foreground="navy"&gt;Quản lý độc giả&lt;/span&gt;</property>
+                    <property name="use-markup">True</property>
                   </object>
                   <packing>
                     <property name="position">1</property>
@@ -1466,10 +1497,11 @@
                                 <property name="height-request">60</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
-                                <property name="label" translatable="yes">Chọn tiêu chí:</property>
+                                <property name="label" translatable="yes">&lt;span font="10" weight ="bold" foreground="green"&gt;Chọn tiêu chí:&lt;/span&gt;</property>
+                                <property name="use-markup">True</property>
                               </object>
                               <packing>
-                                <property name="x">1100</property>
+                                <property name="x">1090</property>
                               </packing>
                             </child>
                             <child>
@@ -1619,7 +1651,8 @@
                     <property name="width-request">365</property>
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Quản lý mượn/trả</property>
+                    <property name="label" translatable="yes">&lt;span font="14" weight ="bold" foreground="navy"&gt;Quản lý mượn/trả&lt;/span&gt;</property>
+                    <property name="use-markup">True</property>
                   </object>
                   <packing>
                     <property name="position">2</property>
@@ -1658,17 +1691,17 @@
                             <child>
                               <!-- n-columns=2 n-rows=5 -->
                               <object class="GtkGrid">
-                                <property name="width-request">518</property>
+                                <property name="width-request">400</property>
                                 <property name="height-request">320</property>
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
                                 <property name="row-spacing">30</property>
-                                <property name="column-spacing">20</property>
+                                <property name="column-spacing">50</property>
                                 <child>
                                   <object class="GtkLabel">
-                                    <property name="width-request">400</property>
                                     <property name="visible">True</property>
                                     <property name="can-focus">False</property>
+                                    <property name="halign">start</property>
                                     <property name="label" translatable="yes">&lt;span font="16" foreground="#CD853F"&gt;Tổng số sách trong thư viện&lt;/span&gt;</property>
                                     <property name="use-markup">True</property>
                                   </object>
@@ -1681,6 +1714,7 @@
                                   <object class="GtkLabel">
                                     <property name="visible">True</property>
                                     <property name="can-focus">False</property>
+                                    <property name="halign">start</property>
                                     <property name="label" translatable="yes">&lt;span font="16" foreground="#CD853F"&gt;Số thể loại ( genres )&lt;/span&gt;</property>
                                     <property name="use-markup">True</property>
                                   </object>
@@ -1693,6 +1727,7 @@
                                   <object class="GtkLabel">
                                     <property name="visible">True</property>
                                     <property name="can-focus">False</property>
+                                    <property name="halign">start</property>
                                     <property name="label" translatable="yes">&lt;span font="16" foreground="#CD853F"&gt;Số sách đang mượn&lt;/span&gt;</property>
                                     <property name="use-markup">True</property>
                                   </object>
@@ -1705,6 +1740,7 @@
                                   <object class="GtkLabel">
                                     <property name="visible">True</property>
                                     <property name="can-focus">False</property>
+                                    <property name="halign">start</property>
                                     <property name="label" translatable="yes">&lt;span font="16" foreground="#CD853F"&gt;Số sách mượn quá hạn&lt;/span&gt;</property>
                                     <property name="use-markup">True</property>
                                   </object>
@@ -1717,6 +1753,7 @@
                                   <object class="GtkLabel">
                                     <property name="visible">True</property>
                                     <property name="can-focus">False</property>
+                                    <property name="halign">start</property>
                                     <property name="label" translatable="yes">&lt;span font="16" foreground="#CD853F"&gt;Số độc giả&lt;/span&gt;</property>
                                     <property name="use-markup">True</property>
                                   </object>
@@ -1727,9 +1764,9 @@
                                 </child>
                                 <child>
                                   <object class="GtkLabel" id="total_books">
-                                    <property name="width-request">0</property>
                                     <property name="visible">True</property>
                                     <property name="can-focus">False</property>
+                                    <property name="halign">end</property>
                                     <property name="label" translatable="yes">&lt;span font="14" foreground="black"&gt;...&lt;/span&gt;</property>
                                     <property name="use-markup">True</property>
                                   </object>
@@ -1742,7 +1779,9 @@
                                   <object class="GtkLabel" id="total_genres">
                                     <property name="visible">True</property>
                                     <property name="can-focus">False</property>
-                                    <property name="label" translatable="yes">...</property>
+                                    <property name="halign">end</property>
+                                    <property name="label" translatable="yes">&lt;span font="14" foreground="black"&gt;...&lt;/span&gt;</property>
+                                    <property name="use-markup">True</property>
                                   </object>
                                   <packing>
                                     <property name="left-attach">1</property>
@@ -1753,7 +1792,9 @@
                                   <object class="GtkLabel" id="total_borrows">
                                     <property name="visible">True</property>
                                     <property name="can-focus">False</property>
-                                    <property name="label" translatable="yes">...</property>
+                                    <property name="halign">end</property>
+                                    <property name="label" translatable="yes">&lt;span font="14" foreground="black"&gt;...&lt;/span&gt;</property>
+                                    <property name="use-markup">True</property>
                                   </object>
                                   <packing>
                                     <property name="left-attach">1</property>
@@ -1764,7 +1805,9 @@
                                   <object class="GtkLabel" id="total_overdue_books">
                                     <property name="visible">True</property>
                                     <property name="can-focus">False</property>
-                                    <property name="label" translatable="yes">...</property>
+                                    <property name="halign">end</property>
+                                    <property name="label" translatable="yes">&lt;span font="14" foreground="black"&gt;...&lt;/span&gt;</property>
+                                    <property name="use-markup">True</property>
                                   </object>
                                   <packing>
                                     <property name="left-attach">1</property>
@@ -1775,7 +1818,9 @@
                                   <object class="GtkLabel" id="total_readers">
                                     <property name="visible">True</property>
                                     <property name="can-focus">False</property>
-                                    <property name="label" translatable="yes">...</property>
+                                    <property name="halign">end</property>
+                                    <property name="label" translatable="yes">&lt;span font="14" foreground="black"&gt;...&lt;/span&gt;</property>
+                                    <property name="use-markup">True</property>
                                   </object>
                                   <packing>
                                     <property name="left-attach">1</property>
@@ -1784,8 +1829,8 @@
                                 </child>
                               </object>
                               <packing>
-                                <property name="x">130</property>
-                                <property name="y">160</property>
+                                <property name="x">200</property>
+                                <property name="y">150</property>
                               </packing>
                             </child>
                           </object>
@@ -1910,7 +1955,7 @@
                                         <child>
                                           <object class="GtkCellRendererText" id="renderer_bquantity3"/>
                                           <attributes>
-                                            <attribute name="text">4</attribute>
+                                            <attribute name="text">2</attribute>
                                           </attributes>
                                         </child>
                                       </object>
@@ -1977,7 +2022,8 @@
                     <property name="width-request">365</property>
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Thống kê</property>
+                    <property name="label" translatable="yes">&lt;span font="14" weight ="bold" foreground="navy"&gt;Thống kê&lt;/span&gt;</property>
+                    <property name="use-markup">True</property>
                   </object>
                   <packing>
                     <property name="position">3</property>

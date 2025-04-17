@@ -82,7 +82,7 @@ void calc_statistic_book(Node *book_management)
 
 void calc_statistic_reader(Node *reader_management)
 {
-    Node *reader = leftMost(book_management);
+    Node *reader = leftMost(reader_management);
     Record *infor;
 
     int num;
@@ -91,7 +91,7 @@ void calc_statistic_reader(Node *reader_management)
     {
         for (num = 0; num < reader->num_keys; num++)
         {
-            infor = (Record *)find(book_management, reader->keys[num]);
+            infor = (Record *)find(reader_management, reader->keys[num]);
             total_readers++;
 
             if (infor->deleted)
