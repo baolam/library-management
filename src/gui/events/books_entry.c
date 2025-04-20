@@ -3,6 +3,7 @@
 Book get_book_input()
 {
     Book book;
+    Book invalid_book = {0};
 
     gchar *id = gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_id")));
     gchar *title = gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_title")));
@@ -11,7 +12,10 @@ Book get_book_input()
     gchar *publicationYear = gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_year")));
     gchar *quanity = gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_quantity")));
 
-    /// Tiến hành gán Object
+    if (!is_numeric(publicationYear) || !is_numeric(quanity)) {
+        show_warning();
+        return invalid_book;
+    } else {
     strncpy(book.title, title, MAX_TITLE - 1);
     strncpy(book.author, author, MAX_AUTHOR - 1);
     strncpy(book.genre, genre, MAX_GENRE_NO - 1);
@@ -25,6 +29,7 @@ Book get_book_input()
     book.stock = atoi(quanity);
 
     return book;
+    }
 }
 
 void show_book_to_entry(Book book)

@@ -16,12 +16,13 @@ void on_book_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
     {
         int size = 0;
         Book *books = search_book_by_title_direct(entry_search, &size, MAX_ROW_ONEPAGE);
-        // if (size == 0)
-        // {
-        //     load_book_to_layout(current_book_page);
-        //     return;
-        // }
+        if (size == 0)
+        {
+            load_book_to_layout(1000100);
+            return;
+        } else {
         show_book_to_layout(books, size);
+        }
     }
     else
     {
@@ -32,8 +33,9 @@ void on_book_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
         {
             load_book_to_layout(1000100);
             return;
-        }
+        } else {
         show_onebook_to_layout(reference_store_book(), *book);
+        }
     }
     }
 }
