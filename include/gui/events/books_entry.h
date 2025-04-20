@@ -2,6 +2,7 @@
 #define BOOKS_ENTRY_H
 
 #include "gui/constant.h"
+#include "gui/validation.h"
 
 Book get_book_input();
 void show_book_to_entry(Book book);
