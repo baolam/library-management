@@ -31,6 +31,7 @@ void on_book_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
         Book *book = search_book(book_id);
         if (book == NULL)
         {
+            printf("book is Null!");
             load_book_to_layout(1000100);
             return;
         } else {

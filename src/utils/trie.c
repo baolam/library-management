@@ -3,9 +3,13 @@
 // Convert character to index (a-z and ')
 int charToIndex(char ch)
 {
-    if (ch == ' ')
-        return 26;
-    return ch - 'a';
+    if (ch >= 'a' && ch <= 'z')
+        return ch - 'a';
+    else if (ch >= '0' && ch <= '9')
+        return 26 + (ch - '0');
+    else if (ch == ' ')
+        return 36;
+    return -1;
 }
 
 void toLowerCase(char *word)
@@ -94,6 +98,7 @@ void insertIntoTrie(TrieNode *root, char *word, int id)
     for (int i = 0; lower[i] != '\0'; i++)
     {
         int index = charToIndex(lower[i]);
+        if (index == -1) continue;
         if (!current->children[index])
         {
             current->children[index] = makeTrieNode();
@@ -245,7 +250,10 @@ static void findWords(TrieNode *node, char *prefix, char *buffer, int depth,
     {
         if (node->children[i])
         {
-            buffer[depth] = (i == 26) ? ' ' : 'a' + i;
+            if (i < 26)
+                buffer[depth] = 'a' + i;
+            else
+                buffer[depth] = '0' + (i - 26);
             findWords(node->children[i], prefix, buffer, depth + 1,
                       recommend, count, maxRecommend);
         }

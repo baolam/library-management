@@ -19,7 +19,7 @@
 /**
  * @brief Số lượng kí tự tối đa của một con, kí tự 26 tượng trưng cho khoảng trắng
  */
-#define ALPHABET_SIZE 27
+#define ALPHABET_SIZE 37
 
 /**
  * @brief độ dài chuỗi tối đa

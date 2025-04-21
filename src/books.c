@@ -307,6 +307,7 @@ void load_book_management()
     book_trie = loadTrieTree(book_trie_management);
     if (book_trie == NULL)
     {
+        book_trie = makeTrieNode(); 
         printf("(Book) Failed to load Trie management!\n");
     }
     else
