@@ -15,6 +15,22 @@ gboolean is_numeric(const gchar *str)
     return TRUE;
 }
 
+gboolean is_name_valid(const gchar *title)
+{
+    if (title == NULL || *title == '\0') {
+        return FALSE;
+    }
+
+    for (gint i = 0; title[i] != '\0'; i++) {
+        gchar temp[2] = { title[i], '\0' };
+        if (is_numeric(temp)) {
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+}
+
 void show_warning() {
     GtkWindow *parent_window = GTK_WINDOW(gtk_builder_get_object(builder, "window"));
     GtkWidget *dialog = gtk_message_dialog_new(

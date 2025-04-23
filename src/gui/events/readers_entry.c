@@ -3,12 +3,17 @@
 Readers get_reader_input()
 {
     Readers r;
+    Readers invalid_reader = {0};
 
     gchar *id = gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_reader_id")));
     gchar *fullName = gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_reader_fullname")));
     gchar *phoneNumber = gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_reader_phonenumber")));
     gchar *address = gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_reader_address")));
 
+    if (!is_name_valid(fullName)) {
+        show_warning();
+        return invalid_reader;
+    } else {
     strncpy(r.fullName, fullName, MAX_FULLNAME - 1);
     strncpy(r.phoneNumber, phoneNumber, MAX_PHONENUMBER - 1);
     strncpy(r.address, address, MAX_ADDRESS - 1);
@@ -20,6 +25,7 @@ Readers get_reader_input()
     r.readerId = atoi(id);
 
     return r;
+    }
 }
 
 void show_reader_to_entry(Readers r)

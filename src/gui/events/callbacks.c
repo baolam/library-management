@@ -9,7 +9,7 @@ void open_book_entry_layout()
     }
     else
     {
-        g_warning("Không tìm thấy cửa sổ 'add_window'!");
+        g_warning("Không tìm thấy cửa sổ !");
     }
 }
 
@@ -22,7 +22,7 @@ void open_reader_entry_layout()
     }
     else
     {
-        g_warning("Không tìm thấy cửa sổ 'add_window'!");
+        g_warning("Không tìm thấy cửa sổ !");
     }
 }
 
@@ -35,7 +35,7 @@ void open_borrow_book_layout()
     }
     else
     {
-        g_warning("Không tìm thấy cửa sổ 'add_window'!");
+        g_warning("Không tìm thấy cửa sổ !");
     }
 }
 
@@ -48,7 +48,7 @@ void open_book_borrow_entry_layout()
     }
     else
     {
-        g_warning("Không tìm thấy cửa sổ 'add_window'!");
+        g_warning("Không tìm thấy cửa sổ !");
     }
 }
 
