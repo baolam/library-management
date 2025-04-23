@@ -2,6 +2,7 @@
 
 void open_book_entry_layout()
 {
+    clear_book_to_entry();
     GtkWidget *add_window = GTK_WIDGET(gtk_builder_get_object(builder, "book_entry"));
     if (add_window)
     {
@@ -15,6 +16,7 @@ void open_book_entry_layout()
 
 void open_reader_entry_layout()
 {
+    clear_reader_to_entry();
     GtkWidget *add_window = GTK_WIDGET(gtk_builder_get_object(builder, "reader_entry"));
     if (add_window)
     {
