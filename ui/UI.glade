@@ -1868,44 +1868,6 @@
                                   <object class="GtkFixed">
                                     <property name="visible">True</property>
                                     <property name="can-focus">False</property>
-                                    <child>
-                                      <object class="GtkSearchEntry" id="entry_search_statistic_borrow">
-                                        <property name="width-request">384</property>
-                                        <property name="height-request">60</property>
-                                        <property name="visible">True</property>
-                                        <property name="can-focus">True</property>
-                                        <property name="margin-bottom">20</property>
-                                        <property name="primary-icon-name">edit-find-symbolic</property>
-                                        <property name="primary-icon-activatable">False</property>
-                                        <property name="primary-icon-sensitive">False</property>
-                                      </object>
-                                    </child>
-                                    <child>
-                                      <object class="GtkLabel">
-                                        <property name="width-request">100</property>
-                                        <property name="height-request">60</property>
-                                        <property name="visible">True</property>
-                                        <property name="can-focus">False</property>
-                                        <property name="label" translatable="yes">&lt;span font="10" weight ="bold" foreground="green"&gt;Chọn tiêu chí:&lt;/span&gt;</property>
-                                        <property name="use-markup">True</property>
-                                      </object>
-                                      <packing>
-                                        <property name="x">390</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkToggleButton" id="toggle_statistic_mode">
-                                        <property name="label" translatable="yes">Tìm kiếm theo ID</property>
-                                        <property name="width-request">200</property>
-                                        <property name="height-request">60</property>
-                                        <property name="visible">True</property>
-                                        <property name="can-focus">True</property>
-                                        <property name="receives-default">True</property>
-                                      </object>
-                                      <packing>
-                                        <property name="x">500</property>
-                                      </packing>
-                                    </child>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -1969,8 +1931,8 @@
                                 </child>
                               </object>
                               <packing>
-                                <property name="x">50</property>
-                                <property name="y">100</property>
+                                <property name="x">100</property>
+                                <property name="y">120</property>
                               </packing>
                             </child>
                             <child>
@@ -1985,7 +1947,7 @@
                               </object>
                               <packing>
                                 <property name="x">250</property>
-                                <property name="y">520</property>
+                                <property name="y">450</property>
                               </packing>
                             </child>
                             <child>
@@ -2000,7 +1962,7 @@
                               </object>
                               <packing>
                                 <property name="x">450</property>
-                                <property name="y">520</property>
+                                <property name="y">450</property>
                               </packing>
                             </child>
                           </object>
