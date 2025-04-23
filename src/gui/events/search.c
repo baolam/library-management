@@ -18,7 +18,7 @@ void on_book_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
         Book *books = search_book_by_title_direct(entry_search, &size, MAX_ROW_ONEPAGE);
         if (size == 0)
         {
-            load_book_to_layout(1000100);
+            load_book_to_layout(2000000);
             return;
         } else {
         show_book_to_layout(books, size);
@@ -31,7 +31,7 @@ void on_book_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
         Book *book = search_book(book_id);
         if (book == NULL)
         {
-            load_book_to_layout(1000100);
+            load_book_to_layout(2000000);
             return;
         } else {
         show_onebook_to_layout(reference_store_book(), *book);
@@ -71,7 +71,7 @@ void on_reader_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
         Readers *reader = search_reader(reader_id);
         // if (reader == NULL)
         // {
-        //     load_reader_to_layout(1000100);
+        //     load_reader_to_layout(2000000);
         //     return;
         // }
         show_onereader_to_layout(reference_store_reader(), *reader);
@@ -112,7 +112,7 @@ void on_borrow_search_entry_changed(GtkSearchEntry *entry, gpointer user_data)
         BorrowReturn *borrow_return = search_borrow_by_reader(reader_id);
         if (borrow_return == NULL)
         {
-            load_borrow_to_layout(1000100);
+            load_borrow_to_layout(2000000);
             return;
         }
         show_oneborrow_to_layout(reference_borrow_return_store(), *borrow_return);
@@ -150,7 +150,7 @@ void on_entry_search_book_borrow_search_changed(GtkSearchEntry *entry, gpointer 
         Book *book = search_book(book_id);
         if (book == NULL)
         {
-            load_book_to_layout(1000100);
+            load_book_to_layout(2000000);
             return;
         }
         show_onebook_to_layout(reference_store_book(), *book);

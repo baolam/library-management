@@ -12,7 +12,7 @@ Book get_book_input()
     gchar *publicationYear = gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_year")));
     gchar *quanity = gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(builder, "entry_book_quantity")));
 
-    if (!is_numeric(publicationYear) || !is_numeric(quanity)) {
+    if (!is_numeric(publicationYear) || !is_numeric(quanity) || !is_name_valid(title)) {
         show_warning();
         return invalid_book;
     } else {
